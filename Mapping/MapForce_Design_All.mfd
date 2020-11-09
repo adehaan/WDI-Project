@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2020r2sp1 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<resources/>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="RAWG" library="json" uid="21" kind="31">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="537" lty="21" rbx="915" rby="583"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="root" expanded="1">
+										<entry name="item" type="json-item" expanded="1">
+											<entry name="object" expanded="1">
+												<entry name="added" type="json-property" expanded="1"/>
+												<entry name="added_by_status" type="json-property" expanded="1">
+													<entry name="object">
+														<entry name="yet" type="json-property" expanded="1"/>
+														<entry name="owned" type="json-property" expanded="1"/>
+														<entry name="beaten" type="json-property" expanded="1"/>
+														<entry name="toplay" type="json-property" expanded="1"/>
+														<entry name="dropped" type="json-property" expanded="1"/>
+														<entry name="playing" type="json-property" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="background_image" type="json-property" expanded="1"/>
+												<entry name="clip" type="json-property" expanded="1">
+													<entry name="object">
+														<entry name="clip" type="json-property" expanded="1"/>
+														<entry name="clips" type="json-property" expanded="1"/>
+														<entry name="video" type="json-property" expanded="1"/>
+														<entry name="preview" type="json-property" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="dominant_color" type="json-property" expanded="1"/>
+												<entry name="genres" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="id" type="json-property" expanded="1"/>
+												<entry name="metacritic" type="json-property" expanded="1"/>
+												<entry name="name" type="json-property" expanded="1"/>
+												<entry name="parent_platforms" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="platforms" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="platform" type="json-property" expanded="1">
+																	<entry name="object" expanded="1">
+																		<entry name="id" type="json-property" expanded="1"/>
+																		<entry name="name" type="json-property" expanded="1"/>
+																		<entry name="slug" type="json-property" expanded="1"/>
+																		<entry name="image" type="json-property" expanded="1"/>
+																		<entry name="language" type="json-property" expanded="1"/>
+																		<entry name="domain" type="json-property" expanded="1"/>
+																		<entry name="year_end" type="json-property" expanded="1"/>
+																		<entry name="year_start" type="json-property" expanded="1"/>
+																		<entry name="games_count" type="json-property" expanded="1"/>
+																		<entry name="image_background" type="json-property" expanded="1"/>
+																	</entry>
+																</entry>
+																<entry name="released_at" type="json-property" expanded="1"/>
+																<entry name="requirements_en" type="json-property" expanded="1"/>
+																<entry name="requirements_ru" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="playtime" type="json-property" expanded="1"/>
+												<entry name="rating" type="json-property" expanded="1"/>
+												<entry name="rating_top" type="json-property" expanded="1"/>
+												<entry name="ratings" type="json-property" expanded="1"/>
+												<entry name="ratings_count" type="json-property" expanded="1"/>
+												<entry name="released" type="json-property" expanded="1">
+													<entry name="string" outkey="31"/>
+												</entry>
+												<entry name="reviews_count" type="json-property" expanded="1"/>
+												<entry name="reviews_text_count" type="json-property" expanded="1"/>
+												<entry name="saturated_color" type="json-property" expanded="1"/>
+												<entry name="short_screenshots" type="json-property" expanded="1"/>
+												<entry name="slug" type="json-property" expanded="1"/>
+												<entry name="stores" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="suggestions_count" type="json-property" expanded="1"/>
+												<entry name="tags" type="json-property" expanded="1">
+													<entry name="array" expanded="1">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="name" type="json-property" expanded="1"/>
+																<entry name="slug" type="json-property" expanded="1"/>
+																<entry name="image" type="json-property" expanded="1"/>
+																<entry name="language" type="json-property" expanded="1"/>
+																<entry name="domain" type="json-property" expanded="1"/>
+																<entry name="year_end" type="json-property" expanded="1"/>
+																<entry name="year_start" type="json-property" expanded="1"/>
+																<entry name="games_count" type="json-property" expanded="1"/>
+																<entry name="image_background" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="tba" type="json-property" expanded="1"/>
+												<entry name="user_game" type="json-property" expanded="1"/>
+												<entry name="community_rating" type="json-property" expanded="1"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<json schema="..\..\Downloads\games1.schema.json" inputinstance="..\..\Downloads\games1.jsonl" outputinstance="..\..\Downloads\games1.jsonl" json5="1" jsonlines="1"/>
+					</data>
+				</component>
+				<component name="Sales Dataset" library="text" uid="19" kind="16">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="1327" lty="37" rbx="1550" rby="360"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Zeilen" expanded="1">
+										<entry name="Year" inpkey="28"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" inputinstance="Datasets\d1_vgsales.csv" encoding="1000" byteorder="1" byteordermark="0">
+							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="d1_vgsales" block="Zeilen">
+									<field0 name="Rank" type="integer"/>
+									<field1 name="Name" type="string"/>
+									<field2 name="Platform" type="string"/>
+									<field3 name="Year" type="integer"/>
+									<field4 name="Genre" type="string"/>
+									<field5 name="Publisher" type="string"/>
+									<field6 name="NA_Sales" type="double"/>
+									<field7 name="EU_Sales" type="double"/>
+									<field8 name="JP_Sales" type="double"/>
+									<field9 name="Other_Sales" type="double"/>
+									<field10 name="Global_Sales" type="double"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="32" kind="2">
+					<targets>
+						<datapoint pos="0" key="33"/>
+					</targets>
+					<view ltx="1051" lty="404" rbx="1103" rby="420"/>
+					<data>
+						<constant value="[Y]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="31" kind="2">
+					<targets>
+						<datapoint pos="0" key="34"/>
+					</targets>
+					<view ltx="1051" lty="428" rbx="1102" rby="444"/>
+					<data>
+						<constant value="en" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-date" library="core" uid="33" kind="5">
+					<sources>
+						<datapoint pos="0" key="27"/>
+						<datapoint pos="1" key="25"/>
+						<datapoint pos="2" key="26"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="32"/>
+					</targets>
+					<view ltx="1122" lty="285" rbx="1208" rby="353"/>
+				</component>
+				<component name="Wikidata_final" library="text" uid="34" kind="16">
+					<properties/>
+					<view ltx="110" lty="22" rbx="309" rby="582"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Zeilen" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" inputinstance="data\videogames_wiki_filtered2.csv" encoding="1000" byteorder="1" byteordermark="0">
+							<settings separator="," quote="&quot;" firstrownames="false" removeempty="true">
+								<names root="videogames_wiki_filtered2" block="Zeilen">
+									<field0 name="VideoGame" type="string"/>
+									<field1 name="Developer" type="string"/>
+									<field2 name="Publisher" type="string"/>
+									<field3 name="designedBy" type="string"/>
+									<field4 name="Composer" type="string"/>
+									<field5 name="fictionalUniverse" type="string"/>
+									<field6 name="follows" type="string"/>
+									<field7 name="followedBy" type="string"/>
+									<field8 name="basedOn" type="string"/>
+									<field9 name="gameMode" type="string"/>
+									<field10 name="OriginCountry" type="string"/>
+									<field11 name="PublicationDate" type="date"/>
+									<field12 name="Genre" type="string"/>
+									<field13 name="Plattform" type="string"/>
+									<field14 name="Website" type="string"/>
+									<field15 name="ESRBrating" type="string"/>
+									<field16 name="CEROrating" type="string"/>
+									<field17 name="PEGIrating" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="33" to="25"/>
+			<edge from="34" to="26"/>
+			<edge from="31" to="27"/>
+			<edge from="32" to="28"/>
+		</connections>
+	</component>
+</mapping>
