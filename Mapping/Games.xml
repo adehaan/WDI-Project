@@ -57,6 +57,12 @@
                 <Games_count>14</Games_count>
             </Tag>
         </Tags>
+        <Contributors>
+            <Contributor></Contributor>
+            <Contributor></Contributor>
+            <Contributor></Contributor>
+            <Contributor></Contributor>
+        </Contributors>
     </Game>
     <Game id="game_1001">
         <Rank></Rank>

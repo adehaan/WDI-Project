@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Games">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Game" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Rank">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Title" type="xs:string"/>
+							<xs:element name="Year" type="xs:short"/>
+							<xs:element name="Sale_EU" type="xs:byte"/>
+							<xs:element name="Sale_JP" type="xs:byte"/>
+							<xs:element name="Sale_NA" type="xs:byte"/>
+							<xs:element name="Sale_Others" type="xs:byte"/>
+							<xs:element name="Sale_Global" type="xs:byte"/>
+							<xs:element name="Total_Length_in_hrs" type="xs:short"/>
+							<xs:element name="Recommended_Req_PC" type="xs:string"/>
+							<xs:element name="Website">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Country_of_Origin">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Sequel">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Prequel">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Stores">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Store" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="id" use="required" type="xs:string"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Age_groups">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Age_group" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="id" use="required" type="xs:string"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Rating">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Metacrtic" type="xs:decimal"/>
+										<xs:element name="RAWG_Rating" type="xs:decimal"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Publishers">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Publisher" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DeveloperStudios">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="DeveloperStudio" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Genres">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Genre" maxOccurs="unbounded" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="platforms">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="platform" maxOccurs="unbounded" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Modes">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Mode" maxOccurs="unbounded" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Tags">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Tag" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Name" type="xs:string"/>
+													<xs:element name="Games_count" type="xs:byte"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="id" use="required" type="xs:string"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
