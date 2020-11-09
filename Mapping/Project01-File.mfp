@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  MapForce Project File  -->
+<Project Expanded="Yes" Type="Root" language="builtin" OutputDir="output\" Title="Project01-File" OutputName="Project01-File" Version="6">
+	<Folder FolderName="Mapping Folder" Expanded="Yes" Type="MappingFolder">
+		<File Type="Mapping" FilePath="MapForce_Design_All.mfd"/>
+		<File Type="Mapping" FilePath="MapForce_Design_Specific.mfd"/>
+	</Folder>
+</Project>
