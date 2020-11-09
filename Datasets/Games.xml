@@ -1,0 +1,167 @@
+<Games>
+    <Game id="game_1000">
+        <Rank></Rank>
+        <Title>Assasin's Creed </Title>
+        <Year>2012</Year>
+        <Sale_EU>45</Sale_EU>
+        <Sale_JP>54</Sale_JP>
+        <Sale_NA>34</Sale_NA>
+        <Sale_Others>23</Sale_Others>
+        <Sale_Global>43</Sale_Global>
+        <Total_Length_in_hrs>120</Total_Length_in_hrs>
+        <Recommended_Req_PC>ABC</Recommended_Req_PC>
+        <Website></Website>
+        <Stores>
+            <Store id="Playstation_Store"></Store>
+            <Store id="Xbox_Store"></Store>
+            <Store id="Steam"></Store>
+        </Stores>
+        <Age_groups>
+            <Age_group></Age_group>
+            <Age_group></Age_group>
+        </Age_groups>
+        <Rating>
+            <Metacrtic>2.4</Metacrtic>
+            <RAWG_Rating>4.0</RAWG_Rating>
+        </Rating>
+        <Publishers>
+            <Publisher>Sony Computer Entertainment</Publisher>
+        </Publishers>
+        <DeveloperStudios>
+            <DeveloperStudio>UBISOFT Studios</DeveloperStudio>
+        </DeveloperStudios>
+        <Genres>
+            <Genre>Role playing</Genre>
+            <Genre>Action</Genre>
+        </Genres>
+        <platforms>
+            <platform>PS4</platform>
+            <platform>XBOX360</platform>
+            <platform>Wii</platform>
+        </platforms>
+        <Modes>
+            <Mode>Single-Player</Mode>
+            <Mode>MutliPlayer</Mode>
+        </Modes>
+        <Tags>
+            <Tag>
+                <Name>awsome</Name>
+                <Games_count>12</Games_count>
+            </Tag>
+            <Tag>
+                <Name>Good</Name>
+                <Games_count>14</Games_count>
+            </Tag>
+        </Tags>
+    </Game>
+    <Game id="game_1001">
+        <Rank></Rank>
+        <Title> Call of Duty </Title>
+        <Year>2013</Year>
+        <Sale_EU>12</Sale_EU>
+        <Sale_JP>23</Sale_JP>
+        <Sale_NA>43</Sale_NA>
+        <Sale_Others>12</Sale_Others>
+        <Sale_Global>11</Sale_Global>
+        <Total_Length_in_hrs>160</Total_Length_in_hrs>
+        <Recommended_Req_PC>ABC</Recommended_Req_PC>
+        <Website></Website>
+        <Stores>
+            <Store id="Playstation_Store"></Store>
+            <Store id="Xbox_Store"></Store>
+            <Store id="Steam"></Store>
+        </Stores>
+        <Age_groups>
+            <Age_group></Age_group>
+            <Age_group></Age_group>
+        </Age_groups>
+        <Rating>
+            <Metacrtic>3.0</Metacrtic>
+            <RAWG_Rating>4.0</RAWG_Rating>
+        </Rating>
+        <Publishers>
+            <Publisher>Microsoft Studios</Publisher>
+        </Publishers>
+        <DeveloperStudios>
+            <DeveloperStudio>Activision</DeveloperStudio>
+        </DeveloperStudios>
+        <Genres>
+            <Genre>War</Genre>
+            <Genre>Role playing</Genre>
+            <Genre>First Person Shooting</Genre>
+        </Genres>
+        <platforms>
+            <platform>PS4</platform>
+            <platform>XBOX360</platform>
+            <platform>Wii</platform>
+        </platforms>
+        <Modes>
+            <Mode>Single-Player</Mode>
+            <Mode>MutliPlayer</Mode>
+        </Modes>
+        <Tags>
+            <Tag>
+                <Name>awsome</Name>
+                <Games_count>12</Games_count>
+            </Tag>
+            <Tag>
+                <Name>Good</Name>
+                <Games_count>14</Games_count>
+            </Tag>
+        </Tags>
+    </Game>
+    <Game id="game_1002">
+        <Rank></Rank>
+        <Title>Tekken 7 </Title>
+        <Year>2014</Year>
+        <Sale_EU>23</Sale_EU>
+        <Sale_JP>43</Sale_JP>
+        <Sale_NA>35</Sale_NA>
+        <Sale_Others>32</Sale_Others>
+        <Sale_Global>34</Sale_Global>
+        <Total_Length_in_hrs>115</Total_Length_in_hrs>
+        <Recommended_Req_PC>ABC</Recommended_Req_PC>
+        <Website></Website>
+        <Stores>
+            <Store id="Playstation_Store"></Store>
+            <Store id="Xbox_Store"></Store>
+            <Store id="Steam"></Store>
+        </Stores>
+        <Age_groups>
+            <Age_group></Age_group>
+        </Age_groups>
+        <Rating>
+            <Metacrtic>1.3</Metacrtic>
+            <RAWG_Rating>4.0</RAWG_Rating>
+        </Rating>
+        <Publishers>
+            <Publisher>Namco</Publisher>
+        </Publishers>
+        <DeveloperStudios>
+            <DeveloperStudio>Bandai Namco Studios</DeveloperStudio>
+        </DeveloperStudios>
+        <Genres>
+            <Genre>Fighting</Genre>
+            <Genre>Story</Genre>
+        </Genres>
+        <platforms>
+            <platform>PS4</platform>
+            <platform>XBOX360</platform>
+            <platform>Wii</platform>
+        </platforms>
+        <Modes>
+            <Mode>Single-Player</Mode>
+            <Mode>Coop</Mode>
+        </Modes>
+        <Tags>
+            <Tag>
+                <Name>awsome</Name>
+                <Games_count>12</Games_count>
+            </Tag>
+            <Tag>
+                <Name>Good</Name>
+                <Games_count>14</Games_count>
+            </Tag>
+        </Tags>
+    </Game>
+</Games>
