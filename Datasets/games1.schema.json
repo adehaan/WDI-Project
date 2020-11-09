@@ -1,0 +1,370 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/object_05",
+  "definitions": {
+    "object_01": {
+      "title": "clip",
+      "type": "object",
+      "required": [
+        "clip",
+        "clips",
+        "video",
+        "preview"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "clip": {
+          "type": "string",
+          "format": "uri"
+        },
+        "clips": {
+          "title": "clips",
+          "type": "object",
+          "required": [
+            "320",
+            "640",
+            "full"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "320": {
+              "type": "string",
+              "format": "uri"
+            },
+            "640": {
+              "type": "string",
+              "format": "uri"
+            },
+            "full": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "video": {
+          "type": "string"
+        },
+        "preview": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "object_02": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "image": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "language": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "year_end": {
+          "type": "null"
+        },
+        "year_start": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "games_count": {
+          "type": "number"
+        },
+        "image_background": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "object_03": {
+      "type": "object",
+      "required": [
+        "platform"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "$ref": "#/definitions/object_02"
+        },
+        "released_at": {
+          "type": "string"
+        },
+        "requirements_en": {
+          "anyOf": [
+            {
+              "title": "requirements_en",
+              "type": "object",
+              "required": [
+                "minimum",
+                "recommended"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "minimum": {
+                  "type": "string"
+                },
+                "recommended": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "requirements_ru": {
+          "type": "null"
+        }
+      }
+    },
+    "object_04": {
+      "type": "object",
+      "required": [
+        "id",
+        "store",
+        "url_en",
+        "url_ru"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "store": {
+          "$ref": "#/definitions/object_02"
+        },
+        "url_en": {
+          "type": "string",
+          "format": "uri"
+        },
+        "url_ru": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ]
+        }
+      }
+    },
+    "object_05": {
+      "type": "object",
+      "required": [
+        "added",
+        "added_by_status",
+        "background_image",
+        "clip",
+        "dominant_color",
+        "genres",
+        "id",
+        "metacritic",
+        "name",
+        "parent_platforms",
+        "platforms",
+        "playtime",
+        "rating",
+        "rating_top",
+        "ratings",
+        "ratings_count",
+        "released",
+        "reviews_count",
+        "reviews_text_count",
+        "saturated_color",
+        "short_screenshots",
+        "slug",
+        "stores",
+        "suggestions_count",
+        "tags",
+        "tba",
+        "user_game",
+        "community_rating"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "added": {
+          "type": "number"
+        },
+        "added_by_status": {
+          "title": "added_by_status",
+          "type": "object",
+          "required": [
+            "yet",
+            "owned",
+            "beaten",
+            "toplay",
+            "dropped",
+            "playing"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "yet": {
+              "type": "number"
+            },
+            "owned": {
+              "type": "number"
+            },
+            "beaten": {
+              "type": "number"
+            },
+            "toplay": {
+              "type": "number"
+            },
+            "dropped": {
+              "type": "number"
+            },
+            "playing": {
+              "type": "number"
+            }
+          }
+        },
+        "background_image": {
+          "type": "string",
+          "format": "uri"
+        },
+        "clip": {
+          "$ref": "#/definitions/object_01"
+        },
+        "dominant_color": {
+          "type": "string"
+        },
+        "genres": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/object_02"
+          }
+        },
+        "id": {
+          "type": "number"
+        },
+        "metacritic": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent_platforms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/object_03"
+          }
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/object_03"
+          }
+        },
+        "playtime": {
+          "type": "number"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "rating_top": {
+          "type": "number"
+        },
+        "ratings": {
+          "type": "array",
+          "title": "ratings",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "count",
+              "percent"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "title": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              },
+              "percent": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "ratings_count": {
+          "type": "number"
+        },
+        "released": {
+          "type": "string"
+        },
+        "reviews_count": {
+          "type": "number"
+        },
+        "reviews_text_count": {
+          "type": "number"
+        },
+        "saturated_color": {
+          "type": "string"
+        },
+        "short_screenshots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/object_02"
+          }
+        },
+        "slug": {
+          "type": "string"
+        },
+        "stores": {
+          "type": "array",
+          "title": "stores",
+          "items": {
+            "$ref": "#/definitions/object_04"
+          }
+        },
+        "suggestions_count": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/object_02"
+          }
+        },
+        "tba": {
+          "type": "number"
+        },
+        "user_game": {
+          "type": "null"
+        },
+        "community_rating": {
+          "type": "null"
+        }
+      }
+    }
+  }
+}
