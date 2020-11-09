@@ -11,14 +11,18 @@
         <Total_Length_in_hrs>120</Total_Length_in_hrs>
         <Recommended_Req_PC>ABC</Recommended_Req_PC>
         <Website></Website>
+        <Country_of_Origin></Country_of_Origin>
+        <Sequel></Sequel>
+        <Prequel></Prequel>
         <Stores>
             <Store id="Playstation_Store"></Store>
             <Store id="Xbox_Store"></Store>
             <Store id="Steam"></Store>
         </Stores>
         <Age_groups>
-            <Age_group></Age_group>
-            <Age_group></Age_group>
+            <Age_group id="ESRB"></Age_group>
+            <Age_group id="PEGI"></Age_group>
+            <Age_group id="CERO"></Age_group>
         </Age_groups>
         <Rating>
             <Metacrtic>2.4</Metacrtic>
@@ -66,14 +70,18 @@
         <Total_Length_in_hrs>160</Total_Length_in_hrs>
         <Recommended_Req_PC>ABC</Recommended_Req_PC>
         <Website></Website>
+        <Country_of_Origin></Country_of_Origin>
+        <Sequel></Sequel>
+        <Prequel></Prequel>
         <Stores>
             <Store id="Playstation_Store"></Store>
             <Store id="Xbox_Store"></Store>
             <Store id="Steam"></Store>
         </Stores>
         <Age_groups>
-            <Age_group></Age_group>
-            <Age_group></Age_group>
+            <Age_group id="ESRB"></Age_group>
+            <Age_group id="PEGI"></Age_group>
+            <Age_group id="CERO"></Age_group>
         </Age_groups>
         <Rating>
             <Metacrtic>3.0</Metacrtic>
@@ -122,13 +130,18 @@
         <Total_Length_in_hrs>115</Total_Length_in_hrs>
         <Recommended_Req_PC>ABC</Recommended_Req_PC>
         <Website></Website>
+        <Country_of_Origin></Country_of_Origin>
+        <Sequel></Sequel>
+        <Prequel></Prequel>
         <Stores>
             <Store id="Playstation_Store"></Store>
             <Store id="Xbox_Store"></Store>
             <Store id="Steam"></Store>
         </Stores>
         <Age_groups>
-            <Age_group></Age_group>
+            <Age_group id="ESRB"></Age_group>
+            <Age_group id="PEGI"></Age_group>
+            <Age_group id="CERO"></Age_group>
         </Age_groups>
         <Rating>
             <Metacrtic>1.3</Metacrtic>
