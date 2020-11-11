@@ -827,6 +827,16 @@
 					</targets>
 					<view ltx="638" lty="115" rbx="732" rby="169"/>
 				</component>
+				<component name="tokenize" library="core" uid="300" kind="5">
+					<sources>
+						<datapoint pos="0" key="207"/>
+						<datapoint pos="1" key="209"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="206"/>
+					</targets>
+					<view ltx="469" lty="115" rbx="563" rby="169"/>
+				</component>
 				<component name="document" library="xml" uid="298" kind="14">
 					<properties/>
 					<view ltx="1097" lty="66" rbx="1247" rby="266"/>
@@ -844,19 +854,9 @@
 								</entry>
 							</entry>
 						</root>
-						<document schema="..\..\..\..\Users\sh_af\Desktop\Age_type.xsd" instanceroot="{}Age_groups"/>
+						<document schema="Age_type.xsd" instanceroot="{}Age_groups"/>
 						<parameter usageKind="output" name="Age_groups" sequence="1"/>
 					</data>
-				</component>
-				<component name="tokenize" library="core" uid="300" kind="5">
-					<sources>
-						<datapoint pos="0" key="207"/>
-						<datapoint pos="1" key="209"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="206"/>
-					</targets>
-					<view ltx="469" lty="115" rbx="563" rby="169"/>
 				</component>
 			</children>
 			<graph directed="1">
