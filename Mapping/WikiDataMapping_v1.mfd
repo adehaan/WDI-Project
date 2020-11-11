@@ -6,6 +6,31 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
+				<component name="CSV_Seperator" library="user" uid="52" kind="19" visible="0" blackbox="0">
+					<view ltx="516" lty="168" rbx="695" rby="218"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers" inpkey="31" componentid="53"/>
+							<entry name="Developers" inpkey="32" componentid="54"/>
+							<entry name="Platforms" inpkey="33" componentid="55"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers_out" outkey="34" componentid="50"/>
+							<entry name="Developers_Out" outkey="35" componentid="121"/>
+							<entry name="Platforms_Out" outkey="36" componentid="122"/>
+						</root>
+					</data>
+				</component>
 				<component name="Wikidata" library="text" uid="3" kind="16">
 					<properties/>
 					<view ltx="24" lty="40" rbx="304" rby="454"/>
@@ -23,6 +48,9 @@
 										<entry name="developerLabel" outkey="5"/>
 										<entry name="publisherLabel" outkey="6"/>
 										<entry name="plattformLabel" outkey="7"/>
+										<entry name="ESRBratingLabel" outkey="39"/>
+										<entry name="CEROratingLabel" outkey="40"/>
+										<entry name="PEGIratingLabel" outkey="41"/>
 									</entry>
 								</entry>
 							</entry>
@@ -55,34 +83,9 @@
 						</text>
 					</data>
 				</component>
-				<component name="CSV_Seperator" library="user" uid="52" kind="19" visible="0" blackbox="0">
-					<view ltx="470" lty="326" rbx="647" rby="375"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Publishers" inpkey="31" componentid="53"/>
-							<entry name="Developers" inpkey="32" componentid="54"/>
-							<entry name="Platforms" inpkey="33" componentid="55"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Publishers_out" outkey="34" componentid="50"/>
-							<entry name="Developers_Out" outkey="35" componentid="121"/>
-							<entry name="Platforms_Out" outkey="36" componentid="122"/>
-						</root>
-					</data>
-				</component>
 				<component name="Games" library="xml" uid="2" kind="14">
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="862" lty="-24" rbx="1117" rby="630"/>
+					<view ltx="882" lty="-24" rbx="1137" rby="630"/>
 					<data>
 						<root>
 							<header>
@@ -96,7 +99,7 @@
 									<entry name="Games" expanded="1">
 										<entry name="Game" inpkey="1" expanded="1">
 											<entry name="Age_groups" expanded="1">
-												<entry name="Age_group" expanded="1"/>
+												<entry name="Age_group" inpkey="37" expanded="1"/>
 											</entry>
 											<entry name="Publishers" expanded="1">
 												<entry name="Publisher" inpkey="2"/>
@@ -115,9 +118,42 @@
 						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
+				<component name="Age_group" library="user" uid="134" kind="19" visible="0" blackbox="0">
+					<view ltx="424" lty="352" rbx="736" rby="442"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="ESRB_Values" inpkey="42" componentid="126"/>
+							<entry name="PEGI" inpkey="43" componentid="127"/>
+							<entry name="CERO" inpkey="44" componentid="128"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Age_groups" componentid="135" expanded="1">
+								<entry name="Age_groups" expanded="1">
+									<entry name="Age_group" outkey="47" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
 			</children>
 			<graph directed="1">
-				<edges/>
+				<edges>
+					<edge edgekey="37">
+						<data>
+							<dataconnection type="2"/>
+						</data>
+					</edge>
+				</edges>
 				<vertices>
 					<vertex vertexkey="4">
 						<edges>
@@ -152,6 +188,26 @@
 					<vertex vertexkey="7">
 						<edges>
 							<edge vertexkey="33"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="47">
+						<edges>
+							<edge vertexkey="37" edgekey="37"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="39">
+						<edges>
+							<edge vertexkey="42"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="41">
+						<edges>
+							<edge vertexkey="43"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="40">
+						<edges>
+							<edge vertexkey="44"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -1186,6 +1242,352 @@
 					<vertex vertexkey="40">
 						<edges>
 							<edge vertexkey="53"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="Age_group" library="user" uid="123" inline="1" editable="1" blackbox="0">
+		<description>
+			<short>Values(ESRB, PEGI, CERO)</short>
+		</description>
+		<structure>
+			<children>
+				<component name="document" library="xml" uid="135" kind="14">
+					<properties/>
+					<view ltx="1088" lty="126" rbx="1238" rby="326"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Age_groups" expanded="1">
+								<entry name="Age_group" inpkey="25" expanded="1">
+									<entry name="id" type="attribute" inpkey="42"/>
+								</entry>
+							</entry>
+						</root>
+						<document schema="Age_group_Type.xsd" instanceroot="{}Age_groups"/>
+						<parameter usageKind="output" name="Age_groups"/>
+					</data>
+				</component>
+				<component name="ESRB_Values" library="core" uid="126" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="12"/>
+					</targets>
+					<view ltx="13" lty="14" rbx="120" rby="51"/>
+					<data>
+						<input datatype="double"/>
+						<parameter usageKind="input" name="ESRB_Values"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="148" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="48"/>
+						<datapoint pos="1" key="49"/>
+						<datapoint pos="2" key="50"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="51"/>
+					</targets>
+					<view ltx="188" lty="-4" rbx="271" rby="68"/>
+				</component>
+				<component name="constant" library="core" uid="131" kind="2">
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="49" lty="101" rbx="111" rby="117"/>
+					<data>
+						<constant value="PEGI" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="130" kind="2">
+					<targets>
+						<datapoint pos="0" key="11"/>
+					</targets>
+					<view ltx="57" lty="-22" rbx="121" rby="-6"/>
+					<data>
+						<constant value="ESRB" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="132" kind="2">
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="54" lty="224" rbx="121" rby="240"/>
+					<data>
+						<constant value="CERO" datatype="string"/>
+					</data>
+				</component>
+				<component name="CERO" library="core" uid="128" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="2"/>
+					</targets>
+					<view ltx="43" lty="251" rbx="120" rby="288"/>
+					<data>
+						<input datatype="double"/>
+						<parameter usageKind="input" name="CERO"/>
+					</data>
+				</component>
+				<component name="PEGI" library="core" uid="127" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="48" lty="148" rbx="120" rby="185"/>
+					<data>
+						<input datatype="double"/>
+						<parameter usageKind="input" name="PEGI"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="151" kind="2">
+					<targets>
+						<datapoint pos="0" key="52"/>
+					</targets>
+					<view ltx="118" lty="352" rbx="161" rby="368"/>
+					<data>
+						<constant value=":" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="149" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="53"/>
+						<datapoint pos="1" key="54"/>
+						<datapoint pos="2" key="55"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="56"/>
+					</targets>
+					<view ltx="188" lty="130" rbx="271" rby="202"/>
+				</component>
+				<component name="concat" library="core" uid="150" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="57"/>
+						<datapoint pos="1" key="58"/>
+						<datapoint pos="2" key="59"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="60"/>
+					</targets>
+					<view ltx="189" lty="234" rbx="272" rby="306"/>
+				</component>
+				<component name="constant" library="core" uid="138" kind="2">
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="307" lty="-21" rbx="350" rby="-5"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="137" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="14"/>
+						<datapoint pos="1" key="15"/>
+						<datapoint pos="2" key="16"/>
+						<datapoint pos="3" key="17"/>
+						<datapoint pos="4" key="18"/>
+						<datapoint pos="5" key="19"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="373" lty="100" rbx="456" rby="222"/>
+				</component>
+				<component name="tokenize" library="core" uid="140" kind="5">
+					<sources>
+						<datapoint pos="0" key="22"/>
+						<datapoint pos="1" key="23"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="529" lty="148" rbx="614" rby="201"/>
+				</component>
+				<component name="constant" library="core" uid="153" kind="2">
+					<targets>
+						<datapoint pos="0" key="37"/>
+					</targets>
+					<view ltx="612" lty="234" rbx="655" rby="250"/>
+					<data>
+						<constant value=":" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="141" kind="2">
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view ltx="461" lty="252" rbx="504" rby="268"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="158" kind="2">
+					<targets>
+						<datapoint pos="0" key="38"/>
+					</targets>
+					<view ltx="716" lty="49" rbx="753" rby="65"/>
+					<data>
+						<constant value="0" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="162" kind="5">
+					<sources>
+						<datapoint pos="0" key="62"/>
+						<datapoint pos="1" key="63"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="64"/>
+					</targets>
+					<view ltx="825" lty="13" rbx="923" rby="66"/>
+				</component>
+				<component name="tokenize" library="core" uid="152" kind="5">
+					<sources>
+						<datapoint pos="0" key="35"/>
+						<datapoint pos="1" key="34"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="36"/>
+					</targets>
+					<view ltx="683" lty="148" rbx="768" rby="201"/>
+				</component>
+				<component name="constant" library="core" uid="160" kind="2">
+					<targets>
+						<datapoint pos="0" key="47"/>
+					</targets>
+					<view ltx="757" lty="233" rbx="794" rby="249"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="163" kind="5">
+					<sources>
+						<datapoint pos="0" key="65"/>
+						<datapoint pos="1" key="67"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="66"/>
+					</targets>
+					<view ltx="826" lty="148" rbx="924" rby="201"/>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="51">
+						<edges>
+							<edge vertexkey="14"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="13">
+						<edges>
+							<edge vertexkey="15"/>
+							<edge vertexkey="17"/>
+							<edge vertexkey="19"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="56">
+						<edges>
+							<edge vertexkey="16"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="60">
+						<edges>
+							<edge vertexkey="18"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="20">
+						<edges>
+							<edge vertexkey="22"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="21">
+						<edges>
+							<edge vertexkey="23"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="66">
+						<edges>
+							<edge vertexkey="25"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="37">
+						<edges>
+							<edge vertexkey="34"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="24">
+						<edges>
+							<edge vertexkey="35"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="64">
+						<edges>
+							<edge vertexkey="42"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="11">
+						<edges>
+							<edge vertexkey="48"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="52">
+						<edges>
+							<edge vertexkey="49"/>
+							<edge vertexkey="54"/>
+							<edge vertexkey="58"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="12">
+						<edges>
+							<edge vertexkey="50"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="9">
+						<edges>
+							<edge vertexkey="53"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="55"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="57"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="2">
+						<edges>
+							<edge vertexkey="59"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="36">
+						<edges>
+							<edge vertexkey="62"/>
+							<edge vertexkey="65"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="38">
+						<edges>
+							<edge vertexkey="63"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="47">
+						<edges>
+							<edge vertexkey="67"/>
 						</edges>
 					</vertex>
 				</vertices>
