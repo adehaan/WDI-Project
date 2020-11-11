@@ -55,9 +55,34 @@
 						</text>
 					</data>
 				</component>
+				<component name="CSV_Seperator" library="user" uid="52" kind="19" visible="0" blackbox="0">
+					<view ltx="470" lty="326" rbx="647" rby="375"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers" inpkey="31" componentid="53"/>
+							<entry name="Developers" inpkey="32" componentid="54"/>
+							<entry name="Platforms" inpkey="33" componentid="55"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers_out" outkey="34" componentid="50"/>
+							<entry name="Developers_Out" outkey="35" componentid="121"/>
+							<entry name="Platforms_Out" outkey="36" componentid="122"/>
+						</root>
+					</data>
+				</component>
 				<component name="Games" library="xml" uid="2" kind="14">
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="1330" lty="-44" rbx="1585" rby="610"/>
+					<view ltx="862" lty="-24" rbx="1117" rby="630"/>
 					<data>
 						<root>
 							<header>
@@ -90,27 +115,6 @@
 						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
-				<component name="CSV seperater" library="user" uid="40" kind="19" visible="0" blackbox="0">
-					<view ltx="632" lty="339" rbx="744" rby="356"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="value" inpkey="29" componentid="38"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="platform" outkey="30" componentid="39"/>
-						</root>
-					</data>
-				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
@@ -120,24 +124,34 @@
 							<edge vertexkey="1"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="6">
+					<vertex vertexkey="34">
 						<edges>
 							<edge vertexkey="2"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="5">
+					<vertex vertexkey="35">
 						<edges>
 							<edge vertexkey="3"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="30">
+					<vertex vertexkey="36">
 						<edges>
 							<edge vertexkey="8"/>
 						</edges>
 					</vertex>
+					<vertex vertexkey="6">
+						<edges>
+							<edge vertexkey="31"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="32"/>
+						</edges>
+					</vertex>
 					<vertex vertexkey="7">
 						<edges>
-							<edge vertexkey="29"/>
+							<edge vertexkey="33"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -148,6 +162,37 @@
 		<description/>
 		<structure>
 			<children>
+				<component name="value" library="core" uid="38" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view ltx="-21" lty="128" rbx="54" rby="165"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="value"/>
+					</data>
+				</component>
+				<component name="left-trim" library="lang" uid="42" kind="5">
+					<sources>
+						<datapoint pos="0" key="23"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="90" lty="128" rbx="160" rby="165"/>
+				</component>
+				<component name="right-trim" library="lang" uid="44" kind="5">
+					<sources>
+						<datapoint pos="0" key="25"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="26"/>
+					</targets>
+					<view ltx="195" lty="129" rbx="267" rby="166"/>
+				</component>
 				<component name="replace" library="lang" uid="29" kind="5">
 					<sources>
 						<datapoint pos="0" key="7"/>
@@ -157,22 +202,42 @@
 					<targets>
 						<datapoint pos="0" key="1"/>
 					</targets>
-					<view ltx="387" lty="34" rbx="479" rby="103"/>
+					<view ltx="310" lty="112" rbx="399" rby="181"/>
 				</component>
 				<component name="constant" library="core" uid="30" kind="2">
 					<targets>
 						<datapoint pos="0" key="5"/>
 					</targets>
-					<view ltx="300" lty="70" rbx="336" rby="87"/>
+					<view ltx="248" lty="64" rbx="283" rby="80"/>
 					<data>
 						<constant value="[" datatype="anySimpleType"/>
 					</data>
+				</component>
+				<component name="constant" library="core" uid="35" kind="2">
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="252" lty="265" rbx="284" rby="281"/>
+					<data>
+						<constant datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="37" kind="5">
+					<sources>
+						<datapoint pos="0" key="2"/>
+						<datapoint pos="1" key="11"/>
+						<datapoint pos="2" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="442" lty="112" rbx="531" rby="181"/>
 				</component>
 				<component name="constant" library="core" uid="31" kind="2">
 					<targets>
 						<datapoint pos="0" key="10"/>
 					</targets>
-					<view ltx="465" rbx="501" rby="17"/>
+					<view ltx="380" lty="64" rbx="415" rby="80"/>
 					<data>
 						<constant value="]" datatype="anySimpleType"/>
 					</data>
@@ -185,13 +250,13 @@
 					<targets>
 						<datapoint pos="0" key="15"/>
 					</targets>
-					<view ltx="677" lty="51" rbx="765" rby="104"/>
+					<view ltx="579" lty="128" rbx="664" rby="181"/>
 				</component>
 				<component name="constant" library="core" uid="33" kind="2">
 					<targets>
 						<datapoint pos="0" key="19"/>
 					</targets>
-					<view ltx="608" lty="128" rbx="652" rby="145"/>
+					<view ltx="511" lty="264" rbx="554" rby="280"/>
 					<data>
 						<constant value="," datatype="string"/>
 					</data>
@@ -200,18 +265,9 @@
 					<targets>
 						<datapoint pos="0" key="17"/>
 					</targets>
-					<view ltx="781" lty="50" rbx="815" rby="67"/>
+					<view ltx="665" lty="64" rbx="699" rby="80"/>
 					<data>
 						<constant value="&apos;" datatype="anySimpleType"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="35" kind="2">
-					<targets>
-						<datapoint pos="0" key="8"/>
-					</targets>
-					<view ltx="333" lty="191" rbx="365" rby="208"/>
-					<data>
-						<constant datatype="anySimpleType"/>
 					</data>
 				</component>
 				<component name="replace" library="lang" uid="36" kind="5">
@@ -223,41 +279,35 @@
 					<targets>
 						<datapoint pos="0" key="14"/>
 					</targets>
-					<view ltx="841" lty="100" rbx="933" rby="169"/>
+					<view ltx="726" lty="112" rbx="815" rby="181"/>
 				</component>
-				<component name="replace" library="lang" uid="37" kind="5">
+				<component name="left-trim" library="lang" uid="46" kind="5">
 					<sources>
-						<datapoint pos="0" key="2"/>
-						<datapoint pos="1" key="11"/>
-						<datapoint pos="2" key="9"/>
+						<datapoint pos="0" key="27"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="3"/>
+						<datapoint pos="0" key="28"/>
 					</targets>
-					<view ltx="526" lty="35" rbx="618" rby="104"/>
-				</component>
-				<component name="value" library="core" uid="38" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="21"/>
-					</targets>
-					<view rbx="77" rby="37"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="value"/>
-					</data>
+					<view ltx="873" lty="128" rbx="943" rby="165"/>
 				</component>
 				<component name="platform" library="core" uid="39" kind="7">
 					<sources>
 						<datapoint pos="0" key="22"/>
 					</sources>
-					<view ltx="1033" rbx="1101" rby="37"/>
+					<view ltx="1089" lty="128" rbx="1156" rby="165"/>
 					<data>
 						<output datatype="string"/>
 						<parameter usageKind="output" name="platform"/>
 					</data>
+				</component>
+				<component name="right-trim" library="lang" uid="48" kind="5">
+					<sources>
+						<datapoint pos="0" key="29"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="968" lty="128" rbx="1040" rby="165"/>
 				</component>
 			</children>
 			<graph directed="1">
@@ -278,7 +328,7 @@
 							<edge vertexkey="6"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="21">
+					<vertex vertexkey="26">
 						<edges>
 							<edge vertexkey="7"/>
 						</edges>
@@ -310,9 +360,832 @@
 							<edge vertexkey="20"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="14">
+					<vertex vertexkey="30">
 						<edges>
 							<edge vertexkey="22"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="21">
+						<edges>
+							<edge vertexkey="23"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="24">
+						<edges>
+							<edge vertexkey="25"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="14">
+						<edges>
+							<edge vertexkey="27"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="28">
+						<edges>
+							<edge vertexkey="29"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="CSV_Seperator" library="user" uid="49" inline="1" editable="1" blackbox="0">
+		<description>
+			<short>Values(Platforms, Publishers, Developers)</short>
+			<long>This will split the CSV values to individual seperate values</long>
+		</description>
+		<structure>
+			<children>
+				<component name="Publishers" library="core" uid="53" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="29"/>
+					</targets>
+					<view lty="84" rbx="100" rby="121"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="Publishers"/>
+					</data>
+				</component>
+				<component name="Developers" library="core" uid="54" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="-6" lty="188" rbx="99" rby="225"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="Developers"/>
+					</data>
+				</component>
+				<component name="Platforms" library="core" uid="55" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="31"/>
+					</targets>
+					<view lty="304" rbx="97" rby="341"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="Platforms"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="107" kind="2">
+					<targets>
+						<datapoint pos="0" key="35"/>
+					</targets>
+					<view ltx="712" lty="11" rbx="756" rby="28"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="111" kind="2">
+					<targets>
+						<datapoint pos="0" key="52"/>
+					</targets>
+					<view ltx="930" lty="11" rbx="964" rby="28"/>
+					<data>
+						<constant value="&apos;" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="106" kind="5">
+					<sources>
+						<datapoint pos="0" key="38"/>
+						<datapoint pos="1" key="36"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="37"/>
+					</targets>
+					<view ltx="783" lty="73" rbx="871" rby="126"/>
+				</component>
+				<component name="tokenize" library="core" uid="108" kind="5">
+					<sources>
+						<datapoint pos="0" key="45"/>
+						<datapoint pos="1" key="39"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="70"/>
+					</targets>
+					<view ltx="783" lty="188" rbx="871" rby="241"/>
+				</component>
+				<component name="Remove_brackets" library="user" uid="72" kind="19" visible="0" blackbox="0">
+					<view ltx="200" lty="171" rbx="377" rby="236"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers" inpkey="32" componentid="74"/>
+							<entry name="Developers" inpkey="33" componentid="75"/>
+							<entry name="Delimeter" inpkey="71" componentid="93"/>
+							<entry name="Platforms" inpkey="34" componentid="73"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers_out" outkey="41" componentid="70"/>
+							<entry name="Developers_Out" outkey="42" componentid="76"/>
+							<entry name="Platforms_out" outkey="43" componentid="77"/>
+						</root>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="109" kind="5">
+					<sources>
+						<datapoint pos="0" key="44"/>
+						<datapoint pos="1" key="40"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="72"/>
+					</targets>
+					<view ltx="783" lty="320" rbx="871" rby="373"/>
+				</component>
+				<component name="Remove_brackets" library="user" uid="112" kind="19" visible="0" blackbox="0">
+					<view ltx="459" lty="171" rbx="636" rby="236"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers" inpkey="53" componentid="74"/>
+							<entry name="Developers" inpkey="54" componentid="75"/>
+							<entry name="Delimeter" inpkey="73" componentid="93"/>
+							<entry name="Platforms" inpkey="55" componentid="73"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers_out" outkey="56" componentid="70"/>
+							<entry name="Developers_Out" outkey="58" componentid="76"/>
+							<entry name="Platforms_out" outkey="57" componentid="77"/>
+						</root>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="114" kind="2">
+					<targets>
+						<datapoint pos="0" key="60"/>
+					</targets>
+					<view ltx="395" lty="11" rbx="431" rby="28"/>
+					<data>
+						<constant value="]" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="113" kind="2">
+					<targets>
+						<datapoint pos="0" key="59"/>
+					</targets>
+					<view ltx="135" lty="11" rbx="171" rby="28"/>
+					<data>
+						<constant value="[" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="left-trim" library="lang" uid="116" kind="5">
+					<sources>
+						<datapoint pos="0" key="63"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="61"/>
+					</targets>
+					<view ltx="1276" lty="278" rbx="1349" rby="315"/>
+				</component>
+				<component name="Remove_brackets" library="user" uid="110" kind="19" visible="0" blackbox="0">
+					<view ltx="996" lty="171" rbx="1173" rby="236"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers" inpkey="46" componentid="74"/>
+							<entry name="Developers" inpkey="47" componentid="75"/>
+							<entry name="Delimeter" inpkey="74" componentid="93"/>
+							<entry name="Platforms" inpkey="48" componentid="73"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers_out" outkey="49" componentid="70"/>
+							<entry name="Developers_Out" outkey="51" componentid="76"/>
+							<entry name="Platforms_out" outkey="50" componentid="77"/>
+						</root>
+					</data>
+				</component>
+				<component name="left-trim" library="lang" uid="118" kind="5">
+					<sources>
+						<datapoint pos="0" key="66"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="64"/>
+					</targets>
+					<view ltx="1276" lty="188" rbx="1349" rby="225"/>
+				</component>
+				<component name="left-trim" library="lang" uid="120" kind="5">
+					<sources>
+						<datapoint pos="0" key="69"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="67"/>
+					</targets>
+					<view ltx="1275" lty="89" rbx="1348" rby="126"/>
+				</component>
+				<component name="Platforms_Out" library="core" uid="122" kind="7">
+					<sources>
+						<datapoint pos="0" key="75"/>
+					</sources>
+					<view ltx="1525" lty="278" rbx="1619" rby="315"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="Platforms_Out"/>
+					</data>
+				</component>
+				<component name="Developers_Out" library="core" uid="121" kind="7">
+					<sources>
+						<datapoint pos="0" key="76"/>
+					</sources>
+					<view ltx="1525" lty="189" rbx="1627" rby="226"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="Developers_Out"/>
+					</data>
+				</component>
+				<component name="Publishers_out" library="core" uid="50" kind="7">
+					<sources>
+						<datapoint pos="0" key="77"/>
+					</sources>
+					<view ltx="1525" lty="88" rbx="1621" rby="125"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="Publishers_out"/>
+					</data>
+				</component>
+				<component name="right-trim" library="lang" uid="119" kind="5">
+					<sources>
+						<datapoint pos="0" key="68"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="78"/>
+					</targets>
+					<view ltx="1370" lty="89" rbx="1443" rby="126"/>
+				</component>
+				<component name="right-trim" library="lang" uid="117" kind="5">
+					<sources>
+						<datapoint pos="0" key="65"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="79"/>
+					</targets>
+					<view ltx="1371" lty="188" rbx="1444" rby="225"/>
+				</component>
+				<component name="right-trim" library="lang" uid="115" kind="5">
+					<sources>
+						<datapoint pos="0" key="62"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="80"/>
+					</targets>
+					<view ltx="1371" lty="278" rbx="1444" rby="315"/>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="29">
+						<edges>
+							<edge vertexkey="32"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="30">
+						<edges>
+							<edge vertexkey="33"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="31">
+						<edges>
+							<edge vertexkey="34"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="35">
+						<edges>
+							<edge vertexkey="36"/>
+							<edge vertexkey="39"/>
+							<edge vertexkey="40"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="56">
+						<edges>
+							<edge vertexkey="38"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="57">
+						<edges>
+							<edge vertexkey="44"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="58">
+						<edges>
+							<edge vertexkey="45"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="37">
+						<edges>
+							<edge vertexkey="46"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="70">
+						<edges>
+							<edge vertexkey="47"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="72">
+						<edges>
+							<edge vertexkey="48"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="41">
+						<edges>
+							<edge vertexkey="53"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="42">
+						<edges>
+							<edge vertexkey="54"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="43">
+						<edges>
+							<edge vertexkey="55"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="61">
+						<edges>
+							<edge vertexkey="62"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="50">
+						<edges>
+							<edge vertexkey="63"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="64">
+						<edges>
+							<edge vertexkey="65"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="51">
+						<edges>
+							<edge vertexkey="66"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="67">
+						<edges>
+							<edge vertexkey="68"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="49">
+						<edges>
+							<edge vertexkey="69"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="59">
+						<edges>
+							<edge vertexkey="71"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="60">
+						<edges>
+							<edge vertexkey="73"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="52">
+						<edges>
+							<edge vertexkey="74"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="80">
+						<edges>
+							<edge vertexkey="75"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="79">
+						<edges>
+							<edge vertexkey="76"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="78">
+						<edges>
+							<edge vertexkey="77"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="Remove_brackets" library="user" uid="69" inline="1" editable="1" blackbox="0">
+		<description>
+			<short>Values(Publishers, Developers, Platforms)</short>
+		</description>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="85" kind="2">
+					<targets>
+						<datapoint pos="0" key="16"/>
+					</targets>
+					<view ltx="1438" lty="50" rbx="1474" rby="67"/>
+					<data>
+						<constant value="]" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="90" kind="2">
+					<targets>
+						<datapoint pos="0" key="26"/>
+					</targets>
+					<view ltx="1448" lty="669" rbx="1484" rby="686"/>
+					<data>
+						<constant value="]" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="84" kind="5">
+					<sources>
+						<datapoint pos="0" key="15"/>
+						<datapoint pos="1" key="17"/>
+						<datapoint pos="2" key="19"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="1500" lty="98" rbx="1592" rby="167"/>
+				</component>
+				<component name="Publishers_out" library="core" uid="70" kind="7">
+					<sources>
+						<datapoint pos="0" key="36"/>
+					</sources>
+					<view ltx="1855" lty="115" rbx="1951" rby="152"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="Publishers_out"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="79" kind="5">
+					<sources>
+						<datapoint pos="0" key="5"/>
+						<datapoint pos="1" key="7"/>
+						<datapoint pos="2" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="1505" lty="405" rbx="1597" rby="474"/>
+				</component>
+				<component name="Developers_Out" library="core" uid="76" kind="7">
+					<sources>
+						<datapoint pos="0" key="37"/>
+					</sources>
+					<view ltx="1845" lty="424" rbx="1947" rby="461"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="Developers_Out"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="89" kind="5">
+					<sources>
+						<datapoint pos="0" key="25"/>
+						<datapoint pos="1" key="27"/>
+						<datapoint pos="2" key="29"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="1510" lty="717" rbx="1602" rby="786"/>
+				</component>
+				<component name="Platforms_out" library="core" uid="77" kind="7">
+					<sources>
+						<datapoint pos="0" key="38"/>
+					</sources>
+					<view ltx="1856" lty="735" rbx="1948" rby="772"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="Platforms_out"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="87" kind="5">
+					<sources>
+						<datapoint pos="0" key="39"/>
+						<datapoint pos="1" key="13"/>
+						<datapoint pos="2" key="18"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="14"/>
+					</targets>
+					<view ltx="1367" lty="98" rbx="1459" rby="167"/>
+				</component>
+				<component name="replace" library="lang" uid="82" kind="5">
+					<sources>
+						<datapoint pos="0" key="32"/>
+						<datapoint pos="1" key="3"/>
+						<datapoint pos="2" key="8"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="4"/>
+					</targets>
+					<view ltx="1373" lty="405" rbx="1465" rby="474"/>
+				</component>
+				<component name="replace" library="lang" uid="92" kind="5">
+					<sources>
+						<datapoint pos="0" key="34"/>
+						<datapoint pos="1" key="23"/>
+						<datapoint pos="2" key="28"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="1378" lty="717" rbx="1470" rby="786"/>
+				</component>
+				<component name="constant" library="core" uid="102" kind="2">
+					<targets>
+						<datapoint pos="0" key="40"/>
+					</targets>
+					<view ltx="776" lty="629" rbx="820" rby="646"/>
+					<data>
+						<constant value="&apos;" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="98" kind="2">
+					<targets>
+						<datapoint pos="0" key="41"/>
+					</targets>
+					<view ltx="579" lty="487" rbx="623" rby="504"/>
+					<data>
+						<constant value="[" datatype="string"/>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="101" kind="5">
+					<sources>
+						<datapoint pos="0" key="42"/>
+						<datapoint pos="1" key="43"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="44"/>
+					</targets>
+					<view ltx="618" lty="541" rbx="670" rby="594"/>
+				</component>
+				<component name="constant" library="core" uid="99" kind="2">
+					<targets>
+						<datapoint pos="0" key="45"/>
+					</targets>
+					<view ltx="550" lty="691" rbx="594" rby="708"/>
+					<data>
+						<constant value="]" datatype="string"/>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="97" kind="5">
+					<sources>
+						<datapoint pos="0" key="46"/>
+						<datapoint pos="1" key="47"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="48"/>
+					</targets>
+					<view ltx="649" lty="384" rbx="701" rby="437"/>
+				</component>
+				<component name="if-else" library="core" uid="95" kind="4">
+					<sources>
+						<datapoint pos="0" key="49"/>
+						<datapoint pos="1" key="50"/>
+						<datapoint pos="2" key="51"/>
+						<datapoint pos="3" key="52"/>
+						<datapoint pos="4" key="53"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="54"/>
+					</targets>
+					<view ltx="844" lty="451" rbx="944" rby="552"/>
+				</component>
+				<component name="constant" library="core" uid="80" kind="2">
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="1439" lty="357" rbx="1475" rby="374"/>
+					<data>
+						<constant value="]" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="Delimeter" library="core" uid="93" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="58"/>
+					</targets>
+					<view ltx="434" lty="451" rbx="532" rby="488"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="Delimeter"/>
+					</data>
+				</component>
+				<component name="Publishers" library="core" uid="74" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="31"/>
+					</targets>
+					<view ltx="1132" lty="28" rbx="1232" rby="65"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="Publishers"/>
+					</data>
+				</component>
+				<component name="Developers" library="core" uid="75" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="33"/>
+					</targets>
+					<view ltx="1211" lty="357" rbx="1316" rby="394"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="Developers"/>
+					</data>
+				</component>
+				<component name="Platforms" library="core" uid="73" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="35"/>
+					</targets>
+					<view ltx="1219" lty="607" rbx="1316" rby="644"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="Platforms"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="104" kind="2">
+					<targets>
+						<datapoint pos="0" key="56"/>
+					</targets>
+					<view ltx="1219" lty="535" rbx="1260" rby="552"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="103" kind="2">
+					<targets>
+						<datapoint pos="0" key="55"/>
+					</targets>
+					<view ltx="1220" lty="211" rbx="1261" rby="228"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="105" kind="2">
+					<targets>
+						<datapoint pos="0" key="57"/>
+					</targets>
+					<view ltx="1220" lty="840" rbx="1261" rby="857"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="54">
+						<edges>
+							<edge vertexkey="3"/>
+							<edge vertexkey="13"/>
+							<edge vertexkey="23"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="4">
+						<edges>
+							<edge vertexkey="5"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="6">
+						<edges>
+							<edge vertexkey="7"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="56">
+						<edges>
+							<edge vertexkey="8"/>
+							<edge vertexkey="9"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="14">
+						<edges>
+							<edge vertexkey="15"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="16">
+						<edges>
+							<edge vertexkey="17"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="55">
+						<edges>
+							<edge vertexkey="18"/>
+							<edge vertexkey="19"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="24">
+						<edges>
+							<edge vertexkey="25"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="26">
+						<edges>
+							<edge vertexkey="27"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="57">
+						<edges>
+							<edge vertexkey="28"/>
+							<edge vertexkey="29"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="33">
+						<edges>
+							<edge vertexkey="32"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="35">
+						<edges>
+							<edge vertexkey="34"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="20">
+						<edges>
+							<edge vertexkey="36"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="37"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="30">
+						<edges>
+							<edge vertexkey="38"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="31">
+						<edges>
+							<edge vertexkey="39"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="58">
+						<edges>
+							<edge vertexkey="42"/>
+							<edge vertexkey="46"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="45">
+						<edges>
+							<edge vertexkey="43"/>
+							<edge vertexkey="52"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="41">
+						<edges>
+							<edge vertexkey="47"/>
+							<edge vertexkey="50"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="48">
+						<edges>
+							<edge vertexkey="49"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="44">
+						<edges>
+							<edge vertexkey="51"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="40">
+						<edges>
+							<edge vertexkey="53"/>
 						</edges>
 					</vertex>
 				</vertices>
