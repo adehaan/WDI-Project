@@ -53,6 +53,7 @@
 										<xs:element name="Age_group" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:attribute name="id" use="required" type="xs:string"/>
+												<xs:attribute name="name" use="required" type="xs:string"/>
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>

@@ -6,7 +6,6 @@
 			<xs:sequence>
 				<xs:element name="Age_group">
 					<xs:complexType>
-						<xs:attribute name="id" use="required" type="xs:string"/>
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
