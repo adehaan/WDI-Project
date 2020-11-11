@@ -6,29 +6,39 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="CSV_Seperator" library="user" uid="52" kind="19" visible="0" blackbox="0">
-					<view ltx="516" lty="168" rbx="695" rby="218"/>
+				<component name="Games" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="1284" lty="24" rbx="1539" rby="678"/>
 					<data>
 						<root>
 							<header>
 								<namespaces>
 									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
 								</namespaces>
 							</header>
-							<entry name="Publishers" inpkey="31" componentid="53"/>
-							<entry name="Developers" inpkey="32" componentid="54"/>
-							<entry name="Platforms" inpkey="33" componentid="55"/>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Games" expanded="1">
+										<entry name="Game" inpkey="1" expanded="1">
+											<entry name="Age_groups" expanded="1">
+												<entry name="Age_group" inpkey="37" expanded="1"/>
+											</entry>
+											<entry name="Publishers" expanded="1">
+												<entry name="Publisher" inpkey="2"/>
+											</entry>
+											<entry name="DeveloperStudios" expanded="1">
+												<entry name="DeveloperStudio" inpkey="3"/>
+											</entry>
+											<entry name="platforms" expanded="1">
+												<entry name="platform" inpkey="8"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
 						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Publishers_out" outkey="34" componentid="50"/>
-							<entry name="Developers_Out" outkey="35" componentid="121"/>
-							<entry name="Platforms_Out" outkey="36" componentid="122"/>
-						</root>
+						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
 				<component name="Wikidata" library="text" uid="3" kind="16">
@@ -83,43 +93,35 @@
 						</text>
 					</data>
 				</component>
-				<component name="Games" library="xml" uid="2" kind="14">
-					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="882" lty="-24" rbx="1137" rby="630"/>
+				<component name="CSV_Seperator" library="user" uid="52" kind="19" visible="0" blackbox="0">
+					<view ltx="516" lty="168" rbx="698" rby="233"/>
 					<data>
 						<root>
 							<header>
 								<namespaces>
 									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
 								</namespaces>
 							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
-									<entry name="Games" expanded="1">
-										<entry name="Game" inpkey="1" expanded="1">
-											<entry name="Age_groups" expanded="1">
-												<entry name="Age_group" inpkey="37" expanded="1"/>
-											</entry>
-											<entry name="Publishers" expanded="1">
-												<entry name="Publisher" inpkey="2"/>
-											</entry>
-											<entry name="DeveloperStudios" expanded="1">
-												<entry name="DeveloperStudio" inpkey="3"/>
-											</entry>
-											<entry name="platforms" expanded="1">
-												<entry name="platform" inpkey="8"/>
-											</entry>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
+							<entry name="Publishers" inpkey="31" componentid="53"/>
+							<entry name="Developers" inpkey="32" componentid="54"/>
+							<entry name="Platforms" inpkey="33" componentid="55"/>
+							<entry name="PEGI_ratings" inpkey="48" componentid="164"/>
 						</root>
-						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers_out" outkey="34" componentid="50"/>
+							<entry name="Developers_Out" outkey="35" componentid="121"/>
+							<entry name="Platforms_Out" outkey="36" componentid="122"/>
+							<entry name="PEGI_Out" outkey="49" componentid="172"/>
+						</root>
 					</data>
 				</component>
 				<component name="Age_group" library="user" uid="134" kind="19" visible="0" blackbox="0">
-					<view ltx="424" lty="352" rbx="736" rby="442"/>
+					<view ltx="733" lty="401" rbx="1045" rby="491"/>
 					<data>
 						<root>
 							<header>
@@ -200,7 +202,7 @@
 							<edge vertexkey="42"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="41">
+					<vertex vertexkey="49">
 						<edges>
 							<edge vertexkey="43"/>
 						</edges>
@@ -208,6 +210,11 @@
 					<vertex vertexkey="40">
 						<edges>
 							<edge vertexkey="44"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="41">
+						<edges>
+							<edge vertexkey="48"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -491,15 +498,6 @@
 						<parameter usageKind="input" name="Platforms"/>
 					</data>
 				</component>
-				<component name="constant" library="core" uid="107" kind="2">
-					<targets>
-						<datapoint pos="0" key="35"/>
-					</targets>
-					<view ltx="712" lty="11" rbx="756" rby="28"/>
-					<data>
-						<constant value="," datatype="string"/>
-					</data>
-				</component>
 				<component name="constant" library="core" uid="111" kind="2">
 					<targets>
 						<datapoint pos="0" key="52"/>
@@ -529,68 +527,6 @@
 					</targets>
 					<view ltx="783" lty="188" rbx="871" rby="241"/>
 				</component>
-				<component name="Remove_brackets" library="user" uid="72" kind="19" visible="0" blackbox="0">
-					<view ltx="200" lty="171" rbx="377" rby="236"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Publishers" inpkey="32" componentid="74"/>
-							<entry name="Developers" inpkey="33" componentid="75"/>
-							<entry name="Delimeter" inpkey="71" componentid="93"/>
-							<entry name="Platforms" inpkey="34" componentid="73"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Publishers_out" outkey="41" componentid="70"/>
-							<entry name="Developers_Out" outkey="42" componentid="76"/>
-							<entry name="Platforms_out" outkey="43" componentid="77"/>
-						</root>
-					</data>
-				</component>
-				<component name="tokenize" library="core" uid="109" kind="5">
-					<sources>
-						<datapoint pos="0" key="44"/>
-						<datapoint pos="1" key="40"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="72"/>
-					</targets>
-					<view ltx="783" lty="320" rbx="871" rby="373"/>
-				</component>
-				<component name="Remove_brackets" library="user" uid="112" kind="19" visible="0" blackbox="0">
-					<view ltx="459" lty="171" rbx="636" rby="236"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Publishers" inpkey="53" componentid="74"/>
-							<entry name="Developers" inpkey="54" componentid="75"/>
-							<entry name="Delimeter" inpkey="73" componentid="93"/>
-							<entry name="Platforms" inpkey="55" componentid="73"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Publishers_out" outkey="56" componentid="70"/>
-							<entry name="Developers_Out" outkey="58" componentid="76"/>
-							<entry name="Platforms_out" outkey="57" componentid="77"/>
-						</root>
-					</data>
-				</component>
 				<component name="constant" library="core" uid="114" kind="2">
 					<targets>
 						<datapoint pos="0" key="60"/>
@@ -617,32 +553,6 @@
 						<datapoint pos="0" key="61"/>
 					</targets>
 					<view ltx="1276" lty="278" rbx="1349" rby="315"/>
-				</component>
-				<component name="Remove_brackets" library="user" uid="110" kind="19" visible="0" blackbox="0">
-					<view ltx="996" lty="171" rbx="1173" rby="236"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Publishers" inpkey="46" componentid="74"/>
-							<entry name="Developers" inpkey="47" componentid="75"/>
-							<entry name="Delimeter" inpkey="74" componentid="93"/>
-							<entry name="Platforms" inpkey="48" componentid="73"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Publishers_out" outkey="49" componentid="70"/>
-							<entry name="Developers_Out" outkey="51" componentid="76"/>
-							<entry name="Platforms_out" outkey="50" componentid="77"/>
-						</root>
-					</data>
 				</component>
 				<component name="left-trim" library="lang" uid="118" kind="5">
 					<sources>
@@ -719,6 +629,160 @@
 					</targets>
 					<view ltx="1371" lty="278" rbx="1444" rby="315"/>
 				</component>
+				<component name="PEGI_Out" library="core" uid="172" kind="7">
+					<sources>
+						<datapoint pos="0" key="88"/>
+					</sources>
+					<view ltx="1548" lty="353" rbx="1618" rby="390"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="PEGI_Out"/>
+					</data>
+				</component>
+				<component name="left-trim" library="lang" uid="173" kind="5">
+					<sources>
+						<datapoint pos="0" key="81"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="83"/>
+					</targets>
+					<view ltx="1277" lty="352" rbx="1350" rby="389"/>
+				</component>
+				<component name="right-trim" library="lang" uid="174" kind="5">
+					<sources>
+						<datapoint pos="0" key="84"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="82"/>
+					</targets>
+					<view ltx="1372" lty="352" rbx="1445" rby="389"/>
+				</component>
+				<component name="Remove_brackets" library="user" uid="110" kind="19" visible="0" blackbox="0">
+					<view ltx="996" lty="171" rbx="1173" rby="252"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers" inpkey="46" componentid="74"/>
+							<entry name="Developers" inpkey="47" componentid="75"/>
+							<entry name="Delimeter" inpkey="74" componentid="93"/>
+							<entry name="Platforms" inpkey="48" componentid="73"/>
+							<entry name="Pegi" inpkey="89" componentid="165"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers_out" outkey="49" componentid="70"/>
+							<entry name="Developers_Out" outkey="51" componentid="76"/>
+							<entry name="Platforms_out" outkey="50" componentid="77"/>
+							<entry name="PEGI_Out" outkey="90" componentid="171"/>
+						</root>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="109" kind="5">
+					<sources>
+						<datapoint pos="0" key="44"/>
+						<datapoint pos="1" key="40"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="72"/>
+					</targets>
+					<view ltx="783" lty="320" rbx="871" rby="373"/>
+				</component>
+				<component name="Remove_brackets" library="user" uid="112" kind="19" visible="0" blackbox="0">
+					<view ltx="459" lty="171" rbx="636" rby="252"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers" inpkey="53" componentid="74"/>
+							<entry name="Developers" inpkey="54" componentid="75"/>
+							<entry name="Delimeter" inpkey="73" componentid="93"/>
+							<entry name="Platforms" inpkey="55" componentid="73"/>
+							<entry name="Pegi" inpkey="92" componentid="165"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers_out" outkey="56" componentid="70"/>
+							<entry name="Developers_Out" outkey="58" componentid="76"/>
+							<entry name="Platforms_out" outkey="57" componentid="77"/>
+							<entry name="PEGI_Out" outkey="91" componentid="171"/>
+						</root>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="107" kind="2">
+					<targets>
+						<datapoint pos="0" key="35"/>
+					</targets>
+					<view ltx="712" lty="11" rbx="756" rby="28"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="175" kind="5">
+					<sources>
+						<datapoint pos="0" key="86"/>
+						<datapoint pos="1" key="85"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="87"/>
+					</targets>
+					<view ltx="784" lty="424" rbx="872" rby="477"/>
+				</component>
+				<component name="Remove_brackets" library="user" uid="72" kind="19" visible="0" blackbox="0">
+					<view ltx="200" lty="171" rbx="377" rby="252"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers" inpkey="32" componentid="74"/>
+							<entry name="Developers" inpkey="33" componentid="75"/>
+							<entry name="Delimeter" inpkey="71" componentid="93"/>
+							<entry name="Platforms" inpkey="34" componentid="73"/>
+							<entry name="Pegi" inpkey="94" componentid="165"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Publishers_out" outkey="41" componentid="70"/>
+							<entry name="Developers_Out" outkey="42" componentid="76"/>
+							<entry name="Platforms_out" outkey="43" componentid="77"/>
+							<entry name="PEGI_Out" outkey="93" componentid="171"/>
+						</root>
+					</data>
+				</component>
+				<component name="PEGI_ratings" library="core" uid="164" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="95"/>
+					</targets>
+					<view lty="370" rbx="110" rby="407"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="PEGI_ratings"/>
+					</data>
+				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
@@ -743,6 +807,7 @@
 							<edge vertexkey="36"/>
 							<edge vertexkey="39"/>
 							<edge vertexkey="40"/>
+							<edge vertexkey="85"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="56">
@@ -848,6 +913,41 @@
 					<vertex vertexkey="78">
 						<edges>
 							<edge vertexkey="77"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="90">
+						<edges>
+							<edge vertexkey="81"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="83">
+						<edges>
+							<edge vertexkey="84"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="91">
+						<edges>
+							<edge vertexkey="86"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="82">
+						<edges>
+							<edge vertexkey="88"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="87">
+						<edges>
+							<edge vertexkey="89"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="93">
+						<edges>
+							<edge vertexkey="92"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="95">
+						<edges>
+							<edge vertexkey="94"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -1021,19 +1121,6 @@
 					</targets>
 					<view ltx="649" lty="384" rbx="701" rby="437"/>
 				</component>
-				<component name="if-else" library="core" uid="95" kind="4">
-					<sources>
-						<datapoint pos="0" key="49"/>
-						<datapoint pos="1" key="50"/>
-						<datapoint pos="2" key="51"/>
-						<datapoint pos="3" key="52"/>
-						<datapoint pos="4" key="53"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="54"/>
-					</targets>
-					<view ltx="844" lty="451" rbx="944" rby="552"/>
-				</component>
 				<component name="constant" library="core" uid="80" kind="2">
 					<targets>
 						<datapoint pos="0" key="6"/>
@@ -1122,6 +1209,82 @@
 						<constant datatype="string"/>
 					</data>
 				</component>
+				<component name="constant" library="core" uid="166" kind="2">
+					<targets>
+						<datapoint pos="0" key="65"/>
+					</targets>
+					<view ltx="1448" lty="969" rbx="1484" rby="986"/>
+					<data>
+						<constant value="]" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="168" kind="2">
+					<targets>
+						<datapoint pos="0" key="59"/>
+					</targets>
+					<view ltx="1220" lty="1140" rbx="1261" rby="1157"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="170" kind="5">
+					<sources>
+						<datapoint pos="0" key="68"/>
+						<datapoint pos="1" key="61"/>
+						<datapoint pos="2" key="69"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="63"/>
+					</targets>
+					<view ltx="1378" lty="1017" rbx="1470" rby="1086"/>
+				</component>
+				<component name="if-else" library="core" uid="95" kind="4">
+					<sources>
+						<datapoint pos="0" key="49"/>
+						<datapoint pos="1" key="50"/>
+						<datapoint pos="2" key="51"/>
+						<datapoint pos="3" key="52"/>
+						<datapoint pos="4" key="53"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="54"/>
+					</targets>
+					<view ltx="844" lty="451" rbx="944" rby="552"/>
+				</component>
+				<component name="Pegi" library="core" uid="165" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="70"/>
+					</targets>
+					<view ltx="1188" lty="969" rbx="1261" rby="1006"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="Pegi"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="167" kind="5">
+					<sources>
+						<datapoint pos="0" key="64"/>
+						<datapoint pos="1" key="66"/>
+						<datapoint pos="2" key="60"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="62"/>
+					</targets>
+					<view ltx="1510" lty="1017" rbx="1602" rby="1086"/>
+				</component>
+				<component name="PEGI_Out" library="core" uid="171" kind="7">
+					<sources>
+						<datapoint pos="0" key="71"/>
+					</sources>
+					<view ltx="1856" lty="1032" rbx="1926" rby="1069"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="PEGI_Out"/>
+					</data>
+				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
@@ -1131,6 +1294,7 @@
 							<edge vertexkey="3"/>
 							<edge vertexkey="13"/>
 							<edge vertexkey="23"/>
+							<edge vertexkey="61"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="4">
@@ -1244,6 +1408,32 @@
 							<edge vertexkey="53"/>
 						</edges>
 					</vertex>
+					<vertex vertexkey="59">
+						<edges>
+							<edge vertexkey="60"/>
+							<edge vertexkey="69"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="63">
+						<edges>
+							<edge vertexkey="64"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="65">
+						<edges>
+							<edge vertexkey="66"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="70">
+						<edges>
+							<edge vertexkey="68"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="62">
+						<edges>
+							<edge vertexkey="71"/>
+						</edges>
+					</vertex>
 				</vertices>
 			</graph>
 		</structure>
@@ -1254,26 +1444,6 @@
 		</description>
 		<structure>
 			<children>
-				<component name="document" library="xml" uid="135" kind="14">
-					<properties/>
-					<view ltx="1088" lty="126" rbx="1238" rby="326"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Age_groups" expanded="1">
-								<entry name="Age_group" inpkey="25" expanded="1">
-									<entry name="id" type="attribute" inpkey="42"/>
-								</entry>
-							</entry>
-						</root>
-						<document schema="Age_group_Type.xsd" instanceroot="{}Age_groups"/>
-						<parameter usageKind="output" name="Age_groups"/>
-					</data>
-				</component>
 				<component name="ESRB_Values" library="core" uid="126" kind="6">
 					<sources>
 						<datapoint/>
@@ -1480,6 +1650,26 @@
 						<datapoint pos="0" key="66"/>
 					</targets>
 					<view ltx="826" lty="148" rbx="924" rby="201"/>
+				</component>
+				<component name="document" library="xml" uid="135" kind="14">
+					<properties/>
+					<view ltx="1088" lty="126" rbx="1238" rby="326"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Age_groups" expanded="1">
+								<entry name="Age_group" inpkey="25" expanded="1">
+									<entry name="id" type="attribute" inpkey="42"/>
+								</entry>
+							</entry>
+						</root>
+						<document schema="Age_group_Type.xsd" instanceroot="{}Age_groups"/>
+						<parameter usageKind="output" name="Age_groups"/>
+					</data>
 				</component>
 			</children>
 			<graph directed="1">
