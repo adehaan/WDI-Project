@@ -12,12 +12,12 @@
 								</xs:complexType>
 							</xs:element>
 							<xs:element name="Title" type="xs:string"/>
-							<xs:element name="Year" type="xs:short"/>
-							<xs:element name="Sale_EU" type="xs:byte"/>
-							<xs:element name="Sale_JP" type="xs:byte"/>
-							<xs:element name="Sale_NA" type="xs:byte"/>
-							<xs:element name="Sale_Others" type="xs:byte"/>
-							<xs:element name="Sale_Global" type="xs:byte"/>
+							<xs:element name="Year" type="xs:string"/>
+							<xs:element name="Sale_EU" type="xs:double"/>
+							<xs:element name="Sale_JP" type="xs:double"/>
+							<xs:element name="Sale_NA" type="xs:double"/>
+							<xs:element name="Sale_Others" type="xs:double"/>
+							<xs:element name="Sale_Global" type="xs:double"/>
 							<xs:element name="Total_Length_in_hrs" type="xs:short"/>
 							<xs:element name="Recommended_Req_PC" type="xs:string"/>
 							<xs:element name="Website">
