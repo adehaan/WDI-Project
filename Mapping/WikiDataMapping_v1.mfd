@@ -7,8 +7,8 @@
 		<structure>
 			<children>
 				<component name="Games" library="xml" uid="2" kind="14">
-					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="769" lty="25" rbx="1024" rby="679"/>
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="889" lty="17" rbx="1144" rby="671"/>
 					<data>
 						<root>
 							<header>
@@ -20,15 +20,90 @@
 							<entry name="FileInstance" ns="1" expanded="1">
 								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
 									<entry name="Games" expanded="1">
-										<entry name="Game" expanded="1"/>
+										<entry name="Game" inpkey="1" expanded="1">
+											<entry name="Publishers" expanded="1">
+												<entry name="Publisher" inpkey="2"/>
+											</entry>
+											<entry name="DeveloperStudios" expanded="1">
+												<entry name="DeveloperStudio" inpkey="3"/>
+											</entry>
+										</entry>
 									</entry>
 								</entry>
 							</entry>
 						</root>
-						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games.xml" instanceroot="{}Games"/>
+						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
+					</data>
+				</component>
+				<component name="Wikidata" library="text" uid="3" kind="16">
+					<properties/>
+					<view ltx="24" lty="40" rbx="304" rby="454"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Zeilen" outkey="4" expanded="1">
+										<entry name="developerLabel" outkey="5"/>
+										<entry name="publisherLabel" outkey="6"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" inputinstance="..\Datasets\videogames_wiki_filtered.csv" encoding="1000" byteorder="1" byteordermark="0">
+							<settings separator=";" quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="videogames_wiki_filtered" block="Zeilen">
+									<field0 name="Field1" type="string"/>
+									<field1 name="videogames" type="string"/>
+									<field2 name="videogamesLabel" type="string"/>
+									<field3 name="developerLabel" type="string"/>
+									<field4 name="publisherLabel" type="string"/>
+									<field5 name="designedByLabel" type="string"/>
+									<field6 name="composerLabel" type="string"/>
+									<field7 name="fictionalUniverseLabel" type="string"/>
+									<field8 name="followsLabel" type="string"/>
+									<field9 name="followedByLabel" type="string"/>
+									<field10 name="basedOnLabel" type="string"/>
+									<field11 name="gameModeLabel" type="string"/>
+									<field12 name="countryOriginLabel" type="string"/>
+									<field13 name="publicationDate" type="string"/>
+									<field14 name="genreLabel" type="string"/>
+									<field15 name="plattformLabel" type="string"/>
+									<field16 name="WebsiteLabel" type="string"/>
+									<field17 name="ESRBratingLabel" type="string"/>
+									<field18 name="CEROratingLabel" type="string"/>
+									<field19 name="PEGIratingLabel" type="string"/>
+								</names>
+							</settings>
+						</text>
 					</data>
 				</component>
 			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="4">
+						<edges>
+							<edge vertexkey="1"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="6">
+						<edges>
+							<edge vertexkey="2"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="3"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
 		</structure>
 	</component>
 </mapping>
