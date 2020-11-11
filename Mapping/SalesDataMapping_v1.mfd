@@ -21,6 +21,7 @@
 								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
 									<entry name="Games" expanded="1">
 										<entry name="Game" inpkey="13" expanded="1">
+											<entry name="id" type="attribute" inpkey="42"/>
 											<entry name="Rank" inpkey="14"/>
 											<entry name="Title" inpkey="15"/>
 											<entry name="Year" inpkey="16"/>
@@ -115,6 +116,24 @@
 						</root>
 					</data>
 				</component>
+				<component name="Generating IDs" library="user" uid="34" kind="19" visible="0" blackbox="0">
+					<view ltx="615" lty="20" rbx="662" rby="37"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="id" outkey="43" componentid="33"/>
+						</root>
+					</data>
+				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
@@ -184,12 +203,16 @@
 							<edge vertexkey="35"/>
 						</edges>
 					</vertex>
+					<vertex vertexkey="43">
+						<edges>
+							<edge vertexkey="42"/>
+						</edges>
+					</vertex>
 				</vertices>
 			</graph>
 		</structure>
 	</component>
 	<component name="Transforming NA" library="user" uid="17" inline="1" editable="1" blackbox="0">
-		<description/>
 		<structure>
 			<children>
 				<component name="equal" library="core" uid="18" kind="5">
@@ -282,6 +305,73 @@
 					<vertex vertexkey="3">
 						<edges>
 							<edge vertexkey="11"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="Generating IDs" library="user" uid="29" inline="1" editable="1" blackbox="0">
+		<description/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="30" kind="2">
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="301" lty="54" rbx="338" rby="70"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="31" kind="2">
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="300" lty="11" rbx="371" rby="27"/>
+					<data>
+						<constant value="Game_" datatype="string"/>
+					</data>
+				</component>
+				<component name="auto-number" library="core" uid="32" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint/>
+						<datapoint pos="2" key="2"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="424" rbx="551" rby="84"/>
+				</component>
+				<component name="id" library="core" uid="33" kind="7">
+					<sources>
+						<datapoint pos="0" key="6"/>
+					</sources>
+					<view ltx="651" rbx="686" rby="36"/>
+					<data>
+						<output datatype="anyType"/>
+						<parameter usageKind="output" name="id"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="2"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="3">
+						<edges>
+							<edge vertexkey="4"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="6"/>
 						</edges>
 					</vertex>
 				</vertices>
