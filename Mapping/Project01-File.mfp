@@ -3,7 +3,7 @@
 <Project Expanded="Yes" Type="Root" language="builtin" OutputDir="output\" Title="Project01-File" OutputName="Project01-File" Version="6">
 	<Folder FolderName="Mapping Folder" Expanded="Yes" Type="MappingFolder">
 		<File Type="Mapping" FilePath="RAWGMapping_v1.mfd"/>
-		<File Type="Mapping" FilePath="SalesDataMapping.mfd"/>
+		<File Type="Mapping" FilePath="SalesDataMapping_v1.mfd"/>
 		<File Type="Mapping" FilePath="WikiDataMapping_v1.mfd"/>
 	</Folder>
 </Project>

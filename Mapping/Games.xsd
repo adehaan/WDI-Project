@@ -115,6 +115,16 @@
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
+							<xs:element name="Contributors" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Contributor" maxOccurs="unbounded">
+											<xs:complexType>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
 						</xs:sequence>
 						<xs:attribute name="id" use="required" type="xs:string"/>
 					</xs:complexType>
