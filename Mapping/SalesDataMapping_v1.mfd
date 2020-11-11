@@ -6,96 +6,9 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="equal" library="core" uid="5" kind="5">
-					<sources>
-						<datapoint pos="0" key="25"/>
-						<datapoint pos="1" key="26"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="27"/>
-					</targets>
-					<view ltx="446" lty="315" rbx="497" rby="367"/>
-				</component>
-				<component name="constant" library="core" uid="7" kind="2">
-					<targets>
-						<datapoint pos="0" key="28"/>
-					</targets>
-					<view ltx="351" lty="351" rbx="409" rby="367"/>
-					<data>
-						<constant value="N/A" datatype="string"/>
-					</data>
-				</component>
-				<component name="Sales Data" library="text" uid="3" kind="16">
-					<properties/>
-					<view ltx="33" lty="82" rbx="318" rby="655"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1">
-									<entry name="Rows" outkey="1" expanded="1">
-										<entry name="Rank" outkey="2"/>
-										<entry name="Name" outkey="3"/>
-										<entry name="Platform" outkey="4"/>
-										<entry name="Year" outkey="5"/>
-										<entry name="Genre" outkey="6"/>
-										<entry name="Publisher" outkey="7"/>
-										<entry name="NA_Sales" outkey="8"/>
-										<entry name="EU_Sales" outkey="9"/>
-										<entry name="JP_Sales" outkey="10"/>
-										<entry name="Other_Sales" outkey="11"/>
-										<entry name="Global_Sales" outkey="12"/>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<text type="csv" inputinstance="..\Datasets\d1_vgsales.csv" encoding="1000" byteorder="1" byteordermark="0">
-							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
-								<names root="Sales Data" block="Rows">
-									<field0 name="Rank" type="integer"/>
-									<field1 name="Name" type="string"/>
-									<field2 name="Platform" type="string"/>
-									<field3 name="Year" type="integer"/>
-									<field4 name="Genre" type="string"/>
-									<field5 name="Publisher" type="string"/>
-									<field6 name="NA_Sales" type="double"/>
-									<field7 name="EU_Sales" type="double"/>
-									<field8 name="JP_Sales" type="double"/>
-									<field9 name="Other_Sales" type="double"/>
-									<field10 name="Global_Sales" type="double"/>
-								</names>
-							</settings>
-						</text>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="11" kind="2">
-					<targets>
-						<datapoint pos="0" key="29"/>
-					</targets>
-					<view ltx="388" lty="392" rbx="428" rby="408"/>
-					<data>
-						<constant datatype="string"/>
-					</data>
-				</component>
-				<component name="if-else" library="core" uid="6" kind="4">
-					<sources>
-						<datapoint pos="0" key="30"/>
-						<datapoint pos="1" key="31"/>
-						<datapoint pos="2" key="32"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="33"/>
-					</targets>
-					<view ltx="573" lty="297" rbx="665" rby="368"/>
-				</component>
 				<component name="Games" library="xml" uid="2" kind="14">
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="710" lty="62" rbx="956" rby="604"/>
+					<view ltx="1179" lty="31" rbx="1425" rby="573"/>
 					<data>
 						<root>
 							<header>
@@ -133,14 +46,74 @@
 						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
-				<component name="substitute-missing-with-xsi-nil" library="core" uid="10" kind="5">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint/>
-					</targets>
-					<view ltx="389" lty="482" rbx="551" rby="518"/>
+				<component name="Sales Data" library="text" uid="3" kind="16">
+					<properties/>
+					<view ltx="17" lty="31" rbx="302" rby="604"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="1" expanded="1">
+										<entry name="Rank" outkey="2"/>
+										<entry name="Name" outkey="3"/>
+										<entry name="Platform" outkey="4"/>
+										<entry name="Year" outkey="5"/>
+										<entry name="Genre" outkey="6"/>
+										<entry name="Publisher" outkey="7"/>
+										<entry name="NA_Sales" outkey="8"/>
+										<entry name="EU_Sales" outkey="9"/>
+										<entry name="JP_Sales" outkey="10"/>
+										<entry name="Other_Sales" outkey="11"/>
+										<entry name="Global_Sales" outkey="12"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" inputinstance="..\Datasets\d1_vgsales.csv" encoding="1000" byteorder="1" byteordermark="0">
+							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="d1_vgsales" block="Rows">
+									<field0 name="Rank" type="integer"/>
+									<field1 name="Name" type="string"/>
+									<field2 name="Platform" type="string"/>
+									<field3 name="Year" type="string"/>
+									<field4 name="Genre" type="string"/>
+									<field5 name="Publisher" type="string"/>
+									<field6 name="NA_Sales" type="double"/>
+									<field7 name="EU_Sales" type="double"/>
+									<field8 name="JP_Sales" type="double"/>
+									<field9 name="Other_Sales" type="double"/>
+									<field10 name="Global_Sales" type="double"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="Transforming NA" library="user" uid="24" kind="19" visible="0" blackbox="0">
+					<view ltx="637" lty="137" rbx="706" rby="154"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="a" inpkey="35" componentid="22"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Year" outkey="36" componentid="23"/>
+						</root>
+					</data>
 				</component>
 			</children>
 			<graph directed="1">
@@ -161,7 +134,7 @@
 							<edge vertexkey="15"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="33">
+					<vertex vertexkey="36">
 						<edges>
 							<edge vertexkey="16"/>
 						</edges>
@@ -208,23 +181,107 @@
 					</vertex>
 					<vertex vertexkey="5">
 						<edges>
-							<edge vertexkey="25"/>
-							<edge vertexkey="32"/>
+							<edge vertexkey="35"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="28">
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="Transforming NA" library="user" uid="17" inline="1" editable="1" blackbox="0">
+		<description/>
+		<structure>
+			<children>
+				<component name="equal" library="core" uid="18" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint pos="1" key="2"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="401" rbx="452" rby="52"/>
+				</component>
+				<component name="constant" library="core" uid="19" kind="2">
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="300" lty="36" rbx="358" rby="52"/>
+					<data>
+						<constant value="N/A" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="20" kind="2">
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="504" lty="64" rbx="544" rby="80"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="21" kind="4">
+					<sources>
+						<datapoint pos="0" key="9"/>
+						<datapoint pos="1" key="6"/>
+						<datapoint pos="2" key="7"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="565" rbx="657" rby="71"/>
+				</component>
+				<component name="a" library="core" uid="22" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view rbx="55" rby="36"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="a"/>
+					</data>
+				</component>
+				<component name="Year" library="core" uid="23" kind="7">
+					<sources>
+						<datapoint pos="0" key="11"/>
+					</sources>
+					<view ltx="757" rbx="803" rby="36"/>
+					<data>
+						<output datatype="anyType"/>
+						<parameter usageKind="output" name="Year"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="1">
 						<edges>
-							<edge vertexkey="26"/>
+							<edge vertexkey="2"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="27">
+					<vertex vertexkey="10">
 						<edges>
-							<edge vertexkey="30"/>
+							<edge vertexkey="4"/>
+							<edge vertexkey="7"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="29">
+					<vertex vertexkey="5">
 						<edges>
-							<edge vertexkey="31"/>
+							<edge vertexkey="6"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="8">
+						<edges>
+							<edge vertexkey="9"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="3">
+						<edges>
+							<edge vertexkey="11"/>
 						</edges>
 					</vertex>
 				</vertices>
