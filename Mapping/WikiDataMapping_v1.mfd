@@ -6,35 +6,6 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="Games" library="xml" uid="2" kind="14">
-					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="889" lty="17" rbx="1144" rby="671"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
-									<entry name="Games" expanded="1">
-										<entry name="Game" inpkey="1" expanded="1">
-											<entry name="Publishers" expanded="1">
-												<entry name="Publisher" inpkey="2"/>
-											</entry>
-											<entry name="DeveloperStudios" expanded="1">
-												<entry name="DeveloperStudio" inpkey="3"/>
-											</entry>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
-					</data>
-				</component>
 				<component name="Wikidata" library="text" uid="3" kind="16">
 					<properties/>
 					<view ltx="24" lty="40" rbx="304" rby="454"/>
@@ -51,6 +22,7 @@
 									<entry name="Zeilen" outkey="4" expanded="1">
 										<entry name="developerLabel" outkey="5"/>
 										<entry name="publisherLabel" outkey="6"/>
+										<entry name="plattformLabel" outkey="7"/>
 									</entry>
 								</entry>
 							</entry>
@@ -83,6 +55,62 @@
 						</text>
 					</data>
 				</component>
+				<component name="Games" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="1330" lty="-44" rbx="1585" rby="610"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Games" expanded="1">
+										<entry name="Game" inpkey="1" expanded="1">
+											<entry name="Age_groups" expanded="1">
+												<entry name="Age_group" expanded="1"/>
+											</entry>
+											<entry name="Publishers" expanded="1">
+												<entry name="Publisher" inpkey="2"/>
+											</entry>
+											<entry name="DeveloperStudios" expanded="1">
+												<entry name="DeveloperStudio" inpkey="3"/>
+											</entry>
+											<entry name="platforms" expanded="1">
+												<entry name="platform" inpkey="8"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
+					</data>
+				</component>
+				<component name="CSV seperater" library="user" uid="40" kind="19" visible="0" blackbox="0">
+					<view ltx="632" lty="339" rbx="744" rby="356"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value" inpkey="29" componentid="38"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="platform" outkey="30" componentid="39"/>
+						</root>
+					</data>
+				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
@@ -100,6 +128,191 @@
 					<vertex vertexkey="5">
 						<edges>
 							<edge vertexkey="3"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="30">
+						<edges>
+							<edge vertexkey="8"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="29"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="CSV seperater" library="user" uid="28" inline="1" editable="1" blackbox="0">
+		<description/>
+		<structure>
+			<children>
+				<component name="replace" library="lang" uid="29" kind="5">
+					<sources>
+						<datapoint pos="0" key="7"/>
+						<datapoint pos="1" key="6"/>
+						<datapoint pos="2" key="12"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="387" lty="34" rbx="479" rby="103"/>
+				</component>
+				<component name="constant" library="core" uid="30" kind="2">
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="300" lty="70" rbx="336" rby="87"/>
+					<data>
+						<constant value="[" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="31" kind="2">
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="465" rbx="501" rby="17"/>
+					<data>
+						<constant value="]" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="32" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint pos="1" key="20"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="677" lty="51" rbx="765" rby="104"/>
+				</component>
+				<component name="constant" library="core" uid="33" kind="2">
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="608" lty="128" rbx="652" rby="145"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="34" kind="2">
+					<targets>
+						<datapoint pos="0" key="17"/>
+					</targets>
+					<view ltx="781" lty="50" rbx="815" rby="67"/>
+					<data>
+						<constant value="&apos;" datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="35" kind="2">
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="333" lty="191" rbx="365" rby="208"/>
+					<data>
+						<constant datatype="anySimpleType"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="36" kind="5">
+					<sources>
+						<datapoint pos="0" key="16"/>
+						<datapoint pos="1" key="18"/>
+						<datapoint pos="2" key="13"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="14"/>
+					</targets>
+					<view ltx="841" lty="100" rbx="933" rby="169"/>
+				</component>
+				<component name="replace" library="lang" uid="37" kind="5">
+					<sources>
+						<datapoint pos="0" key="2"/>
+						<datapoint pos="1" key="11"/>
+						<datapoint pos="2" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="526" lty="35" rbx="618" rby="104"/>
+				</component>
+				<component name="value" library="core" uid="38" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view rbx="77" rby="37"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="value"/>
+					</data>
+				</component>
+				<component name="platform" library="core" uid="39" kind="7">
+					<sources>
+						<datapoint pos="0" key="22"/>
+					</sources>
+					<view ltx="1033" rbx="1101" rby="37"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="platform"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="2"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="3">
+						<edges>
+							<edge vertexkey="4"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="6"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="21">
+						<edges>
+							<edge vertexkey="7"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="8">
+						<edges>
+							<edge vertexkey="9"/>
+							<edge vertexkey="12"/>
+							<edge vertexkey="13"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="11"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="15">
+						<edges>
+							<edge vertexkey="16"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="17">
+						<edges>
+							<edge vertexkey="18"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="19">
+						<edges>
+							<edge vertexkey="20"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="14">
+						<edges>
+							<edge vertexkey="22"/>
 						</edges>
 					</vertex>
 				</vertices>
