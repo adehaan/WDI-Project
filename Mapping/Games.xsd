@@ -20,22 +20,10 @@
 							<xs:element name="Sale_Global" type="xs:double"/>
 							<xs:element name="Total_Length_in_hrs" type="xs:short"/>
 							<xs:element name="Recommended_Req_PC" type="xs:string"/>
-							<xs:element name="Website">
-								<xs:complexType>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="Country_of_Origin">
-								<xs:complexType>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="Sequel">
-								<xs:complexType>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="Prequel">
-								<xs:complexType>
-								</xs:complexType>
-							</xs:element>
+							<xs:element name="Website" type="xs:string"/>
+							<xs:element name="Country_of_Origin" type="xs:string"/>
+							<xs:element name="Sequel" type="xs:string"/>
+							<xs:element name="Prequel" type="xs:string"/>
 							<xs:element name="Stores">
 								<xs:complexType>
 									<xs:sequence>
