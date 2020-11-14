@@ -1,0 +1,902 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$ref": "#/definitions/object_05",
+  "definitions": {
+    "object_01": {
+      "title": "clip",
+      "type": "object",
+      "required": [
+        "clip",
+        "clips",
+        "video",
+        "preview"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "clip": {
+          "type": "string",
+          "format": "uri"
+        },
+        "clips": {
+          "title": "clips",
+          "type": "object",
+          "required": [
+            "320",
+            "640",
+            "full"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "320": {
+              "type": "string",
+              "format": "uri"
+            },
+            "640": {
+              "type": "string",
+              "format": "uri"
+            },
+            "full": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "video": {
+          "type": "string"
+        },
+        "preview": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "object_02": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "image": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "language": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "year_end": {
+          "type": "null"
+        },
+        "year_start": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "games_count": {
+          "type": "number"
+        },
+        "image_background": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "object_03": {
+      "type": "object",
+      "required": [
+        "platform"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "platform": {
+          "$ref": "#/definitions/object_02"
+        },
+        "released_at": {
+          "type": "string"
+        },
+        "requirements_en": {
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "minimum"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "minimum": {
+                  "type": "string"
+                },
+                "recommended": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "requirements_ru": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "minimum"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "minimum": {
+                  "type": "string"
+                },
+                "recommended": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "object_04": {
+      "type": "object",
+      "required": [
+        "id",
+        "store",
+        "url_en",
+        "url_ru"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "store": {
+          "$ref": "#/definitions/object_02"
+        },
+        "url_en": {
+          "type": "string",
+          "format": "uri"
+        },
+        "url_ru": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "object_05": {
+      "type": "object",
+      "required": [
+        "added",
+        "added_by_status",
+        "background_image",
+        "clip",
+        "dominant_color",
+        "genres",
+        "id",
+        "metacritic",
+        "name",
+        "parent_platforms",
+        "platforms",
+        "playtime",
+        "rating",
+        "rating_top",
+        "ratings",
+        "ratings_count",
+        "released",
+        "reviews_count",
+        "reviews_text_count",
+        "saturated_color",
+        "short_screenshots",
+        "slug",
+        "stores",
+        "suggestions_count",
+        "tags",
+        "tba",
+        "user_game",
+        "community_rating"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "added": {
+          "type": "number"
+        },
+        "added_by_status": {
+          "title": "added_by_status",
+          "type": "object",
+          "required": [
+            "yet",
+            "owned",
+            "beaten",
+            "toplay",
+            "dropped",
+            "playing"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "yet": {
+              "type": "number"
+            },
+            "owned": {
+              "type": "number"
+            },
+            "beaten": {
+              "type": "number"
+            },
+            "toplay": {
+              "type": "number"
+            },
+            "dropped": {
+              "type": "number"
+            },
+            "playing": {
+              "type": "number"
+            }
+          }
+        },
+        "background_image": {
+          "type": "string",
+          "format": "uri"
+        },
+        "clip": {
+          "$ref": "#/definitions/object_01"
+        },
+        "dominant_color": {
+          "type": "string"
+        },
+        "genres": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/object_02"
+              }
+            },
+            {
+              "$ref": "#/definitions/array_04"
+            },
+            {
+              "$ref": "#/definitions/array_07"
+            }
+          ]
+        },
+        "id": {
+          "type": "number"
+        },
+        "metacritic": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent_platforms": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/array_01"
+            },
+            {
+              "$ref": "#/definitions/array_05"
+            },
+            {
+              "$ref": "#/definitions/array_08"
+            },
+            {
+              "$ref": "#/definitions/array_09"
+            },
+            {
+              "$ref": "#/definitions/array_11"
+            },
+            {
+              "$ref": "#/definitions/array_12"
+            },
+            {
+              "$ref": "#/definitions/array_14"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/object_03"
+              }
+            }
+          ]
+        },
+        "platforms": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/object_03"
+              }
+            },
+            {
+              "$ref": "#/definitions/array_09"
+            },
+            {
+              "$ref": "#/definitions/array_01"
+            }
+          ]
+        },
+        "playtime": {
+          "type": "number"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "rating_top": {
+          "type": "number"
+        },
+        "ratings": {
+          "$ref": "#/definitions/array_02"
+        },
+        "ratings_count": {
+          "type": "number"
+        },
+        "released": {
+          "type": "string"
+        },
+        "reviews_count": {
+          "type": "number"
+        },
+        "reviews_text_count": {
+          "type": "number"
+        },
+        "saturated_color": {
+          "type": "string"
+        },
+        "short_screenshots": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/array_03"
+            },
+            {
+              "$ref": "#/definitions/array_16"
+            }
+          ]
+        },
+        "slug": {
+          "type": "string"
+        },
+        "stores": {
+          "anyOf": [
+            {
+              "type": "array",
+              "title": "stores",
+              "items": {
+                "$ref": "#/definitions/object_04"
+              }
+            },
+            {
+              "$ref": "#/definitions/array_06"
+            },
+            {
+              "$ref": "#/definitions/array_10"
+            },
+            {
+              "$ref": "#/definitions/array_13"
+            },
+            {
+              "$ref": "#/definitions/array_15"
+            }
+          ]
+        },
+        "suggestions_count": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/object_02"
+          }
+        },
+        "tba": {
+          "type": "number"
+        },
+        "user_game": {
+          "type": "null"
+        },
+        "community_rating": {
+          "type": "null"
+        }
+      }
+    },
+    "array_01": {
+      "type": "array",
+      "title": "parent_platforms, platforms, platforms",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 3,
+      "maxItems": 3,
+      "items": [
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        }
+      ]
+    },
+    "array_02": {
+      "type": "array",
+      "title": "ratings",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 4,
+      "maxItems": 4,
+      "items": [
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "title",
+            "count",
+            "percent"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "count": {
+              "type": "number"
+            },
+            "percent": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "title",
+            "count",
+            "percent"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "count": {
+              "type": "number"
+            },
+            "percent": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "title",
+            "count",
+            "percent"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "count": {
+              "type": "number"
+            },
+            "percent": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "title",
+            "count",
+            "percent"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "title": {
+              "type": "string"
+            },
+            "count": {
+              "type": "number"
+            },
+            "percent": {
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "array_03": {
+      "type": "array",
+      "title": "short_screenshots",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 7,
+      "maxItems": 7,
+      "items": [
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        }
+      ]
+    },
+    "array_04": {
+      "type": "array",
+      "title": "genres",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": [
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        }
+      ]
+    },
+    "array_05": {
+      "type": "array",
+      "title": "parent_platforms",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 5,
+      "maxItems": 5,
+      "items": [
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        }
+      ]
+    },
+    "array_06": {
+      "type": "array",
+      "title": "stores",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 4,
+      "maxItems": 4,
+      "items": [
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        }
+      ]
+    },
+    "array_07": {
+      "type": "array",
+      "title": "genres",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 3,
+      "maxItems": 3,
+      "items": [
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        }
+      ]
+    },
+    "array_08": {
+      "type": "array",
+      "title": "parent_platforms, platforms",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 4,
+      "maxItems": 4,
+      "items": [
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        }
+      ]
+    },
+    "array_09": {
+      "type": "array",
+      "title": "parent_platforms, platforms",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": [
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        }
+      ]
+    },
+    "array_10": {
+      "type": "array",
+      "title": "stores",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 2,
+      "maxItems": 2,
+      "items": [
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        }
+      ]
+    },
+    "array_11": {
+      "type": "array",
+      "title": "parent_platforms",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 6,
+      "maxItems": 6,
+      "items": [
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        }
+      ]
+    },
+    "array_12": {
+      "type": "array",
+      "title": "parent_platforms, platforms",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 7,
+      "maxItems": 7,
+      "items": [
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        }
+      ]
+    },
+    "array_13": {
+      "type": "array",
+      "title": "stores",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 3,
+      "maxItems": 3,
+      "items": [
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        }
+      ]
+    },
+    "array_14": {
+      "type": "array",
+      "title": "parent_platforms",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 8,
+      "maxItems": 8,
+      "items": [
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        },
+        {
+          "$ref": "#/definitions/object_03"
+        }
+      ]
+    },
+    "array_15": {
+      "type": "array",
+      "title": "stores",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 9,
+      "maxItems": 9,
+      "items": [
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        },
+        {
+          "$ref": "#/definitions/object_04"
+        }
+      ]
+    },
+    "array_16": {
+      "type": "array",
+      "title": "short_screenshots",
+      "description": "tuple type",
+      "additionalItems": false,
+      "minItems": 6,
+      "maxItems": 6,
+      "items": [
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        },
+        {
+          "$ref": "#/definitions/object_02"
+        }
+      ]
+    }
+  }
+}
