@@ -12,7 +12,7 @@
 		<structure>
 			<children>
 				<component name="Generating IDs" library="user" uid="482" kind="19" visible="0">
-					<view ltx="839" lty="-435" rbx="886" rby="-418"/>
+					<view ltx="839" lty="-435" rbx="886" rby="-419"/>
 					<data>
 						<root>
 							<header>
@@ -30,7 +30,7 @@
 					</data>
 				</component>
 				<component name="Publication Date parser to absolute year" library="user" uid="349" kind="19" visible="0">
-					<view ltx="500" lty="-234" rbx="612" rby="-217"/>
+					<view ltx="500" lty="-234" rbx="614" rby="-218"/>
 					<data>
 						<root>
 							<header>
@@ -51,7 +51,7 @@
 					</data>
 				</component>
 				<component name="CSV Separator functions for developer publisher etc" library="user" uid="360" kind="19" visible="0">
-					<view ltx="500" lty="-57" rbx="696" rby="-7"/>
+					<view ltx="500" lty="-57" rbx="703" rby="-8"/>
 					<data>
 						<root>
 							<header>
@@ -76,7 +76,7 @@
 					</data>
 				</component>
 				<component name="Splitter functions for prequel_Sequel_Year_Genre_Website" library="user" uid="517" kind="19" visible="0">
-					<view ltx="500" lty="-175" rbx="653" rby="-92"/>
+					<view ltx="500" lty="-175" rbx="656" rby="-94"/>
 					<data>
 						<root>
 							<header>
@@ -101,81 +101,6 @@
 							<entry name="nodesrows" outkey="274" componentid="515"/>
 							<entry name="Website" outkey="282" componentid="514"/>
 							<entry name="Genre" outkey="283" componentid="516"/>
-						</root>
-					</data>
-				</component>
-				<component name="Games" library="xml" uid="2" kind="14">
-					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="962" lty="-412" rbx="1217" rby="242"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
-									<entry name="Games" expanded="1">
-										<entry name="Game" inpkey="1" expanded="1">
-											<entry name="id" type="attribute" inpkey="256"/>
-											<entry name="Title" inpkey="51"/>
-											<entry name="Year" inpkey="152"/>
-											<entry name="Website" inpkey="261"/>
-											<entry name="Country_of_Origin" inpkey="264"/>
-											<entry name="Sequel" inpkey="197"/>
-											<entry name="Prequel" inpkey="198"/>
-											<entry name="Age_groups" expanded="1">
-												<entry name="Age_group" inpkey="37" expanded="1">
-													<entry name="id" type="attribute" inpkey="38"/>
-													<entry name="name" type="attribute" inpkey="124"/>
-												</entry>
-											</entry>
-											<entry name="Publishers" expanded="1">
-												<entry name="Publisher" inpkey="2"/>
-											</entry>
-											<entry name="DeveloperStudios" expanded="1">
-												<entry name="DeveloperStudio" inpkey="3"/>
-											</entry>
-											<entry name="Genres" expanded="1">
-												<entry name="Genre" inpkey="257"/>
-											</entry>
-											<entry name="platforms" expanded="1">
-												<entry name="platform" inpkey="8"/>
-											</entry>
-											<entry name="Modes" expanded="1">
-												<entry name="Mode" inpkey="146"/>
-											</entry>
-											<entry name="Contributors" expanded="1">
-												<entry name="Contributor" inpkey="317"/>
-											</entry>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
-					</data>
-				</component>
-				<component name="CSV_Seperated" library="user" uid="324" kind="19" visible="0">
-					<view ltx="500" lty="141" rbx="642" rby="158"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="145" componentid="207"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_Out" outkey="144" componentid="224"/>
 						</root>
 					</data>
 				</component>
@@ -265,8 +190,82 @@
 						</root>
 					</data>
 				</component>
+				<component name="CSV_Seperated" library="user" uid="324" kind="19" visible="0">
+					<view ltx="510" lty="167" rbx="655" rby="183"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="145" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="144" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="Games" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="962" lty="-412" rbx="1217" rby="242"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Games" expanded="1">
+										<entry name="Game" inpkey="1" expanded="1">
+											<entry name="id" type="attribute" inpkey="256"/>
+											<entry name="Title" inpkey="51"/>
+											<entry name="Year" inpkey="152"/>
+											<entry name="Website" inpkey="261"/>
+											<entry name="Country_of_Origin" inpkey="264"/>
+											<entry name="Sequel" inpkey="197"/>
+											<entry name="Prequel" inpkey="198"/>
+											<entry name="Age_groups" inpkey="319" expanded="1">
+												<entry name="ESRB" expanded="1"/>
+												<entry name="CERO" expanded="1"/>
+												<entry name="PEGI" expanded="1"/>
+											</entry>
+											<entry name="Publishers" expanded="1">
+												<entry name="Publisher" inpkey="2"/>
+											</entry>
+											<entry name="DeveloperStudios" expanded="1">
+												<entry name="DeveloperStudio" inpkey="3"/>
+											</entry>
+											<entry name="Genres" expanded="1">
+												<entry name="Genre" inpkey="257"/>
+											</entry>
+											<entry name="platforms" expanded="1">
+												<entry name="platform" inpkey="8"/>
+											</entry>
+											<entry name="Modes" expanded="1">
+												<entry name="Mode" inpkey="146"/>
+											</entry>
+											<entry name="Contributors" expanded="1">
+												<entry name="Contributor" inpkey="317"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
+					</data>
+				</component>
 				<component name="Ratings to AgeGroup Resolver" library="user" uid="390" kind="19" visible="0">
-					<view ltx="500" lty="39" rbx="762" rby="93"/>
+					<view ltx="486" lty="14" rbx="778" rby="136"/>
 					<data>
 						<root>
 							<header>
@@ -285,9 +284,10 @@
 								</namespaces>
 							</header>
 							<entry name="Games" componentid="386" expanded="1">
-								<entry name="Age_group" outkey="194" expanded="1">
-									<entry name="id" type="attribute" outkey="195"/>
-									<entry name="name" type="attribute" outkey="196"/>
+								<entry name="Age_groups" outkey="320" expanded="1">
+									<entry name="ESRB" expanded="1"/>
+									<entry name="CERO" expanded="1"/>
+									<entry name="PEGI" expanded="1"/>
 								</entry>
 							</entry>
 						</root>
@@ -300,10 +300,7 @@
 			<edge from="174" to="2"/>
 			<edge from="173" to="3"/>
 			<edge from="175" to="8"/>
-			<edge from="194" to="37"/>
-			<edge from="195" to="38"/>
 			<edge from="50" to="51"/>
-			<edge from="196" to="124"/>
 			<edge from="147" to="145"/>
 			<edge from="144" to="146"/>
 			<edge from="221" to="152"/>
@@ -328,6 +325,9 @@
 			<edge from="308" to="315"/>
 			<edge from="307" to="316"/>
 			<edge from="318" to="317"/>
+			<edge from="320" to="319">
+				<data type="2"/>
+			</edge>
 		</connections>
 	</component>
 	<component name="Remove_delimeters" library="user" uid="69" inline="1">
@@ -407,87 +407,49 @@
 		</description>
 		<structure>
 			<children>
-				<component name="constant" library="core" uid="317" kind="2">
-					<targets>
-						<datapoint pos="0" key="229"/>
-					</targets>
-					<view ltx="1149" lty="23" rbx="1191" rby="39"/>
-					<data>
-						<constant value=";" datatype="string"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="323" kind="2">
-					<targets>
-						<datapoint pos="0" key="232"/>
-					</targets>
-					<view ltx="1316" lty="305" rbx="1354" rby="321"/>
-					<data>
-						<constant value="2" datatype="decimal"/>
-					</data>
-				</component>
-				<component name="item-at" library="core" uid="321" kind="5">
+				<component name="empty" library="lang" uid="573" kind="5">
 					<sources>
-						<datapoint pos="0" key="236"/>
-						<datapoint pos="1" key="237"/>
+						<datapoint pos="0" key="270"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="238"/>
+						<datapoint pos="0" key="277"/>
 					</targets>
-					<view ltx="1427" lty="268" rbx="1526" rby="321"/>
+					<view ltx="271" lty="80" rbx="341" rby="117"/>
 				</component>
-				<component name="item-at" library="core" uid="320" kind="5">
+				<component name="empty" library="lang" uid="578" kind="5">
 					<sources>
-						<datapoint pos="0" key="233"/>
-						<datapoint pos="1" key="234"/>
+						<datapoint pos="0" key="286"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="235"/>
+						<datapoint pos="0" key="287"/>
 					</targets>
-					<view ltx="1427" lty="73" rbx="1526" rby="126"/>
+					<view ltx="277" lty="236" rbx="347" rby="273"/>
 				</component>
-				<component name="constant" library="core" uid="322" kind="2">
-					<targets>
-						<datapoint pos="0" key="231"/>
-					</targets>
-					<view ltx="1316" lty="110" rbx="1354" rby="126"/>
-					<data>
-						<constant value="1" datatype="decimal"/>
-					</data>
-				</component>
-				<component name="if-else" library="core" uid="574" kind="4">
+				<component name="PEGI" library="core" uid="382" kind="6">
 					<sources>
-						<datapoint pos="0" key="278"/>
 						<datapoint/>
-						<datapoint pos="2" key="272"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="273"/>
+						<datapoint pos="0" key="240"/>
 					</targets>
-					<view ltx="536" lty="115" rbx="630" rby="186"/>
+					<view ltx="17" lty="278" rbx="90" rby="315"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="PEGI" sequence="1"/>
+					</data>
 				</component>
-				<component name="tokenize" library="core" uid="318" kind="5">
+				<component name="empty" library="lang" uid="570" kind="5">
 					<sources>
-						<datapoint pos="0" key="228"/>
-						<datapoint pos="1" key="230"/>
+						<datapoint pos="0" key="266"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="227"/>
+						<datapoint pos="0" key="267"/>
 					</targets>
-					<view ltx="1221" lty="174" rbx="1307" rby="227"/>
-				</component>
-				<component name="tokenize" library="core" uid="300" kind="5">
-					<sources>
-						<datapoint pos="0" key="207"/>
-						<datapoint pos="1" key="209"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="206"/>
-					</targets>
-					<view ltx="1041" lty="131" rbx="1127" rby="184"/>
+					<view ltx="270" lty="-53" rbx="340" rby="-16"/>
 				</component>
 				<component name="document" library="xml" uid="298" kind="14">
 					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="1680" lty="125" rbx="1820" rby="217"/>
+					<view ltx="980" lty="42" rbx="1122" rby="234"/>
 					<data>
 						<root>
 							<header>
@@ -496,9 +458,14 @@
 								</namespaces>
 							</header>
 							<entry name="Age_groups" expanded="1">
-								<entry name="Age_group" inpkey="224" expanded="1">
-									<entry name="id" type="attribute" inpkey="225"/>
-									<entry name="name" type="attribute" inpkey="226"/>
+								<entry name="ESRB" inpkey="316" expanded="1">
+									<entry name="Rating" inpkey="317"/>
+								</entry>
+								<entry name="CERO" inpkey="318" expanded="1">
+									<entry name="Rating" inpkey="319"/>
+								</entry>
+								<entry name="PEGI" inpkey="320" expanded="1">
+									<entry name="Rating" inpkey="321"/>
 								</entry>
 							</entry>
 						</root>
@@ -510,129 +477,16 @@
 						</parameter>
 					</data>
 				</component>
-				<component name="constant" library="core" uid="299" kind="2">
-					<targets>
-						<datapoint pos="0" key="208"/>
-					</targets>
-					<view ltx="969" lty="223" rbx="1011" rby="239"/>
-					<data>
-						<constant value="," datatype="string"/>
-					</data>
-				</component>
-				<component name="concat" library="core" uid="576" kind="5" growable="1" growablebasename="value">
+				<component name="if-else" library="core" uid="574" kind="4">
 					<sources>
-						<datapoint pos="0" key="281"/>
-						<datapoint pos="1" key="282"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="295"/>
-					</targets>
-					<view ltx="829" lty="125" rbx="904" rby="179"/>
-				</component>
-				<component name="empty" library="lang" uid="573" kind="5">
-					<sources>
-						<datapoint pos="0" key="270"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="277"/>
-					</targets>
-					<view ltx="271" lty="80" rbx="340" rby="117"/>
-				</component>
-				<component name="concat" library="core" uid="565" kind="5" growable="1" growablebasename="value">
-					<sources>
-						<datapoint pos="0" key="253"/>
-						<datapoint pos="1" key="252"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="251"/>
-					</targets>
-					<view ltx="727" lty="51" rbx="802" rby="105"/>
-				</component>
-				<component name="ESRB_Values" library="core" uid="126" kind="6">
-					<sources>
+						<datapoint pos="0" key="278"/>
 						<datapoint/>
+						<datapoint pos="2" key="272"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="12"/>
+						<datapoint pos="0" key="273"/>
 					</targets>
-					<view ltx="17" lty="-53" rbx="126" rby="-16"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="ESRB_Values" sequence="1"/>
-					</data>
-				</component>
-				<component name="concat" library="core" uid="611" kind="5" growable="1" growablebasename="value">
-					<sources>
-						<datapoint pos="0" key="304"/>
-						<datapoint pos="1" key="306"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="305"/>
-					</targets>
-					<view ltx="271" lty="5" rbx="346" rby="59"/>
-				</component>
-				<component name="constant" library="core" uid="612" kind="2">
-					<targets>
-						<datapoint pos="0" key="307"/>
-					</targets>
-					<view ltx="202" lty="43" rbx="244" rby="59"/>
-					<data>
-						<constant value="," datatype="string"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="613" kind="2">
-					<targets>
-						<datapoint pos="0" key="309"/>
-					</targets>
-					<view ltx="202" lty="169" rbx="244" rby="185"/>
-					<data>
-						<constant value="," datatype="string"/>
-					</data>
-				</component>
-				<component name="CERO" library="core" uid="381" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="239"/>
-					</targets>
-					<view ltx="12" lty="80" rbx="89" rby="117"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="CERO" sequence="1"/>
-					</data>
-				</component>
-				<component name="concat" library="core" uid="614" kind="5" growable="1" growablebasename="value">
-					<sources>
-						<datapoint pos="0" key="308"/>
-						<datapoint pos="1" key="310"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="311"/>
-					</targets>
-					<view ltx="271" lty="131" rbx="346" rby="185"/>
-				</component>
-				<component name="empty" library="lang" uid="578" kind="5">
-					<sources>
-						<datapoint pos="0" key="286"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="287"/>
-					</targets>
-					<view ltx="277" lty="236" rbx="346" rby="273"/>
-				</component>
-				<component name="PEGI" library="core" uid="382" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="240"/>
-					</targets>
-					<view ltx="17" lty="278" rbx="89" rby="315"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="PEGI" sequence="1"/>
-					</data>
+					<view ltx="536" lty="115" rbx="632" rby="187"/>
 				</component>
 				<component name="if-else" library="core" uid="581" kind="4">
 					<sources>
@@ -643,7 +497,7 @@
 					<targets>
 						<datapoint pos="0" key="294"/>
 					</targets>
-					<view ltx="536" lty="269" rbx="630" rby="340"/>
+					<view ltx="536" lty="269" rbx="632" rby="341"/>
 				</component>
 				<component name="if-else" library="core" uid="569" kind="4">
 					<sources>
@@ -654,48 +508,52 @@
 					<targets>
 						<datapoint pos="0" key="263"/>
 					</targets>
-					<view ltx="537" lty="-32" rbx="631" rby="39"/>
+					<view ltx="537" lty="-32" rbx="633" rby="40"/>
 				</component>
-				<component name="empty" library="lang" uid="570" kind="5">
+				<component name="ESRB_Values" library="core" uid="126" kind="6">
 					<sources>
-						<datapoint pos="0" key="266"/>
+						<datapoint/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="267"/>
+						<datapoint pos="0" key="12"/>
 					</targets>
-					<view ltx="270" lty="-53" rbx="339" rby="-16"/>
+					<view ltx="17" lty="-53" rbx="127" rby="-16"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="ESRB_Values" sequence="1"/>
+					</data>
+				</component>
+				<component name="CERO" library="core" uid="381" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="239"/>
+					</targets>
+					<view ltx="12" lty="80" rbx="91" rby="117"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="CERO" sequence="1"/>
+					</data>
 				</component>
 			</children>
 		</structure>
 		<connections>
-			<edge from="295" to="207"/>
-			<edge from="208" to="209"/>
-			<edge from="206" to="224"/>
-			<edge from="235" to="225"/>
-			<edge from="238" to="226"/>
-			<edge from="206" to="228"/>
-			<edge from="229" to="230"/>
-			<edge from="227" to="233"/>
-			<edge from="231" to="234"/>
-			<edge from="227" to="236"/>
-			<edge from="232" to="237"/>
-			<edge from="273" to="252"/>
-			<edge from="263" to="253"/>
-			<edge from="305" to="264"/>
+			<edge from="12" to="264"/>
 			<edge from="267" to="265"/>
 			<edge from="12" to="266"/>
 			<edge from="239" to="270"/>
-			<edge from="311" to="272"/>
+			<edge from="239" to="272"/>
 			<edge from="277" to="278"/>
-			<edge from="251" to="281"/>
-			<edge from="294" to="282"/>
 			<edge from="240" to="286"/>
 			<edge from="287" to="288"/>
 			<edge from="240" to="290"/>
-			<edge from="12" to="304"/>
-			<edge from="307" to="306"/>
-			<edge from="239" to="308"/>
-			<edge from="309" to="310"/>
+			<edge from="263" to="316"/>
+			<edge from="263" to="317"/>
+			<edge from="273" to="318"/>
+			<edge from="273" to="319"/>
+			<edge from="294" to="320"/>
+			<edge from="294" to="321"/>
 		</connections>
 	</component>
 	<component name="CSV_Seperated" library="user" uid="205" inline="1">
@@ -1100,100 +958,16 @@
 					<targets>
 						<datapoint pos="0" key="45"/>
 					</targets>
-					<view ltx="136" lty="-1" rbx="205" rby="36"/>
-				</component>
-				<component name="CSV_Seperated" library="user" uid="596" kind="19" visible="0">
-					<view ltx="433" lty="140" rbx="575" rby="157"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="54" componentid="207"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_Out" outkey="55" componentid="224"/>
-						</root>
-					</data>
+					<view ltx="136" lty="-1" rbx="206" rby="36"/>
 				</component>
 				<component name="ESRB_Values" library="core" uid="377" kind="7">
 					<sources>
 						<datapoint pos="0" key="25"/>
 					</sources>
-					<view ltx="762" lty="21" rbx="847" rby="58"/>
+					<view ltx="762" lty="21" rbx="846" rby="58"/>
 					<data>
 						<output datatype="string"/>
 						<parameter usageKind="output" name="ESRB_Values"/>
-					</data>
-				</component>
-				<component name="ESRB" library="core" uid="375" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="28"/>
-					</targets>
-					<view rbx="74" rby="37"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="ESRB"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="594" kind="2">
-					<targets>
-						<datapoint pos="0" key="52"/>
-					</targets>
-					<view ltx="231" lty="74" rbx="295" rby="90"/>
-					<data>
-						<constant value="ESRB" datatype="string"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="605" kind="2">
-					<targets>
-						<datapoint pos="0" key="82"/>
-					</targets>
-					<view ltx="297" lty="361" rbx="339" rby="377"/>
-					<data>
-						<constant value=";" datatype="string"/>
-					</data>
-				</component>
-				<component name="concat" library="core" uid="607" kind="5" growable="1" growablebasename="value">
-					<sources>
-						<datapoint pos="0" key="81"/>
-						<datapoint pos="1" key="83"/>
-						<datapoint pos="2" key="79"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="74"/>
-					</targets>
-					<view ltx="367" lty="286" rbx="451" rby="357"/>
-				</component>
-				<component name="CSV_Seperated" library="user" uid="608" kind="19" visible="0">
-					<view ltx="479" lty="346" rbx="621" rby="363"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="75" componentid="207"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_Out" outkey="72" componentid="224"/>
-						</root>
 					</data>
 				</component>
 				<component name="empty" library="lang" uid="606" kind="5">
@@ -1203,37 +977,7 @@
 					<targets>
 						<datapoint pos="0" key="77"/>
 					</targets>
-					<view ltx="186" lty="239" rbx="255" rby="276"/>
-				</component>
-				<component name="constant" library="core" uid="604" kind="2">
-					<targets>
-						<datapoint pos="0" key="80"/>
-					</targets>
-					<view ltx="277" lty="280" rbx="344" rby="296"/>
-					<data>
-						<constant value="CERO" datatype="string"/>
-					</data>
-				</component>
-				<component name="CSV_Seperated" library="user" uid="602" kind="19" visible="0">
-					<view ltx="525" lty="461" rbx="667" rby="478"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="62" componentid="207"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_Out" outkey="59" componentid="224"/>
-						</root>
-					</data>
+					<view ltx="186" lty="239" rbx="256" rby="276"/>
 				</component>
 				<component name="if-else" library="core" uid="592" kind="4">
 					<sources>
@@ -1244,71 +988,7 @@
 					<targets>
 						<datapoint pos="0" key="47"/>
 					</targets>
-					<view ltx="615" lty="-2" rbx="709" rby="69"/>
-				</component>
-				<component name="concat" library="core" uid="601" kind="5" growable="1" growablebasename="value">
-					<sources>
-						<datapoint pos="0" key="68"/>
-						<datapoint pos="1" key="70"/>
-						<datapoint pos="2" key="66"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="61"/>
-					</targets>
-					<view ltx="382" lty="445" rbx="466" rby="516"/>
-				</component>
-				<component name="constant" library="core" uid="598" kind="2">
-					<targets>
-						<datapoint pos="0" key="67"/>
-					</targets>
-					<view ltx="234" lty="445" rbx="296" rby="461"/>
-					<data>
-						<constant value="PEGI" datatype="string"/>
-					</data>
-				</component>
-				<component name="empty" library="lang" uid="600" kind="5">
-					<sources>
-						<datapoint pos="0" key="71"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="64"/>
-					</targets>
-					<view ltx="185" lty="398" rbx="254" rby="435"/>
-				</component>
-				<component name="CERO" library="core" uid="376" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="29"/>
-					</targets>
-					<view ltx="5" lty="257" rbx="82" rby="294"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="CERO"/>
-					</data>
-				</component>
-				<component name="PEGI" library="core" uid="374" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="30"/>
-					</targets>
-					<view ltx="4" lty="377" rbx="76" rby="414"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="PEGI"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="599" kind="2">
-					<targets>
-						<datapoint pos="0" key="69"/>
-					</targets>
-					<view ltx="255" lty="512" rbx="297" rby="528"/>
-					<data>
-						<constant value=";" datatype="string"/>
-					</data>
+					<view ltx="615" lty="-2" rbx="711" rby="70"/>
 				</component>
 				<component name="if-else" library="core" uid="603" kind="4">
 					<sources>
@@ -1319,7 +999,7 @@
 					<targets>
 						<datapoint pos="0" key="76"/>
 					</targets>
-					<view ltx="665" lty="238" rbx="759" rby="309"/>
+					<view ltx="665" lty="238" rbx="761" rby="310"/>
 				</component>
 				<component name="if-else" library="core" uid="597" kind="4">
 					<sources>
@@ -1330,7 +1010,7 @@
 					<targets>
 						<datapoint pos="0" key="63"/>
 					</targets>
-					<view ltx="730" lty="408" rbx="824" rby="479"/>
+					<view ltx="730" lty="408" rbx="826" rby="480"/>
 				</component>
 				<component name="CERO" library="core" uid="379" kind="7">
 					<sources>
@@ -1352,31 +1032,11 @@
 						<parameter usageKind="output" name="PEGI"/>
 					</data>
 				</component>
-				<component name="concat" library="core" uid="595" kind="5" growable="1" growablebasename="value">
-					<sources>
-						<datapoint pos="0" key="53"/>
-						<datapoint pos="1" key="51"/>
-						<datapoint pos="2" key="58"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="49"/>
-					</targets>
-					<view ltx="321" lty="80" rbx="405" rby="151"/>
-				</component>
-				<component name="constant" library="core" uid="593" kind="2">
-					<targets>
-						<datapoint pos="0" key="50"/>
-					</targets>
-					<view ltx="201" lty="168" rbx="243" rby="184"/>
-					<data>
-						<constant value=";" datatype="string"/>
-					</data>
-				</component>
 				<component name="constant" library="core" uid="617" kind="2">
 					<targets>
 						<datapoint pos="0" key="85"/>
 					</targets>
-					<view ltx="533" lty="34" rbx="573" rby="50"/>
+					<view ltx="533" lty="34" rbx="573" rby="51"/>
 					<data>
 						<constant datatype="string"/>
 					</data>
@@ -1385,7 +1045,7 @@
 					<targets>
 						<datapoint pos="0" key="86"/>
 					</targets>
-					<view ltx="572" lty="277" rbx="612" rby="293"/>
+					<view ltx="572" lty="277" rbx="612" rby="294"/>
 					<data>
 						<constant datatype="string"/>
 					</data>
@@ -1394,10 +1054,121 @@
 					<targets>
 						<datapoint pos="0" key="88"/>
 					</targets>
-					<view ltx="656" lty="397" rbx="696" rby="413"/>
+					<view ltx="656" lty="397" rbx="696" rby="414"/>
 					<data>
 						<constant datatype="string"/>
 					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="596" kind="19" visible="0">
+					<view ltx="428" lty="76" rbx="573" rby="92"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="54" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="55" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="608" kind="19" visible="0">
+					<view ltx="382" lty="313" rbx="527" rby="329"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="75" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="72" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="602" kind="19" visible="0">
+					<view ltx="467" lty="457" rbx="612" rby="473"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="62" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="59" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="ESRB" library="core" uid="375" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="28"/>
+					</targets>
+					<view rbx="75" rby="37"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="ESRB"/>
+					</data>
+				</component>
+				<component name="CERO" library="core" uid="376" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="29"/>
+					</targets>
+					<view ltx="5" lty="257" rbx="84" rby="294"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="CERO"/>
+					</data>
+				</component>
+				<component name="PEGI" library="core" uid="374" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="4" lty="377" rbx="77" rby="414"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="PEGI"/>
+					</data>
+				</component>
+				<component name="empty" library="lang" uid="600" kind="5">
+					<sources>
+						<datapoint pos="0" key="71"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="64"/>
+					</targets>
+					<view ltx="196" lty="377" rbx="266" rby="414"/>
 				</component>
 			</children>
 		</structure>
@@ -1407,25 +1178,16 @@
 			<edge from="76" to="27"/>
 			<edge from="85" to="46"/>
 			<edge from="45" to="48"/>
-			<edge from="50" to="51"/>
-			<edge from="52" to="53"/>
-			<edge from="49" to="54"/>
+			<edge from="28" to="54"/>
 			<edge from="55" to="56"/>
 			<edge from="28" to="57"/>
-			<edge from="28" to="58"/>
 			<edge from="59" to="60"/>
-			<edge from="61" to="62"/>
+			<edge from="30" to="62"/>
 			<edge from="64" to="65"/>
-			<edge from="30" to="66"/>
-			<edge from="67" to="68"/>
-			<edge from="69" to="70"/>
 			<edge from="30" to="71"/>
 			<edge from="72" to="73"/>
-			<edge from="74" to="75"/>
+			<edge from="29" to="75"/>
 			<edge from="77" to="78"/>
-			<edge from="29" to="79"/>
-			<edge from="80" to="81"/>
-			<edge from="82" to="83"/>
 			<edge from="29" to="84"/>
 			<edge from="86" to="87"/>
 			<edge from="88" to="89"/>
@@ -1434,32 +1196,6 @@
 	<component name="Ratings to AgeGroup Resolver" library="user" uid="383" inline="1">
 		<structure>
 			<children>
-				<component name="document" library="xml" uid="386" kind="14">
-					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="752" rbx="902" rby="200"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Age_group" inpkey="13" expanded="1">
-								<entry name="id" type="attribute" inpkey="14"/>
-								<entry name="name" type="attribute" inpkey="15"/>
-							</entry>
-						</root>
-						<document schema="Games.xsd"/>
-						<parameter usageKind="output" name="Games">
-							<root>
-								<entry name="Games"/>
-								<entry name="Game"/>
-								<entry name="Age_groups"/>
-								<entry name="Age_group"/>
-							</root>
-						</parameter>
-					</data>
-				</component>
 				<component name="CERO" library="core" uid="387" kind="6">
 					<sources>
 						<datapoint/>
@@ -1467,7 +1203,7 @@
 					<targets>
 						<datapoint pos="0" key="16"/>
 					</targets>
-					<view lty="50" rbx="77" rby="87"/>
+					<view lty="50" rbx="79" rby="87"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="CERO"/>
@@ -1480,7 +1216,7 @@
 					<targets>
 						<datapoint pos="0" key="17"/>
 					</targets>
-					<view rbx="74" rby="37"/>
+					<view rbx="75" rby="37"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="ESRB"/>
@@ -1493,44 +1229,14 @@
 					<targets>
 						<datapoint pos="0" key="18"/>
 					</targets>
-					<view lty="100" rbx="72" rby="137"/>
+					<view lty="100" rbx="73" rby="137"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="PEGI"/>
 					</data>
 				</component>
-				<component name="Age_group" library="user" uid="385" kind="19" visible="0">
-					<view ltx="479" rbx="652" rby="81"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="ESRB_Values" inpkey="7" componentid="126"/>
-							<entry name="CERO" inpkey="12" componentid="381"/>
-							<entry name="PEGI" inpkey="10" componentid="382"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Age_groups" componentid="298" expanded="1">
-								<entry name="Age_groups" expanded="1">
-									<entry name="Age_group" outkey="2" expanded="1">
-										<entry name="id" type="attribute" outkey="1"/>
-										<entry name="name" type="attribute" outkey="3"/>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-					</data>
-				</component>
 				<component name="Multple to single element list flatener" library="user" uid="384" kind="19" visible="0">
-					<view ltx="300" rbx="436" rby="50"/>
+					<view ltx="300" rbx="439" rby="49"/>
 					<data>
 						<root>
 							<header>
@@ -1554,6 +1260,60 @@
 						</root>
 					</data>
 				</component>
+				<component name="document" library="xml" uid="386" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="752" rbx="902" rby="200"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Age_groups" inpkey="20" expanded="1">
+								<entry name="ESRB" expanded="1"/>
+								<entry name="CERO" expanded="1"/>
+								<entry name="PEGI" expanded="1"/>
+							</entry>
+						</root>
+						<document schema="Games.xsd"/>
+						<parameter usageKind="output" name="Games">
+							<root>
+								<entry name="Games"/>
+								<entry name="Game"/>
+								<entry name="Age_groups"/>
+							</root>
+						</parameter>
+					</data>
+				</component>
+				<component name="Age_group" library="user" uid="385" kind="19" visible="0">
+					<view ltx="479" rbx="666" rby="178"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="ESRB_Values" inpkey="7" componentid="126"/>
+							<entry name="CERO" inpkey="12" componentid="381"/>
+							<entry name="PEGI" inpkey="10" componentid="382"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Age_groups" componentid="298" expanded="1">
+								<entry name="Age_groups" outkey="19" expanded="1">
+									<entry name="ESRB" expanded="1"/>
+									<entry name="CERO" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
 			</children>
 		</structure>
 		<connections>
@@ -1563,9 +1323,9 @@
 			<edge from="17" to="8"/>
 			<edge from="9" to="10"/>
 			<edge from="11" to="12"/>
-			<edge from="2" to="13"/>
-			<edge from="1" to="14"/>
-			<edge from="3" to="15"/>
+			<edge from="19" to="20">
+				<data type="2"/>
+			</edge>
 		</connections>
 	</component>
 	<component name="Splitter functions for prequel_Sequel_Year_Genre_Website" library="user" uid="501" inline="1">
