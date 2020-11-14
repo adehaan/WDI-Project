@@ -107,9 +107,7 @@
 							<xs:element name="Contributors" minOccurs="0">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Contributor" maxOccurs="unbounded">
-											<xs:complexType>
-											</xs:complexType>
+										<xs:element name="Contributor" maxOccurs="unbounded" type="xs:string">
 										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
