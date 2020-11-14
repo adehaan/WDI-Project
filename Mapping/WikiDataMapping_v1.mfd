@@ -12,7 +12,7 @@
 		<structure>
 			<children>
 				<component name="Generating IDs" library="user" uid="482" kind="19" visible="0">
-					<view ltx="839" lty="-435" rbx="886" rby="-419"/>
+					<view ltx="839" lty="-435" rbx="886" rby="-418"/>
 					<data>
 						<root>
 							<header>
@@ -26,81 +26,6 @@
 								</namespaces>
 							</header>
 							<entry name="id" outkey="254" componentid="33"/>
-						</root>
-					</data>
-				</component>
-				<component name="Publication Date parser to absolute year" library="user" uid="349" kind="19" visible="0">
-					<view ltx="500" lty="-234" rbx="614" rby="-218"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="220" componentid="347"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Year" outkey="221" componentid="348"/>
-						</root>
-					</data>
-				</component>
-				<component name="CSV Separator functions for developer publisher etc" library="user" uid="360" kind="19" visible="0">
-					<view ltx="500" lty="-57" rbx="703" rby="-8"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="DeveloperIN" inpkey="170" componentid="354"/>
-							<entry name="PublisherIN" inpkey="171" componentid="355"/>
-							<entry name="PlatformIN" inpkey="172" componentid="356"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="DeveloperStudio" outkey="173" componentid="359"/>
-							<entry name="Publisher" outkey="174" componentid="357"/>
-							<entry name="platform" outkey="175" componentid="358"/>
-						</root>
-					</data>
-				</component>
-				<component name="Splitter functions for prequel_Sequel_Year_Genre_Website" library="user" uid="517" kind="19" visible="0">
-					<view ltx="500" lty="-175" rbx="656" rby="-94"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="275" componentid="507"/>
-							<entry name="Value_IN2" inpkey="276" componentid="508"/>
-							<entry name="Value_IN3" inpkey="277" componentid="509"/>
-							<entry name="Value_IN5" inpkey="278" componentid="511"/>
-							<entry name="Value_IN4" inpkey="279" componentid="510"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Prequel" outkey="281" componentid="513"/>
-							<entry name="Sequel" outkey="280" componentid="512"/>
-							<entry name="nodesrows" outkey="274" componentid="515"/>
-							<entry name="Website" outkey="282" componentid="514"/>
-							<entry name="Genre" outkey="283" componentid="516"/>
 						</root>
 					</data>
 				</component>
@@ -166,51 +91,6 @@
 						</text>
 					</data>
 				</component>
-				<component name="Comp_desig_to_contributors" library="user" uid="558" kind="19" visible="0">
-					<view ltx="468" lty="232" rbx="763" rby="279"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN2" inpkey="315" componentid="557"/>
-							<entry name="Value_IN" inpkey="316" componentid="556"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Contributors" componentid="559" expanded="1">
-								<entry name="Contributors" outkey="318"/>
-							</entry>
-						</root>
-					</data>
-				</component>
-				<component name="CSV_Seperated" library="user" uid="324" kind="19" visible="0">
-					<view ltx="510" lty="167" rbx="655" rby="183"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="145" componentid="207"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_Out" outkey="144" componentid="224"/>
-						</root>
-					</data>
-				</component>
 				<component name="Games" library="xml" uid="2" kind="14">
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
 					<view ltx="962" lty="-412" rbx="1217" rby="242"/>
@@ -260,8 +140,237 @@
 						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
+				<component name="CSV_Seperated" library="user" uid="631" kind="19" visible="0">
+					<view ltx="518" lty="25" rbx="653" rby="42"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="321" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="322" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="640" kind="19" visible="0">
+					<view ltx="518" lty="100" rbx="653" rby="117"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="340" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="339" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="633" kind="19" visible="0">
+					<view ltx="519" lty="138" rbx="654" rby="155"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="325" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="326" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="324" kind="19" visible="0">
+					<view ltx="518" lty="175" rbx="653" rby="192"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="145" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="144" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="632" kind="19" visible="0">
+					<view ltx="518" lty="63" rbx="653" rby="80"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="323" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="324" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="Publication Date parser to absolute year" library="user" uid="349" kind="19" visible="0">
+					<view ltx="527" lty="-276" rbx="633" rby="-259"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="220" componentid="347"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Year" outkey="221" componentid="348"/>
+						</root>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="639" kind="19" visible="0">
+					<view ltx="519" lty="-229" rbx="654" rby="-212"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="338" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="337" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="634" kind="19" visible="0">
+					<view ltx="518" lty="-192" rbx="653" rby="-175"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="328" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="327" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="638" kind="2">
+					<targets>
+						<datapoint pos="0" key="336"/>
+					</targets>
+					<view ltx="582" lty="-80" rbx="619" rby="-64"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="636" kind="5">
+					<sources>
+						<datapoint pos="0" key="331"/>
+						<datapoint pos="1" key="332"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="333"/>
+					</targets>
+					<view ltx="682" lty="-117" rbx="780" rby="-65"/>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="635" kind="19" visible="0">
+					<view ltx="519" lty="-155" rbx="654" rby="-138"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="330" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="329" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="637" kind="19" visible="0">
+					<view ltx="518" lty="-117" rbx="653" rby="-100"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="335" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="334" componentid="224"/>
+						</root>
+					</data>
+				</component>
 				<component name="Ratings to AgeGroup Resolver" library="user" uid="390" kind="19" visible="0">
-					<view ltx="486" lty="14" rbx="778" rby="136"/>
+					<view ltx="511" lty="-43" rbx="760" rby="-23"/>
 					<data>
 						<root>
 							<header>
@@ -285,41 +394,69 @@
 						</root>
 					</data>
 				</component>
+				<component name="Comp_desig_to_contributors" library="user" uid="558" kind="19" visible="0">
+					<view ltx="510" lty="245" rbx="749" rby="283"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN2" inpkey="315" componentid="557"/>
+							<entry name="Value_IN" inpkey="316" componentid="556"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Contributors" componentid="559" expanded="1">
+								<entry name="Contributors" expanded="1">
+									<entry name="Contributor" outkey="358"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
 			</children>
 		</structure>
 		<connections>
 			<edge from="4" to="1"/>
-			<edge from="174" to="2"/>
-			<edge from="173" to="3"/>
-			<edge from="175" to="8"/>
+			<edge from="324" to="2"/>
+			<edge from="322" to="3"/>
+			<edge from="326" to="8"/>
 			<edge from="50" to="51"/>
 			<edge from="147" to="145"/>
 			<edge from="144" to="146"/>
 			<edge from="221" to="152"/>
-			<edge from="5" to="170"/>
-			<edge from="6" to="171"/>
-			<edge from="7" to="172"/>
 			<edge from="39" to="191"/>
 			<edge from="40" to="192"/>
 			<edge from="41" to="193"/>
-			<edge from="280" to="197"/>
-			<edge from="281" to="198"/>
+			<edge from="329" to="197"/>
+			<edge from="327" to="198"/>
 			<edge from="151" to="220"/>
 			<edge from="254" to="256"/>
-			<edge from="283" to="257"/>
-			<edge from="282" to="261"/>
-			<edge from="274" to="264"/>
-			<edge from="204" to="275"/>
-			<edge from="205" to="276"/>
-			<edge from="265" to="277"/>
-			<edge from="260" to="278"/>
-			<edge from="255" to="279"/>
+			<edge from="339" to="257"/>
+			<edge from="337" to="261"/>
+			<edge from="333" to="264"/>
 			<edge from="308" to="315"/>
 			<edge from="307" to="316"/>
-			<edge from="318" to="317"/>
+			<edge from="358" to="317"/>
 			<edge from="320" to="319">
 				<data type="2"/>
 			</edge>
+			<edge from="5" to="321"/>
+			<edge from="6" to="323"/>
+			<edge from="7" to="325"/>
+			<edge from="204" to="328"/>
+			<edge from="205" to="330"/>
+			<edge from="334" to="331"/>
+			<edge from="336" to="332"/>
+			<edge from="265" to="335"/>
+			<edge from="260" to="338"/>
+			<edge from="255" to="340"/>
 		</connections>
 	</component>
 	<component name="Remove_delimeters" library="user" uid="69" inline="1">
@@ -804,7 +941,7 @@
 					<targets>
 						<datapoint pos="0" key="10"/>
 					</targets>
-					<view lty="50" rbx="106" rby="87"/>
+					<view lty="50" rbx="102" rby="86"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="PublisherIN"/>
@@ -817,14 +954,14 @@
 					<targets>
 						<datapoint pos="0" key="12"/>
 					</targets>
-					<view lty="100" rbx="104" rby="137"/>
+					<view lty="100" rbx="99" rby="136"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="PlatformIN"/>
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="352" kind="19" visible="0">
-					<view ltx="300" lty="62" rbx="434" rby="79"/>
+					<view ltx="300" lty="62" rbx="435" rby="79"/>
 					<data>
 						<root>
 							<header>
@@ -848,7 +985,7 @@
 					<sources>
 						<datapoint pos="0" key="9"/>
 					</sources>
-					<view ltx="534" rbx="639" rby="37"/>
+					<view ltx="534" rbx="638" rby="36"/>
 					<data>
 						<output datatype="string"/>
 						<parameter usageKind="output" name="DeveloperStudio"/>
@@ -858,14 +995,14 @@
 					<sources>
 						<datapoint pos="0" key="7"/>
 					</sources>
-					<view ltx="534" lty="50" rbx="604" rby="87"/>
+					<view ltx="534" lty="50" rbx="602" rby="86"/>
 					<data>
 						<output datatype="string"/>
 						<parameter usageKind="output" name="Publisher"/>
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="353" kind="19" visible="0">
-					<view ltx="300" lty="124" rbx="434" rby="141"/>
+					<view ltx="300" lty="124" rbx="435" rby="141"/>
 					<data>
 						<root>
 							<header>
@@ -889,7 +1026,7 @@
 					<sources>
 						<datapoint pos="0" key="8"/>
 					</sources>
-					<view ltx="534" lty="100" rbx="602" rby="137"/>
+					<view ltx="534" lty="100" rbx="600" rby="136"/>
 					<data>
 						<output datatype="string"/>
 						<parameter usageKind="output" name="platform"/>
@@ -902,14 +1039,14 @@
 					<targets>
 						<datapoint pos="0" key="11"/>
 					</targets>
-					<view rbx="112" rby="37"/>
+					<view rbx="108" rby="36"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="DeveloperIN"/>
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="351" kind="19" visible="0">
-					<view ltx="300" rbx="434" rby="17"/>
+					<view ltx="300" rbx="435" rby="17"/>
 					<data>
 						<root>
 							<header>
@@ -1195,7 +1332,7 @@
 					<targets>
 						<datapoint pos="0" key="17"/>
 					</targets>
-					<view rbx="75" rby="37"/>
+					<view rbx="72" rby="36"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="ESRB"/>
@@ -1208,7 +1345,7 @@
 					<targets>
 						<datapoint pos="0" key="16"/>
 					</targets>
-					<view lty="50" rbx="79" rby="87"/>
+					<view lty="50" rbx="76" rby="86"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="CERO"/>
@@ -1221,14 +1358,14 @@
 					<targets>
 						<datapoint pos="0" key="18"/>
 					</targets>
-					<view lty="100" rbx="73" rby="137"/>
+					<view lty="100" rbx="70" rby="136"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="PEGI"/>
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="621" kind="19" visible="0">
-					<view ltx="161" lty="1" rbx="306" rby="17"/>
+					<view ltx="161" lty="1" rbx="296" rby="18"/>
 					<data>
 						<root>
 							<header>
@@ -1257,7 +1394,7 @@
 					<targets>
 						<datapoint pos="0" key="35"/>
 					</targets>
-					<view ltx="656" lty="50" rbx="752" rby="122"/>
+					<view ltx="656" lty="50" rbx="748" rby="121"/>
 				</component>
 				<component name="empty" library="lang" uid="626" kind="5">
 					<sources>
@@ -1266,7 +1403,7 @@
 					<targets>
 						<datapoint pos="0" key="33"/>
 					</targets>
-					<view ltx="521" lty="1" rbx="591" rby="38"/>
+					<view ltx="521" lty="1" rbx="588" rby="37"/>
 				</component>
 				<component name="empty" library="lang" uid="630" kind="5">
 					<sources>
@@ -1275,10 +1412,10 @@
 					<targets>
 						<datapoint pos="0" key="43"/>
 					</targets>
-					<view ltx="521" lty="130" rbx="591" rby="167"/>
+					<view ltx="521" lty="130" rbx="588" rby="166"/>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="622" kind="19" visible="0">
-					<view ltx="162" lty="74" rbx="307" rby="90"/>
+					<view ltx="162" lty="74" rbx="297" rby="91"/>
 					<data>
 						<root>
 							<header>
@@ -1307,7 +1444,7 @@
 					<targets>
 						<datapoint pos="0" key="45"/>
 					</targets>
-					<view ltx="656" lty="150" rbx="752" rby="222"/>
+					<view ltx="656" lty="150" rbx="748" rby="221"/>
 				</component>
 				<component name="document" library="xml" uid="386" kind="14">
 					<properties XSLTTargetEncoding="UTF-8"/>
@@ -1342,7 +1479,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="623" kind="19" visible="0">
-					<view ltx="152" lty="171" rbx="297" rby="187"/>
+					<view ltx="152" lty="171" rbx="287" rby="188"/>
 					<data>
 						<root>
 							<header>
@@ -1369,7 +1506,7 @@
 					<targets>
 						<datapoint pos="0" key="38"/>
 					</targets>
-					<view ltx="521" lty="208" rbx="591" rby="245"/>
+					<view ltx="521" lty="208" rbx="588" rby="244"/>
 				</component>
 				<component name="if-else" library="core" uid="627" kind="4">
 					<sources>
@@ -1380,7 +1517,7 @@
 					<targets>
 						<datapoint pos="0" key="40"/>
 					</targets>
-					<view ltx="657" lty="261" rbx="753" rby="333"/>
+					<view ltx="657" lty="261" rbx="749" rby="332"/>
 				</component>
 			</children>
 		</structure>
@@ -1662,29 +1799,10 @@
 		</connections>
 	</component>
 	<component name="Comp_desig_to_contributors" library="user" uid="549" inline="1">
-		<description/>
 		<structure>
 			<children>
-				<component name="constant" library="core" uid="551" kind="2">
-					<targets>
-						<datapoint pos="0" key="7"/>
-					</targets>
-					<view ltx="463" lty="32" rbx="508" rby="48"/>
-					<data>
-						<constant value="," datatype="string"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="552" kind="2">
-					<targets>
-						<datapoint pos="0" key="9"/>
-					</targets>
-					<view ltx="629" rbx="674" rby="16"/>
-					<data>
-						<constant value="," datatype="string"/>
-					</data>
-				</component>
 				<component name="CSV_Seperated" library="user" uid="553" kind="19" visible="0">
-					<view ltx="300" lty="97" rbx="433" rby="112"/>
+					<view ltx="300" lty="97" rbx="435" rby="114"/>
 					<data>
 						<root>
 							<header>
@@ -1705,7 +1823,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="554" kind="19" visible="0">
-					<view ltx="334" lty="164" rbx="467" rby="179"/>
+					<view ltx="334" lty="164" rbx="469" rby="181"/>
 					<data>
 						<root>
 							<header>
@@ -1734,7 +1852,7 @@
 					<targets>
 						<datapoint pos="0" key="11"/>
 					</targets>
-					<view ltx="562" lty="115" rbx="643" rby="181"/>
+					<view ltx="562" lty="115" rbx="644" rby="186"/>
 				</component>
 				<component name="Value_IN" library="core" uid="556" kind="6">
 					<sources>
@@ -1743,7 +1861,7 @@
 					<targets>
 						<datapoint pos="0" key="13"/>
 					</targets>
-					<view lty="50" rbx="90" rby="86"/>
+					<view lty="50" rbx="88" rby="86"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="Value_IN"/>
@@ -1756,32 +1874,10 @@
 					<targets>
 						<datapoint pos="0" key="14"/>
 					</targets>
-					<view rbx="96" rby="36"/>
+					<view rbx="94" rby="36"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="Value_IN2"/>
-					</data>
-				</component>
-				<component name="document" library="xml" uid="559" kind="14">
-					<properties/>
-					<view ltx="872" lty="114" rbx="1022" rby="314"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Contributors" inpkey="17" expanded="1">
-								<entry name="Contributor" inpkey="15"/>
-							</entry>
-						</root>
-						<document schema="..\..\..\..\Users\sh_af\Desktop\Contributor_type.xsd"/>
-						<parameter usageKind="output" name="Contributors">
-							<root>
-								<entry name="Contributors"/>
-							</root>
-						</parameter>
 					</data>
 				</component>
 				<component name="tokenize" library="core" uid="550" kind="5">
@@ -1792,7 +1888,49 @@
 					<targets>
 						<datapoint pos="0" key="16"/>
 					</targets>
-					<view ltx="700" lty="151" rbx="785" rby="202"/>
+					<view ltx="700" lty="151" rbx="784" rby="203"/>
+				</component>
+				<component name="document" library="xml" uid="559" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="872" lty="114" rbx="1022" rby="314"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Contributors" expanded="1">
+								<entry name="Contributor" inpkey="15"/>
+							</entry>
+						</root>
+						<document schema="Games.xsd"/>
+						<parameter usageKind="output" name="Contributors">
+							<root>
+								<entry name="Games"/>
+								<entry name="Game"/>
+								<entry name="Contributors"/>
+							</root>
+						</parameter>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="551" kind="2">
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="458" lty="140" rbx="500" rby="156"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="552" kind="2">
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="594" lty="199" rbx="636" rby="215"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
 				</component>
 			</children>
 		</structure>
@@ -1805,7 +1943,6 @@
 			<edge from="9" to="10"/>
 			<edge from="11" to="12"/>
 			<edge from="16" to="15"/>
-			<edge from="16" to="17"/>
 		</connections>
 	</component>
 </mapping>

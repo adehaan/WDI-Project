@@ -6,31 +6,9 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="Games" library="xml" uid="3" kind="14">
-					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="845" lty="97" rbx="1100" rby="751"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
-									<entry name="Games" expanded="1">
-										<entry name="Game" expanded="1"/>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games.xml" instanceroot="{}Games"/>
-					</data>
-				</component>
 				<component name="RAWG" library="json" uid="6" kind="31">
 					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="72" lty="56" rbx="293" rby="556"/>
+					<view ltx="66" lty="44" rbx="287" rby="544"/>
 					<data>
 						<root>
 							<header>
@@ -112,6 +90,28 @@
 							</entry>
 						</root>
 						<json schema="..\Datasets\games1.schema.json" inputinstance="..\Datasets\games1.jsonl" outputinstance="..\Datasets\games1.jsonl" json5="1" jsonlines="1"/>
+					</data>
+				</component>
+				<component name="Games" library="xml" uid="3" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="841" lty="45" rbx="1096" rby="699"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Games" expanded="1">
+										<entry name="Game" expanded="1"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
 			</children>
