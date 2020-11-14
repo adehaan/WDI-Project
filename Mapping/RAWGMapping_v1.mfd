@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Edited with Altova MapForce 2020r2sp1 -->
-<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
 	<resources/>
-	<component name="defaultmap" uid="1" editable="1" blackbox="0">
+	<component name="defaultmap" uid="1">
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
 				<component name="Games" library="xml" uid="3" kind="14">
 					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="866" lty="97" rbx="1121" rby="751"/>
+					<view ltx="845" lty="97" rbx="1100" rby="751"/>
 					<data>
 						<root>
 							<header>
@@ -28,7 +28,94 @@
 						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
+				<component name="RAWG" library="json" uid="6" kind="31">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="72" lty="56" rbx="293" rby="556"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="root" expanded="1">
+										<entry name="item" type="json-item" expanded="1">
+											<entry name="object" expanded="1">
+												<entry name="added" type="json-property" expanded="1"/>
+												<entry name="added_by_status" type="json-property" expanded="1">
+													<entry name="object">
+														<entry name="yet" type="json-property" expanded="1"/>
+														<entry name="owned" type="json-property" expanded="1"/>
+														<entry name="beaten" type="json-property" expanded="1"/>
+														<entry name="toplay" type="json-property" expanded="1"/>
+														<entry name="dropped" type="json-property" expanded="1"/>
+														<entry name="playing" type="json-property" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="background_image" type="json-property" expanded="1"/>
+												<entry name="clip" type="json-property" expanded="1">
+													<entry name="object">
+														<entry name="clip" type="json-property" expanded="1"/>
+														<entry name="clips" type="json-property" expanded="1"/>
+														<entry name="video" type="json-property" expanded="1"/>
+														<entry name="preview" type="json-property" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="dominant_color" type="json-property" expanded="1"/>
+												<entry name="genres" type="json-property" expanded="1"/>
+												<entry name="id" type="json-property" expanded="1"/>
+												<entry name="metacritic" type="json-property" expanded="1"/>
+												<entry name="name" type="json-property" expanded="1"/>
+												<entry name="parent_platforms" type="json-property" expanded="1"/>
+												<entry name="platforms" type="json-property" expanded="1"/>
+												<entry name="playtime" type="json-property" expanded="1"/>
+												<entry name="rating" type="json-property" expanded="1"/>
+												<entry name="rating_top" type="json-property" expanded="1"/>
+												<entry name="ratings" type="json-property" expanded="1"/>
+												<entry name="ratings_count" type="json-property" expanded="1"/>
+												<entry name="released" type="json-property" expanded="1"/>
+												<entry name="reviews_count" type="json-property" expanded="1"/>
+												<entry name="reviews_text_count" type="json-property" expanded="1"/>
+												<entry name="saturated_color" type="json-property" expanded="1"/>
+												<entry name="short_screenshots" type="json-property" expanded="1"/>
+												<entry name="slug" type="json-property" expanded="1"/>
+												<entry name="stores" type="json-property" expanded="1"/>
+												<entry name="suggestions_count" type="json-property" expanded="1"/>
+												<entry name="tags" type="json-property" expanded="1">
+													<entry name="array" expanded="1">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="name" type="json-property" expanded="1"/>
+																<entry name="slug" type="json-property" expanded="1"/>
+																<entry name="image" type="json-property" expanded="1"/>
+																<entry name="language" type="json-property" expanded="1"/>
+																<entry name="domain" type="json-property" expanded="1"/>
+																<entry name="year_end" type="json-property" expanded="1"/>
+																<entry name="year_start" type="json-property" expanded="1"/>
+																<entry name="games_count" type="json-property" expanded="1"/>
+																<entry name="image_background" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="tba" type="json-property" expanded="1"/>
+												<entry name="user_game" type="json-property" expanded="1"/>
+												<entry name="community_rating" type="json-property" expanded="1"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<json schema="..\Datasets\games1.schema.json" inputinstance="..\Datasets\games1.jsonl" outputinstance="..\Datasets\games1.jsonl" json5="1" jsonlines="1"/>
+					</data>
+				</component>
 			</children>
 		</structure>
+		<connections/>
 	</component>
 </mapping>
