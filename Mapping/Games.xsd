@@ -38,10 +38,25 @@
 							<xs:element name="Age_groups">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Age_group" maxOccurs="unbounded">
+										<xs:element name="ESRB" maxOccurs="unbounded">
 											<xs:complexType>
-												<xs:attribute name="id" use="required" type="xs:string"/>
-												<xs:attribute name="name" use="required" type="xs:string"/>
+												<xs:sequence>
+													<xs:element name="Rating" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="CERO" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Rating" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="PEGI" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Rating" type="xs:string"/>
+												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
