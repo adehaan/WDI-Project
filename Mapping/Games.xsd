@@ -21,7 +21,13 @@
 							<xs:element name="Total_Length_in_hrs" type="xs:short"/>
 							<xs:element name="Recommended_Req_PC" type="xs:string"/>
 							<xs:element name="Website" type="xs:string"/>
-							<xs:element name="Country_of_Origin" type="xs:string"/>
+							<xs:element name="Countries_of_Origin">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Country_of_Origin" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
 							<xs:element name="Sequel" type="xs:string"/>
 							<xs:element name="Prequel" type="xs:string"/>
 							<xs:element name="Stores">
@@ -122,8 +128,7 @@
 							<xs:element name="Contributors" minOccurs="0">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Contributor" maxOccurs="unbounded" type="xs:string">
-										</xs:element>
+										<xs:element name="Contributor" maxOccurs="unbounded" type="xs:string"/>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>

@@ -29,117 +29,6 @@
 						</root>
 					</data>
 				</component>
-				<component name="Wikidata" library="text" uid="3" kind="16">
-					<properties/>
-					<view lty="-393" rbx="280" rby="21"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1">
-									<entry name="Zeilen" outkey="4" expanded="1">
-										<entry name="videogamesLabel" outkey="50"/>
-										<entry name="developerLabel" outkey="5"/>
-										<entry name="publisherLabel" outkey="6"/>
-										<entry name="designedByLabel" outkey="308"/>
-										<entry name="composerLabel" outkey="307"/>
-										<entry name="followsLabel" outkey="204"/>
-										<entry name="followedByLabel" outkey="205"/>
-										<entry name="gameModeLabel" outkey="147"/>
-										<entry name="countryOriginLabel" outkey="265"/>
-										<entry name="publicationDate" outkey="151"/>
-										<entry name="genreLabel" outkey="255"/>
-										<entry name="plattformLabel" outkey="7"/>
-										<entry name="WebsiteLabel" outkey="260"/>
-										<entry name="ESRBratingLabel" outkey="39"/>
-										<entry name="CEROratingLabel" outkey="40"/>
-										<entry name="PEGIratingLabel" outkey="41"/>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<text type="csv" inputinstance="..\Datasets\videogames_wiki_filtered.csv" encoding="1000" byteorder="1" byteordermark="0">
-							<settings separator=";" quote="&quot;" firstrownames="true" removeempty="true">
-								<names root="videogames_wiki_filtered" block="Zeilen">
-									<field0 name="Field1" type="string"/>
-									<field1 name="videogames" type="string"/>
-									<field2 name="videogamesLabel" type="string"/>
-									<field3 name="developerLabel" type="string"/>
-									<field4 name="publisherLabel" type="string"/>
-									<field5 name="designedByLabel" type="string"/>
-									<field6 name="composerLabel" type="string"/>
-									<field7 name="fictionalUniverseLabel" type="string"/>
-									<field8 name="followsLabel" type="string"/>
-									<field9 name="followedByLabel" type="string"/>
-									<field10 name="basedOnLabel" type="string"/>
-									<field11 name="gameModeLabel" type="string"/>
-									<field12 name="countryOriginLabel" type="string"/>
-									<field13 name="publicationDate" type="string"/>
-									<field14 name="genreLabel" type="string"/>
-									<field15 name="plattformLabel" type="string"/>
-									<field16 name="WebsiteLabel" type="string"/>
-									<field17 name="ESRBratingLabel" type="string"/>
-									<field18 name="CEROratingLabel" type="string"/>
-									<field19 name="PEGIratingLabel" type="string"/>
-								</names>
-							</settings>
-						</text>
-					</data>
-				</component>
-				<component name="Games" library="xml" uid="2" kind="14">
-					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="962" lty="-412" rbx="1217" rby="242"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
-									<entry name="Games" expanded="1">
-										<entry name="Game" inpkey="1" expanded="1">
-											<entry name="id" type="attribute" inpkey="256"/>
-											<entry name="Title" inpkey="51"/>
-											<entry name="Year" inpkey="152"/>
-											<entry name="Website" inpkey="261"/>
-											<entry name="Country_of_Origin" inpkey="264"/>
-											<entry name="Sequel" inpkey="197"/>
-											<entry name="Prequel" inpkey="198"/>
-											<entry name="Age_groups" inpkey="319" expanded="1"/>
-											<entry name="Publishers" expanded="1">
-												<entry name="Publisher" inpkey="2"/>
-											</entry>
-											<entry name="DeveloperStudios" expanded="1">
-												<entry name="DeveloperStudio" inpkey="3"/>
-											</entry>
-											<entry name="Genres" expanded="1">
-												<entry name="Genre" inpkey="257"/>
-											</entry>
-											<entry name="platforms" expanded="1">
-												<entry name="platform" inpkey="8"/>
-											</entry>
-											<entry name="Modes" expanded="1">
-												<entry name="Mode" inpkey="146"/>
-											</entry>
-											<entry name="Contributors" expanded="1">
-												<entry name="Contributor" inpkey="317"/>
-											</entry>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
-					</data>
-				</component>
 				<component name="CSV_Seperated" library="user" uid="631" kind="19" visible="0">
 					<view ltx="518" lty="25" rbx="653" rby="42"/>
 					<data>
@@ -308,25 +197,6 @@
 						</root>
 					</data>
 				</component>
-				<component name="constant" library="core" uid="638" kind="2">
-					<targets>
-						<datapoint pos="0" key="336"/>
-					</targets>
-					<view ltx="582" lty="-80" rbx="619" rby="-64"/>
-					<data>
-						<constant value="1" datatype="decimal"/>
-					</data>
-				</component>
-				<component name="item-at" library="core" uid="636" kind="5">
-					<sources>
-						<datapoint pos="0" key="331"/>
-						<datapoint pos="1" key="332"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="333"/>
-					</targets>
-					<view ltx="682" lty="-117" rbx="780" rby="-65"/>
-				</component>
 				<component name="CSV_Seperated" library="user" uid="635" kind="19" visible="0">
 					<view ltx="519" lty="-155" rbx="654" rby="-138"/>
 					<data>
@@ -345,27 +215,6 @@
 								</namespaces>
 							</header>
 							<entry name="Value_Out" outkey="329" componentid="224"/>
-						</root>
-					</data>
-				</component>
-				<component name="CSV_Seperated" library="user" uid="637" kind="19" visible="0">
-					<view ltx="518" lty="-117" rbx="653" rby="-100"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="335" componentid="207"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_Out" outkey="334" componentid="224"/>
 						</root>
 					</data>
 				</component>
@@ -394,8 +243,8 @@
 						</root>
 					</data>
 				</component>
-				<component name="Comp_desig_to_contributors" library="user" uid="558" kind="19" visible="0">
-					<view ltx="510" lty="245" rbx="749" rby="283"/>
+				<component name="CSV_Seperated" library="user" uid="637" kind="19" visible="0">
+					<view ltx="518" lty="-117" rbx="653" rby="-100"/>
 					<data>
 						<root>
 							<header>
@@ -403,8 +252,38 @@
 									<namespace/>
 								</namespaces>
 							</header>
-							<entry name="Value_IN2" inpkey="315" componentid="557"/>
-							<entry name="Value_IN" inpkey="316" componentid="556"/>
+							<entry name="Value_IN" inpkey="335" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="334" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="distinct-values" library="core" uid="677" kind="5">
+					<sources>
+						<datapoint pos="0" key="360"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="361"/>
+					</targets>
+					<view ltx="698" lty="-116" rbx="789" rby="-80"/>
+				</component>
+				<component name="Comp_desig_to_contributors" library="user" uid="558" kind="19" visible="0">
+					<view ltx="518" lty="248" rbx="757" rby="302"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="DesignedBy" inpkey="315" componentid="557"/>
+							<entry name="Composer" inpkey="316" componentid="556"/>
 						</root>
 						<root>
 							<header>
@@ -418,6 +297,119 @@
 								</entry>
 							</entry>
 						</root>
+					</data>
+				</component>
+				<component name="Wikidata" library="text" uid="3" kind="16">
+					<properties/>
+					<view lty="-393" rbx="168" rby="10"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Zeilen" outkey="4" expanded="1">
+										<entry name="videogamesLabel" outkey="50"/>
+										<entry name="developerLabel" outkey="5"/>
+										<entry name="publisherLabel" outkey="6"/>
+										<entry name="designedByLabel" outkey="308"/>
+										<entry name="composerLabel" outkey="307"/>
+										<entry name="followsLabel" outkey="204"/>
+										<entry name="followedByLabel" outkey="205"/>
+										<entry name="gameModeLabel" outkey="147"/>
+										<entry name="countryOriginLabel" outkey="265"/>
+										<entry name="publicationDate" outkey="151"/>
+										<entry name="genreLabel" outkey="255"/>
+										<entry name="plattformLabel" outkey="7"/>
+										<entry name="WebsiteLabel" outkey="260"/>
+										<entry name="ESRBratingLabel" outkey="39"/>
+										<entry name="CEROratingLabel" outkey="40"/>
+										<entry name="PEGIratingLabel" outkey="41"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" inputinstance="..\Datasets\videogames_wiki_filtered.csv" encoding="1000" byteorder="1" byteordermark="0">
+							<settings separator=";" quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="videogames_wiki_filtered" block="Zeilen">
+									<field0 name="Field1" type="string"/>
+									<field1 name="videogames" type="string"/>
+									<field2 name="videogamesLabel" type="string"/>
+									<field3 name="developerLabel" type="string"/>
+									<field4 name="publisherLabel" type="string"/>
+									<field5 name="designedByLabel" type="string"/>
+									<field6 name="composerLabel" type="string"/>
+									<field7 name="fictionalUniverseLabel" type="string"/>
+									<field8 name="followsLabel" type="string"/>
+									<field9 name="followedByLabel" type="string"/>
+									<field10 name="basedOnLabel" type="string"/>
+									<field11 name="gameModeLabel" type="string"/>
+									<field12 name="countryOriginLabel" type="string"/>
+									<field13 name="publicationDate" type="string"/>
+									<field14 name="genreLabel" type="string"/>
+									<field15 name="plattformLabel" type="string"/>
+									<field16 name="WebsiteLabel" type="string"/>
+									<field17 name="ESRBratingLabel" type="string"/>
+									<field18 name="CEROratingLabel" type="string"/>
+									<field19 name="PEGIratingLabel" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="Games" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="990" lty="-434" rbx="1245" rby="220"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Games" expanded="1">
+										<entry name="Game" inpkey="1" expanded="1">
+											<entry name="id" type="attribute" inpkey="256"/>
+											<entry name="Title" inpkey="51"/>
+											<entry name="Year" inpkey="152"/>
+											<entry name="Website" inpkey="261"/>
+											<entry name="Countries_of_Origin" expanded="1">
+												<entry name="Country_of_Origin" inpkey="359"/>
+											</entry>
+											<entry name="Sequel" inpkey="197"/>
+											<entry name="Prequel" inpkey="198"/>
+											<entry name="Age_groups" inpkey="319" expanded="1"/>
+											<entry name="Publishers" expanded="1">
+												<entry name="Publisher" inpkey="2"/>
+											</entry>
+											<entry name="DeveloperStudios" expanded="1">
+												<entry name="DeveloperStudio" inpkey="3"/>
+											</entry>
+											<entry name="Genres" expanded="1">
+												<entry name="Genre" inpkey="257"/>
+											</entry>
+											<entry name="platforms" expanded="1">
+												<entry name="platform" inpkey="8"/>
+											</entry>
+											<entry name="Modes" expanded="1">
+												<entry name="Mode" inpkey="146"/>
+											</entry>
+											<entry name="Contributors" expanded="1">
+												<entry name="Contributor" inpkey="317"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
 			</children>
@@ -440,7 +432,6 @@
 			<edge from="254" to="256"/>
 			<edge from="339" to="257"/>
 			<edge from="337" to="261"/>
-			<edge from="333" to="264"/>
 			<edge from="308" to="315"/>
 			<edge from="307" to="316"/>
 			<edge from="358" to="317"/>
@@ -452,11 +443,11 @@
 			<edge from="7" to="325"/>
 			<edge from="204" to="328"/>
 			<edge from="205" to="330"/>
-			<edge from="334" to="331"/>
-			<edge from="336" to="332"/>
 			<edge from="265" to="335"/>
 			<edge from="260" to="338"/>
 			<edge from="255" to="340"/>
+			<edge from="361" to="359"/>
+			<edge from="334" to="360"/>
 		</connections>
 	</component>
 	<component name="Remove_delimeters" library="user" uid="69" inline="1">
@@ -695,10 +686,37 @@
 					<sources>
 						<datapoint pos="0" key="59"/>
 					</sources>
-					<view ltx="1412" lty="277" rbx="1486" rby="314"/>
+					<view ltx="1102" lty="294" rbx="1174" rby="330"/>
 					<data>
 						<output datatype="string"/>
 						<parameter usageKind="output" name="Value_Out"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="526" kind="2">
+					<targets>
+						<datapoint pos="0" key="99"/>
+					</targets>
+					<view ltx="314" lty="351" rbx="364" rby="367"/>
+					<data>
+						<constant value="&apos;, &apos;" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="699" kind="2">
+					<targets>
+						<datapoint pos="0" key="110"/>
+					</targets>
+					<view ltx="104" lty="333" rbx="148" rby="349"/>
+					<data>
+						<constant value="&quot;" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="700" kind="2">
+					<targets>
+						<datapoint pos="0" key="111"/>
+					</targets>
+					<view ltx="103" lty="358" rbx="145" rby="374"/>
+					<data>
+						<constant value="&apos;" datatype="string"/>
 					</data>
 				</component>
 				<component name="Value_IN" library="core" uid="207" kind="6">
@@ -708,38 +726,22 @@
 					<targets>
 						<datapoint pos="0" key="17"/>
 					</targets>
-					<view ltx="-7" lty="293" rbx="85" rby="330"/>
+					<view ltx="-7" lty="293" rbx="81" rby="329"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="Value_IN"/>
 					</data>
 				</component>
-				<component name="constant" library="core" uid="525" kind="2">
-					<targets>
-						<datapoint pos="0" key="96"/>
-					</targets>
-					<view ltx="377" lty="344" rbx="417" rby="361"/>
-					<data>
-						<constant datatype="string"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="524" kind="2">
-					<targets>
-						<datapoint pos="0" key="94"/>
-					</targets>
-					<view ltx="347" lty="314" rbx="397" rby="331"/>
-					<data>
-						<constant value="[]&apos;" datatype="string"/>
-					</data>
-				</component>
-				<component name="right-trim" library="lang" uid="226" kind="5">
+				<component name="replace" library="lang" uid="698" kind="5">
 					<sources>
-						<datapoint pos="0" key="57"/>
+						<datapoint pos="0" key="112"/>
+						<datapoint pos="1" key="113"/>
+						<datapoint pos="2" key="114"/>
 					</sources>
 					<targets>
-						<datapoint pos="0" key="58"/>
+						<datapoint pos="0" key="115"/>
 					</targets>
-					<view ltx="1090" lty="355" rbx="1162" rby="392"/>
+					<view ltx="197" lty="293" rbx="285" rby="361"/>
 				</component>
 				<component name="tokenize" library="core" uid="527" kind="5">
 					<sources>
@@ -749,24 +751,24 @@
 					<targets>
 						<datapoint pos="0" key="98"/>
 					</targets>
-					<view ltx="680" lty="357" rbx="767" rby="410"/>
+					<view ltx="390" lty="277" rbx="474" rby="329"/>
 				</component>
-				<component name="left-trim" library="lang" uid="225" kind="5">
-					<sources>
-						<datapoint pos="0" key="61"/>
-					</sources>
+				<component name="constant" library="core" uid="524" kind="2">
 					<targets>
-						<datapoint pos="0" key="56"/>
+						<datapoint pos="0" key="94"/>
 					</targets>
-					<view ltx="995" lty="355" rbx="1066" rby="392"/>
-				</component>
-				<component name="constant" library="core" uid="526" kind="2">
-					<targets>
-						<datapoint pos="0" key="99"/>
-					</targets>
-					<view ltx="609" lty="422" rbx="652" rby="439"/>
+					<view ltx="426" lty="351" rbx="478" rby="367"/>
 					<data>
-						<constant value="," datatype="string"/>
+						<constant value="[]&apos;&quot;" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="525" kind="2">
+					<targets>
+						<datapoint pos="0" key="96"/>
+					</targets>
+					<view ltx="456" lty="381" rbx="496" rby="397"/>
+					<data>
+						<constant datatype="string"/>
 					</data>
 				</component>
 				<component name="translate" library="core" uid="523" kind="5">
@@ -778,19 +780,50 @@
 					<targets>
 						<datapoint pos="0" key="103"/>
 					</targets>
-					<view ltx="505" lty="247" rbx="582" rby="317"/>
+					<view ltx="554" lty="282" rbx="629" rby="350"/>
+				</component>
+				<component name="left-trim" library="lang" uid="225" kind="5">
+					<sources>
+						<datapoint pos="0" key="61"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="56"/>
+					</targets>
+					<view ltx="695" lty="294" rbx="764" rby="330"/>
+				</component>
+				<component name="right-trim" library="lang" uid="226" kind="5">
+					<sources>
+						<datapoint pos="0" key="57"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="58"/>
+					</targets>
+					<view ltx="790" lty="294" rbx="859" rby="330"/>
+				</component>
+				<component name="distinct-values" library="core" uid="694" kind="5">
+					<sources>
+						<datapoint pos="0" key="104"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="105"/>
+					</targets>
+					<view ltx="930" lty="294" rbx="1021" rby="330"/>
 				</component>
 			</children>
 		</structure>
 		<connections>
 			<edge from="56" to="57"/>
-			<edge from="58" to="59"/>
-			<edge from="98" to="61"/>
+			<edge from="105" to="59"/>
+			<edge from="103" to="61"/>
 			<edge from="94" to="95"/>
-			<edge from="103" to="97"/>
+			<edge from="115" to="97"/>
 			<edge from="99" to="100"/>
-			<edge from="17" to="101"/>
+			<edge from="98" to="101"/>
 			<edge from="96" to="102"/>
+			<edge from="58" to="104"/>
+			<edge from="17" to="112"/>
+			<edge from="110" to="113"/>
+			<edge from="111" to="114"/>
 		</connections>
 	</component>
 	<component name="Publication Date parser to absolute year" library="user" uid="337" inline="1">
@@ -803,7 +836,7 @@
 					<targets>
 						<datapoint pos="0" key="19"/>
 					</targets>
-					<view ltx="34" lty="244" rbx="127" rby="281"/>
+					<view ltx="34" lty="244" rbx="122" rby="280"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="Value_IN"/>
@@ -817,7 +850,7 @@
 					<targets>
 						<datapoint pos="0" key="17"/>
 					</targets>
-					<view ltx="445" lty="243" rbx="546" rby="296"/>
+					<view ltx="445" lty="243" rbx="543" rby="295"/>
 				</component>
 				<component name="parse-date" library="core" uid="342" kind="5">
 					<sources>
@@ -827,13 +860,13 @@
 					<targets>
 						<datapoint pos="0" key="6"/>
 					</targets>
-					<view ltx="595" lty="245" rbx="672" rby="298"/>
+					<view ltx="595" lty="245" rbx="671" rby="297"/>
 				</component>
 				<component name="constant" library="core" uid="343" kind="2">
 					<targets>
 						<datapoint pos="0" key="15"/>
 					</targets>
-					<view ltx="519" lty="341" rbx="572" rby="358"/>
+					<view ltx="519" lty="341" rbx="571" rby="357"/>
 					<data>
 						<constant value="[Y]" datatype="string"/>
 					</data>
@@ -842,26 +875,16 @@
 					<targets>
 						<datapoint pos="0" key="13"/>
 					</targets>
-					<view ltx="382" lty="340" rbx="420" rby="357"/>
+					<view ltx="382" lty="340" rbx="419" rby="356"/>
 					<data>
 						<constant value="1" datatype="decimal"/>
 					</data>
-				</component>
-				<component name="item-at" library="core" uid="338" kind="5">
-					<sources>
-						<datapoint pos="0" key="5"/>
-						<datapoint pos="1" key="9"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="1"/>
-					</targets>
-					<view ltx="866" lty="245" rbx="967" rby="298"/>
 				</component>
 				<component name="constant" library="core" uid="341" kind="2">
 					<targets>
 						<datapoint pos="0" key="8"/>
 					</targets>
-					<view ltx="803" lty="340" rbx="841" rby="357"/>
+					<view ltx="803" lty="340" rbx="840" rby="356"/>
 					<data>
 						<constant value="1" datatype="decimal"/>
 					</data>
@@ -870,7 +893,7 @@
 					<sources>
 						<datapoint pos="0" key="20"/>
 					</sources>
-					<view ltx="1041" lty="244" rbx="1087" rby="281"/>
+					<view ltx="1041" lty="244" rbx="1087" rby="280"/>
 					<data>
 						<output datatype="IDREF"/>
 						<parameter usageKind="output" name="Year"/>
@@ -884,19 +907,19 @@
 					<targets>
 						<datapoint pos="0" key="4"/>
 					</targets>
-					<view ltx="723" lty="244" rbx="811" rby="297"/>
+					<view ltx="723" lty="244" rbx="807" rby="296"/>
 				</component>
 				<component name="constant" library="core" uid="340" kind="2">
 					<targets>
 						<datapoint pos="0" key="2"/>
 					</targets>
-					<view ltx="651" lty="340" rbx="696" rby="357"/>
+					<view ltx="651" lty="340" rbx="695" rby="356"/>
 					<data>
 						<constant value="-" datatype="string"/>
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="346" kind="19" visible="0">
-					<view ltx="222" lty="243" rbx="356" rby="260"/>
+					<view ltx="222" lty="243" rbx="357" rby="260"/>
 					<data>
 						<root>
 							<header>
@@ -915,6 +938,16 @@
 							<entry name="Value_Out" outkey="11" componentid="224"/>
 						</root>
 					</data>
+				</component>
+				<component name="item-at" library="core" uid="338" kind="5">
+					<sources>
+						<datapoint pos="0" key="5"/>
+						<datapoint pos="1" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="866" lty="245" rbx="964" rby="297"/>
 				</component>
 			</children>
 		</structure>
@@ -1801,85 +1834,6 @@
 	<component name="Comp_desig_to_contributors" library="user" uid="549" inline="1">
 		<structure>
 			<children>
-				<component name="CSV_Seperated" library="user" uid="553" kind="19" visible="0">
-					<view ltx="300" lty="97" rbx="435" rby="114"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="4" componentid="207"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_Out" outkey="5" componentid="224"/>
-						</root>
-					</data>
-				</component>
-				<component name="CSV_Seperated" library="user" uid="554" kind="19" visible="0">
-					<view ltx="334" lty="164" rbx="469" rby="181"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_IN" inpkey="3" componentid="207"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Value_Out" outkey="1" componentid="224"/>
-						</root>
-					</data>
-				</component>
-				<component name="concat" library="core" uid="555" kind="5" growable="1" growablebasename="value">
-					<sources>
-						<datapoint pos="0" key="6"/>
-						<datapoint pos="1" key="8"/>
-						<datapoint pos="2" key="2"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="11"/>
-					</targets>
-					<view ltx="562" lty="115" rbx="644" rby="186"/>
-				</component>
-				<component name="Value_IN" library="core" uid="556" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="13"/>
-					</targets>
-					<view lty="50" rbx="88" rby="86"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="Value_IN"/>
-					</data>
-				</component>
-				<component name="Value_IN2" library="core" uid="557" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="14"/>
-					</targets>
-					<view rbx="94" rby="36"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="Value_IN2"/>
-					</data>
-				</component>
 				<component name="tokenize" library="core" uid="550" kind="5">
 					<sources>
 						<datapoint pos="0" key="12"/>
@@ -1890,9 +1844,77 @@
 					</targets>
 					<view ltx="700" lty="151" rbx="784" rby="203"/>
 				</component>
+				<component name="if-else" library="core" uid="689" kind="4">
+					<sources>
+						<datapoint pos="0" key="36"/>
+						<datapoint/>
+						<datapoint pos="2" key="35"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="34"/>
+					</targets>
+					<view ltx="426" lty="177" rbx="518" rby="248"/>
+				</component>
+				<component name="empty" library="lang" uid="688" kind="5">
+					<sources>
+						<datapoint pos="0" key="37"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="39"/>
+					</targets>
+					<view ltx="238" lty="177" rbx="305" rby="213"/>
+				</component>
+				<component name="empty" library="lang" uid="679" kind="5">
+					<sources>
+						<datapoint pos="0" key="38"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="821" lty="120" rbx="888" rby="156"/>
+				</component>
+				<component name="if-else" library="core" uid="682" kind="4">
+					<sources>
+						<datapoint pos="0" key="17"/>
+						<datapoint/>
+						<datapoint pos="2" key="18"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="919" lty="120" rbx="1011" rby="191"/>
+				</component>
+				<component name="concat" library="core" uid="555" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="6"/>
+						<datapoint pos="1" key="2"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="11"/>
+					</targets>
+					<view ltx="594" lty="115" rbx="666" rby="169"/>
+				</component>
+				<component name="constant" library="core" uid="552" kind="2">
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="624" lty="187" rbx="666" rby="203"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="distinct-values" library="core" uid="691" kind="5">
+					<sources>
+						<datapoint pos="0" key="40"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="41"/>
+					</targets>
+					<view ltx="1053" lty="132" rbx="1144" rby="168"/>
+				</component>
 				<component name="document" library="xml" uid="559" kind="14">
 					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="872" lty="114" rbx="1022" rby="314"/>
+					<view ltx="1259" lty="94" rbx="1409" rby="294"/>
 					<data>
 						<root>
 							<header>
@@ -1914,35 +1936,135 @@
 						</parameter>
 					</data>
 				</component>
-				<component name="constant" library="core" uid="551" kind="2">
+				<component name="Composer" library="core" uid="556" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
 					<targets>
-						<datapoint pos="0" key="7"/>
+						<datapoint pos="0" key="13"/>
 					</targets>
-					<view ltx="458" lty="140" rbx="500" rby="156"/>
+					<view ltx="5" lty="197" rbx="103" rby="233"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="Composer"/>
+					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="554" kind="19" visible="0">
+					<view ltx="205" lty="234" rbx="340" rby="251"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="3" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="1" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="684" kind="2">
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="262" lty="120" rbx="304" rby="136"/>
 					<data>
 						<constant value="," datatype="string"/>
 					</data>
 				</component>
-				<component name="constant" library="core" uid="552" kind="2">
+				<component name="if-else" library="core" uid="683" kind="4">
+					<sources>
+						<datapoint pos="0" key="22"/>
+						<datapoint/>
+						<datapoint pos="2" key="21"/>
+					</sources>
 					<targets>
-						<datapoint pos="0" key="9"/>
+						<datapoint pos="0" key="23"/>
 					</targets>
-					<view ltx="594" lty="199" rbx="636" rby="215"/>
+					<view ltx="460" lty="49" rbx="552" rby="120"/>
+				</component>
+				<component name="concat" library="core" uid="685" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="27"/>
+						<datapoint pos="1" key="25"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="26"/>
+					</targets>
+					<view ltx="359" lty="66" rbx="431" rby="120"/>
+				</component>
+				<component name="DesignedBy" library="core" uid="557" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="14"/>
+					</targets>
+					<view ltx="-8" rbx="96" rby="36"/>
 					<data>
-						<constant value="," datatype="string"/>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="DesignedBy"/>
 					</data>
+				</component>
+				<component name="CSV_Seperated" library="user" uid="553" kind="19" visible="0">
+					<view ltx="128" lty="13" rbx="263" rby="30"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_IN" inpkey="4" componentid="207"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Value_Out" outkey="5" componentid="224"/>
+						</root>
+					</data>
+				</component>
+				<component name="empty" library="lang" uid="681" kind="5">
+					<sources>
+						<datapoint pos="0" key="29"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="359" lty="-1" rbx="426" rby="35"/>
 				</component>
 			</children>
 		</structure>
 		<connections>
-			<edge from="1" to="2"/>
+			<edge from="34" to="2"/>
 			<edge from="13" to="3"/>
 			<edge from="14" to="4"/>
-			<edge from="5" to="6"/>
-			<edge from="7" to="8"/>
+			<edge from="23" to="6"/>
 			<edge from="9" to="10"/>
 			<edge from="11" to="12"/>
-			<edge from="16" to="15"/>
+			<edge from="41" to="15"/>
+			<edge from="20" to="17"/>
+			<edge from="16" to="18"/>
+			<edge from="26" to="21"/>
+			<edge from="30" to="22"/>
+			<edge from="24" to="25"/>
+			<edge from="5" to="27"/>
+			<edge from="5" to="29"/>
+			<edge from="1" to="35"/>
+			<edge from="39" to="36"/>
+			<edge from="13" to="37"/>
+			<edge from="16" to="38"/>
+			<edge from="19" to="40"/>
 		</connections>
 	</component>
 </mapping>
