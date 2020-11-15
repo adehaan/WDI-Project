@@ -6,11 +6,32 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="Games" library="xml" uid="3" kind="14">
-					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="841" lty="45" rbx="1089" rby="549"/>
+				<component name="format date" library="user" uid="33" kind="19" visible="0">
+					<view ltx="521" lty="350" rbx="611" rby="367"/>
 					<data>
 						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value" inpkey="24" componentid="31"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Year" outkey="25" componentid="32"/>
+						</root>
+					</data>
+				</component>
+				<component name="Games" library="xml" uid="3" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="841" lty="17" rbx="1159" rby="670"/>
+					<data>
+						<root scrollposition="87">
 							<header>
 								<namespaces>
 									<namespace/>
@@ -22,8 +43,36 @@
 									<entry name="Games" inpkey="1" expanded="1">
 										<entry name="Game" expanded="1">
 											<entry name="Title" inpkey="2"/>
+											<entry name="Year" inpkey="23"/>
+											<entry name="Total_Length_in_hrs" inpkey="26"/>
+											<entry name="Recommended" inpkey="35" expanded="1">
+												<entry name="Platforn_Name" inpkey="36"/>
+												<entry name="Recommended_Req_PC" inpkey="37"/>
+											</entry>
+											<entry name="Stores" expanded="1">
+												<entry name="Store" inpkey="28" expanded="1">
+													<entry name="id" type="attribute" inpkey="32"/>
+												</entry>
+											</entry>
+											<entry name="Age_groups" expanded="1">
+												<entry name="ESRB" expanded="1"/>
+											</entry>
+											<entry name="Rating" expanded="1">
+												<entry name="Metacrtic" inpkey="38"/>
+												<entry name="RAWG_Rating" inpkey="39"/>
+											</entry>
 											<entry name="Genres" expanded="1">
 												<entry name="Genre" inpkey="3"/>
+											</entry>
+											<entry name="platforms" expanded="1">
+												<entry name="platform" inpkey="40"/>
+											</entry>
+											<entry name="Modes" expanded="1"/>
+											<entry name="Tags" expanded="1">
+												<entry name="Tag" inpkey="41" expanded="1">
+													<entry name="Name" inpkey="42"/>
+													<entry name="Games_count" inpkey="43"/>
+												</entry>
 											</entry>
 										</entry>
 									</entry>
@@ -35,9 +84,9 @@
 				</component>
 				<component name="RAWG" library="json" uid="6" kind="31">
 					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="66" lty="44" rbx="382" rby="614"/>
+					<view ltx="74" lty="-20" rbx="406" rby="594"/>
 					<data>
-						<root>
+						<root scrollposition="226">
 							<header>
 								<namespaces>
 									<namespace/>
@@ -50,12 +99,34 @@
 										<entry name="item" type="json-item" outkey="4" expanded="1">
 											<entry name="object" expanded="1">
 												<entry name="added" type="json-property" expanded="1"/>
-												<entry name="added_by_status" type="json-property" expanded="1"/>
+												<entry name="added_by_status" type="json-property" expanded="1">
+													<entry name="object">
+														<entry name="yet" type="json-property" expanded="1"/>
+														<entry name="owned" type="json-property" expanded="1"/>
+														<entry name="beaten" type="json-property" expanded="1"/>
+														<entry name="toplay" type="json-property" expanded="1"/>
+														<entry name="dropped" type="json-property" expanded="1"/>
+														<entry name="playing" type="json-property" expanded="1"/>
+													</entry>
+												</entry>
 												<entry name="background_image" type="json-property" expanded="1"/>
-												<entry name="clip" type="json-property" expanded="1"/>
+												<entry name="clip" type="json-property" expanded="1">
+													<entry name="object">
+														<entry name="clip" type="json-property" expanded="1"/>
+														<entry name="clips" type="json-property" expanded="1">
+															<entry name="object">
+																<entry name="320" type="json-property" expanded="1"/>
+																<entry name="640" type="json-property" expanded="1"/>
+																<entry name="full" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+														<entry name="video" type="json-property" expanded="1"/>
+														<entry name="preview" type="json-property" expanded="1"/>
+													</entry>
+												</entry>
 												<entry name="dominant_color" type="json-property" expanded="1"/>
 												<entry name="genres" type="json-property" expanded="1">
-													<entry name="array" expanded="1">
+													<entry name="array">
 														<entry name="item" type="json-item" expanded="1">
 															<entry name="object" expanded="1">
 																<entry name="id" type="json-property" expanded="1"/>
@@ -75,26 +146,175 @@
 													</entry>
 												</entry>
 												<entry name="id" type="json-property" expanded="1"/>
-												<entry name="metacritic" type="json-property" expanded="1"/>
+												<entry name="metacritic" type="json-property" expanded="1">
+													<entry name="number" outkey="44"/>
+												</entry>
 												<entry name="name" type="json-property" expanded="1">
 													<entry name="string" outkey="6"/>
 												</entry>
-												<entry name="parent_platforms" type="json-property" expanded="1"/>
-												<entry name="platforms" type="json-property" expanded="1"/>
-												<entry name="playtime" type="json-property" expanded="1"/>
-												<entry name="rating" type="json-property" expanded="1"/>
+												<entry name="parent_platforms" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="platform" type="json-property" expanded="1">
+																	<entry name="object">
+																		<entry name="id" type="json-property" expanded="1"/>
+																		<entry name="name" type="json-property" expanded="1"/>
+																		<entry name="slug" type="json-property" expanded="1"/>
+																		<entry name="image" type="json-property" expanded="1"/>
+																		<entry name="language" type="json-property" expanded="1"/>
+																		<entry name="domain" type="json-property" expanded="1"/>
+																		<entry name="year_end" type="json-property" expanded="1"/>
+																		<entry name="year_start" type="json-property" expanded="1"/>
+																		<entry name="games_count" type="json-property" expanded="1"/>
+																		<entry name="image_background" type="json-property" expanded="1"/>
+																	</entry>
+																</entry>
+																<entry name="released_at" type="json-property" expanded="1"/>
+																<entry name="requirements_en" type="json-property" expanded="1">
+																	<entry name="object">
+																		<entry name="anyOf0" type="json-subtype">
+																			<entry name="minimum" type="json-property" expanded="1"/>
+																			<entry name="recommended" type="json-property" expanded="1"/>
+																		</entry>
+																	</entry>
+																</entry>
+																<entry name="requirements_ru" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="platforms" type="json-property" expanded="1">
+													<entry name="array" expanded="1">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" outkey="45" expanded="1">
+																<entry name="platform" type="json-property" expanded="1">
+																	<entry name="object">
+																		<entry name="id" type="json-property" expanded="1"/>
+																		<entry name="name" type="json-property" expanded="1">
+																			<entry name="string" outkey="46"/>
+																		</entry>
+																		<entry name="slug" type="json-property" expanded="1"/>
+																		<entry name="image" type="json-property" expanded="1"/>
+																		<entry name="language" type="json-property" expanded="1"/>
+																		<entry name="domain" type="json-property" expanded="1"/>
+																		<entry name="year_end" type="json-property" expanded="1"/>
+																		<entry name="year_start" type="json-property" expanded="1"/>
+																		<entry name="games_count" type="json-property" expanded="1"/>
+																		<entry name="image_background" type="json-property" expanded="1"/>
+																	</entry>
+																</entry>
+																<entry name="released_at" type="json-property" expanded="1"/>
+																<entry name="requirements_en" type="json-property" expanded="1">
+																	<entry name="object" expanded="1">
+																		<entry name="anyOf0" type="json-subtype" expanded="1">
+																			<entry name="minimum" type="json-property" expanded="1"/>
+																			<entry name="recommended" type="json-property" expanded="1">
+																				<entry name="string" outkey="47"/>
+																			</entry>
+																		</entry>
+																	</entry>
+																</entry>
+																<entry name="requirements_ru" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="playtime" type="json-property" expanded="1">
+													<entry name="number" outkey="30"/>
+												</entry>
+												<entry name="rating" type="json-property" expanded="1">
+													<entry name="number" outkey="48"/>
+												</entry>
 												<entry name="rating_top" type="json-property" expanded="1"/>
-												<entry name="ratings" type="json-property" expanded="1"/>
+												<entry name="ratings" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="title" type="json-property" expanded="1"/>
+																<entry name="count" type="json-property" expanded="1"/>
+																<entry name="percent" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
 												<entry name="ratings_count" type="json-property" expanded="1"/>
-												<entry name="released" type="json-property" expanded="1"/>
+												<entry name="released" type="json-property" expanded="1">
+													<entry name="string" outkey="49"/>
+												</entry>
 												<entry name="reviews_count" type="json-property" expanded="1"/>
 												<entry name="reviews_text_count" type="json-property" expanded="1"/>
 												<entry name="saturated_color" type="json-property" expanded="1"/>
-												<entry name="short_screenshots" type="json-property" expanded="1"/>
+												<entry name="short_screenshots" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="name" type="json-property" expanded="1"/>
+																<entry name="slug" type="json-property" expanded="1"/>
+																<entry name="image" type="json-property" expanded="1"/>
+																<entry name="language" type="json-property" expanded="1"/>
+																<entry name="domain" type="json-property" expanded="1"/>
+																<entry name="year_end" type="json-property" expanded="1"/>
+																<entry name="year_start" type="json-property" expanded="1"/>
+																<entry name="games_count" type="json-property" expanded="1"/>
+																<entry name="image_background" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
 												<entry name="slug" type="json-property" expanded="1"/>
-												<entry name="stores" type="json-property" expanded="1"/>
+												<entry name="stores" type="json-property" expanded="1">
+													<entry name="array" expanded="1">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="store" type="json-property" expanded="1">
+																	<entry name="object" outkey="34" expanded="1">
+																		<entry name="id" type="json-property" expanded="1"/>
+																		<entry name="name" type="json-property" expanded="1">
+																			<entry name="string" outkey="31"/>
+																		</entry>
+																		<entry name="slug" type="json-property" expanded="1"/>
+																		<entry name="image" type="json-property" expanded="1"/>
+																		<entry name="language" type="json-property" expanded="1"/>
+																		<entry name="domain" type="json-property" expanded="1"/>
+																		<entry name="year_end" type="json-property" expanded="1"/>
+																		<entry name="year_start" type="json-property" expanded="1"/>
+																		<entry name="games_count" type="json-property" expanded="1"/>
+																		<entry name="image_background" type="json-property" expanded="1"/>
+																	</entry>
+																</entry>
+																<entry name="url_en" type="json-property" expanded="1"/>
+																<entry name="url_ru" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
 												<entry name="suggestions_count" type="json-property" expanded="1"/>
-												<entry name="tags" type="json-property" expanded="1"/>
+												<entry name="tags" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" outkey="50" expanded="1">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="name" type="json-property" expanded="1">
+																	<entry name="string" outkey="51"/>
+																</entry>
+																<entry name="slug" type="json-property" expanded="1"/>
+																<entry name="image" type="json-property" expanded="1"/>
+																<entry name="language" type="json-property" expanded="1"/>
+																<entry name="domain" type="json-property" expanded="1"/>
+																<entry name="year_end" type="json-property" expanded="1"/>
+																<entry name="year_start" type="json-property" expanded="1"/>
+																<entry name="games_count" type="json-property" expanded="1">
+																	<entry name="number" outkey="52"/>
+																</entry>
+																<entry name="image_background" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
 												<entry name="tba" type="json-property" expanded="1"/>
 												<entry name="user_game" type="json-property" expanded="1"/>
 												<entry name="community_rating" type="json-property" expanded="1"/>
@@ -113,6 +333,161 @@
 			<edge from="4" to="1"/>
 			<edge from="6" to="2"/>
 			<edge from="5" to="3"/>
+			<edge from="25" to="23"/>
+			<edge from="49" to="24"/>
+			<edge from="30" to="26"/>
+			<edge from="34" to="28"/>
+			<edge from="31" to="32"/>
+			<edge from="45" to="35"/>
+			<edge from="46" to="36"/>
+			<edge from="47" to="37"/>
+			<edge from="44" to="38"/>
+			<edge from="48" to="39"/>
+			<edge from="46" to="40"/>
+			<edge from="50" to="41"/>
+			<edge from="51" to="42"/>
+			<edge from="52" to="43"/>
+		</connections>
+	</component>
+	<component name="formatdate" library="user" uid="15" inline="1">
+		<description/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="16" kind="2">
+					<targets>
+						<datapoint pos="0" key="2"/>
+					</targets>
+					<view ltx="300" lty="154" rbx="389" rby="170"/>
+					<data>
+						<constant value="[Y]-[M]-[D]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="17" kind="2">
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="410" lty="125" rbx="462" rby="141"/>
+					<data>
+						<constant value="[Y]" datatype="string"/>
+					</data>
+				</component>
+				<component name="parse-date" library="core" uid="18" kind="5">
+					<sources>
+						<datapoint pos="0" key="1"/>
+						<datapoint pos="1" key="3"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="4"/>
+					</targets>
+					<view ltx="385" lty="25" rbx="461" rby="77"/>
+				</component>
+				<component name="value" library="core" uid="20" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view rbx="73" rby="36"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="value"/>
+					</data>
+				</component>
+				<component name="format-date" library="core" uid="19" kind="5">
+					<sources>
+						<datapoint pos="0" key="5"/>
+						<datapoint pos="1" key="7"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="512" rbx="598" rby="68"/>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="8" to="1"/>
+			<edge from="2" to="3"/>
+			<edge from="4" to="5"/>
+			<edge from="6" to="7"/>
+		</connections>
+	</component>
+	<component name="format date" library="user" uid="26" inline="1">
+		<description/>
+		<structure>
+			<children>
+				<component name="Year" library="core" uid="32" kind="7">
+					<sources>
+						<datapoint pos="0" key="10"/>
+					</sources>
+					<view ltx="517" lty="-12" rbx="563" rby="24"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="Year"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="28" kind="2">
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="252" lty="72" rbx="304" rby="88"/>
+					<data>
+						<constant value="[Y]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="29" kind="2">
+					<targets>
+						<datapoint pos="0" key="2"/>
+					</targets>
+					<view ltx="40" lty="52" rbx="152" rby="68"/>
+					<data>
+						<constant value="[Y]-[M01]-[D01]" datatype="string"/>
+					</data>
+				</component>
+				<component name="value" library="core" uid="31" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view rbx="73" rby="36"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="value"/>
+					</data>
+				</component>
+				<component name="format-date" library="core" uid="30" kind="5">
+					<sources>
+						<datapoint pos="0" key="5"/>
+						<datapoint pos="1" key="8"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="354" lty="2" rbx="440" rby="70"/>
+				</component>
+				<component name="parse-date" library="core" uid="27" kind="5">
+					<sources>
+						<datapoint pos="0" key="6"/>
+						<datapoint pos="1" key="3"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="4"/>
+					</targets>
+					<view ltx="192" lty="1" rbx="268" rby="53"/>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="2" to="3"/>
+			<edge from="4" to="5"/>
+			<edge from="9" to="6"/>
+			<edge from="7" to="8"/>
+			<edge from="1" to="10"/>
 		</connections>
 	</component>
 </mapping>
