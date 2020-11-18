@@ -25,16 +25,16 @@ public class VideoGames implements Matchable {
 	private double Sale_Global;
 	private int Total_Length_in_hrs;
 	private String Website;
-	private List<Country> Countries_of_Origin;
+	private List<String> Countries_of_Origin;
 	private String Sequel;
 	private String Prequel;
-	private List<Store> Stores;
-	private List<Publisher> Publishers;
-	private List<DeveloperStudio> DeveloperStudios;
-	private List<Genre> Genres;
-	private List<platform> platforms;
-	private List<Mode> Modes;
-	private List<Contributor> Contributors;
+	private List<String> Stores;
+	private List<String> Publishers;
+	private List<String> DeveloperStudios;
+	private List<String> Genres;
+	private List<String> platforms;
+	private List<String> Modes;
+	private List<String> Contributors;
 
 	// Rating: metacritic & RAWG_rating -> umgeschrieben in seperate Variablen
 	private double Metacritic;
@@ -43,8 +43,9 @@ public class VideoGames implements Matchable {
 	// Recommend: only take the PC req. as String
 	private String PC_Requirements;
 
-
     // Eigene Klassen/ Dateien für jedes erstellen
+    private List<Tag> Tags;
+    private List<Age_Group> Age_Groups;
 	// Tags: Name: GameCount
 	// Age_Groups: ID: Liste
 
