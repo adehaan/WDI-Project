@@ -40,15 +40,19 @@ public class VideoGames implements Matchable {
 	private double Metacritic;
 	private double RAWG_Rating;
 
+	// Recommend: only take the PC req. as String
+	private String PC_Requirements;
+
+
     // Eigene Klassen/ Dateien für jedes erstellen
 	// Tags: Name: GameCount
 	// Age_Groups: ID: Liste
-	// Recommend: Platform: String
+
 
 
 	public VideoGames(String identifier) {
 		id = identifier;
-	//	actors = new LinkedList<>();
+	    //actors = new LinkedList<>();
 	}
 
 	@Override
@@ -222,6 +226,14 @@ public class VideoGames implements Matchable {
 
 	public void setRAWGRating(double RAWG_Rating) {
 		this.RAWG_Rating = RAWG_Rating;
+	}
+
+	public String getPCReq() {
+		return PC_Requirements;
+	}
+
+	public void setPCReq(String PC_Requirements) {
+		this.PC_Requirements = PC_Requirements;
 	}
 
 
