@@ -1,10 +1,9 @@
 
-package de.uni_mannheim.informatik.dws.wdi.ExerciseIdentityResolution.model;
+package model;
 
-import java.time.LocalDateTime;
-import java.util.LinkedList;
+import java.time.LocalDate;
 import java.util.List;
-import de.uni_mannheim.informatik.dws.winter.model.AbstractRecord;
+//import de.uni_mannheim.informatik.dws.winter.model.AbstractRecord;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 
 /**
@@ -43,9 +42,21 @@ public class VideoGames implements Matchable {
 	// Recommend: only take the PC req. as String
 	private String PC_Requirements;
 
-    // Eigene Klassen/ Dateien für jedes erstellen
-    private List<Tag> Tags;
-    private List<Age_Group> Age_Groups;
+	// Eigene Klassen/ Dateien für jedes erstellen
+	
+
+	public class Tag {
+		public String name;
+		public int gameCounts;
+	}
+
+	private List<Tag> Tags;
+	
+	public class AgeGroups {
+		public int id;
+		public String group;
+	}
+    private List<AgeGroups> Age_Groups;
 	// Tags: Name: GameCount
 	// Age_Groups: ID: Liste
 
@@ -73,7 +84,7 @@ public class VideoGames implements Matchable {
 		return year;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(LocalDate year) {
 		this.year = year;
 	}
 
@@ -149,67 +160,67 @@ public class VideoGames implements Matchable {
 		this.Prequel = Prequel;
 	}
 
-	public List<Country> getCountries() {
+	public List<String> getCountries() {
 		return Countries_of_Origin;
 	}
 
-	public void setCountries(List<Country> Countries_of_Origin) {
+	public void setCountries(List<String> Countries_of_Origin) {
 		this.Countries_of_Origin = Countries_of_Origin;
 	}
 
-	public List<Store> getStores() {
+	public List<String> getStores() {
 		return Stores;
 	}
 
-	public void setStores(List<Store> Stores) {
+	public void setStores(List<String> Stores) {
 		this.Stores = Stores;
 	}
 
-	public List<Publisher> getPublishers() {
+	public List<String> getPublishers() {
 		return Publishers;
 	}
 
-	public void setPublishers(List<Publisher> Publishers) {
+	public void setPublishers(List<String> Publishers) {
 		this.Publishers = Publishers;
 	}
 
-	public List<DeveloperStudio> getDeveloper() {
+	public List<String> getDeveloper() {
 		return DeveloperStudios;
 	}
 
-	public void setDeveloper(List<DeveloperStudio> DeveloperStudios) {
+	public void setDeveloper(List<String> DeveloperStudios) {
 		this.DeveloperStudios = DeveloperStudios;
 	}
 
-	public List<Genre> getGenres() {
+	public List<String> getGenres() {
 		return Genres;
 	}
 
-	public void setGenres(List<Genre> Genres) {
+	public void setGenres(List<String> Genres) {
 		this.Genres = Genres;
 	}
 
-	public List<platform> getPlatforms() {
+	public List<String> getPlatforms() {
 		return platforms;
 	}
 
-	public void setPlatforms(List<platform> platforms) {
+	public void setPlatforms(List<String> platforms) {
 		this.platforms = platforms;
 	}
 
-	public List<Mode> getModes() {
+	public List<String> getModes() {
 		return Modes;
 	}
 
-	public void setModes(List<Mode> Modes) {
+	public void setModes(List<String> Modes) {
 		this.Modes = Modes;
 	}
 
-	public List<Contributor> getContributors() {
+	public List<String> getContributors() {
 		return Contributors;
 	}
 
-	public void setContributors(List<Contributor> Contributors) {
+	public void setContributors(List<String> Contributors) {
 		this.Contributors = Contributors;
 	}
 
@@ -237,6 +248,21 @@ public class VideoGames implements Matchable {
 		this.PC_Requirements = PC_Requirements;
 	}
 
+	public List<Tag> getTags() {
+		return Tags;
+	}
+
+	public void setTags(List<Tag> tag) {
+		this.Tags = tag;
+	}
+
+	public List<AgeGroups> getAgeGroup() {
+		return Age_Groups;
+	}
+
+	public void setPCReq(List<AgeGroups> Agegroups) {
+		this.Age_Groups = Agegroups;
+	}
 
 
 
@@ -247,24 +273,24 @@ public class VideoGames implements Matchable {
 
 // WHAT IS THIS?
 
-	@Override
-	public String toString() {
-		return String.format("[Movie %s: %s / %s / %s]", getIdentifier(), getTitle(),
-				getDirector(), getDate().toString());
-	}
-
-	@Override
-	public int hashCode() {
-		return getIdentifier().hashCode();
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if(obj instanceof VideoGames){
-			return this.getIdentifier().equals(((VideoGames) obj).getIdentifier());
-		}else
-			return false;
-	}
+	//@Override
+	//public String toString() {
+	//	return String.format("[Movie %s: %s / %s / %s]", getIdentifier(), getTitle(),
+	//			getDirector(), getDate().toString());
+	//}
+//
+	//@Override
+	//public int hashCode() {
+	//	return getIdentifier().hashCode();
+	//}
+//
+	//@Override
+	//public boolean equals(Object obj) {
+	//	if(obj instanceof VideoGames){
+	//		return this.getIdentifier().equals(((VideoGames) obj).getIdentifier());
+	//	}else
+	//		return false;
+	//}
 	
 	
 	
