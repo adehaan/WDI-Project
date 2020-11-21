@@ -41,7 +41,19 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> {
 		double salesGlobal = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
 		vg.setSalesGlobal(salesGlobal);
 
-		vg.setTitle(getValueFromChildElement(node, "Name"));
+		// Total length
+		int totalLength = Integer.parseInt(getValueFromChildElement(node, "Total_Length_in_hrs"));
+		vg.setTotalLength(totalLength);
+
+		// Website
+		vg.setWebsite(getValueFromChildElement(node, "Website"));
+
+		// Sequel
+		vg.setSequel(getValueFromChildElement(node, "Sequel"));
+
+		// Prequel
+		vg.setPrequel(getValueFromChildElement(node, "Sale_EU"));
+
 		return vg;
 	}
 
