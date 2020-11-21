@@ -1,0 +1,48 @@
+package videoGames;
+
+import org.w3c.dom.Node;
+
+import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
+import de.uni_mannheim.informatik.dws.winter.model.io.XMLMatchableReader;
+
+public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> {
+
+	@Override
+	public VideoGames createModelFromElement(Node node, String provenanceInfo) {
+		// TODO Auto-generated method stub
+
+		String id = getValueFromChildElement(node, "id");
+		VideoGames vg = new VideoGames(id, provenanceInfo);
+
+		// Name
+		vg.setTitle(getValueFromChildElement(node, "Name"));
+
+		// Year
+		int year = Integer.parseInt(getValueFromChildElement(node, "Year"));
+		vg.setDate(year);
+
+		// Sale EU
+		double salesEU = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
+		vg.setSalesEU(salesEU);
+
+		// Sale JP
+		double salesJP = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
+		vg.setSalesJP(salesJP);
+
+		// Sale NA
+		double salesNA = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
+		vg.setSalesNA(salesNA);
+
+		// Sale Others
+		double salesOthers = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
+		vg.setSalesOthers(salesOthers);
+
+		// Sale Global
+		double salesGlobal = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
+		vg.setSalesGlobal(salesGlobal);
+
+		vg.setTitle(getValueFromChildElement(node, "Name"));
+		return vg;
+	}
+
+}
