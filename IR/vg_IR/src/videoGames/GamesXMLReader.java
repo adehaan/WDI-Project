@@ -1,5 +1,7 @@
 package videoGames;
 
+import java.util.List;
+
 import org.w3c.dom.Node;
 
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
@@ -54,6 +56,35 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> {
 		// Prequel
 		vg.setPrequel(getValueFromChildElement(node, "Sale_EU"));
 
+		// Countries_of_Origins
+		vg.setCountries(getListFromChildElement(node, "Countries_of_Origins"));
+
+		// Stores
+		vg.setStores(getListFromChildElement(node, "Stores"));
+
+		// Publishers
+		vg.setPublishers(getListFromChildElement(node, "Publishers"));
+
+		// DeveloperStudios
+		vg.setDeveloper(getListFromChildElement(node, "DeveloperStudios"));
+
+		// Genres
+		vg.setGenres(getListFromChildElement(node, "Genres"));
+
+		// platforms
+		vg.setPlatforms(getListFromChildElement(node, "platforms"));
+
+		// Modes
+		vg.setModes(getListFromChildElement(node, "Modes"));
+
+		// Contributors
+		vg.setContributors(getListFromChildElement(node, "Contributors"));
+
+		// Tags
+		vg.setTags(getObjectListFromChildElement(node, "Tags","Tag",new TagXMLReader(), provenanceInfo));
+
+		// Age_groups
+		vg.setContributors(getListFromChildElement(node, "Contributors"));
 		return vg;
 	}
 
