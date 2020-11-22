@@ -19,7 +19,7 @@ public class AgeGroupsXMLReader extends XMLMatchableReader<AgeGroups, Attribute>
 		agegroups.setgroup(group);
 		agegroups.setid(id);
 		
-		return tags;
+		return agegroups;
 	}
 
 }

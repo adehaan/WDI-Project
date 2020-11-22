@@ -8,7 +8,7 @@ import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 public class AgeGroups extends AbstractRecord<Attribute> implements Serializable{
 	private static final long serialVersionUID = 1L;
 	protected int id;
-	protected string group;
+	protected String group;
 	
 	
 	public int getid() {
@@ -19,11 +19,11 @@ public class AgeGroups extends AbstractRecord<Attribute> implements Serializable
 		this.id = id;
 	}
 	
-	public string getgroup() {
+	public String getgroup() {
 		return group;
 	}
 
-	public void setgroup(string group) {
+	public void setgroup(String group) {
 		this.group = group;
 	}
 	

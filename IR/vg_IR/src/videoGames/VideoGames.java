@@ -39,17 +39,7 @@ public class VideoGames implements Matchable{
 	// Eigene Klassen/ Dateien für jedes erstellen
 	
 
-	public class Tag {
-		public String name;
-		public int gameCounts;
-	}
-
-	private List<Tag> Tags;
-	
-	public class AgeGroups {
-		public int id;
-		public String group;
-	}
+	private List<Tags> Tags;
     private List<AgeGroups> Age_Groups;
 	// Tags: Name: GameCount
 	// Age_Groups: ID: Liste
@@ -244,11 +234,11 @@ public class VideoGames implements Matchable{
 		this.PC_Requirements = PC_Requirements;
 	}
 
-	public List<Tag> getTags() {
+	public List<Tags> getTags() {
 		return Tags;
 	}
 
-	public void setTags(List<Tag> tag) {
+	public void setTags(List<Tags> tag) {
 		this.Tags = tag;
 	}
 
