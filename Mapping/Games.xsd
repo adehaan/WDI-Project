@@ -19,7 +19,14 @@
 							<xs:element name="Sale_Others" type="xs:double"/>
 							<xs:element name="Sale_Global" type="xs:double"/>
 							<xs:element name="Total_Length_in_hrs" type="xs:short"/>
-							<xs:element name="Recommended_Req_PC" type="xs:string"/>
+							<xs:element name="Recommended">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Platforn_Name" type="xs:string"/>
+										<xs:element name="Recommended_Req_PC" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
 							<xs:element name="Website" type="xs:string"/>
 							<xs:element name="Countries_of_Origin">
 								<xs:complexType>

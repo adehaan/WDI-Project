@@ -35,9 +35,239 @@
 					</targets>
 					<view ltx="1122" lty="285" rbx="1208" rby="353"/>
 				</component>
+				<component name="Sales Dataset" library="text" uid="19" kind="16">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="1328" lty="21" rbx="1536" rby="252"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Zeilen" expanded="1">
+										<entry name="Year" inpkey="28"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" inputinstance="..\Datasets\d1_vgsales.csv" encoding="1000" byteorder="1" byteordermark="0">
+							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="d1_vgsales" block="Zeilen">
+									<field0 name="Rank" type="integer"/>
+									<field1 name="Name" type="string"/>
+									<field2 name="Platform" type="string"/>
+									<field3 name="Year" type="integer"/>
+									<field4 name="Genre" type="string"/>
+									<field5 name="Publisher" type="string"/>
+									<field6 name="NA_Sales" type="double"/>
+									<field7 name="EU_Sales" type="double"/>
+									<field8 name="JP_Sales" type="double"/>
+									<field9 name="Other_Sales" type="double"/>
+									<field10 name="Global_Sales" type="double"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="RAWG" library="json" uid="21" kind="31">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="528" lty="21" rbx="925" rby="635"/>
+					<data>
+						<root scrollposition="143">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="root" expanded="1">
+										<entry name="item" type="json-item" expanded="1">
+											<entry name="object" expanded="1">
+												<entry name="added" type="json-property" expanded="1"/>
+												<entry name="added_by_status" type="json-property" expanded="1">
+													<entry name="object">
+														<entry name="yet" type="json-property" expanded="1"/>
+														<entry name="owned" type="json-property" expanded="1"/>
+														<entry name="beaten" type="json-property" expanded="1"/>
+														<entry name="toplay" type="json-property" expanded="1"/>
+														<entry name="dropped" type="json-property" expanded="1"/>
+														<entry name="playing" type="json-property" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="background_image" type="json-property" expanded="1"/>
+												<entry name="clip" type="json-property" expanded="1">
+													<entry name="object">
+														<entry name="clip" type="json-property" expanded="1"/>
+														<entry name="clips" type="json-property" expanded="1"/>
+														<entry name="video" type="json-property" expanded="1"/>
+														<entry name="preview" type="json-property" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="dominant_color" type="json-property" expanded="1"/>
+												<entry name="genres" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="name" type="json-property" expanded="1"/>
+																<entry name="slug" type="json-property" expanded="1"/>
+																<entry name="image" type="json-property" expanded="1"/>
+																<entry name="language" type="json-property" expanded="1"/>
+																<entry name="domain" type="json-property" expanded="1"/>
+																<entry name="year_end" type="json-property" expanded="1"/>
+																<entry name="year_start" type="json-property" expanded="1"/>
+																<entry name="games_count" type="json-property" expanded="1"/>
+																<entry name="image_background" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="id" type="json-property" expanded="1"/>
+												<entry name="metacritic" type="json-property" expanded="1"/>
+												<entry name="name" type="json-property" expanded="1"/>
+												<entry name="parent_platforms" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object">
+																<entry name="platform" type="json-property" expanded="1">
+																	<entry name="object">
+																		<entry name="id" type="json-property" expanded="1"/>
+																		<entry name="name" type="json-property" expanded="1"/>
+																		<entry name="slug" type="json-property" expanded="1"/>
+																		<entry name="image" type="json-property" expanded="1"/>
+																		<entry name="language" type="json-property" expanded="1"/>
+																		<entry name="domain" type="json-property" expanded="1"/>
+																		<entry name="year_end" type="json-property" expanded="1"/>
+																		<entry name="year_start" type="json-property" expanded="1"/>
+																		<entry name="games_count" type="json-property" expanded="1"/>
+																		<entry name="image_background" type="json-property" expanded="1"/>
+																	</entry>
+																</entry>
+																<entry name="released_at" type="json-property" expanded="1"/>
+																<entry name="requirements_en" type="json-property" expanded="1"/>
+																<entry name="requirements_ru" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="platforms" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object">
+																<entry name="platform" type="json-property" expanded="1">
+																	<entry name="object">
+																		<entry name="id" type="json-property" expanded="1"/>
+																		<entry name="name" type="json-property" expanded="1"/>
+																		<entry name="slug" type="json-property" expanded="1"/>
+																		<entry name="image" type="json-property" expanded="1"/>
+																		<entry name="language" type="json-property" expanded="1"/>
+																		<entry name="domain" type="json-property" expanded="1"/>
+																		<entry name="year_end" type="json-property" expanded="1"/>
+																		<entry name="year_start" type="json-property" expanded="1"/>
+																		<entry name="games_count" type="json-property" expanded="1"/>
+																		<entry name="image_background" type="json-property" expanded="1"/>
+																	</entry>
+																</entry>
+																<entry name="released_at" type="json-property" expanded="1"/>
+																<entry name="requirements_en" type="json-property" expanded="1"/>
+																<entry name="requirements_ru" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="playtime" type="json-property" expanded="1"/>
+												<entry name="rating" type="json-property" expanded="1"/>
+												<entry name="rating_top" type="json-property" expanded="1"/>
+												<entry name="ratings" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="title" type="json-property" expanded="1"/>
+																<entry name="count" type="json-property" expanded="1"/>
+																<entry name="percent" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="ratings_count" type="json-property" expanded="1"/>
+												<entry name="released" type="json-property" expanded="1">
+													<entry name="string" outkey="31"/>
+												</entry>
+												<entry name="reviews_count" type="json-property" expanded="1"/>
+												<entry name="reviews_text_count" type="json-property" expanded="1"/>
+												<entry name="saturated_color" type="json-property" expanded="1"/>
+												<entry name="short_screenshots" type="json-property" expanded="1">
+													<entry name="array" expanded="1">
+														<entry name="item" type="json-item" expanded="1"/>
+													</entry>
+												</entry>
+												<entry name="slug" type="json-property" expanded="1"/>
+												<entry name="stores" type="json-property" expanded="1">
+													<entry name="array">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="store" type="json-property" expanded="1">
+																	<entry name="object">
+																		<entry name="id" type="json-property" expanded="1"/>
+																		<entry name="name" type="json-property" expanded="1"/>
+																		<entry name="slug" type="json-property" expanded="1"/>
+																		<entry name="image" type="json-property" expanded="1"/>
+																		<entry name="language" type="json-property" expanded="1"/>
+																		<entry name="domain" type="json-property" expanded="1"/>
+																		<entry name="year_end" type="json-property" expanded="1"/>
+																		<entry name="year_start" type="json-property" expanded="1"/>
+																		<entry name="games_count" type="json-property" expanded="1"/>
+																		<entry name="image_background" type="json-property" expanded="1"/>
+																	</entry>
+																</entry>
+																<entry name="url_en" type="json-property" expanded="1"/>
+																<entry name="url_ru" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="suggestions_count" type="json-property" expanded="1"/>
+												<entry name="tags" type="json-property" expanded="1">
+													<entry name="array" expanded="1">
+														<entry name="item" type="json-item" expanded="1">
+															<entry name="object" expanded="1">
+																<entry name="id" type="json-property" expanded="1"/>
+																<entry name="name" type="json-property" expanded="1"/>
+																<entry name="slug" type="json-property" expanded="1"/>
+																<entry name="image" type="json-property" expanded="1"/>
+																<entry name="language" type="json-property" expanded="1"/>
+																<entry name="domain" type="json-property" expanded="1"/>
+																<entry name="year_end" type="json-property" expanded="1"/>
+																<entry name="year_start" type="json-property" expanded="1"/>
+																<entry name="games_count" type="json-property" expanded="1"/>
+																<entry name="image_background" type="json-property" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="tba" type="json-property" expanded="1"/>
+												<entry name="user_game" type="json-property" expanded="1"/>
+												<entry name="community_rating" type="json-property" expanded="1"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<json schema="..\Datasets\games1.schema.json" inputinstance="..\Datasets\games1.jsonl" outputinstance="..\Datasets\games1.jsonl" json5="1" jsonlines="1"/>
+					</data>
+				</component>
 				<component name="Wikidata_final" library="text" uid="34" kind="16">
 					<properties/>
-					<view ltx="110" lty="22" rbx="309" rby="582"/>
+					<view ltx="60" lty="22" rbx="247" rby="370"/>
 					<data>
 						<root>
 							<header>
@@ -76,99 +306,6 @@
 								</names>
 							</settings>
 						</text>
-					</data>
-				</component>
-				<component name="Sales Dataset" library="text" uid="19" kind="16">
-					<properties XSLTDefaultOutput="1"/>
-					<view ltx="1327" lty="37" rbx="1550" rby="360"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1">
-									<entry name="Zeilen" expanded="1">
-										<entry name="Year" inpkey="28"/>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<text type="csv" inputinstance="..\Datasets\d1_vgsales.csv" encoding="1000" byteorder="1" byteordermark="0">
-							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
-								<names root="d1_vgsales" block="Zeilen">
-									<field0 name="Rank" type="integer"/>
-									<field1 name="Name" type="string"/>
-									<field2 name="Platform" type="string"/>
-									<field3 name="Year" type="integer"/>
-									<field4 name="Genre" type="string"/>
-									<field5 name="Publisher" type="string"/>
-									<field6 name="NA_Sales" type="double"/>
-									<field7 name="EU_Sales" type="double"/>
-									<field8 name="JP_Sales" type="double"/>
-									<field9 name="Other_Sales" type="double"/>
-									<field10 name="Global_Sales" type="double"/>
-								</names>
-							</settings>
-						</text>
-					</data>
-				</component>
-				<component name="RAWG" library="json" uid="21" kind="31">
-					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="537" lty="21" rbx="915" rby="583"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
-									<entry name="root" expanded="1">
-										<entry name="item" type="json-item" expanded="1">
-											<entry name="object" expanded="1">
-												<entry name="added" type="json-property" expanded="1"/>
-												<entry name="added_by_status" type="json-property" expanded="1"/>
-												<entry name="background_image" type="json-property" expanded="1"/>
-												<entry name="clip" type="json-property" expanded="1"/>
-												<entry name="dominant_color" type="json-property" expanded="1"/>
-												<entry name="genres" type="json-property" expanded="1"/>
-												<entry name="id" type="json-property" expanded="1"/>
-												<entry name="metacritic" type="json-property" expanded="1"/>
-												<entry name="name" type="json-property" expanded="1"/>
-												<entry name="parent_platforms" type="json-property" expanded="1"/>
-												<entry name="platforms" type="json-property" expanded="1"/>
-												<entry name="playtime" type="json-property" expanded="1"/>
-												<entry name="rating" type="json-property" expanded="1"/>
-												<entry name="rating_top" type="json-property" expanded="1"/>
-												<entry name="ratings" type="json-property" expanded="1"/>
-												<entry name="ratings_count" type="json-property" expanded="1"/>
-												<entry name="released" type="json-property" expanded="1">
-													<entry name="string" outkey="31"/>
-												</entry>
-												<entry name="reviews_count" type="json-property" expanded="1"/>
-												<entry name="reviews_text_count" type="json-property" expanded="1"/>
-												<entry name="saturated_color" type="json-property" expanded="1"/>
-												<entry name="short_screenshots" type="json-property" expanded="1"/>
-												<entry name="slug" type="json-property" expanded="1"/>
-												<entry name="stores" type="json-property" expanded="1"/>
-												<entry name="suggestions_count" type="json-property" expanded="1"/>
-												<entry name="tags" type="json-property" expanded="1"/>
-												<entry name="tba" type="json-property" expanded="1"/>
-												<entry name="user_game" type="json-property" expanded="1"/>
-												<entry name="community_rating" type="json-property" expanded="1"/>
-											</entry>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<json schema="..\Datasets\games1.schema.json" inputinstance="..\Datasets\games1.jsonl" outputinstance="..\Datasets\games1.jsonl" json5="1" jsonlines="1"/>
 					</data>
 				</component>
 			</children>

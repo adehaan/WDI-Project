@@ -4,8 +4,8 @@
   "definitions": {
     "object_01": {
       "title": "clip",
-      "type": "object",
-      "required": [
+      "type": ["object","null"],
+      "optional": [
         "clip",
         "clips",
         "video",
@@ -14,13 +14,13 @@
       "additionalProperties": false,
       "properties": {
         "clip": {
-          "type": "string",
+          "type": ["string", "null"],
           "format": "uri"
         },
         "clips": {
           "title": "clips",
           "type": "object",
-          "required": [
+          "optional": [
             "320",
             "640",
             "full"
@@ -28,43 +28,43 @@
           "additionalProperties": false,
           "properties": {
             "320": {
-              "type": "string",
+              "type": ["string", "null"],
               "format": "uri"
             },
             "640": {
-              "type": "string",
+              "type": ["string", "null"],
               "format": "uri"
             },
             "full": {
-              "type": "string",
+              "type": ["string", "null"],
               "format": "uri"
             }
           }
         },
         "video": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "preview": {
-          "type": "string",
+          "type": ["string", "null"],
           "format": "uri"
         }
       }
     },
     "object_02": {
       "type": "object",
-      "required": [
+      "optional": [
         "id"
       ],
       "additionalProperties": false,
       "properties": {
         "id": {
-          "type": "number"
+          "type": ["number","null"]
         },
         "name": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "slug": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "image": {
           "type": [
@@ -73,13 +73,13 @@
           ]
         },
         "language": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "domain": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "year_end": {
-          "type": "null"
+          "type": ["null", "number"]
         },
         "year_start": {
           "type": [
@@ -88,17 +88,17 @@
           ]
         },
         "games_count": {
-          "type": "number"
+          "type": ["number","null"]
         },
         "image_background": {
-          "type": "string",
+          "type": ["string", "null"],
           "format": "uri"
         }
       }
     },
     "object_03": {
-      "type": "object",
-      "required": [
+      "type": ["object","null"],
+      "optional": [
         "platform"
       ],
       "additionalProperties": false,
@@ -107,40 +107,62 @@
           "$ref": "#/definitions/object_02"
         },
         "released_at": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "requirements_en": {
           "anyOf": [
             {
               "title": "requirements_en",
-              "type": "object",
-              "required": [
-                "minimum",
-                "recommended"
+              "type": ["object","null"],
+              "optional": [
+                "recommended",
+                "minimum"
               ],
               "additionalProperties": false,
               "properties": {
                 "minimum": {
-                  "type": "string"
+                  "type": ["string", "null"]
                 },
                 "recommended": {
-                  "type": "string"
+                  "type": ["string", "null"]
                 }
               }
             },
             {
-              "type": "null"
+              "type": ["object","null"]
             }
           ]
         },
         "requirements_ru": {
-          "type": "null"
+          "anyOf": [
+            {
+              "title": "requirements_ru",
+              "type": ["object","null"],
+              "optional": [
+                "recommended",
+                "minimum"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "minimum": {
+                  "type": ["string", "null"]
+                },
+                "recommended": {
+                  "type": ["string", "null"]
+                }
+              }
+            },
+            {
+              "type": ["object","null"]
+            }
+          ]
         }
       }
     },
+
     "object_04": {
       "type": "object",
-      "required": [
+      "optional": [
         "id",
         "store",
         "url_en",
@@ -155,17 +177,15 @@
           "$ref": "#/definitions/object_02"
         },
         "url_en": {
-          "type": "string",
-          "format": "uri"
+          "type": ["string", "null"]
         },
         "url_ru": {
           "anyOf": [
             {
-              "type": "null"
+              "type": ["string", "null"]
             },
             {
-              "type": "string",
-              "format": "uri"
+              "type": ["string", "null"]
             }
           ]
         }
@@ -173,7 +193,7 @@
     },
     "object_05": {
       "type": "object",
-      "required": [
+      "optional": [
         "added",
         "added_by_status",
         "background_image",
@@ -206,12 +226,12 @@
       "additionalProperties": false,
       "properties": {
         "added": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "added_by_status": {
           "title": "added_by_status",
           "type": "object",
-          "required": [
+          "optional": [
             "yet",
             "owned",
             "beaten",
@@ -222,34 +242,34 @@
           "additionalProperties": false,
           "properties": {
             "yet": {
-              "type": "number"
+              "type": ["number", "null"]
             },
             "owned": {
-              "type": "number"
+              "type": ["number", "null"]
             },
             "beaten": {
-              "type": "number"
+              "type": ["number", "null"]
             },
             "toplay": {
-              "type": "number"
+              "type": ["number", "null"]
             },
             "dropped": {
-              "type": "number"
+              "type": ["number", "null"]
             },
             "playing": {
-              "type": "number"
+              "type": ["number", "null"]
             }
           }
         },
         "background_image": {
-          "type": "string",
+          "type": ["string", "null"],
           "format": "uri"
         },
         "clip": {
           "$ref": "#/definitions/object_01"
         },
         "dominant_color": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "genres": {
           "type": "array",
@@ -258,13 +278,13 @@
           }
         },
         "id": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "metacritic": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "name": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "parent_platforms": {
           "type": "array",
@@ -273,26 +293,26 @@
           }
         },
         "platforms": {
-          "type": "array",
+          "type": ["array", "null"],
           "items": {
             "$ref": "#/definitions/object_03"
           }
         },
         "playtime": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "rating": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "rating_top": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "ratings": {
           "type": "array",
           "title": "ratings",
           "items": {
             "type": "object",
-            "required": [
+            "optional": [
               "id",
               "title",
               "count",
@@ -301,34 +321,34 @@
             "additionalProperties": false,
             "properties": {
               "id": {
-                "type": "number"
+                "type": ["number", "null"]
               },
               "title": {
-                "type": "string"
+                "type": ["string", "null"]
               },
               "count": {
-                "type": "number"
+                "type": ["number", "null"]
               },
               "percent": {
-                "type": "number"
+                "type": ["number", "null"]
               }
             }
           }
         },
         "ratings_count": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "released": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "reviews_count": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "reviews_text_count": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "saturated_color": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "short_screenshots": {
           "type": "array",
@@ -337,7 +357,7 @@
           }
         },
         "slug": {
-          "type": "string"
+          "type": ["string", "null"]
         },
         "stores": {
           "type": "array",
@@ -347,7 +367,7 @@
           }
         },
         "suggestions_count": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "tags": {
           "type": "array",
@@ -356,13 +376,13 @@
           }
         },
         "tba": {
-          "type": "number"
+          "type": ["number", "null"]
         },
         "user_game": {
-          "type": "null"
+          "type": ["number", "null"]
         },
         "community_rating": {
-          "type": "null"
+          "type": ["number", "null"]
         }
       }
     }
