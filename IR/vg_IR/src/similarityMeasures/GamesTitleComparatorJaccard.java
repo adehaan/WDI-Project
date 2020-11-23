@@ -16,8 +16,8 @@ public class GamesTitleComparatorJaccard implements Comparator<VideoGames, Attri
 	@Override
 	public double compare(VideoGames record1, VideoGames record2,
 			Correspondence<Attribute, Matchable> schemaCorrespondence) {
-		String s1 = record1.getTitle();
-		String s2 = record2.getTitle();
+		String s1 = record1.getTitle().toLowerCase();
+		String s2 = record2.getTitle().toLowerCase();
 
 		// calculate similarity
 		double similarity = sim.calculate(s1, s2);

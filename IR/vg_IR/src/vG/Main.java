@@ -40,8 +40,8 @@ public class Main {
 		gsTest.loadFromCSVFile(new File("../Goldstandard_sales_wiki.csv"));
 
 		// create a matching rule
-		LinearCombinationMatchingRule<VideoGames, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
-		matchingRule.activateDebugReport("../data/output/debugResultsMatchingRule.csv", 1000, gsTest);
+		LinearCombinationMatchingRule<VideoGames, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.5);
+		matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparator5Years(), 0.5);
@@ -54,7 +54,7 @@ public class Main {
 //				SortedNeighbourhoodBlocker<Movie, Attribute, Attribute> blocker = new SortedNeighbourhoodBlocker<>(new MovieBlockingKeyByTitleGenerator(), 1);
 		blocker.setMeasureBlockSizes(true);
 		// Write debug results to file:
-		blocker.collectBlockSizeData("../data/output/debugResultsBlocking.csv", 100);
+		blocker.collectBlockSizeData("data/output/debugResultsBlocking.csv", 100);
 
 		// Initialize Matching Engine
 		MatchingEngine<VideoGames, Attribute> engine = new MatchingEngine<>();
