@@ -1,6 +1,7 @@
 package genralClasses;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
@@ -242,7 +243,11 @@ public class VideoGames implements Matchable{
 		this.Tags = tag;
 	}
 
-	public List<AgeGroups> getAgeGroup() {
+	public void setAgeGroups(List<AgeGroups> ageGroup) {
+		this.Age_Groups = ageGroup;
+	}
+	
+	public List<AgeGroups> getAgeGroups() {
 		return Age_Groups;
 	}
 

@@ -1,11 +1,15 @@
 package xmlReaders;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.w3c.dom.Node;
 
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.model.io.XMLMatchableReader;
+import genralClasses.AgeGroups;
+import genralClasses.Tags;
 import genralClasses.VideoGames;
 
 public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> {
@@ -14,6 +18,7 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> {
 	public VideoGames createModelFromElement(Node node, String provenanceInfo) {
 		// TODO Auto-generated method stub
 
+		// id
 		String id = getValueFromChildElement(node, "id");
 		VideoGames vg = new VideoGames(id, provenanceInfo);
 
@@ -21,71 +26,132 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> {
 		vg.setTitle(getValueFromChildElement(node, "Title"));
 
 		// Year
-		int year = Integer.parseInt(getValueFromChildElement(node, "Year"));
-		vg.setDate(year);
+		String strYear = getValueFromChildElement(node, "Year");
+		if (strYear != null && !strYear.isEmpty()) {
+			int year = Integer.parseInt(strYear);
+			vg.setDate(year);
+		}
 
 		// Sale EU
-		double salesEU = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
-		vg.setSalesEU(salesEU);
-
+		String strSalesEu = getValueFromChildElement(node, "Sale_EU");
+		if (strSalesEu != null && !strSalesEu.isEmpty()) {
+			double salesEU = Double.parseDouble(strSalesEu);
+			vg.setSalesEU(salesEU);
+		}
+		
 		// Sale JP
-		double salesJP = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
-		vg.setSalesJP(salesJP);
-
+		String strSalesJP = getValueFromChildElement(node, "Sale_JP");
+		if (strSalesJP != null && !strSalesJP.isEmpty()) {
+			double salesJP = Double.parseDouble(strSalesJP);
+			vg.setSalesJP(salesJP);
+		}
+		
 		// Sale NA
-		double salesNA = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
-		vg.setSalesNA(salesNA);
+		String strSalesNA = getValueFromChildElement(node, "Sale_NA");
+		if (strSalesNA != null && !strSalesNA.isEmpty()) {
+			double salesNA = Double.parseDouble(strSalesNA);
+			vg.setSalesNA(salesNA);
+		}
 
 		// Sale Others
-		double salesOthers = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
-		vg.setSalesOthers(salesOthers);
+		String strSalesOthers = getValueFromChildElement(node, "Sale_Others");
+		if (strSalesOthers != null && !strSalesOthers.isEmpty()) {
+			double salesOthers = Double.parseDouble(strSalesOthers);
+			vg.setSalesOthers(salesOthers);
+		}
 
 		// Sale Global
-		double salesGlobal = Double.parseDouble(getValueFromChildElement(node, "Sale_EU"));
-		vg.setSalesGlobal(salesGlobal);
+		String strSalesGlobal = getValueFromChildElement(node, "Sale_Others");
+		if (strSalesGlobal != null && !strSalesGlobal.isEmpty()) {
+			double salesGlobal = Double.parseDouble(strSalesGlobal);
+			vg.setSalesGlobal(salesGlobal);
+		}
 
 		// Total length
-		int totalLength = Integer.parseInt(getValueFromChildElement(node, "Total_Length_in_hrs"));
-		vg.setTotalLength(totalLength);
+		String strTotalLength = getValueFromChildElement(node, "Total_Length_in_hrs");
+		if (strTotalLength != null && !strTotalLength.isEmpty()) {
+			int totalLength = Integer.parseInt(strTotalLength);
+			vg.setTotalLength(totalLength);
+		}
 
 		// Website
-		vg.setWebsite(getValueFromChildElement(node, "Website"));
-
+		String strWebsite = getValueFromChildElement(node, "Website");
+		if (strWebsite != null && !strWebsite.isEmpty()) {
+			vg.setWebsite(strWebsite);
+		}
+	
 		// Sequel
-		vg.setSequel(getValueFromChildElement(node, "Sequel"));
+		String strSequel = getValueFromChildElement(node, "Sequel");
+		if (strSequel != null && !strSequel.isEmpty()) {
+			vg.setSequel(strSequel);
+		}
 
 		// Prequel
-		vg.setPrequel(getValueFromChildElement(node, "Sale_EU"));
+		String strPrequel = getValueFromChildElement(node, "Prequel");
+		if (strPrequel != null && !strPrequel.isEmpty()) {
+			vg.setPrequel(strPrequel);
+		}
 
 		// Countries_of_Origins
-		vg.setCountries(getListFromChildElement(node, "Countries_of_Origins"));
+		List<String> lstCountryOfOrigin = getListFromChildElement(node, "Countries_of_Origins");
+		if (lstCountryOfOrigin != null && lstCountryOfOrigin.size() > 0) {
+			vg.setCountries(lstCountryOfOrigin);
+		}
 
 		// Stores
-		vg.setStores(getListFromChildElement(node, "Stores"));
+		List<String> lstStores = getListFromChildElement(node, "Stores");
+		if (lstStores != null && lstStores.size() > 0) {
+			vg.setStores(lstStores);
+		}
 
 		// Publishers
-		vg.setPublishers(getListFromChildElement(node, "Publishers"));
+		List<String> lstPublishers = getListFromChildElement(node, "Publishers");
+		if (lstPublishers != null && lstPublishers.size() > 0) {
+			vg.setPublishers(lstPublishers);
+		}
 
 		// DeveloperStudios
-		vg.setDeveloper(getListFromChildElement(node, "DeveloperStudios"));
+		List<String> lstDeveloperStudios = getListFromChildElement(node, "DeveloperStudios");
+		if (lstDeveloperStudios != null && lstDeveloperStudios.size() > 0) {
+			vg.setDeveloper(lstDeveloperStudios);
+		}
 
 		// Genres
-		vg.setGenres(getListFromChildElement(node, "Genres"));
+		List<String> lstGenres = getListFromChildElement(node, "Genres");
+		if (lstGenres != null && lstGenres.size() > 0) {
+			vg.setGenres(lstGenres);
+		}
 
 		// platforms
-		vg.setPlatforms(getListFromChildElement(node, "platforms"));
+		List<String> lstPlatforms = getListFromChildElement(node, "platforms");
+		if (lstPlatforms != null && lstPlatforms.size() > 0) {
+			vg.setPlatforms(lstPlatforms);
+		}
 
 		// Modes
-		vg.setModes(getListFromChildElement(node, "Modes"));
+		List<String> lstModes = getListFromChildElement(node, "Modes");
+		if (lstModes != null && lstModes.size() > 0) {
+			vg.setModes(lstModes);
+		}
 
 		// Contributors
-		vg.setContributors(getListFromChildElement(node, "Contributors"));
+		List<String> lstContibutors = getListFromChildElement(node, "Contributors");
+		if (lstContibutors != null && lstContibutors.size() > 0) {
+			vg.setContributors(lstContibutors);
+		}
 
 		// Tags
-		vg.setTags(getObjectListFromChildElement(node, "Tags","Tag",new TagXMLReader(), provenanceInfo));
+		List<Tags> lstTags = getObjectListFromChildElement(node, "Tags", "Tag", new TagXMLReader(), provenanceInfo);
+		if (lstTags != null && lstTags.size() > 0) {
+			vg.setTags(lstTags);
+		}
 
 		// Age_groups
-		vg.setContributors(getListFromChildElement(node, "Contributors"));
+		List<AgeGroups> lstAgeGroups = getObjectListFromChildElement(node, "AgeGroups", "AgeGroup", new AgeGroupsXMLReader(), provenanceInfo);
+		if (lstAgeGroups != null && lstAgeGroups.size() > 0) {
+			vg.setAgeGroups(lstAgeGroups);
+		}
+
 		return vg;
 	}
 
