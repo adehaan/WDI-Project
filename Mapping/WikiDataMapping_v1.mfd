@@ -11,26 +11,8 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="Generating IDs" library="user" uid="482" kind="19" visible="0">
-					<view ltx="839" lty="-435" rbx="886" rby="-418"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="id" outkey="254" componentid="33"/>
-						</root>
-					</data>
-				</component>
 				<component name="CSV_Seperated" library="user" uid="631" kind="19" visible="0">
-					<view ltx="518" lty="25" rbx="653" rby="42"/>
+					<view ltx="518" lty="25" rbx="665" rby="42"/>
 					<data>
 						<root>
 							<header>
@@ -51,7 +33,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="640" kind="19" visible="0">
-					<view ltx="518" lty="100" rbx="653" rby="117"/>
+					<view ltx="518" lty="100" rbx="665" rby="117"/>
 					<data>
 						<root>
 							<header>
@@ -72,7 +54,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="633" kind="19" visible="0">
-					<view ltx="519" lty="138" rbx="654" rby="155"/>
+					<view ltx="519" lty="138" rbx="666" rby="155"/>
 					<data>
 						<root>
 							<header>
@@ -93,7 +75,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="324" kind="19" visible="0">
-					<view ltx="518" lty="175" rbx="653" rby="192"/>
+					<view ltx="518" lty="175" rbx="665" rby="192"/>
 					<data>
 						<root>
 							<header>
@@ -114,7 +96,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="632" kind="19" visible="0">
-					<view ltx="518" lty="63" rbx="653" rby="80"/>
+					<view ltx="518" lty="63" rbx="665" rby="80"/>
 					<data>
 						<root>
 							<header>
@@ -135,7 +117,7 @@
 					</data>
 				</component>
 				<component name="Publication Date parser to absolute year" library="user" uid="349" kind="19" visible="0">
-					<view ltx="527" lty="-276" rbx="633" rby="-259"/>
+					<view ltx="527" lty="-276" rbx="643" rby="-259"/>
 					<data>
 						<root>
 							<header>
@@ -156,7 +138,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="639" kind="19" visible="0">
-					<view ltx="519" lty="-229" rbx="654" rby="-212"/>
+					<view ltx="519" lty="-229" rbx="666" rby="-212"/>
 					<data>
 						<root>
 							<header>
@@ -177,7 +159,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="634" kind="19" visible="0">
-					<view ltx="518" lty="-192" rbx="653" rby="-175"/>
+					<view ltx="518" lty="-192" rbx="665" rby="-175"/>
 					<data>
 						<root>
 							<header>
@@ -198,7 +180,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="635" kind="19" visible="0">
-					<view ltx="519" lty="-155" rbx="654" rby="-138"/>
+					<view ltx="519" lty="-155" rbx="666" rby="-138"/>
 					<data>
 						<root>
 							<header>
@@ -219,7 +201,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="637" kind="19" visible="0">
-					<view ltx="518" lty="-117" rbx="653" rby="-100"/>
+					<view ltx="518" lty="-117" rbx="665" rby="-100"/>
 					<data>
 						<root>
 							<header>
@@ -246,7 +228,7 @@
 					<targets>
 						<datapoint pos="0" key="361"/>
 					</targets>
-					<view ltx="698" lty="-116" rbx="789" rby="-80"/>
+					<view ltx="698" lty="-116" rbx="799" rby="-78"/>
 				</component>
 				<component name="Ratings to AgeGroup Resolver" library="user" uid="390" kind="19" visible="0">
 					<view ltx="517" lty="-71" rbx="774" rby="-5"/>
@@ -261,7 +243,7 @@
 							<entry name="CERO" inpkey="192" componentid="387"/>
 							<entry name="PEGI" inpkey="193" componentid="389"/>
 						</root>
-						<root>
+						<root scrollposition="1">
 							<header>
 								<namespaces>
 									<namespace/>
@@ -297,57 +279,6 @@
 								</entry>
 							</entry>
 						</root>
-					</data>
-				</component>
-				<component name="Games" library="xml" uid="2" kind="14">
-					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="990" lty="-434" rbx="1245" rby="220"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
-									<entry name="Games" expanded="1">
-										<entry name="Game" inpkey="1" expanded="1">
-											<entry name="id" type="attribute" inpkey="256"/>
-											<entry name="Title" inpkey="51"/>
-											<entry name="Year" inpkey="152"/>
-											<entry name="Website" inpkey="261"/>
-											<entry name="Countries_of_Origin" expanded="1">
-												<entry name="Country_of_Origin" inpkey="359"/>
-											</entry>
-											<entry name="Sequel" inpkey="197"/>
-											<entry name="Prequel" inpkey="198"/>
-											<entry name="Age_groups" inpkey="319" expanded="1"/>
-											<entry name="Publishers" expanded="1">
-												<entry name="Publisher" inpkey="2"/>
-											</entry>
-											<entry name="DeveloperStudios" expanded="1">
-												<entry name="DeveloperStudio" inpkey="3"/>
-											</entry>
-											<entry name="Genres" expanded="1">
-												<entry name="Genre" inpkey="257"/>
-											</entry>
-											<entry name="platforms" expanded="1">
-												<entry name="platform" inpkey="8"/>
-											</entry>
-											<entry name="Modes" expanded="1">
-												<entry name="Mode" inpkey="146"/>
-											</entry>
-											<entry name="Contributors" expanded="1">
-												<entry name="Contributor" inpkey="317"/>
-											</entry>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
 				<component name="Wikidata" library="text" uid="3" kind="16">
@@ -412,6 +343,75 @@
 						</text>
 					</data>
 				</component>
+				<component name="Games" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="990" lty="-434" rbx="1245" rby="220"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Games" expanded="1">
+										<entry name="Game" inpkey="1" expanded="1">
+											<entry name="id" inpkey="362"/>
+											<entry name="Title" inpkey="51"/>
+											<entry name="Year" inpkey="152"/>
+											<entry name="Website" inpkey="261"/>
+											<entry name="Countries_of_Origin" expanded="1">
+												<entry name="Country_of_Origin" inpkey="359"/>
+											</entry>
+											<entry name="Sequel" inpkey="197"/>
+											<entry name="Prequel" inpkey="198"/>
+											<entry name="Age_groups" inpkey="319" expanded="1"/>
+											<entry name="Publishers" expanded="1">
+												<entry name="Publisher" inpkey="2"/>
+											</entry>
+											<entry name="DeveloperStudios" expanded="1">
+												<entry name="DeveloperStudio" inpkey="3"/>
+											</entry>
+											<entry name="Genres" expanded="1">
+												<entry name="Genre" inpkey="257"/>
+											</entry>
+											<entry name="platforms" expanded="1">
+												<entry name="platform" inpkey="8"/>
+											</entry>
+											<entry name="Modes" expanded="1">
+												<entry name="Mode" inpkey="146"/>
+											</entry>
+											<entry name="Contributors" expanded="1">
+												<entry name="Contributor" inpkey="317"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
+					</data>
+				</component>
+				<component name="Generating IDs" library="user" uid="482" kind="19" visible="0">
+					<view ltx="839" lty="-435" rbx="887" rby="-418"/>
+					<data>
+						<root>
+							<header>
+								<namespaces/>
+							</header>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="id" outkey="254" componentid="33"/>
+						</root>
+					</data>
+				</component>
 			</children>
 		</structure>
 		<connections>
@@ -429,7 +429,6 @@
 			<edge from="329" to="197"/>
 			<edge from="327" to="198"/>
 			<edge from="151" to="220"/>
-			<edge from="254" to="256"/>
 			<edge from="339" to="257"/>
 			<edge from="337" to="261"/>
 			<edge from="308" to="315"/>
@@ -448,6 +447,7 @@
 			<edge from="255" to="340"/>
 			<edge from="361" to="359"/>
 			<edge from="334" to="360"/>
+			<edge from="254" to="362"/>
 		</connections>
 	</component>
 	<component name="Remove_delimeters" library="user" uid="69" inline="1">

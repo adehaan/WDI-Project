@@ -6,47 +6,6 @@
 		<properties SelectedLanguage="builtin"/>
 		<structure>
 			<children>
-				<component name="Games" library="xml" uid="2" kind="14">
-					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="1179" lty="31" rbx="1425" rby="573"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
-									<entry name="Games" expanded="1">
-										<entry name="Game" inpkey="13" expanded="1">
-											<entry name="id" type="attribute" inpkey="42"/>
-											<entry name="Rank" inpkey="14"/>
-											<entry name="Title" inpkey="15"/>
-											<entry name="Year" inpkey="16"/>
-											<entry name="Sale_EU" inpkey="17"/>
-											<entry name="Sale_JP" inpkey="18"/>
-											<entry name="Sale_NA" inpkey="19"/>
-											<entry name="Sale_Others" inpkey="20"/>
-											<entry name="Sale_Global" inpkey="21"/>
-											<entry name="Publishers" expanded="1">
-												<entry name="Publisher" inpkey="22"/>
-											</entry>
-											<entry name="Genres" expanded="1">
-												<entry name="Genre" inpkey="23"/>
-											</entry>
-											<entry name="platforms" expanded="1">
-												<entry name="platform" inpkey="24"/>
-											</entry>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
-					</data>
-				</component>
 				<component name="Sales Data" library="text" uid="3" kind="16">
 					<properties/>
 					<view ltx="17" lty="31" rbx="302" rby="604"/>
@@ -96,7 +55,7 @@
 					</data>
 				</component>
 				<component name="Transforming NA" library="user" uid="24" kind="19" visible="0" blackbox="0">
-					<view ltx="637" lty="137" rbx="706" rby="154"/>
+					<view ltx="637" lty="137" rbx="711" rby="154"/>
 					<data>
 						<root>
 							<header>
@@ -116,8 +75,49 @@
 						</root>
 					</data>
 				</component>
+				<component name="Games" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="1179" lty="31" rbx="1425" rby="573"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Games" expanded="1">
+										<entry name="Game" inpkey="13" expanded="1">
+											<entry name="id" inpkey="44"/>
+											<entry name="Rank" inpkey="14"/>
+											<entry name="Title" inpkey="15"/>
+											<entry name="Year" inpkey="16"/>
+											<entry name="Sale_EU" inpkey="17"/>
+											<entry name="Sale_JP" inpkey="18"/>
+											<entry name="Sale_NA" inpkey="19"/>
+											<entry name="Sale_Others" inpkey="20"/>
+											<entry name="Sale_Global" inpkey="21"/>
+											<entry name="Publishers" expanded="1">
+												<entry name="Publisher" inpkey="22"/>
+											</entry>
+											<entry name="Genres" expanded="1">
+												<entry name="Genre" inpkey="23"/>
+											</entry>
+											<entry name="platforms" expanded="1">
+												<entry name="platform" inpkey="24"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
+					</data>
+				</component>
 				<component name="Generating IDs" library="user" uid="34" kind="19" visible="0" blackbox="0">
-					<view ltx="615" lty="20" rbx="662" rby="37"/>
+					<view ltx="615" lty="20" rbx="663" rby="37"/>
 					<data>
 						<root>
 							<header>
@@ -205,7 +205,7 @@
 					</vertex>
 					<vertex vertexkey="43">
 						<edges>
-							<edge vertexkey="42"/>
+							<edge vertexkey="44"/>
 						</edges>
 					</vertex>
 				</vertices>
