@@ -16,12 +16,30 @@ public class GamesTitleComparatorJaccard implements Comparator<VideoGames, Attri
 	@Override
 	public double compare(VideoGames record1, VideoGames record2,
 			Correspondence<Attribute, Matchable> schemaCorrespondence) {
-		String s1 = record1.getTitle().toLowerCase();
-		String s2 = record2.getTitle().toLowerCase();
-
+		String s1 = record1.getTitle();
+		String s2 = record2.getTitle();
+		
+		if(this.comparisonLog != null){
+			this.comparisonLog.setComparatorName(getClass().getName());
+			this.comparisonLog.setRecord1Value(s1);
+			this.comparisonLog.setRecord2Value(s2);
+		}
+		
+		if (s1 != null) {
+			s1 = s1.toLowerCase();
+		} else {
+			s1 = "";
+		}
+		
+		if (s2 != null) {
+			s2 = s2.toLowerCase();
+		} else {
+			s2 = "";
+		}
+		
 		// calculate similarity
 		double similarity = sim.calculate(s1, s2);
-
+		
 		// postprocessing
 		int postSimilarity = 0;
 		if (similarity <= 0.3) {
@@ -31,15 +49,23 @@ public class GamesTitleComparatorJaccard implements Comparator<VideoGames, Attri
 		postSimilarity *= similarity;
 		
 		if(this.comparisonLog != null){
-			this.comparisonLog.setComparatorName(getClass().getName());
-		
-			this.comparisonLog.setRecord1Value(s1);
-			this.comparisonLog.setRecord2Value(s2);
+			this.comparisonLog.setRecord1PreprocessedValue(s1);
+			this.comparisonLog.setRecord2PreprocessedValue(s2);
     	
 			this.comparisonLog.setSimilarity(Double.toString(similarity));
 			this.comparisonLog.setPostprocessedSimilarity(Double.toString(postSimilarity));
 		}
+		
 		return postSimilarity;
 	}
+	
+	@Override
+	public ComparatorLogger getComparisonLog() {
+		return this.comparisonLog;
+	}
 
+	@Override
+	public void setComparisonLog(ComparatorLogger comparatorLog) {
+		this.comparisonLog = comparatorLog;
+	}
 }

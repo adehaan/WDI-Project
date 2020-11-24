@@ -55,7 +55,7 @@
 					</data>
 				</component>
 				<component name="Transforming NA" library="user" uid="24" kind="19" visible="0" blackbox="0">
-					<view ltx="637" lty="137" rbx="711" rby="154"/>
+					<view ltx="637" lty="137" rbx="705" rby="153"/>
 					<data>
 						<root>
 							<header>
@@ -79,7 +79,7 @@
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
 					<view ltx="1179" lty="31" rbx="1425" rby="573"/>
 					<data>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces>
 									<namespace/>
@@ -116,23 +116,45 @@
 						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
-				<component name="Generating IDs" library="user" uid="34" kind="19" visible="0" blackbox="0">
-					<view ltx="615" lty="20" rbx="663" rby="37"/>
+				<component name="auto-number" library="core" uid="37" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="46"/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="47"/>
+					</targets>
+					<view ltx="670" lty="-171" rbx="792" rby="-87"/>
+				</component>
+				<component name="constant" library="core" uid="35" kind="2">
+					<targets>
+						<datapoint pos="0" key="49"/>
+					</targets>
+					<view ltx="879" lty="-19" rbx="944" rby="-2"/>
 					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="id" outkey="43" componentid="33"/>
-						</root>
+						<constant value="sales_" datatype="string"/>
 					</data>
+				</component>
+				<component name="constant" library="core" uid="36" kind="2">
+					<targets>
+						<datapoint pos="0" key="45"/>
+					</targets>
+					<view ltx="557" lty="-133" rbx="594" rby="-116"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="38" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="50"/>
+						<datapoint pos="1" key="48"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="51"/>
+					</targets>
+					<view ltx="1014" lty="-41" rbx="1086" rby="11"/>
 				</component>
 			</children>
 			<graph directed="1">
@@ -203,9 +225,24 @@
 							<edge vertexkey="35"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="43">
+					<vertex vertexkey="51">
 						<edges>
 							<edge vertexkey="44"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="45">
+						<edges>
+							<edge vertexkey="46"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="47">
+						<edges>
+							<edge vertexkey="48"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="49">
+						<edges>
+							<edge vertexkey="50"/>
 						</edges>
 					</vertex>
 				</vertices>
@@ -318,7 +355,7 @@
 					<sources>
 						<datapoint pos="0" key="6"/>
 					</sources>
-					<view ltx="651" rbx="686" rby="36"/>
+					<view ltx="651" rbx="689" rby="38"/>
 					<data>
 						<output datatype="anyType"/>
 						<parameter usageKind="output" name="id"/>
@@ -328,7 +365,7 @@
 					<targets>
 						<datapoint pos="0" key="1"/>
 					</targets>
-					<view ltx="301" lty="54" rbx="338" rby="70"/>
+					<view ltx="301" lty="54" rbx="341" rby="71"/>
 					<data>
 						<constant value="1" datatype="decimal"/>
 					</data>
@@ -343,7 +380,7 @@
 					<targets>
 						<datapoint pos="0" key="5"/>
 					</targets>
-					<view ltx="424" rbx="551" rby="84"/>
+					<view ltx="424" rbx="566" rby="86"/>
 				</component>
 			</children>
 			<graph directed="1">

@@ -7,9 +7,9 @@
 		<structure>
 			<children>
 				<component name="format date" library="user" uid="33" kind="19" visible="0">
-					<view ltx="521" lty="350" rbx="617" rby="367"/>
+					<view ltx="521" lty="350" rbx="611" rby="366"/>
 					<data>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces>
 									<namespace/>
@@ -17,7 +17,7 @@
 							</header>
 							<entry name="value" inpkey="24" componentid="31"/>
 						</root>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces>
 									<namespace/>
@@ -27,67 +27,30 @@
 						</root>
 					</data>
 				</component>
-				<component name="Games" library="xml" uid="3" kind="14">
-					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="841" lty="17" rbx="1159" rby="670"/>
+				<component name="constant" library="core" uid="34" kind="2">
+					<targets>
+						<datapoint pos="0" key="60"/>
+					</targets>
+					<view ltx="1014" lty="-19" rbx="1079" rby="-2"/>
 					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="1" expanded="1">
-								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
-									<entry name="Games" inpkey="1" expanded="1">
-										<entry name="Game" expanded="1">
-											<entry name="id" inpkey="55"/>
-											<entry name="Title" inpkey="2"/>
-											<entry name="Year" inpkey="23"/>
-											<entry name="Total_Length_in_hrs" inpkey="26"/>
-											<entry name="Recommended" inpkey="35" expanded="1">
-												<entry name="Platforn_Name" inpkey="36"/>
-												<entry name="Recommended_Req_PC" inpkey="37"/>
-											</entry>
-											<entry name="Stores" expanded="1">
-												<entry name="Store" inpkey="28" expanded="1">
-													<entry name="id" type="attribute" inpkey="32"/>
-												</entry>
-											</entry>
-											<entry name="Age_groups" expanded="1">
-												<entry name="ESRB" expanded="1"/>
-											</entry>
-											<entry name="Rating" expanded="1">
-												<entry name="Metacrtic" inpkey="38"/>
-												<entry name="RAWG_Rating" inpkey="39"/>
-											</entry>
-											<entry name="Genres" expanded="1">
-												<entry name="Genre" inpkey="3"/>
-											</entry>
-											<entry name="platforms" expanded="1">
-												<entry name="platform" inpkey="40"/>
-											</entry>
-											<entry name="Modes" expanded="1"/>
-											<entry name="Tags" expanded="1">
-												<entry name="Tag" inpkey="41" expanded="1">
-													<entry name="Name" inpkey="42"/>
-													<entry name="Games_count" inpkey="43"/>
-												</entry>
-											</entry>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games.xml" instanceroot="{}Games"/>
+						<constant value="rawg_" datatype="string"/>
 					</data>
+				</component>
+				<component name="concat" library="core" uid="37" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="61"/>
+						<datapoint pos="1" key="59"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="62"/>
+					</targets>
+					<view ltx="1149" lty="-41" rbx="1221" rby="11"/>
 				</component>
 				<component name="RAWG" library="json" uid="6" kind="31">
 					<properties XSLTTargetEncoding="UTF-8"/>
 					<view ltx="74" lty="-20" rbx="406" rby="594"/>
 					<data>
-						<root scrollposition="205">
+						<root>
 							<header>
 								<namespaces>
 									<namespace/>
@@ -330,10 +293,65 @@
 						<json schema="..\Datasets\games1.schema.json" inputinstance="..\Datasets\games1.jsonl" outputinstance="..\Datasets\games1.jsonl" json5="1" jsonlines="1"/>
 					</data>
 				</component>
+				<component name="Games" library="xml" uid="3" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="1281" lty="25" rbx="1599" rby="678"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Games" expanded="1">
+										<entry name="Game" inpkey="63" expanded="1">
+											<entry name="id" inpkey="55"/>
+											<entry name="Title" inpkey="2"/>
+											<entry name="Year" inpkey="23"/>
+											<entry name="Total_Length_in_hrs" inpkey="26"/>
+											<entry name="Recommended" inpkey="35" expanded="1">
+												<entry name="Platforn_Name" inpkey="36"/>
+												<entry name="Recommended_Req_PC" inpkey="37"/>
+											</entry>
+											<entry name="Stores" expanded="1">
+												<entry name="Store" inpkey="28" expanded="1">
+													<entry name="id" type="attribute" inpkey="32"/>
+												</entry>
+											</entry>
+											<entry name="Age_groups" expanded="1">
+												<entry name="ESRB" expanded="1"/>
+											</entry>
+											<entry name="Rating" expanded="1">
+												<entry name="Metacrtic" inpkey="38"/>
+												<entry name="RAWG_Rating" inpkey="39"/>
+											</entry>
+											<entry name="Genres" expanded="1">
+												<entry name="Genre" inpkey="3"/>
+											</entry>
+											<entry name="platforms" expanded="1">
+												<entry name="platform" inpkey="40"/>
+											</entry>
+											<entry name="Modes" expanded="1"/>
+											<entry name="Tags" expanded="1">
+												<entry name="Tag" inpkey="41" expanded="1">
+													<entry name="Name" inpkey="42"/>
+													<entry name="Games_count" inpkey="43"/>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games.xml" instanceroot="{}Games"/>
+					</data>
+				</component>
 			</children>
 		</structure>
 		<connections>
-			<edge from="4" to="1"/>
 			<edge from="6" to="2"/>
 			<edge from="5" to="3"/>
 			<edge from="25" to="23"/>
@@ -350,7 +368,10 @@
 			<edge from="50" to="41"/>
 			<edge from="51" to="42"/>
 			<edge from="52" to="43"/>
-			<edge from="54" to="55"/>
+			<edge from="62" to="55"/>
+			<edge from="54" to="59"/>
+			<edge from="60" to="61"/>
+			<edge from="4" to="63"/>
 		</connections>
 	</component>
 	<component name="formatdate" library="user" uid="15" inline="1">

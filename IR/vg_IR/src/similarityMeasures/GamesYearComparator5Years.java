@@ -35,4 +35,14 @@ public class GamesYearComparator5Years implements Comparator<VideoGames, Attribu
 		}
 		return similarity;
 	}
+	
+	@Override
+	public ComparatorLogger getComparisonLog() {
+		return this.comparisonLog;
+	}
+
+	@Override
+	public void setComparisonLog(ComparatorLogger comparatorLog) {
+		this.comparisonLog = comparatorLog;
+	}
 }

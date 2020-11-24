@@ -12,7 +12,7 @@
 		<structure>
 			<children>
 				<component name="CSV_Seperated" library="user" uid="631" kind="19" visible="0">
-					<view ltx="518" lty="25" rbx="665" rby="42"/>
+					<view ltx="518" lty="25" rbx="660" rby="41"/>
 					<data>
 						<root>
 							<header>
@@ -33,7 +33,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="640" kind="19" visible="0">
-					<view ltx="518" lty="100" rbx="665" rby="117"/>
+					<view ltx="518" lty="100" rbx="660" rby="116"/>
 					<data>
 						<root>
 							<header>
@@ -54,7 +54,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="633" kind="19" visible="0">
-					<view ltx="519" lty="138" rbx="666" rby="155"/>
+					<view ltx="519" lty="138" rbx="661" rby="154"/>
 					<data>
 						<root>
 							<header>
@@ -75,7 +75,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="324" kind="19" visible="0">
-					<view ltx="518" lty="175" rbx="665" rby="192"/>
+					<view ltx="518" lty="175" rbx="660" rby="191"/>
 					<data>
 						<root>
 							<header>
@@ -96,7 +96,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="632" kind="19" visible="0">
-					<view ltx="518" lty="63" rbx="665" rby="80"/>
+					<view ltx="518" lty="63" rbx="660" rby="79"/>
 					<data>
 						<root>
 							<header>
@@ -117,7 +117,7 @@
 					</data>
 				</component>
 				<component name="Publication Date parser to absolute year" library="user" uid="349" kind="19" visible="0">
-					<view ltx="527" lty="-276" rbx="643" rby="-259"/>
+					<view ltx="527" lty="-276" rbx="640" rby="-260"/>
 					<data>
 						<root>
 							<header>
@@ -138,7 +138,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="639" kind="19" visible="0">
-					<view ltx="519" lty="-229" rbx="666" rby="-212"/>
+					<view ltx="519" lty="-229" rbx="661" rby="-213"/>
 					<data>
 						<root>
 							<header>
@@ -159,7 +159,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="634" kind="19" visible="0">
-					<view ltx="518" lty="-192" rbx="665" rby="-175"/>
+					<view ltx="518" lty="-192" rbx="660" rby="-176"/>
 					<data>
 						<root>
 							<header>
@@ -180,7 +180,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="635" kind="19" visible="0">
-					<view ltx="519" lty="-155" rbx="666" rby="-138"/>
+					<view ltx="519" lty="-155" rbx="661" rby="-139"/>
 					<data>
 						<root>
 							<header>
@@ -201,7 +201,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="637" kind="19" visible="0">
-					<view ltx="518" lty="-117" rbx="665" rby="-100"/>
+					<view ltx="518" lty="-117" rbx="660" rby="-101"/>
 					<data>
 						<root>
 							<header>
@@ -228,7 +228,7 @@
 					<targets>
 						<datapoint pos="0" key="361"/>
 					</targets>
-					<view ltx="698" lty="-116" rbx="799" rby="-78"/>
+					<view ltx="698" lty="-116" rbx="792" rby="-79"/>
 				</component>
 				<component name="Ratings to AgeGroup Resolver" library="user" uid="390" kind="19" visible="0">
 					<view ltx="517" lty="-71" rbx="774" rby="-5"/>
@@ -243,7 +243,7 @@
 							<entry name="CERO" inpkey="192" componentid="387"/>
 							<entry name="PEGI" inpkey="193" componentid="389"/>
 						</root>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces>
 									<namespace/>
@@ -343,11 +343,41 @@
 						</text>
 					</data>
 				</component>
+				<component name="constant" library="core" uid="712" kind="2">
+					<targets>
+						<datapoint pos="0" key="367"/>
+					</targets>
+					<view ltx="612" lty="-434" rbx="673" rby="-417"/>
+					<data>
+						<constant value="wiki_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="708" kind="2">
+					<targets>
+						<datapoint pos="0" key="365"/>
+					</targets>
+					<view ltx="290" lty="-548" rbx="350" rby="-531"/>
+					<data>
+						<constant value="16601" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="auto-number" library="core" uid="709" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="366"/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="363"/>
+					</targets>
+					<view ltx="403" lty="-586" rbx="533" rby="-499"/>
+				</component>
 				<component name="Games" library="xml" uid="2" kind="14">
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
 					<view ltx="990" lty="-434" rbx="1245" rby="220"/>
 					<data>
-						<root scrollposition="1">
+						<root>
 							<header>
 								<namespaces>
 									<namespace/>
@@ -394,23 +424,15 @@
 						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
-				<component name="Generating IDs" library="user" uid="482" kind="19" visible="0">
-					<view ltx="839" lty="-435" rbx="887" rby="-418"/>
-					<data>
-						<root>
-							<header>
-								<namespaces/>
-							</header>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="id" outkey="254" componentid="33"/>
-						</root>
-					</data>
+				<component name="concat" library="core" uid="711" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="368"/>
+						<datapoint pos="1" key="369"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="370"/>
+					</targets>
+					<view ltx="747" lty="-456" rbx="821" rby="-401"/>
 				</component>
 			</children>
 		</structure>
@@ -447,7 +469,10 @@
 			<edge from="255" to="340"/>
 			<edge from="361" to="359"/>
 			<edge from="334" to="360"/>
-			<edge from="254" to="362"/>
+			<edge from="370" to="362"/>
+			<edge from="365" to="366"/>
+			<edge from="367" to="368"/>
+			<edge from="363" to="369"/>
 		</connections>
 	</component>
 	<component name="Remove_delimeters" library="user" uid="69" inline="1">
