@@ -33,7 +33,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("*\n*\tLoading datasets\n*");
 		HashedDataSet<VideoGames, Attribute> dataWiki = new HashedDataSet<>();
-		new GamesXMLReader().loadFromXML(new File("data/input/target_games_wiki.xml"), "/Games/Game", dataWiki);
+		new GamesXMLReader().loadFromXML(new File("data/input/rawg_target.xml"), "/Games/Game", dataWiki);
 
 		HashedDataSet<VideoGames, Attribute> dataSales = new HashedDataSet<>();
 		new GamesXMLReader().loadFromXML(new File("data/input/sales_target.xml"), "/Games/Game", dataSales);
@@ -42,7 +42,7 @@ public class Main {
 		// load the gold standard (test set)
 		System.out.println("*\n*\tLoading gold standard\n*");
 		MatchingGoldStandard gsTest = new MatchingGoldStandard();
-		gsTest.loadFromCSVFile(new File("../Goldstandard_sales_wiki.csv"));
+		gsTest.loadFromCSVFile(new File("../Goldstandard_sales_rawg.csv"));
 
 		// create a matching rule
 		LinearCombinationMatchingRule<VideoGames, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
@@ -83,7 +83,7 @@ public class Main {
 		Performance perfTest = evaluator.evaluateMatching(correspondences, gsTest);
 
 		// print the evaluation result
-		System.out.println("Academy Awards <-> Actors");
+		System.out.println("Videogames Sale <-> Wiki");
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
