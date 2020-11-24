@@ -27,7 +27,7 @@ import xmlReaders.GamesXMLReader;
 
 public class Main {
 
-	private static final Logger logger = WinterLogManager.activateLogger("default");
+	private static final Logger logger = WinterLogManager.activateLogger("trace");
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
