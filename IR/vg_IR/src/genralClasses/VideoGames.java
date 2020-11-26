@@ -41,7 +41,10 @@ public class VideoGames implements Matchable{
 	
 
 	private List<Tags> Tags;
-    private List<AgeGroups> Age_Groups;
+    private List<ESRB> ESRB;
+    private List<PEGI> PEGI;
+    private List<CERO> CERO;
+    
 	// Tags: Name: GameCount
 	// Age_Groups: ID: Liste
 
@@ -243,16 +246,28 @@ public class VideoGames implements Matchable{
 		this.Tags = tag;
 	}
 
-	public void setAgeGroups(List<AgeGroups> ageGroup) {
-		this.Age_Groups = ageGroup;
+	public void setESRB(List<ESRB> ESRB) {
+		this.ESRB = ESRB;
 	}
 	
-	public List<AgeGroups> getAgeGroups() {
-		return Age_Groups;
+	public List<ESRB> getESRB() {
+		return ESRB;
 	}
-
-	public void setPCReq(List<AgeGroups> Agegroups) {
-		this.Age_Groups = Agegroups;
+	
+	public void setPEGI(List<PEGI> PEGI) {
+		this.PEGI = PEGI;
+	}
+	
+	public List<PEGI> getPEGI() {
+		return PEGI;
+	}
+	
+	public void setCERO(List<CERO> CERO) {
+		this.CERO = CERO;
+	}
+	
+	public List<CERO> getCERO() {
+		return CERO;
 	}
 
 	@Override

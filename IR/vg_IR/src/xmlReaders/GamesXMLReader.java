@@ -2,13 +2,19 @@ package xmlReaders;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
+import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.model.io.XMLMatchableReader;
 import genralClasses.AgeGroups;
+import genralClasses.CERO;
+import genralClasses.ESRB;
+import genralClasses.PEGI;
 import genralClasses.Tags;
 import genralClasses.VideoGames;
 
@@ -38,14 +44,14 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> {
 			double salesEU = Double.parseDouble(strSalesEu);
 			vg.setSalesEU(salesEU);
 		}
-		
+
 		// Sale JP
 		String strSalesJP = getValueFromChildElement(node, "Sale_JP");
 		if (strSalesJP != null && !strSalesJP.isEmpty()) {
 			double salesJP = Double.parseDouble(strSalesJP);
 			vg.setSalesJP(salesJP);
 		}
-		
+
 		// Sale NA
 		String strSalesNA = getValueFromChildElement(node, "Sale_NA");
 		if (strSalesNA != null && !strSalesNA.isEmpty()) {
@@ -79,7 +85,7 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> {
 		if (strWebsite != null && !strWebsite.isEmpty()) {
 			vg.setWebsite(strWebsite);
 		}
-	
+
 		// Sequel
 		String strSequel = getValueFromChildElement(node, "Sequel");
 		if (strSequel != null && !strSequel.isEmpty()) {
@@ -147,10 +153,24 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> {
 		}
 
 		// Age_groups
-		List<AgeGroups> lstAgeGroups = getObjectListFromChildElement(node, "AgeGroups", "AgeGroup", new AgeGroupsXMLReader(), provenanceInfo);
-		if (lstAgeGroups != null && lstAgeGroups.size() > 0) {
-			vg.setAgeGroups(lstAgeGroups);
+		List<ESRB> lstESRB = getObjectListFromChildElement(node, "ESRBs", "ESRB", new ESRBXmlReader(), provenanceInfo);
+		if (lstESRB != null && lstESRB.size() > 0) {
+			vg.setESRB(lstESRB);
 		}
+		
+		// Age_groups
+		//List<PEGI> lstPEGI = getObjectListFromChildElement(node, "PEGIs", "PEGI",
+		//		new AgeGroupsXMLReader(), provenanceInfo);
+		//if (lstAgeGroups != null && lstAgeGroups.size() > 0) {
+		//	vg.setAgeGroups(lstAgeGroups);
+		//}
+		
+		// Age_groups
+		//List<CERO> lstCERO = getObjectListFromChildElement(node, "CEROs", "CERO",
+		//		new AgeGroupsXMLReader(), provenanceInfo);
+		//if (lstAgeGroups != null && lstAgeGroups.size() > 0) {
+		//	vg.setAgeGroups(lstAgeGroups);
+		//}
 
 		return vg;
 	}

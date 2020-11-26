@@ -34,10 +34,10 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("*\n*\tLoading datasets\n*");
 		HashedDataSet<VideoGames, Attribute> dataWiki = new HashedDataSet<>();
-		new GamesXMLReader().loadFromXML(new File("data/input/target_games_Wiki.xml"), "/Games/Game", dataWiki);
-
 		HashedDataSet<VideoGames, Attribute> dataSales = new HashedDataSet<>();
+		new GamesXMLReader().loadFromXML(new File("data/input/target_games_Wiki.xml"), "/Games/Game", dataWiki);
 		new GamesXMLReader().loadFromXML(new File("data/input/sales_target.xml"), "/Games/Game", dataSales);
+		
 		
 		
 		// load the gold standard (test set)
@@ -50,10 +50,10 @@ public class Main {
 		matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
 		// add comparators
-		matchingRule.addComparator(new GamesYearComparator5Years(), 0.1);
-		matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.2);
-		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.1);
-		matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.6);
+		matchingRule.addComparator(new GamesYearComparator5Years(), 0.3);
+		//matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.2);
+		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.7);
+		//matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.7);
 
 		// create a blocker (blocking strategy)
 		StandardRecordBlocker<VideoGames, Attribute> blocker = new StandardRecordBlocker<VideoGames, Attribute>(
@@ -71,7 +71,7 @@ public class Main {
 		System.out.println("*\n*\tRunning identity resolution\n*");
 		
 		Processable<Correspondence<VideoGames, Attribute>> correspondences = engine
-				.runIdentityResolution(dataWiki, dataSales, null, matchingRule, blocker);
+				.runIdentityResolution(dataSales, dataWiki, null, matchingRule, blocker);
 
 		// write the correspondences to the output file
 		

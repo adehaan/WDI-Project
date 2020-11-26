@@ -9,8 +9,9 @@ import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 public class AgeGroups extends AbstractRecord<Attribute> implements Serializable{
 	private static final long serialVersionUID = 1L;
 	protected int id;
-	protected List<String> group;
-	
+	protected List<ESRB> ESRB;
+	protected List<CERO> CERO;
+	protected List<PEGI> PEGI;
 	
 	public int getid() {
 		return id;
@@ -20,14 +21,26 @@ public class AgeGroups extends AbstractRecord<Attribute> implements Serializable
 		this.id = id;
 	}
 	
-	public List<String> getgroup() {
-		return group;
+	public List<ESRB> getESRB() {
+		return ESRB;
 	}
-
-	public void setgroup(List<String> group) {
-		this.group = group;
+	public void setESRB(List<ESRB> ESRB) {
+		this.ESRB = ESRB;
 	}
 	
+	public List<CERO> getCERO() {
+		return CERO;
+	}
+	public void setCERO(List<CERO> CERO) {
+		this.CERO = CERO;
+	}
+	
+	public List<PEGI> getPEGI() {
+		return PEGI;
+	}
+	public void setPEGI(List<PEGI> PEGI) {
+		this.PEGI = PEGI;
+	}
 	
 	@Override
 	public boolean hasValue(Attribute attribute) {
