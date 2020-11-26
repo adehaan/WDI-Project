@@ -8,10 +8,7 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="id" type="xs:string"/>
-							<xs:element name="Rank">
-								<xs:complexType>
-								</xs:complexType>
-							</xs:element>
+							<xs:element name="Rank" type="xs:double"/>
 							<xs:element name="Title" type="xs:string"/>
 							<xs:element name="Year" type="xs:string"/>
 							<xs:element name="Sale_EU" type="xs:double"/>

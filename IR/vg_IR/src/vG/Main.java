@@ -46,13 +46,13 @@ public class Main {
 		gsTest.loadFromCSVFile(new File("../Goldstandard_sales_wiki.csv"));
 
 		// create a matching rule
-		LinearCombinationMatchingRule<VideoGames, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
+		LinearCombinationMatchingRule<VideoGames, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.0);
 		matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
 		// add comparators
-		matchingRule.addComparator(new GamesYearComparator5Years(), 0.3);
-		//matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.2);
-		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.7);
+		matchingRule.addComparator(new GamesYearComparator2Years(), 0.3);
+		matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.7);
+		//matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.7);
 		//matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.7);
 
 		// create a blocker (blocking strategy)
