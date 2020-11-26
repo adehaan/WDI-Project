@@ -1,5 +1,7 @@
 package xmlReaders;
 
+import java.util.List;
+
 import org.w3c.dom.Node;
 
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
@@ -14,7 +16,7 @@ public class AgeGroupsXMLReader extends XMLMatchableReader<AgeGroups, Attribute>
 		
 		AgeGroups agegroups = new AgeGroups();
 		
-		String group = getValueFromChildElement(node, "group");
+		List<String> group = getListFromChildElement(node, "Age_groups");
 		int id = Integer.parseInt(getValueFromChildElement(node, "id"));
 		
 		agegroups.setgroup(group);

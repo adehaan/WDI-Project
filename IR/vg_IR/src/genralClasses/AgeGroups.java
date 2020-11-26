@@ -1,6 +1,7 @@
 package genralClasses;
 
 import java.io.Serializable;
+import java.util.List;
 
 import de.uni_mannheim.informatik.dws.winter.model.AbstractRecord;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
@@ -8,7 +9,7 @@ import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 public class AgeGroups extends AbstractRecord<Attribute> implements Serializable{
 	private static final long serialVersionUID = 1L;
 	protected int id;
-	protected String group;
+	protected List<String> group;
 	
 	
 	public int getid() {
@@ -19,11 +20,11 @@ public class AgeGroups extends AbstractRecord<Attribute> implements Serializable
 		this.id = id;
 	}
 	
-	public String getgroup() {
+	public List<String> getgroup() {
 		return group;
 	}
 
-	public void setgroup(String group) {
+	public void setgroup(List<String> group) {
 		this.group = group;
 	}
 	

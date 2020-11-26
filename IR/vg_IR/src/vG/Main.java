@@ -22,6 +22,7 @@ import genralClasses.VideoGames;
 import similarityMeasures.GamesTitleComparatorEqual;
 import similarityMeasures.GamesTitleComparatorJaccard;
 import similarityMeasures.GamesTitleComparatorLevenshtein;
+import similarityMeasures.GamesYearComparator2Years;
 import similarityMeasures.GamesYearComparator5Years;
 import xmlReaders.GamesXMLReader;
 
@@ -33,7 +34,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("*\n*\tLoading datasets\n*");
 		HashedDataSet<VideoGames, Attribute> dataWiki = new HashedDataSet<>();
-		new GamesXMLReader().loadFromXML(new File("data/input/rawg_target.xml"), "/Games/Game", dataWiki);
+		new GamesXMLReader().loadFromXML(new File("data/input/target_games_Wiki.xml"), "/Games/Game", dataWiki);
 
 		HashedDataSet<VideoGames, Attribute> dataSales = new HashedDataSet<>();
 		new GamesXMLReader().loadFromXML(new File("data/input/sales_target.xml"), "/Games/Game", dataSales);
@@ -42,17 +43,17 @@ public class Main {
 		// load the gold standard (test set)
 		System.out.println("*\n*\tLoading gold standard\n*");
 		MatchingGoldStandard gsTest = new MatchingGoldStandard();
-		gsTest.loadFromCSVFile(new File("../Goldstandard_sales_rawg.csv"));
+		gsTest.loadFromCSVFile(new File("../Goldstandard_sales_wiki.csv"));
 
 		// create a matching rule
 		LinearCombinationMatchingRule<VideoGames, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
 		matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
 		// add comparators
-		matchingRule.addComparator(new GamesYearComparator5Years(), 0.2);
-		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.3);
-		matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.8);
-		matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.8);
+		matchingRule.addComparator(new GamesYearComparator5Years(), 0.1);
+		matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.2);
+		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.1);
+		matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.6);
 
 		// create a blocker (blocking strategy)
 		StandardRecordBlocker<VideoGames, Attribute> blocker = new StandardRecordBlocker<VideoGames, Attribute>(
@@ -74,7 +75,7 @@ public class Main {
 
 		// write the correspondences to the output file
 		
-		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/academy_awards_2_actors_correspondences.csv"),
+		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Wiki_2_Sales_correspondences.csv"),
 				correspondences);
 
 		System.out.println("*\n*\tEvaluating result\n*");
