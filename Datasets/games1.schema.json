@@ -230,7 +230,7 @@
         },
         "added_by_status": {
           "title": "added_by_status",
-          "type": "object",
+          "type": ["object", "null"],
           "optional": [
             "yet",
             "owned",
