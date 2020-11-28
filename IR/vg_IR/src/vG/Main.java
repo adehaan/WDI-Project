@@ -19,6 +19,8 @@ import de.uni_mannheim.informatik.dws.winter.model.io.CSVCorrespondenceFormatter
 import de.uni_mannheim.informatik.dws.winter.processing.Processable;
 import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
 import genralClasses.VideoGames;
+import similarityMeasures.GamesGenresComparatorLevenshtein;
+import similarityMeasures.GamesPlatformComparatorLevenshtein;
 import similarityMeasures.GamesTitleComparatorEqual;
 import similarityMeasures.GamesTitleComparatorJaccard;
 import similarityMeasures.GamesTitleComparatorLevenshtein;
@@ -50,10 +52,12 @@ public class Main {
 		matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
 
 		// add comparators
-		matchingRule.addComparator(new GamesYearComparator2Years(), 0.3);
+		matchingRule.addComparator(new GamesYearComparator2Years(), 0.2);
 		//matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.7);
-		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.7);
+		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.5);
 		//matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.7);
+		matchingRule.addComparator(new GamesPlatformComparatorLevenshtein(), 0.3);
+		//matchingRule.addComparator(new GamesGenresComparatorLevenshtein(), 0.3);
 
 		// create a blocker (blocking strategy)
 		StandardRecordBlocker<VideoGames, Attribute> blocker = new StandardRecordBlocker<VideoGames, Attribute>(
@@ -89,5 +93,4 @@ public class Main {
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
 	}
-
 }
