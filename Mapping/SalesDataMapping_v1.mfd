@@ -55,7 +55,7 @@
 					</data>
 				</component>
 				<component name="Transforming NA" library="user" uid="24" kind="19" visible="0" blackbox="0">
-					<view ltx="637" lty="137" rbx="705" rby="153"/>
+					<view ltx="637" lty="137" rbx="709" rby="154"/>
 					<data>
 						<root>
 							<header>
@@ -79,7 +79,7 @@
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
 					<view ltx="1179" lty="31" rbx="1425" rby="573"/>
 					<data>
-						<root>
+						<root scrollposition="1">
 							<header>
 								<namespaces>
 									<namespace/>
@@ -116,34 +116,13 @@
 						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
 					</data>
 				</component>
-				<component name="auto-number" library="core" uid="37" kind="5">
-					<sources>
-						<datapoint/>
-						<datapoint pos="1" key="46"/>
-						<datapoint/>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="47"/>
-					</targets>
-					<view ltx="670" lty="-171" rbx="792" rby="-87"/>
-				</component>
 				<component name="constant" library="core" uid="35" kind="2">
 					<targets>
 						<datapoint pos="0" key="49"/>
 					</targets>
-					<view ltx="879" lty="-19" rbx="944" rby="-2"/>
+					<view ltx="770" lty="-11" rbx="842" rby="6"/>
 					<data>
 						<constant value="sales_" datatype="string"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="36" kind="2">
-					<targets>
-						<datapoint pos="0" key="45"/>
-					</targets>
-					<view ltx="557" lty="-133" rbx="594" rby="-116"/>
-					<data>
-						<constant value="1" datatype="decimal"/>
 					</data>
 				</component>
 				<component name="concat" library="core" uid="38" kind="5" growable="1" growablebasename="value">
@@ -154,7 +133,28 @@
 					<targets>
 						<datapoint pos="0" key="51"/>
 					</targets>
-					<view ltx="1014" lty="-41" rbx="1086" rby="11"/>
+					<view ltx="968" lty="-99" rbx="1050" rby="-43"/>
+				</component>
+				<component name="constant" library="core" uid="36" kind="2">
+					<targets>
+						<datapoint pos="0" key="45"/>
+					</targets>
+					<view ltx="352" lty="-138" rbx="392" rby="-121"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="auto-number" library="core" uid="37" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="46"/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="47"/>
+					</targets>
+					<view ltx="489" lty="-175" rbx="631" rby="-89"/>
 				</component>
 			</children>
 			<graph directed="1">
