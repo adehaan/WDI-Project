@@ -5,10 +5,14 @@ import java.io.File;
 import org.slf4j.Logger;
 
 import blockingGenerator.VideoGameBlockingKeyByTitleGenerator;
-
+import blockingGenerator.VideoGamesBlockingKeyByTitleYearGenerator;
+import blockingGenerator.VideoGamesBlockingKeyByYearGenerator;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
+import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
+import de.uni_mannheim.informatik.dws.winter.matching.blockers.SortedNeighbourhoodBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.StandardRecordBlocker;
+import de.uni_mannheim.informatik.dws.winter.matching.blockers.ValueBasedBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.rules.LinearCombinationMatchingRule;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.HashedDataSet;
@@ -19,8 +23,11 @@ import de.uni_mannheim.informatik.dws.winter.model.io.CSVCorrespondenceFormatter
 import de.uni_mannheim.informatik.dws.winter.processing.Processable;
 import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
 import genralClasses.VideoGames;
+import similarityMeasures.GamesGenresComparatorJaroWinkler;
 import similarityMeasures.GamesGenresComparatorLevenshtein;
+import similarityMeasures.GamesPlatformComparatorJaroWinkler;
 import similarityMeasures.GamesPlatformComparatorLevenshtein;
+import similarityMeasures.GamesPublisherComparatorLevenshtein;
 import similarityMeasures.GamesTitleComparatorEqual;
 import similarityMeasures.GamesTitleComparatorJaccard;
 import similarityMeasures.GamesTitleComparatorLevenshtein;
@@ -41,7 +48,6 @@ public class Main {
 		new GamesXMLReader().loadFromXML(new File("data/input/sales_target.xml"), "/Games/Game", dataSales);
 		
 		
-		
 		// load the gold standard (test set)
 		System.out.println("*\n*\tLoading gold standard\n*");
 		MatchingGoldStandard gsTest = new MatchingGoldStandard();
@@ -49,24 +55,35 @@ public class Main {
 
 		// create a matching rule
 		LinearCombinationMatchingRule<VideoGames, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.3);
-		matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, gsTest);
+		matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000000, gsTest);
 
-		// add comparators
-		matchingRule.addComparator(new GamesYearComparator2Years(), 0.2);
+		//add comparators
+		matchingRule.addComparator(new GamesYearComparator2Years(), 0.4);
 		//matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.7);
-		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.5);
+		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.4);
+		matchingRule.addComparator(new GamesPublisherComparatorLevenshtein(), 0.1);
 		//matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.7);
-		matchingRule.addComparator(new GamesPlatformComparatorLevenshtein(), 0.3);
-		//matchingRule.addComparator(new GamesGenresComparatorLevenshtein(), 0.3);
+		matchingRule.addComparator(new GamesPlatformComparatorLevenshtein(), 0.05);
+		matchingRule.addComparator(new GamesGenresComparatorLevenshtein(), 0.05);
+		//matchingRule.addComparator(new GamesGenresComparatorJaroWinkler(), 0.3);
+		//matchingRule.addComparator(new GamesPlatformComparatorJaroWinkler(), 0.3);
+	
 
+		//SortedNeighbourhoodBlocker<VideoGames, Attribute, Correspondence<Attribute,
+		//Matchable >> blocker = new SortedNeighbourhoodBlocker<VideoGames, Attribute, Correspondence<Attribute,
+		//		Matchable>>(new VideoGamesBlockingKeyByYearGenerator(),2);
 		// create a blocker (blocking strategy)
+		//SortedNeighbourhoodBlocker <VideoGames, Attribute, VideoGames> blocker = new SortedNeighbourhoodBlocker<VideoGames, Attribute, VideoGames>(new VideoGamesBlockingKeyByYearGenerator(),2);
+		
 		StandardRecordBlocker<VideoGames, Attribute> blocker = new StandardRecordBlocker<VideoGames, Attribute>(
-				new VideoGameBlockingKeyByTitleGenerator());
-
+				new VideoGamesBlockingKeyByTitleYearGenerator());
+		
+		//NoBlocker blocker = new NoBlocker();
+		
 		blocker.setMeasureBlockSizes(true);
 		
 		// Write debug results to file:
-		blocker.collectBlockSizeData("data/output/debugResultsBlocking.csv", 100);
+		blocker.collectBlockSizeData("data/output/debugResultsBlocking.csv", 3300);
 
 		// Initialize Matching Engine
 		MatchingEngine<VideoGames, Attribute> engine = new MatchingEngine<>();

@@ -1,5 +1,8 @@
 package blockingGenerator;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.generators.RecordBlockingKeyGenerator;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
@@ -18,15 +21,26 @@ RecordBlockingKeyGenerator<VideoGames, Attribute>{
 	public void generateBlockingKeys(VideoGames record,
 			Processable<Correspondence<Attribute, Matchable>> correspondences,
 			DataIterator<Pair<String, VideoGames>> resultCollector) {
-		String[] tokens  = record.getTitle().split(" ");
+		String[] tokens  = record.getTitle().toUpperCase().split(" ");
+
+		
+		// list tokins remove stopwords from 	
+		String[] stopwords = {"AND", "THE",";",":",".","-",","};		
+		ArrayList<String> wordlist = new ArrayList<>(Arrays.asList(tokens));
+		
+		
+		for (int j = 0; j < stopwords.length; j++) {
+            if (wordlist.contains(stopwords[j])) {
+            	wordlist.remove(stopwords[j]);//remove it
+            }
+        }
 
 		String blockingKeyValue = "";
-
+		
 		for(int i = 0; i <= 2 && i < tokens.length; i++) {
 			blockingKeyValue += tokens[i].substring(0, Math.min(2,tokens[i].length())).toUpperCase();
 		}
 
 		resultCollector.next(new Pair<>(blockingKeyValue, record));
 	}
-
 }

@@ -15,7 +15,7 @@ import de.uni_mannheim.informatik.dws.winter.processing.DataIterator;
 import de.uni_mannheim.informatik.dws.winter.processing.Processable;
 import genralClasses.VideoGames;
 
-public class VideoGamesBlockingKeyByYearGenerator extends
+public class VideoGamesBlockingKeyByYearRangeGenerator extends
 RecordBlockingKeyGenerator<VideoGames, Attribute>{
 
 	private static final long serialVersionUID = 1L;
@@ -27,8 +27,8 @@ RecordBlockingKeyGenerator<VideoGames, Attribute>{
 
 		String blockingKeyValue = "";
 
-		// Every Year individually
-		blockingKeyValue += Integer.toString(record.getDate());
+		// Year Range
+		blockingKeyValue += Integer.toString((int) record.getDate()/5);
 		resultCollector.next(new Pair<>(blockingKeyValue, record));
 	}
 }
