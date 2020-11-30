@@ -12,7 +12,7 @@ import genralClasses.VideoGames;
 
 public class GamesYearComparator2Years implements Comparator<VideoGames, Attribute> {
 	private static final long serialVersionUID = 1L;
-	private YearSimilarity sim = new YearSimilarity(5);
+	private YearSimilarity sim = new YearSimilarity(1);
 
 	private ComparatorLogger comparisonLog;
 
