@@ -1,2 +1,5 @@
 RAWG
 /Mapping/*.tmp
+*.csv
+*.csv_short
+*.csv
