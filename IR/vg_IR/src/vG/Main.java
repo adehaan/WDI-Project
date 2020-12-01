@@ -184,7 +184,7 @@ public class Main {
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
 	}
 
-	public static void Wikitosales_rulelearner() throws Exception {
+	public static void wikitosales_rulelearner(String matchingType) throws Exception {
 
 		// TODO Auto-generated method stub
 		System.out.println("*\n*\tLoading datasets rawg\n*");
@@ -204,13 +204,25 @@ public class Main {
 		MatchingGoldStandard gsTrain = new MatchingGoldStandard();
 		gsTrain.loadFromCSVFile(new File("../Train_sales_wiki.csv"));
 
-		// create a matching rule
-		String options[] = new String[] { "-S" };
-		String modelType = "SimpleLogistic";
+		// create a matching rule	
+		String options[] = null;
+		String modelType = null;
+
+		if(matchingType=="dt") {
+			options = new String[] {"-U"};
+			modelType = "J48";
+		}
+		if(matchingType=="sl") {
+			options = new String[] {"-S"};
+			modelType = "SimpleLogistic";
+		}else {
+			System.out.println("Choose a Matching Method!");
+		}
+		
 		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.95, modelType, options);
-		// WekaMatchingRule<VideoGames, Attribute> matchingRule = new
-		// WekaMatchingRule<>(0.6, modelType, options);
 		matchingRule.activateDebugReport("data/output/rawg_debugResultsMatchingRule.csv", 5000, gsTest);
+	
+		
 
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparatorEqual());
@@ -265,10 +277,13 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
+		System.out.println(String.format("Number of Correctly Predicted: ", perfTest.getNumberOfCorrectlyPredicted()));
+		System.out.println(String.format("Number of Correct in Total: ", perfTest.getNumberOfCorrectTotal()));
+		System.out.println(String.format("Number of Predicted: ", perfTest.getNumberOfPredicted()));
 	}
 
 	//RAWG to SALES
-	public static void rawgtosales_rulelearner() throws Exception {
+	public static void rawgtosales_rulelearner(String matchingType) throws Exception {
 
 		// TODO Auto-generated method stub
 		System.out.println("*\n*\tLoading datasets rawg\n*");
@@ -289,11 +304,21 @@ public class Main {
 		gsTrain.loadFromCSVFile(new File("../Train_sales_rawg2.csv"));
 
 		// create a matching rule
-		String options[] = new String[] { "-S" };
-		String modelType = "SimpleLogistic";
+		String options[] = null;
+		String modelType = null;
+
+		if(matchingType=="dt") {
+			options = new String[] {"-U"};
+			modelType = "J48";
+		}
+		if(matchingType=="sl") {
+			options = new String[] {"-S"};
+			modelType = "SimpleLogistic";
+		}else {
+			System.out.println("Choose a Matching Method!");
+		}
+
 		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.95, modelType, options);
-		// WekaMatchingRule<VideoGames, Attribute> matchingRule = new
-		// WekaMatchingRule<>(0.6, modelType, options);
 		matchingRule.activateDebugReport("data/output/rawg_debugResultsMatchingRule.csv", 10000, gsTest);
 
 		// add comparators
@@ -349,14 +374,19 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
+		System.out.println(String.format("Number of Correctly Predicted: ", perfTest.getNumberOfCorrectlyPredicted()));
+		System.out.println(String.format("Number of Correct in Total: ", perfTest.getNumberOfCorrectTotal()));
+		System.out.println(String.format("Number of Predicted: ", perfTest.getNumberOfPredicted()));
+		
 	}
 
 	// Run Both Matchings
 	public static void main(String[] args) throws Exception {
-		// wikitosales(method = linear);
+		String matchingType;
+		// wikitosales();
 		// rawgtosales();
-		 rawgtosales_rulelearner();
-		// Wikitosales_rulelearner();
+		// wikitosales_rulelearner(matchingType="dt"); // dt = Decision Tree/ sl = simpleLogression
+		 rawgtosales_rulelearner(matchingType="dt");   // dt = Decision Tree/ sl = simpleLogression
 	}
 
 }
