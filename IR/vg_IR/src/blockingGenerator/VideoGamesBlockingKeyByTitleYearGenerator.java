@@ -33,7 +33,10 @@ RecordBlockingKeyGenerator<VideoGames, Attribute>{
 		
 		for (int j = 0; j < stopwords.length; j++) {
             if (wordlist.contains(stopwords[j])) {
-            	wordlist.remove(stopwords[j]);//remove it
+            	if (wordlist.size()>1) {
+            		wordlist.remove(stopwords[j]);//remove it
+            	}
+            	
             }
         }
 		
