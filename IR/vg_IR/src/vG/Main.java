@@ -282,11 +282,11 @@ public class Main {
 		// load the gold standard (test set)
 		System.out.println("*\n*\tLoading gold standard\n*");
 		MatchingGoldStandard gsTest = new MatchingGoldStandard();
-		gsTest.loadFromCSVFile(new File("../Test_sales_rawg.csv"));
+		gsTest.loadFromCSVFile(new File("../Test_sales_rawg2.csv"));
 
 		// load training set
 		MatchingGoldStandard gsTrain = new MatchingGoldStandard();
-		gsTrain.loadFromCSVFile(new File("../Train_sales_rawg.csv"));
+		gsTrain.loadFromCSVFile(new File("../Train_sales_rawg2.csv"));
 
 		// create a matching rule
 		String options[] = new String[] { "-S" };
@@ -294,7 +294,7 @@ public class Main {
 		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.95, modelType, options);
 		// WekaMatchingRule<VideoGames, Attribute> matchingRule = new
 		// WekaMatchingRule<>(0.6, modelType, options);
-		matchingRule.activateDebugReport("data/output/rawg_debugResultsMatchingRule.csv", 5000, gsTest);
+		matchingRule.activateDebugReport("data/output/rawg_debugResultsMatchingRule.csv", 10000, gsTest);
 
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparatorEqual());
