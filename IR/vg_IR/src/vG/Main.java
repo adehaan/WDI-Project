@@ -355,8 +355,8 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		// wikitosales(method = linear);
 		// rawgtosales();
-		// rawgtosales_rulelearner();
-		Wikitosales_rulelearner();
+		 rawgtosales_rulelearner();
+		// Wikitosales_rulelearner();
 	}
 
 }
