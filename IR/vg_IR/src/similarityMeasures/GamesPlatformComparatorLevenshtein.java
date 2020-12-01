@@ -29,7 +29,6 @@ public class GamesPlatformComparatorLevenshtein implements Comparator<VideoGames
 		double savesime = 0.0;
 		String l1 = si1.get(1);
 		String l2 = null;
-		//System.out.print(l1);
 		
 		// Compare element in sales data (l1) with all elements in wiki list
 		if(si2 != null) {

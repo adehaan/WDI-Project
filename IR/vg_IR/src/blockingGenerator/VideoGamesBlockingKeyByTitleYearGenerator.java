@@ -28,8 +28,7 @@ RecordBlockingKeyGenerator<VideoGames, Attribute>{
 		
 		// list tokins remove stopwords from 	
 		String[] stopwords = {"AND", "THE",";",":",".","-",","};		
-		List<String> test = Arrays.asList(tokens);
-		ArrayList<String> wordlist = new ArrayList<>(test);
+		ArrayList<String> wordlist = new ArrayList<>(Arrays.asList(tokens));
 		
 		
 		for (int j = 0; j < stopwords.length; j++) {
