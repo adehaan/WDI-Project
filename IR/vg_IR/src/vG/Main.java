@@ -191,7 +191,7 @@ public class Main {
 	}
 	
 	
-public static void rawgtosales_rulelearner() throws Exception {
+public static void rawgtosales_rulelearner(String matchingType) throws Exception {
 		
 		// TODO Auto-generated method stub
 		System.out.println("*\n*\tLoading datasets rawg\n*");
@@ -213,23 +213,35 @@ public static void rawgtosales_rulelearner() throws Exception {
 		gsTrain.loadFromCSVFile(new File("../Train_sales_rawg.csv")); 
 
 		// create a matching rule
-		String options[] = new String[] {"-S"};
-		String modelType = "SimpleLogistic";
+		
+		String options[] = null;
+		String modelType = null;
+		
+		if(matchingType=="dt") {
+			options = new String[] {"-U"};
+			modelType = "J48";
+		}
+		if(matchingType=="sl") {
+			options = new String[] {"-S"};
+			modelType = "SimpleLogistic";
+		}else {
+			System.out.println("Choose a Matching Method!");
+		}
+		
 		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.95, modelType, options);
-		//WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.6, modelType, options);
-		matchingRule.activateDebugReport("data/output/rawg_debugResultsMatchingRule.csv", 5000, gsTest);
+		matchingRule.activateDebugReport("data/output/rawg_rL_debugResultsMatchingRule.csv", 5000, gsTest);
 
 		//add comparators
 		matchingRule.addComparator(new GamesYearComparatorEqual());
-		//matchingRule.addComparator(new GamesYearComparator2Years());
+		matchingRule.addComparator(new GamesYearComparator2Years());
 		//matchingRule.addComparator(new GamesYearComparator5Years());
-		//matchingRule.addComparator(new GamesTitleComparatorEqual());
-		//matchingRule.addComparator(new GamesTitleComparatorJaccard());
-		//matchingRule.addComparator(new GamesTitleComparatorLevenshtein());
-		//matchingRule.addComparator(new GamesPlatformComparatorLevenshtein());
-		//matchingRule.addComparator(new GamesPlatformComparatorJaroWinkler());
+		matchingRule.addComparator(new GamesTitleComparatorEqual());
+		matchingRule.addComparator(new GamesTitleComparatorJaccard());
+		matchingRule.addComparator(new GamesTitleComparatorLevenshtein());
+		matchingRule.addComparator(new GamesPlatformComparatorLevenshtein());
+		matchingRule.addComparator(new GamesPlatformComparatorJaroWinkler());
 		matchingRule.addComparator(new GamesGenresComparatorLevenshtein());
-		//matchingRule.addComparator(new GamesGenresComparatorJaroWinkler());
+		matchingRule.addComparator(new GamesGenresComparatorJaroWinkler());
 		
 
 		
@@ -244,7 +256,7 @@ public static void rawgtosales_rulelearner() throws Exception {
 				new VideoGamesBlockingKeyByTitleYearGenerator());
 		//NoBlocker blocker = new NoBlocker();
 		blocker.setMeasureBlockSizes(true);
-		blocker.collectBlockSizeData("data/output/rawg_debugResultsBlocking.csv", 3300);
+		blocker.collectBlockSizeData("data/output/rawg_rL_debugResultsBlocking.csv", 3300);
 
 		// Initialize Matching Engine
 		MatchingEngine<VideoGames, Attribute> engine = new MatchingEngine<>();
@@ -262,7 +274,7 @@ public static void rawgtosales_rulelearner() throws Exception {
 
 		
 		// write the correspondences to the output file	
-		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_correspondences.csv"),
+		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_rL_correspondences.csv"),
 				correspondences);
 
 		System.out.println("*\n*\tEvaluating result\n*");
@@ -274,22 +286,21 @@ public static void rawgtosales_rulelearner() throws Exception {
 		System.out.println("Videogames Sales <-> Rawg");
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
-		System.out.println(String.format("F1: %.4f", perfTest.getF1()));	
+		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
+		System.out.println(String.format("Nr. Correctly Predicted:", perfTest.getNumberOfCorrectlyPredicted()));
+		System.out.println(String.format("Nr. Predicted:", perfTest.getNumberOfPredicted()));
+		System.out.println(String.format("Nr. Correct Total:", perfTest.getNumberOfCorrectTotal()));
 	}
-	
-	
-	
-	
 	
 	
 	
 	
 	// Run Both Matchings
 	public static void main(String[] args) throws Exception {
-		//wikitosales(method = linear);
+		String matchingType;
+		//wikitosales();
 		//rawgtosales();
-		rawgtosales_rulelearner();
+		//wikitosales_rulelearner(method = linear);
+		rawgtosales_rulelearner(matchingType="dt");   // dt = Decision Tree/ sl = simpleLogression
 	}
-
-	
 }
