@@ -1,0 +1,205 @@
+<Games>
+	<Game>
+		<id>rawg_get-out-2</id>
+		<Title>Get Out.</Title>
+		<Year>2018</Year>
+		<Total_Length_in_hrs>0</Total_Length_in_hrs>
+		<Recommended>
+			<Platforn_Name>PC</Platforn_Name>
+		</Recommended>
+		<Stores>
+			<Store id="itch.io" />
+		</Stores>
+		<Rating>
+			<RAWG_Rating>0</RAWG_Rating>
+		</Rating>
+		<Genres>
+			<Genre>Adventure</Genre>
+		</Genres>
+		<platforms>
+			<platform>PC</platform>
+		</platforms>
+		<Tags>
+			<Tag>
+				<Name>First-Person</Name>
+				<Games_count>9068</Games_count>
+			</Tag>
+			<Tag>
+				<Name>Short</Name>
+				<Games_count>16714</Games_count>
+			</Tag>
+			<Tag>
+				<Name>Walking Simulator</Name>
+				<Games_count>3114</Games_count>
+			</Tag>
+			<Tag>
+				<Name>3D</Name>
+				<Games_count>26835</Games_count>
+			</Tag>
+			<Tag>
+				<Name>Unity</Name>
+				<Games_count>26746</Games_count>
+			</Tag>
+			<Tag>
+				<Name>Escape Game</Name>
+				<Games_count>1115</Games_count>
+			</Tag>
+			<Tag>
+				<Name>High Score</Name>
+				<Games_count>2558</Games_count>
+			</Tag>
+			<Tag>
+				<Name>nature</Name>
+				<Games_count>1882</Games_count>
+			</Tag>
+			<Tag>
+				<Name>labyrinth</Name>
+				<Games_count>275</Games_count>
+			</Tag>
+		</Tags>
+	</Game>
+	<Game>
+		<id>rawg_block-party</id>
+		<Title>Block Party</Title>
+		<Year>2008</Year>
+		<Total_Length_in_hrs>0</Total_Length_in_hrs>
+		<Recommended>
+			<Platforn_Name>Wii</Platforn_Name>
+		</Recommended>
+		<Stores>
+			<Store id="Nintendo Store" />
+		</Stores>
+		<Rating>
+			<RAWG_Rating>0</RAWG_Rating>
+		</Rating>
+		<Genres />
+		<platforms>
+			<platform>Wii</platform>
+		</platforms>
+		<Tags>
+			<Tag>
+				<Name>party</Name>
+				<Games_count>3058</Games_count>
+			</Tag>
+		</Tags>
+	</Game>
+	<Game>
+		<id>rawg_acdc-live-rock-band-track-pack</id>
+		<Title>AC/DC Live Rock Band Track Pack</Title>
+		<Year>2008</Year>
+		<Total_Length_in_hrs>0</Total_Length_in_hrs>
+		<Recommended>
+			<Platforn_Name>Wii</Platforn_Name>
+		</Recommended>
+		<Stores>
+			<Store id="Nintendo Store" />
+		</Stores>
+		<Rating>
+			<RAWG_Rating>0</RAWG_Rating>
+		</Rating>
+		<Genres />
+		<platforms>
+			<platform>Wii</platform>
+		</platforms>
+		<Tags>
+			<Tag>
+				<Name>Music</Name>
+				<Games_count>14925</Games_count>
+			</Tag>
+		</Tags>
+	</Game>
+	<Game>
+		<id>rawg_hoverboard-racing</id>
+		<Title>Hoverboard Racing</Title>
+		<Total_Length_in_hrs>0</Total_Length_in_hrs>
+		<Recommended>
+			<Platforn_Name>Android</Platforn_Name>
+		</Recommended>
+		<Stores>
+			<Store id="Google Play" />
+		</Stores>
+		<Rating>
+			<RAWG_Rating>0</RAWG_Rating>
+		</Rating>
+		<Genres>
+			<Genre>Racing</Genre>
+		</Genres>
+		<platforms>
+			<platform>Android</platform>
+		</platforms>
+		<Tags />
+	</Game>
+	<Game>
+		<id>rawg_power-pro-kun-pocket</id>
+		<Title>Power Pro Kun Pocket</Title>
+		<Total_Length_in_hrs>0</Total_Length_in_hrs>
+		<Recommended>
+			<Platforn_Name>Game Boy Advance</Platforn_Name>
+		</Recommended>
+		<Stores />
+		<Rating>
+			<RAWG_Rating>0</RAWG_Rating>
+		</Rating>
+		<Genres />
+		<platforms>
+			<platform>Game Boy Advance</platform>
+		</platforms>
+		<Tags>
+			<Tag>
+				<Name>Story</Name>
+				<Games_count>7429</Games_count>
+			</Tag>
+			<Tag>
+				<Name>sprites</Name>
+				<Games_count>1144</Games_count>
+			</Tag>
+			<Tag>
+				<Name>color</Name>
+				<Games_count>4867</Games_count>
+			</Tag>
+			<Tag>
+				<Name>baseball</Name>
+				<Games_count>370</Games_count>
+			</Tag>
+		</Tags>
+	</Game>
+	<Game>
+		<id>rawg_super-monkeys-ball</id>
+		<Title>Super Monkey's Ball</Title>
+		<Year>2017</Year>
+		<Total_Length_in_hrs>0</Total_Length_in_hrs>
+		<Recommended>
+			<Platforn_Name>PC</Platforn_Name>
+		</Recommended>
+		<Stores>
+			<Store id="itch.io" />
+		</Stores>
+		<Rating>
+			<RAWG_Rating>0</RAWG_Rating>
+		</Rating>
+		<Genres>
+			<Genre>Platformer</Genre>
+		</Genres>
+		<platforms>
+			<platform>PC</platform>
+		</platforms>
+		<Tags>
+			<Tag>
+				<Name>3D Platformer</Name>
+				<Games_count>4073</Games_count>
+			</Tag>
+			<Tag>
+				<Name>Memes</Name>
+				<Games_count>902</Games_count>
+			</Tag>
+			<Tag>
+				<Name>monkey-ball</Name>
+				<Games_count>4</Games_count>
+			</Tag>
+			<Tag>
+				<Name>super-monkey-ball</Name>
+				<Games_count>3</Games_count>
+			</Tag>
+		</Tags>
+	</Game>
+</Games>
