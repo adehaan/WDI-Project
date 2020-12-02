@@ -28,18 +28,18 @@ RecordBlockingKeyGenerator<VideoGames, Attribute>{
 		String[] stopwords = {"AND", "THE",";",":",".","-",","};		
 		ArrayList<String> wordlist = new ArrayList<>(Arrays.asList(tokens));
 		
-		
 		for (int j = 0; j < stopwords.length; j++) {
             if (wordlist.contains(stopwords[j])) {
             	wordlist.remove(stopwords[j]);//remove it
             }
         }
-
+		
+		
 		String blockingKeyValue = "";
 		
-		for(int i = 0; i <= 2 && i < tokens.length; i++) {
-			blockingKeyValue += tokens[i].substring(0, Math.min(2,tokens[i].length())).toUpperCase();
-		}
+		//for(int i = 0; i <= 2 && i < wordlist.size(); i++) {
+			blockingKeyValue += wordlist.get(0).substring(0, Math.min(5,wordlist.get(0).length())).toUpperCase();
+		//}
 
 		resultCollector.next(new Pair<>(blockingKeyValue, record));
 	}
