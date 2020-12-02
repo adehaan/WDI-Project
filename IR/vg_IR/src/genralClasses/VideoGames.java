@@ -1,17 +1,21 @@
 package genralClasses;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
 
 import de.uni_mannheim.informatik.dws.winter.model.AbstractRecord;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 
-public class VideoGames extends AbstractRecord<Attribute> implements Serializable{
+public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
+	
 	protected String id;
-	protected String provenance;
 
 	private String title;
 	private int year;
@@ -54,8 +58,9 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 
 
 	public VideoGames(String identifier, String provenance) {
+		super(identifier, provenance);
 		id = identifier;
-		this.provenance = provenance;
+		provenance = provenance;
 	    //actors = new LinkedList<>();
 	}
 
@@ -273,15 +278,65 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 		return CERO;
 	}
 	
-	@Override
-	public String getProvenance() {
-		// TODO Auto-generated method stub
-		return this.provenance;
+	
+	// NEEEEEEEEEEEEWWWWWWWWWWWWWWWW --------------------------------------------------------------
+	
+	private Map<Attribute, Collection<String>> provenance = new HashMap<>();
+	private Collection<String> recordProvenance;
+
+	public void setRecordProvenance(Collection<String> provenance) {
+		recordProvenance = provenance;
 	}
 
+	public Collection<String> getRecordProvenance() {
+		return recordProvenance;
+	}
+
+	public void setAttributeProvenance(Attribute attribute,
+			Collection<String> provenance) {
+		this.provenance.put(attribute, provenance);
+	}
+
+	public Collection<String> getAttributeProvenance(String attribute) {
+		return provenance.get(attribute);
+	}
+
+	public String getMergedAttributeProvenance(Attribute attribute) {
+		Collection<String> prov = provenance.get(attribute);
+
+		if (prov != null) {
+			return StringUtils.join(prov, "+");
+		} else {
+			return "";
+		}
+	}
+	
+		
+	public void setProvenance(Map<Attribute, Collection<String>> provenance) {
+		this.provenance = provenance;
+	}
+
+	
+	// All Attributes that are in more than 1 dataset
+	public static final Attribute TITLE = new Attribute("title");
+	public static final Attribute DATE = new Attribute("date");
+	public static final Attribute PUBLISHERS = new Attribute("publishers");
+	public static final Attribute GENRES = new Attribute("publishers");
+	public static final Attribute PLATFORMS = new Attribute("publishers");
+	
 	@Override
 	public boolean hasValue(Attribute attribute) {
-		// TODO Auto-generated method stub
-		return false;
+		if(attribute==TITLE)
+			return this.getTitle() != null && !this.getTitle().isEmpty();
+		else if(attribute==DATE)
+			return this.getDate() != -1;
+		else if(attribute==PUBLISHERS)
+			return this.getPublishers() != null && this.getPublishers().size() > 0;
+		else if(attribute==GENRES)
+			return this.getGenres() != null && this.getGenres().size() > 0;
+		else if(attribute==PLATFORMS)
+				return this.getPlatforms() != null && this.getPlatforms().size() > 0;
+		else
+			return false;
 	}
 }
