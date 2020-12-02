@@ -35,6 +35,7 @@ import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
 import fusers.GameTitelFuserFavourSource;
 import fusers.TitleEvaluationRule;
 import genralClasses.VideoGames;
+import xmlFormatters.GamesXMLFormatter;
 import xmlReaders.GamesXMLReader;
 
 public class DataFusion_Main 
