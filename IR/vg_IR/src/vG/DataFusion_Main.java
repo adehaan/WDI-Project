@@ -114,7 +114,7 @@ public class DataFusion_Main
 		// define the fusion strategy
 		DataFusionStrategy<VideoGames, Attribute> strategy = new DataFusionStrategy<>(new GamesXMLReader());
 		// write debug results to file
-		strategy.activateDebugReport("data/output/fusion/fusion_debugResultsDatafusion.csv", -1, gs);
+		strategy.activateDebugReport("data/output/fusion_debugResultsDatafusion.csv", -1, gs);
 		
 		// add attribute fusers
 		// TODO: Create Fusers & Evaluationsrules - for each attribute add a Fuser & EvaluationRule
