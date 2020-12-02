@@ -12,7 +12,6 @@ import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
 import de.uni_mannheim.informatik.dws.winter.matching.algorithms.MaximumBipartiteMatchingAlgorithm;
 import de.uni_mannheim.informatik.dws.winter.matching.algorithms.RuleLearner;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.NoBlocker;
-import de.uni_mannheim.informatik.dws.winter.matching.blockers.SortedNeighbourhoodBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.StandardRecordBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.blockers.ValueBasedBlocker;
 import de.uni_mannheim.informatik.dws.winter.matching.rules.LinearCombinationMatchingRule;
@@ -58,7 +57,7 @@ public class Main {
 
 		// create a matching rule
 		LinearCombinationMatchingRule<VideoGames, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.3);
-		matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000000, gsTest);
+		matchingRule.activateDebugReport("data/output/wiki_debugResultsMatchingRule.csv", -1, gsTest);
 
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparator2Years(), 0.4);
@@ -72,14 +71,6 @@ public class Main {
 		// matchingRule.addComparator(new GamesPlatformComparatorJaroWinkler(), 0.3);
 		// matchingRule.addComparator(new GamesYearComparatorEqual(), 0.3);
 
-		// SortedNeighbourhoodBlocker<VideoGames, Attribute, Correspondence<Attribute,
-		// Matchable >> blocker = new SortedNeighbourhoodBlocker<VideoGames, Attribute,
-		// Correspondence<Attribute,
-		// Matchable>>(new VideoGamesBlockingKeyByYearGenerator(),2);
-		// create a blocker (blocking strategy)
-		// SortedNeighbourhoodBlocker <VideoGames, Attribute, VideoGames> blocker = new
-		// SortedNeighbourhoodBlocker<VideoGames, Attribute, VideoGames>(new
-		// VideoGamesBlockingKeyByYearGenerator(),2);
 
 		StandardRecordBlocker<VideoGames, Attribute> blocker = new StandardRecordBlocker<VideoGames, Attribute>(
 				new VideoGamesBlockingKeyByTitleYearGenerator());
@@ -89,7 +80,7 @@ public class Main {
 		blocker.setMeasureBlockSizes(true);
 
 		// Write debug results to file:
-		blocker.collectBlockSizeData("data/output/wiki_debugResultsBlocking.csv", 3300);
+		blocker.collectBlockSizeData("data/output/wiki_debugResultsBlocking.csv", -1);
 
 		// Initialize Matching Engine
 		MatchingEngine<VideoGames, Attribute> engine = new MatchingEngine<>();
@@ -135,7 +126,7 @@ public class Main {
 
 		// create a matching rule
 		LinearCombinationMatchingRule<VideoGames, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.3);
-		matchingRule.activateDebugReport("data/output/rawg_debugResultsMatchingRule.csv", 5000, gsTest);
+		matchingRule.activateDebugReport("data/output/rawg_debugResultsMatchingRule.csv", -1, gsTest);
 
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparator2Years(), 0.4);
@@ -156,7 +147,7 @@ public class Main {
 		blocker.setMeasureBlockSizes(true);
 
 		// Write debug results to file:
-		blocker.collectBlockSizeData("data/output/rawg_debugResultsBlocking.csv", 3300);
+		blocker.collectBlockSizeData("data/output/rawg_debugResultsBlocking.csv", -1);
 
 		// Initialize Matching Engine
 		MatchingEngine<VideoGames, Attribute> engine = new MatchingEngine<>();
@@ -169,8 +160,7 @@ public class Main {
 
 		// write the correspondences to the output file
 
-		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_correspondences.csv"),
-				correspondences);
+		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_correspondences.csv"), correspondences);
 
 		System.out.println("*\n*\tEvaluating result\n*");
 		// evaluate your result
@@ -215,14 +205,17 @@ public class Main {
 		if(matchingType=="sl") {
 			options = new String[] {"-S"};
 			modelType = "SimpleLogistic";
-		}else {
-			System.out.println("Choose a Matching Method!");
 		}
 		
-		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.95, modelType, options);
-		matchingRule.activateDebugReport("data/output/rawg_debugResultsMatchingRule.csv", 5000, gsTest);
-	
+		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.9, modelType, options);
 		
+		if(matchingType=="dt") {
+			matchingRule.activateDebugReport("data/output/wiki_dt_debugResultsMatchingRule.csv", -1, gsTest);
+		}
+		if(matchingType=="sl") {
+			matchingRule.activateDebugReport("data/output/wiki_sl_debugResultsMatchingRule.csv", -1, gsTest);
+		}
+
 
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparatorEqual());
@@ -247,7 +240,15 @@ public class Main {
 				new VideoGamesBlockingKeyByTitleYearGenerator());
 		// NoBlocker blocker = new NoBlocker();
 		blocker.setMeasureBlockSizes(true);
-		blocker.collectBlockSizeData("data/output/wiki_debugResultsBlocking.csv", 3300);
+		
+		if(matchingType=="dt") {
+			blocker.collectBlockSizeData("data/output/wiki_dt_debugResultsBlocking.csv", -1);
+		}
+		if(matchingType=="sl") {
+			blocker.collectBlockSizeData("data/output/wiki_sl_debugResultsBlocking.csv", -1);
+		}
+		
+		
 
 		// Initialize Matching Engine
 		MatchingEngine<VideoGames, Attribute> engine = new MatchingEngine<>();
@@ -263,9 +264,17 @@ public class Main {
 		Weights.run();
 		correspondences = Weights.getResult();
 
+		
 		// write the correspondences to the output file
-		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Wiki_2_Sales_correspondences.csv"),
-				correspondences);
+		if(matchingType=="dt") {
+			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Wiki_2_Sales_dt_correspondences.csv"),
+					correspondences);
+		}
+		if(matchingType=="sl") {
+			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Wiki_2_Sales_sl_correspondences.csv"),
+					correspondences);
+		}
+		
 
 		System.out.println("*\n*\tEvaluating result\n*");
 		// evaluate your result
@@ -277,21 +286,17 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
-		System.out.println(String.format("Number of Correctly Predicted: ", perfTest.getNumberOfCorrectlyPredicted()));
-		System.out.println(String.format("Number of Correct in Total: ", perfTest.getNumberOfCorrectTotal()));
-		System.out.println(String.format("Number of Predicted: ", perfTest.getNumberOfPredicted()));
 	}
 
 	//RAWG to SALES
 	public static void rawgtosales_rulelearner(String matchingType) throws Exception {
 
-		// TODO Auto-generated method stub
 		System.out.println("*\n*\tLoading datasets rawg\n*");
 		HashedDataSet<VideoGames, Attribute> dataRawg = new HashedDataSet<>();
 		HashedDataSet<VideoGames, Attribute> dataSales = new HashedDataSet<>();
 
-		// TODO: Import all 11 files
-		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_xml_1.xml"), "/Games/Game", dataRawg);
+		// TODO: Import right rawg file here
+		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_xml_2.xml"), "/Games/Game", dataRawg);
 		new GamesXMLReader().loadFromXML(new File("data/input/sales_target.xml"), "/Games/Game", dataSales);
 
 		// load the gold standard (test set)
@@ -314,13 +319,18 @@ public class Main {
 		if(matchingType=="sl") {
 			options = new String[] {"-S"};
 			modelType = "SimpleLogistic";
-		}else {
-			System.out.println("Choose a Matching Method!");
 		}
+		
+		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.9, modelType, options);
 
-		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.95, modelType, options);
-		matchingRule.activateDebugReport("data/output/rawg_debugResultsMatchingRule.csv", 10000, gsTest);
-
+		if(matchingType=="dt") {
+			matchingRule.activateDebugReport("data/output/rawg_dt_debugResultsMatchingRule.csv", -1, gsTest);
+		}
+		if(matchingType=="sl") {
+			matchingRule.activateDebugReport("data/output/rawg_sl_debugResultsMatchingRule.csv", -1, gsTest);
+		}
+		
+		
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparatorEqual());
 		matchingRule.addComparator(new GamesYearComparator2Years());
@@ -344,7 +354,14 @@ public class Main {
 				new VideoGamesBlockingKeyByTitleYearGenerator());
 		// NoBlocker blocker = new NoBlocker();
 		blocker.setMeasureBlockSizes(true);
-		blocker.collectBlockSizeData("data/output/rawg_debugResultsBlocking.csv", 3300);
+		
+		if(matchingType=="dt") {
+			blocker.collectBlockSizeData("data/output/rawg_dt_debugResultsBlocking.csv", -1);
+		}
+		if(matchingType=="sl") {
+			blocker.collectBlockSizeData("data/output/rawg_sl_debugResultsBlocking.csv", -1);
+		}
+		
 
 		// Initialize Matching Engine
 		MatchingEngine<VideoGames, Attribute> engine = new MatchingEngine<>();
@@ -361,9 +378,16 @@ public class Main {
 		correspondences = Weights.getResult();
 
 		// write the correspondences to the output file
-		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_correspondences.csv"),
-				correspondences);
-
+		if(matchingType=="dt") {
+			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_dt_correspondences.csv"),
+					correspondences);
+		}
+		if(matchingType=="sl") {
+			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_sl_correspondences.csv"),
+					correspondences);
+		}
+		
+	
 		System.out.println("*\n*\tEvaluating result\n*");
 		// evaluate your result
 		MatchingEvaluator<VideoGames, Attribute> evaluator = new MatchingEvaluator<VideoGames, Attribute>();
@@ -373,11 +397,7 @@ public class Main {
 		System.out.println("Videogames Sales <-> Rawg");
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
-		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
-		System.out.println(String.format("Number of Correctly Predicted: ", perfTest.getNumberOfCorrectlyPredicted()));
-		System.out.println(String.format("Number of Correct in Total: ", perfTest.getNumberOfCorrectTotal()));
-		System.out.println(String.format("Number of Predicted: ", perfTest.getNumberOfPredicted()));
-		
+		System.out.println(String.format("F1: %.4f", perfTest.getF1()));		
 	}
 
 	// Run Both Matchings
@@ -385,8 +405,8 @@ public class Main {
 		String matchingType;
 		// wikitosales();
 		// rawgtosales();
-		// wikitosales_rulelearner(matchingType="dt"); // dt = Decision Tree/ sl = simpleLogression
-		 rawgtosales_rulelearner(matchingType="dt");   // dt = Decision Tree/ sl = simpleLogression
+		// wikitosales_rulelearner(matchingType="dt"); // dt = Decision Tree/ sl = simpleLogression/ has to be filled
+		rawgtosales_rulelearner(matchingType="dt");   // dt = Decision Tree/ sl = simpleLogression/ has to be filled
 	}
 
 }
