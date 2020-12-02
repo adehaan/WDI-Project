@@ -1,12 +1,15 @@
 package genralClasses;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import de.uni_mannheim.informatik.dws.winter.model.AbstractRecord;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
+import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 
-public class VideoGames implements Matchable{
+public class VideoGames extends AbstractRecord<Attribute> implements Serializable{
 	protected String id;
 	protected String provenance;
 
@@ -269,10 +272,16 @@ public class VideoGames implements Matchable{
 	public List<CERO> getCERO() {
 		return CERO;
 	}
-
+	
 	@Override
 	public String getProvenance() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.provenance;
+	}
+
+	@Override
+	public boolean hasValue(Attribute attribute) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
