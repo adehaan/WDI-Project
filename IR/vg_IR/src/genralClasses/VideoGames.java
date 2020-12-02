@@ -318,11 +318,11 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 
 	
 	// All Attributes that are in more than 1 dataset
-	public static final Attribute TITLE = new Attribute("title");
-	public static final Attribute DATE = new Attribute("date");
-	public static final Attribute PUBLISHERS = new Attribute("publishers");
-	public static final Attribute GENRES = new Attribute("publishers");
-	public static final Attribute PLATFORMS = new Attribute("publishers");
+	public static final Attribute TITLE = new Attribute("Title");
+	public static final Attribute DATE = new Attribute("Year");
+	public static final Attribute PUBLISHERS = new Attribute("Publishers");
+	public static final Attribute GENRES = new Attribute("Genres");
+	public static final Attribute PLATFORMS = new Attribute("Platforms");
 	
 	@Override
 	public boolean hasValue(Attribute attribute) {
@@ -339,4 +339,25 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 		else
 			return false;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return String.format("[Game %s: %s / %s / %s]", getIdentifier(), getTitle(),
+				getDate(), getPCReq());
+	}
+
+	@Override
+	public int hashCode() {
+		return getIdentifier().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof VideoGames){
+			return this.getIdentifier().equals(((VideoGames) obj).getIdentifier());
+		}else
+			return false;
+	}
+	
 }

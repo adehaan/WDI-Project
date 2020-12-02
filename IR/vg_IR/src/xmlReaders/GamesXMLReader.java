@@ -10,6 +10,7 @@ import java.util.List;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import de.uni_mannheim.informatik.dws.winter.model.DataSet;
 import de.uni_mannheim.informatik.dws.winter.model.FusibleFactory;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.RecordGroup;
@@ -24,6 +25,18 @@ import genralClasses.Tags;
 import genralClasses.VideoGames;
 
 public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> implements FusibleFactory<VideoGames, Attribute>{
+	
+	@Override
+	protected void initialiseDataset(DataSet<VideoGames, Attribute> dataset) {
+		super.initialiseDataset(dataset);
+
+// the schema is defined in the Movie class and not interpreted from the file, so we have to set the attributes manually
+		dataset.addAttribute(VideoGames.TITLE);
+		dataset.addAttribute(VideoGames.GENRES);
+		dataset.addAttribute(VideoGames.DATE);
+		dataset.addAttribute(VideoGames.PLATFORMS);
+		dataset.addAttribute(VideoGames.PUBLISHERS);
+	}
 	
 	@Override
 	public VideoGames createInstanceForFusion(RecordGroup<VideoGames, Attribute> cluster) {
@@ -181,19 +194,15 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> im
 			vg.setESRB(lstESRB);
 		}
 		
-		// Age_groups
-		//List<PEGI> lstPEGI = getObjectListFromChildElement(node, "PEGIs", "PEGI",
-		//		new AgeGroupsXMLReader(), provenanceInfo);
-		//if (lstAgeGroups != null && lstAgeGroups.size() > 0) {
-		//	vg.setAgeGroups(lstAgeGroups);
-		//}
+		List<PEGI> lstPEGI = getObjectListFromChildElement(node, "PEGIs", "PEGI", new PEGIXmlReader(), provenanceInfo);
+		if (lstPEGI != null && lstPEGI.size() > 0) {
+			vg.setPEGI(lstPEGI);
+		}
 		
-		// Age_groups
-		//List<CERO> lstCERO = getObjectListFromChildElement(node, "CEROs", "CERO",
-		//		new AgeGroupsXMLReader(), provenanceInfo);
-		//if (lstAgeGroups != null && lstAgeGroups.size() > 0) {
-		//	vg.setAgeGroups(lstAgeGroups);
-		//}
+		List<CERO> lstCERO = getObjectListFromChildElement(node, "CEROs", "CERO", new CEROXmlReader(), provenanceInfo);
+		if (lstCERO != null && lstCERO.size() > 0) {
+			vg.setCERO(lstCERO);
+		}
 
 		return vg;
 	}

@@ -32,9 +32,18 @@ import de.uni_mannheim.informatik.dws.winter.model.FusibleHashedDataSet;
 import de.uni_mannheim.informatik.dws.winter.model.RecordGroupFactory;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
+import fusers.DateEvaluationRule;
+import fusers.DateFuserVoting;
 import fusers.GameTitelFuserFavourSource;
+import fusers.GenresEvaluationRule;
+import fusers.GenresFuserUnion;
+import fusers.PlatformsEvaluationRule;
+import fusers.PlatformsFuserUnion;
+import fusers.PublishersEvaluationRule;
+import fusers.PublishersFuserIntersection;
 import fusers.TitleEvaluationRule;
 import genralClasses.VideoGames;
+import xmlFormatters.GamesXMLFormatter;
 import xmlReaders.GamesXMLReader;
 
 public class DataFusion_Main 
@@ -42,7 +51,7 @@ public class DataFusion_Main
 	/*
 	 * Logging Options:
 	 * 		default: 	level INFO	- console
-	 * 		trace:		level TRACE     - console
+	 * 		trace:		level TRACE - console
 	 * 		infoFile:	level INFO	- console/file
 	 * 		traceFile:	level TRACE	- console/file
 	 *  
@@ -57,7 +66,7 @@ public class DataFusion_Main
 	public static void main( String[] args ) throws Exception
     {
 		// Load the Data into FusibleDataSet
-		System.out.println("*\n*\tLoading datasets\n*");
+		System.out.println("*\n*\tLoading datasets for fusion\n*");
 				
 		// Sales DataSet
 		FusibleDataSet<VideoGames, Attribute> ds1 = new FusibleHashedDataSet<>();
@@ -75,18 +84,18 @@ public class DataFusion_Main
 		new GamesXMLReader().loadFromXML(new File("data/input/rawg_target1.xml"), "/Games/Game", ds3);
 		ds3.printDataSetDensityReport();
 
-		// Maintain Provenance
-		// Scores (e.g. from rating)
-		ds1.setScore(1.0);
-		ds2.setScore(2.0);
-		ds3.setScore(3.0);
+		// Maintain Provenance- Scores for Favour Source = highest Score is favoured
+		// sales highest score, rawg second and wiki last, since it is the most unclean score
+		ds1.setScore(3.0);
+		ds2.setScore(1.0);
+		ds3.setScore(2.0);
 		
 
 		// load correspondences: have to be in the same order as in file -> sales, wiki & sales, rawg -> ds1, ds2 & ds1, ds3
-		System.out.println("*\n*\tLoading correspondences\n*");
+		System.out.println("*\n*\tLoading correspondences for fusion\n*");
 		CorrespondenceSet<VideoGames, Attribute> correspondences = new CorrespondenceSet<>();
-		correspondences.loadCorrespondences(new File("data/output/Wiki_2_Sales_correspondence.csv"),ds1, ds2);
-		correspondences.loadCorrespondences(new File("data/output/RAWG_2_Sales_correspondence.csv"),ds1, ds3);
+		correspondences.loadCorrespondences(new File("data/output/Wiki_2_Sales_correspondences.csv"),ds1, ds2);
+		correspondences.loadCorrespondences(new File("data/output/RAWG_2_Sales_correspondences.csv"),ds1, ds3);
 
 		// write group size distribution
 		correspondences.printGroupSizeDistribution();
@@ -96,7 +105,7 @@ public class DataFusion_Main
 		// TODO: Create file Goldstandard_Fusion.csv
 		System.out.println("*\n*\tEvaluating results\n*");
 		DataSet<VideoGames, Attribute> gs = new FusibleHashedDataSet<>();
-		new GamesXMLReader().loadFromXML(new File("../Goldstandard_Fusion.csv"), "/Games/Game", gs);
+		new GamesXMLReader().loadFromXML(new File("../goldstandard_fusion.xml"), "/Games/Game", gs);
 
 		for(VideoGames v : gs.get()) {
 			System.out.println(String.format("gs: %s", v.getIdentifier()));
@@ -105,16 +114,20 @@ public class DataFusion_Main
 		// define the fusion strategy
 		DataFusionStrategy<VideoGames, Attribute> strategy = new DataFusionStrategy<>(new GamesXMLReader());
 		// write debug results to file
-		strategy.activateDebugReport("data/output/debugResultsDatafusion.csv", -1, gs);
+		strategy.activateDebugReport("data/output/fusion/fusion_debugResultsDatafusion.csv", -1, gs);
 		
 		// add attribute fusers
 		// TODO: Create Fusers & Evaluationsrules - for each attribute add a Fuser & EvaluationRule
-		strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserFavourSource(), new TitleEvaluationRule());
 		
-		// strategy.addAttributeFuser(VideoGames.DATE, new DirectorFuserLongestString(), new DirectorEvaluationRule());
-		// strategy.addAttributeFuser(VideoGames.PUBLISHERS, new DirectorFuserLongestString(), new DirectorEvaluationRule());
-		// strategy.addAttributeFuser(VideoGames.GENRES, new GameTitelFuserFavourSource(),new DateEvaluationRule());
-		// strategy.addAttributeFuser(VideoGames.PLATFORMS, new ActorsFuserUnion(),new ActorsEvaluationRule());
+		// Title = favor sales source; longest/shortest string	
+		strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserFavourSource(), new TitleEvaluationRule());
+		// Date = OldestValue (lowest value)
+		strategy.addAttributeFuser(VideoGames.DATE, new DateFuserVoting(), new DateEvaluationRule());
+		// Publisher = intersection
+		strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserIntersection(), new PublishersEvaluationRule());
+		// Genre & Platforms = Union
+		strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserUnion(),new GenresEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserUnion(),new PlatformsEvaluationRule());
 		
 		// create the fusion engine
 		DataFusionEngine<VideoGames, Attribute> engine = new DataFusionEngine<>(strategy);
@@ -123,7 +136,7 @@ public class DataFusion_Main
 		engine.printClusterConsistencyReport(correspondences, null);
 		
 		// print record groups sorted by consistency
-		engine.writeRecordGroupsByConsistency(new File("data/output/recordGroupConsistencies.csv"), correspondences, null);
+		engine.writeRecordGroupsByConsistency(new File("data/output/fusion_recordGroupConsistencies.csv"), correspondences, null);
 
 		// run the fusion
 		System.out.println("*\n*\tRunning data fusion\n*");

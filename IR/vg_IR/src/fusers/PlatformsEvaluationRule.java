@@ -1,6 +1,7 @@
 package fusers;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 //import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model.Movie;
@@ -18,11 +19,11 @@ public class PlatformsEvaluationRule extends EvaluationRule<VideoGames, Attribut
 	@Override
 	public boolean isEqual(VideoGames record1, VideoGames record2, Attribute schemaElement) {
 		
-		Set<String> platforms1 = new HashSet<>();
-		Set<String> platforms2 = new HashSet<>();
+		List<String> help1 = record1.getPlatforms();
+		Set<String> platforms1 = new HashSet<>(help1);
 		
-		platforms1 = (Set) record1.getGenres();
-		platforms2 = (Set) record2.getGenres();
+		List<String> help2 = record2.getPlatforms();
+		Set<String> platforms2 = new HashSet<>(help2);
 		
 		return platforms1.containsAll(platforms2) && platforms2.containsAll(platforms1);
 	}
