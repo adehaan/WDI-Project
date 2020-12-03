@@ -116,7 +116,7 @@ public class Main {
 		HashedDataSet<VideoGames, Attribute> dataSales = new HashedDataSet<>();
 
 		// TODO: Import all 11 files
-		new GamesXMLReader().loadFromXML(new File("data/input/rawg_target1.xml"), "/Games/Game", dataRawg);
+		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_xml_1.xml"), "/Games/Game", dataRawg);
 		new GamesXMLReader().loadFromXML(new File("data/input/sales_target.xml"), "/Games/Game", dataSales);
 
 		// load the gold standard (test set)
@@ -296,7 +296,7 @@ public class Main {
 		HashedDataSet<VideoGames, Attribute> dataSales = new HashedDataSet<>();
 
 		// TODO: Import right rawg file here
-		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_xml_2.xml"), "/Games/Game", dataRawg);
+		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_xml_1.xml"), "/Games/Game", dataRawg);
 		new GamesXMLReader().loadFromXML(new File("data/input/sales_target.xml"), "/Games/Game", dataSales);
 
 		// load the gold standard (test set)
@@ -404,9 +404,9 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		String matchingType;
 		// wikitosales();
-		// rawgtosales();
+		 rawgtosales();
 		// wikitosales_rulelearner(matchingType="dt"); // dt = Decision Tree/ sl = simpleLogression/ has to be filled
-		rawgtosales_rulelearner(matchingType="dt");   // dt = Decision Tree/ sl = simpleLogression/ has to be filled
+		// rawgtosales_rulelearner(matchingType="dt");   // dt = Decision Tree/ sl = simpleLogression/ has to be filled
 	}
 
 }
