@@ -206,40 +206,25 @@ public class Main {
 		String options[] = null;
 		String modelType = null;
 
-//		if(matchingType=="dt") {
-//			options = new String[] {"-C", "0.25"};
-//			modelType = "J48";
-//		}
-//		if(matchingType=="sl") {
-//			options = new String[] {"-S"};
-//			modelType = "SimpleLogistic";
-//		}
-
-		// options = new String[] {"-Q","-W", "weka.classifiers.trees.RandomForest"};
-		// modelType = "AdaBoostM1";
-
-		options = new String[] { "-print", "-I", "100", "-S", "2", "-depth", "5" };
-		modelType = "RandomForest";
-
-//		options = new String[] { 
-//				"-P", "weka.classifiers.trees.RandomForest", 
-//				"-P", "weka.classifiers.meta.AdaBoostM1",
-//				"-P", "weka.classifiers.functions.SimpleLogistic",
-//				"-X", "10", 
-//				"-B", "weka.classifiers.trees.RandomForest", "-depth", "5",
-//				"-B", "weka.classifiers.meta.AdaBoostM1", "-Q","-W", "weka.classifiers.trees.J48",
-//				"-B", "weka.classifiers.functions.SimpleLogistic"};
-//		modelType = "Vote";
-		// options = new String[] {"-S"};
-		// modelType = "SimpleLogistic";
+		if (matchingType == "dt") {
+			options = new String[] { "-U" };
+			modelType = "J48";
+		} else if (matchingType == "sl") {
+			options = new String[] { "-S" };
+			modelType = "SimpleLogistic";
+		} else if (matchingType == "rf") {
+			options = new String[] { "-print", "-P", "100", "-I", "100", "-depth", "5" };
+			modelType = "RandomForest";
+		}
 
 		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.9, modelType, options);
 
 		if (matchingType == "dt") {
 			matchingRule.activateDebugReport("data/output/wiki_dt_debugResultsMatchingRule.csv", -1, gsTest);
-		}
-		if (matchingType == "sl") {
+		} else if (matchingType == "sl") {
 			matchingRule.activateDebugReport("data/output/wiki_sl_debugResultsMatchingRule.csv", -1, gsTest);
+		} else if (matchingType == "rf") {
+			matchingRule.activateDebugReport("data/output/wiki_rf_debugResultsMatchingRule.csv", -1, gsTest);
 		}
 
 		// add comparators
@@ -269,8 +254,11 @@ public class Main {
 		if (matchingType == "dt") {
 			blocker.collectBlockSizeData("data/output/wiki_dt_debugResultsBlocking.csv", -1);
 		}
-		if (matchingType == "sl") {
+		else if (matchingType == "sl") {
 			blocker.collectBlockSizeData("data/output/wiki_sl_debugResultsBlocking.csv", -1);
+		}
+		else if (matchingType == "rf") {
+			blocker.collectBlockSizeData("data/output/wiki_rf_debugResultsBlocking.csv", -1);
 		}
 
 		// Initialize Matching Engine
@@ -291,9 +279,11 @@ public class Main {
 		if (matchingType == "dt") {
 			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Wiki_2_Sales_dt_correspondences.csv"),
 					correspondences);
-		}
-		if (matchingType == "sl") {
+		} else if (matchingType == "sl") {
 			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Wiki_2_Sales_sl_correspondences.csv"),
+					correspondences);
+		} else if (matchingType == "rf") {
+			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Wiki_2_Sales_rf_correspondences.csv"),
 					correspondences);
 		}
 
@@ -307,10 +297,10 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
-		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));
-		System.out.println(
-				String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));
-		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));
+		//System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));
+		//System.out.println(
+		//		String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));
+		//System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));
 	}
 
 	// RAWG to SALES
@@ -337,30 +327,31 @@ public class Main {
 		String options[] = null;
 		String modelType = null;
 
-//		if (matchingType == "dt") {
-//			options = new String[] { "-U" };
-//			modelType = "J48";
-//		}
-//		if (matchingType == "sl") {
-//			options = new String[] { "-S" };
-//			modelType = "SimpleLogistic";
-//		}
+		if (matchingType == "dt") {
+			options = new String[] { "-U" };
+			modelType = "J48";
+		} else if (matchingType == "sl") {
+			options = new String[] { "-S" };
+			modelType = "SimpleLogistic";
+		} else if (matchingType == "rf") {
+			options = new String[] { "-print", "-P", "100", "-I", "100", "-depth", "5" };
+			modelType = "RandomForest";
+		}
 
-		options = new String[] { "" };
-		modelType = "SimpleLogistic";
-		//options = new String[] {"-Q","-W", "weka.classifiers.functions.SimpleLogistic"};
-		//modelType = "AdaBoostM1";
-		
-		//options = new String[] { "-print", "-I", "100", "-S", "2", "-depth", "5" };
-		//modelType = "RandomForest";
+		// options = new String[] { "" };
+		// modelType = "SimpleLogistic";
+		// options = new String[] {"-Q","-W",
+		// "weka.classifiers.functions.SimpleLogistic"};
+		// modelType = "AdaBoostM1";
 
 		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.70, modelType, options);
 
 		if (matchingType == "dt") {
 			matchingRule.activateDebugReport("data/output/rawg_dt_debugResultsMatchingRule.csv", -1, gsTest);
-		}
-		if (matchingType == "sl") {
+		} else if (matchingType == "sl") {
 			matchingRule.activateDebugReport("data/output/rawg_sl_debugResultsMatchingRule.csv", -1, gsTest);
+		} else if (matchingType == "rf") {
+			matchingRule.activateDebugReport("data/output/rawg_rf_debugResultsMatchingRule.csv", -1, gsTest);
 		}
 
 		// add comparators
@@ -389,9 +380,10 @@ public class Main {
 
 		if (matchingType == "dt") {
 			blocker.collectBlockSizeData("data/output/rawg_dt_debugResultsBlocking.csv", -1);
-		}
-		if (matchingType == "sl") {
+		} else if (matchingType == "sl") {
 			blocker.collectBlockSizeData("data/output/rawg_sl_debugResultsBlocking.csv", -1);
+		} else if (matchingType == "rf") {
+			blocker.collectBlockSizeData("data/output/rawg_rf_debugResultsBlocking.csv", -1);
 		}
 
 		// Initialize Matching Engine
@@ -416,6 +408,9 @@ public class Main {
 		if (matchingType == "sl") {
 			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_sl_correspondences.csv"),
 					correspondences);
+		} else if (matchingType == "rf") {
+			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_rf_correspondences.csv"),
+					correspondences);
 		}
 
 		System.out.println("*\n*\tEvaluating result\n*");
@@ -428,10 +423,10 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
-		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));
-		System.out.println(
-				String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));
-		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));
+		//System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));
+		//System.out.println(
+		//		String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));
+		//System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));
 	}
 
 	// Run Both Matchings
@@ -439,10 +434,11 @@ public class Main {
 		String matchingType;
 		// wikitosales();
 		// rawgtosales();
-		// wikitosales_rulelearner(matchingType = "dt"); // dt = Decision Tree/ sl =
-		// simpleLogression/ has to be filled
-		rawgtosales_rulelearner(matchingType = "dt"); // dt = Decision Tree/ sl =
-		// simpleLogression/ has to be filled
+		// dt = Decision Tree,
+		// simpleLogression,
+		// rf = Random Forrest
+		wikitosales_rulelearner(matchingType = "rf");
+		rawgtosales_rulelearner(matchingType = "rf");
 	}
 
 }
