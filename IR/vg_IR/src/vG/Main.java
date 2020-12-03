@@ -71,7 +71,6 @@ public class Main {
 		// matchingRule.addComparator(new GamesPlatformComparatorJaroWinkler(), 0.3);
 		// matchingRule.addComparator(new GamesYearComparatorEqual(), 0.3);
 
-
 		StandardRecordBlocker<VideoGames, Attribute> blocker = new StandardRecordBlocker<VideoGames, Attribute>(
 				new VideoGamesBlockingKeyByTitleYearGenerator());
 
@@ -106,9 +105,10 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
-		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));		
-		System.out.println(String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));		
-		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));	
+		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));
+		System.out.println(
+				String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));
+		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));
 	}
 
 	public static void rawgtosales() throws Exception {
@@ -134,10 +134,10 @@ public class Main {
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparator2Years(), 0.4);
 		// matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.7);
-		//matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.4);
+		// matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.4);
 		matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.6);
-		//matchingRule.addComparator(new GamesPlatformComparatorLevenshtein(), 0.1);
-		//matchingRule.addComparator(new GamesGenresComparatorLevenshtein(), 0.1);
+		// matchingRule.addComparator(new GamesPlatformComparatorLevenshtein(), 0.1);
+		// matchingRule.addComparator(new GamesGenresComparatorLevenshtein(), 0.1);
 		// matchingRule.addComparator(new GamesGenresComparatorJaroWinkler(), 0.3);
 		// matchingRule.addComparator(new GamesPlatformComparatorJaroWinkler(), 0.3);
 		// matchingRule.addComparator(new GamesYearComparatorEqual(), 0.3);
@@ -163,7 +163,8 @@ public class Main {
 
 		// write the correspondences to the output file
 
-		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_correspondences.csv"), correspondences);
+		new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_correspondences.csv"),
+				correspondences);
 
 		System.out.println("*\n*\tEvaluating result\n*");
 		// evaluate your result
@@ -175,15 +176,16 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
-		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));		
-		System.out.println(String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));		
-		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));	
+		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));
+		System.out.println(
+				String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));
+		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));
 	}
 
 	public static void wikitosales_rulelearner(String matchingType) throws Exception {
 
 		// TODO Auto-generated method stub
-		System.out.println("*\n*\tLoading datasets rawg\n*");
+		System.out.println("*\n*\tLoading datasets WIKI \n*");
 		HashedDataSet<VideoGames, Attribute> dataWiki = new HashedDataSet<>();
 		HashedDataSet<VideoGames, Attribute> dataSales = new HashedDataSet<>();
 
@@ -200,28 +202,45 @@ public class Main {
 		MatchingGoldStandard gsTrain = new MatchingGoldStandard();
 		gsTrain.loadFromCSVFile(new File("../Train_sales_wiki.csv"));
 
-		// create a matching rule	
+		// create a matching rule
 		String options[] = null;
 		String modelType = null;
 
-		if(matchingType=="dt") {
-			options = new String[] {"-U"};
-			modelType = "J48";
-		}
-		if(matchingType=="sl") {
-			options = new String[] {"-S"};
-			modelType = "SimpleLogistic";
-		}
-		
+//		if(matchingType=="dt") {
+//			options = new String[] {"-C", "0.25"};
+//			modelType = "J48";
+//		}
+//		if(matchingType=="sl") {
+//			options = new String[] {"-S"};
+//			modelType = "SimpleLogistic";
+//		}
+
+		// options = new String[] {"-Q","-W", "weka.classifiers.trees.RandomForest"};
+		// modelType = "AdaBoostM1";
+
+		options = new String[] { "-print", "-I", "100", "-S", "2", "-depth", "5" };
+		modelType = "RandomForest";
+
+//		options = new String[] { 
+//				"-P", "weka.classifiers.trees.RandomForest", 
+//				"-P", "weka.classifiers.meta.AdaBoostM1",
+//				"-P", "weka.classifiers.functions.SimpleLogistic",
+//				"-X", "10", 
+//				"-B", "weka.classifiers.trees.RandomForest", "-depth", "5",
+//				"-B", "weka.classifiers.meta.AdaBoostM1", "-Q","-W", "weka.classifiers.trees.J48",
+//				"-B", "weka.classifiers.functions.SimpleLogistic"};
+//		modelType = "Vote";
+		// options = new String[] {"-S"};
+		// modelType = "SimpleLogistic";
+
 		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.9, modelType, options);
-		
-		if(matchingType=="dt") {
+
+		if (matchingType == "dt") {
 			matchingRule.activateDebugReport("data/output/wiki_dt_debugResultsMatchingRule.csv", -1, gsTest);
 		}
-		if(matchingType=="sl") {
+		if (matchingType == "sl") {
 			matchingRule.activateDebugReport("data/output/wiki_sl_debugResultsMatchingRule.csv", -1, gsTest);
 		}
-
 
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparatorEqual());
@@ -246,15 +265,13 @@ public class Main {
 				new VideoGamesBlockingKeyByTitleYearGenerator());
 		// NoBlocker blocker = new NoBlocker();
 		blocker.setMeasureBlockSizes(true);
-		
-		if(matchingType=="dt") {
+
+		if (matchingType == "dt") {
 			blocker.collectBlockSizeData("data/output/wiki_dt_debugResultsBlocking.csv", -1);
 		}
-		if(matchingType=="sl") {
+		if (matchingType == "sl") {
 			blocker.collectBlockSizeData("data/output/wiki_sl_debugResultsBlocking.csv", -1);
 		}
-		
-		
 
 		// Initialize Matching Engine
 		MatchingEngine<VideoGames, Attribute> engine = new MatchingEngine<>();
@@ -270,17 +287,15 @@ public class Main {
 		Weights.run();
 		correspondences = Weights.getResult();
 
-		
 		// write the correspondences to the output file
-		if(matchingType=="dt") {
+		if (matchingType == "dt") {
 			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Wiki_2_Sales_dt_correspondences.csv"),
 					correspondences);
 		}
-		if(matchingType=="sl") {
+		if (matchingType == "sl") {
 			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Wiki_2_Sales_sl_correspondences.csv"),
 					correspondences);
 		}
-		
 
 		System.out.println("*\n*\tEvaluating result\n*");
 		// evaluate your result
@@ -292,12 +307,13 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
-		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));		
-		System.out.println(String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));		
-		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));	
+		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));
+		System.out.println(
+				String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));
+		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));
 	}
 
-	//RAWG to SALES
+	// RAWG to SALES
 	public static void rawgtosales_rulelearner(String matchingType) throws Exception {
 
 		System.out.println("*\n*\tLoading datasets rawg\n*");
@@ -311,41 +327,48 @@ public class Main {
 		// load the gold standard (test set)
 		System.out.println("*\n*\tLoading gold standard\n*");
 		MatchingGoldStandard gsTest = new MatchingGoldStandard();
-		gsTest.loadFromCSVFile(new File("../Test_sales_rawg2.csv"));
+		gsTest.loadFromCSVFile(new File("../Test_sales_rawg3.csv"));
 
 		// load training set
 		MatchingGoldStandard gsTrain = new MatchingGoldStandard();
-		gsTrain.loadFromCSVFile(new File("../Train_sales_rawg2.csv"));
+		gsTrain.loadFromCSVFile(new File("../Train_sales_rawg3.csv"));
 
 		// create a matching rule
 		String options[] = null;
 		String modelType = null;
 
-		if(matchingType=="dt") {
-			options = new String[] {"-U"};
-			modelType = "J48";
-		}
-		if(matchingType=="sl") {
-			options = new String[] {"-S"};
-			modelType = "SimpleLogistic";
-		}
-		
-		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.75, modelType, options);
+//		if (matchingType == "dt") {
+//			options = new String[] { "-U" };
+//			modelType = "J48";
+//		}
+//		if (matchingType == "sl") {
+//			options = new String[] { "-S" };
+//			modelType = "SimpleLogistic";
+//		}
 
-		if(matchingType=="dt") {
+		options = new String[] { "" };
+		modelType = "SimpleLogistic";
+		//options = new String[] {"-Q","-W", "weka.classifiers.functions.SimpleLogistic"};
+		//modelType = "AdaBoostM1";
+		
+		//options = new String[] { "-print", "-I", "100", "-S", "2", "-depth", "5" };
+		//modelType = "RandomForest";
+
+		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.70, modelType, options);
+
+		if (matchingType == "dt") {
 			matchingRule.activateDebugReport("data/output/rawg_dt_debugResultsMatchingRule.csv", -1, gsTest);
 		}
-		if(matchingType=="sl") {
+		if (matchingType == "sl") {
 			matchingRule.activateDebugReport("data/output/rawg_sl_debugResultsMatchingRule.csv", -1, gsTest);
 		}
-		
-		
+
 		// add comparators
-		//matchingRule.addComparator(new GamesYearComparatorEqual());
+		matchingRule.addComparator(new GamesYearComparatorEqual());
 		matchingRule.addComparator(new GamesYearComparator2Years());
-		//matchingRule.addComparator(new GamesYearComparator5Years());
-		//matchingRule.addComparator(new GamesTitleComparatorEqual());
-		//matchingRule.addComparator(new GamesTitleComparatorJaccard());
+		matchingRule.addComparator(new GamesYearComparator5Years());
+		// matchingRule.addComparator(new GamesTitleComparatorEqual());
+		matchingRule.addComparator(new GamesTitleComparatorJaccard());
 		matchingRule.addComparator(new GamesTitleComparatorLevenshtein());
 		matchingRule.addComparator(new GamesPlatformComparatorLevenshtein());
 		matchingRule.addComparator(new GamesPlatformComparatorJaroWinkler());
@@ -363,14 +386,13 @@ public class Main {
 				new VideoGamesBlockingKeyByTitleYearGenerator());
 		// NoBlocker blocker = new NoBlocker();
 		blocker.setMeasureBlockSizes(true);
-		
-		if(matchingType=="dt") {
+
+		if (matchingType == "dt") {
 			blocker.collectBlockSizeData("data/output/rawg_dt_debugResultsBlocking.csv", -1);
 		}
-		if(matchingType=="sl") {
+		if (matchingType == "sl") {
 			blocker.collectBlockSizeData("data/output/rawg_sl_debugResultsBlocking.csv", -1);
 		}
-		
 
 		// Initialize Matching Engine
 		MatchingEngine<VideoGames, Attribute> engine = new MatchingEngine<>();
@@ -387,16 +409,15 @@ public class Main {
 		correspondences = Weights.getResult();
 
 		// write the correspondences to the output file
-		if(matchingType=="dt") {
+		if (matchingType == "dt") {
 			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_dt_correspondences.csv"),
 					correspondences);
 		}
-		if(matchingType=="sl") {
+		if (matchingType == "sl") {
 			new CSVCorrespondenceFormatter().writeCSV(new File("data/output/Rawg_2_Sales_sl_correspondences.csv"),
 					correspondences);
 		}
-		
-	
+
 		System.out.println("*\n*\tEvaluating result\n*");
 		// evaluate your result
 		MatchingEvaluator<VideoGames, Attribute> evaluator = new MatchingEvaluator<VideoGames, Attribute>();
@@ -406,19 +427,22 @@ public class Main {
 		System.out.println("Videogames Sales <-> Rawg");
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
-		System.out.println(String.format("F1: %.4f", perfTest.getF1()));		
-		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));		
-		System.out.println(String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));		
-		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));		
+		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
+		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));
+		System.out.println(
+				String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));
+		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));
 	}
 
 	// Run Both Matchings
 	public static void main(String[] args) throws Exception {
 		String matchingType;
 		// wikitosales();
-		 rawgtosales();
-		// wikitosales_rulelearner(matchingType="dt"); // dt = Decision Tree/ sl = simpleLogression/ has to be filled
-		// rawgtosales_rulelearner(matchingType="dt");   // dt = Decision Tree/ sl = simpleLogression/ has to be filled
+		// rawgtosales();
+		// wikitosales_rulelearner(matchingType = "dt"); // dt = Decision Tree/ sl =
+		// simpleLogression/ has to be filled
+		rawgtosales_rulelearner(matchingType = "dt"); // dt = Decision Tree/ sl =
+		// simpleLogression/ has to be filled
 	}
 
 }
