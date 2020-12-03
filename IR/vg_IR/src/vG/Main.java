@@ -106,6 +106,9 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
+		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));		
+		System.out.println(String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));		
+		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));	
 	}
 
 	public static void rawgtosales() throws Exception {
@@ -131,10 +134,10 @@ public class Main {
 		// add comparators
 		matchingRule.addComparator(new GamesYearComparator2Years(), 0.4);
 		// matchingRule.addComparator(new GamesTitleComparatorEqual(), 0.7);
-		matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.4);
-		// matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.7);
-		matchingRule.addComparator(new GamesPlatformComparatorLevenshtein(), 0.1);
-		matchingRule.addComparator(new GamesGenresComparatorLevenshtein(), 0.1);
+		//matchingRule.addComparator(new GamesTitleComparatorJaccard(), 0.4);
+		matchingRule.addComparator(new GamesTitleComparatorLevenshtein(), 0.6);
+		//matchingRule.addComparator(new GamesPlatformComparatorLevenshtein(), 0.1);
+		//matchingRule.addComparator(new GamesGenresComparatorLevenshtein(), 0.1);
 		// matchingRule.addComparator(new GamesGenresComparatorJaroWinkler(), 0.3);
 		// matchingRule.addComparator(new GamesPlatformComparatorJaroWinkler(), 0.3);
 		// matchingRule.addComparator(new GamesYearComparatorEqual(), 0.3);
@@ -172,6 +175,9 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
+		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));		
+		System.out.println(String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));		
+		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));	
 	}
 
 	public static void wikitosales_rulelearner(String matchingType) throws Exception {
@@ -286,6 +292,9 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
+		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));		
+		System.out.println(String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));		
+		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));	
 	}
 
 	//RAWG to SALES
@@ -321,7 +330,7 @@ public class Main {
 			modelType = "SimpleLogistic";
 		}
 		
-		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.9, modelType, options);
+		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.75, modelType, options);
 
 		if(matchingType=="dt") {
 			matchingRule.activateDebugReport("data/output/rawg_dt_debugResultsMatchingRule.csv", -1, gsTest);
@@ -332,11 +341,11 @@ public class Main {
 		
 		
 		// add comparators
-		matchingRule.addComparator(new GamesYearComparatorEqual());
+		//matchingRule.addComparator(new GamesYearComparatorEqual());
 		matchingRule.addComparator(new GamesYearComparator2Years());
-		matchingRule.addComparator(new GamesYearComparator5Years());
-		matchingRule.addComparator(new GamesTitleComparatorEqual());
-		matchingRule.addComparator(new GamesTitleComparatorJaccard());
+		//matchingRule.addComparator(new GamesYearComparator5Years());
+		//matchingRule.addComparator(new GamesTitleComparatorEqual());
+		//matchingRule.addComparator(new GamesTitleComparatorJaccard());
 		matchingRule.addComparator(new GamesTitleComparatorLevenshtein());
 		matchingRule.addComparator(new GamesPlatformComparatorLevenshtein());
 		matchingRule.addComparator(new GamesPlatformComparatorJaroWinkler());
@@ -398,6 +407,9 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));		
+		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));		
+		System.out.println(String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));		
+		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));		
 	}
 
 	// Run Both Matchings
