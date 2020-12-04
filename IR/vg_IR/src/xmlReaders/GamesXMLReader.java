@@ -186,14 +186,16 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		}
 
 		// Genres
-		List<String> lstGenres = new ArrayList<>();
-		for (String genre : getListFromChildElement(node, "Genres")) {
-			if (!genre.equals("") || !genre.isBlank() || !genre.isEmpty())
-				lstGenres.add(genre.toUpperCase());
+		List<String> lstGenres = getListFromChildElement(node, "Genres");
+		List<String> helperGenres = new ArrayList<>();
+		if (lstGenres != null && lstGenres.size() > 0) {
+			for (String genre : lstGenres) {
+				if (!genre.equals("") || !genre.isBlank() || !genre.isEmpty())
+					helperGenres.add(genre.toUpperCase());
+			}
+
+			vg.setGenres(helperGenres);
 		}
-		// if (lstGenres != null && lstGenres.size() > 0) {
-		vg.setGenres(lstGenres);
-		// }
 
 		// platforms
 		List<String> lstPlatforms = getListFromChildElement(node, "platforms");
