@@ -1,9 +1,11 @@
 package genralClasses;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,8 +15,8 @@ import de.uni_mannheim.informatik.dws.winter.model.AbstractRecord;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 
-public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
-	
+public class VideoGames extends AbstractRecord<Attribute> implements Serializable {
+
 	protected String id;
 
 	private String title;
@@ -45,23 +47,19 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 	private String PC_Requirements;
 
 	// Eigene Klassen/ Dateien f�r jedes erstellen
-	
 
 	private List<Tags> Tags;
-    private List<ESRB> ESRB;
-    private List<PEGI> PEGI;
-    private List<CERO> CERO;
-    
+	private List<ESRB> ESRB;
+	private List<PEGI> PEGI;
+	private List<CERO> CERO;
+
 	// Tags: Name: GameCount
 	// Age_Groups: ID: Liste
-
-
 
 	public VideoGames(String identifier, String provenance) {
 		super(identifier, provenance);
 		id = identifier;
-		provenance = provenance;
-	    //actors = new LinkedList<>();
+		//this.provenance = provenance;
 	}
 
 	@Override
@@ -77,7 +75,6 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 		this.title = title;
 	}
 
-	
 	public int getDate() {
 		return year;
 	}
@@ -257,30 +254,30 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 	public void setESRB(List<ESRB> ESRB) {
 		this.ESRB = ESRB;
 	}
-	
+
 	public List<ESRB> getESRB() {
 		return ESRB;
 	}
-	
+
 	public void setPEGI(List<PEGI> PEGI) {
 		this.PEGI = PEGI;
 	}
-	
+
 	public List<PEGI> getPEGI() {
 		return PEGI;
 	}
-	
+
 	public void setCERO(List<CERO> CERO) {
 		this.CERO = CERO;
 	}
-	
+
 	public List<CERO> getCERO() {
 		return CERO;
 	}
-	
-	
-	// NEEEEEEEEEEEEWWWWWWWWWWWWWWWW --------------------------------------------------------------
-	
+
+	// NEEEEEEEEEEEEWWWWWWWWWWWWWWWW
+	// --------------------------------------------------------------
+
 	private Map<Attribute, Collection<String>> provenance = new HashMap<>();
 	private Collection<String> recordProvenance;
 
@@ -292,8 +289,7 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 		return recordProvenance;
 	}
 
-	public void setAttributeProvenance(Attribute attribute,
-			Collection<String> provenance) {
+	public void setAttributeProvenance(Attribute attribute, Collection<String> provenance) {
 		this.provenance.put(attribute, provenance);
 	}
 
@@ -310,13 +306,11 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 			return "";
 		}
 	}
-	
-		
+
 	public void setProvenance(Map<Attribute, Collection<String>> provenance) {
 		this.provenance = provenance;
 	}
 
-	
 	// All Attributes that are in more than 1 dataset
 	public static final Attribute TITLE = new Attribute("Title");
 	public static final Attribute DATE = new Attribute("Year");
@@ -324,31 +318,36 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 	public static final Attribute GENRES = new Attribute("Genres");
 	public static final Attribute PLATFORMS = new Attribute("Platforms");
 	public static final Attribute COUNTRIES_OF_ORIGIN = new Attribute("Countries_of_Origin");
-	
+	public static final Attribute STORES = new Attribute("Stores");
 	public static final Attribute SALES_EU = new Attribute("Sales_EU");
 	public static final Attribute SALES_NA = new Attribute("Sales_NA");
-	
+
 	@Override
 	public boolean hasValue(Attribute attribute) {
-		if(attribute==TITLE)
+		if (attribute == TITLE)
 			return this.getTitle() != null && !this.getTitle().isEmpty();
-		else if(attribute==DATE)
+		else if (attribute == DATE)
 			return this.getDate() != -1;
-		else if(attribute==PUBLISHERS)
+		else if (attribute == PUBLISHERS)
 			return this.getPublishers() != null && this.getPublishers().size() > 0;
-		else if(attribute==GENRES)
+		else if (attribute == GENRES)
 			return this.getGenres() != null && this.getGenres().size() > 0;
-		else if(attribute==PLATFORMS)
-				return this.getPlatforms() != null && this.getPlatforms().size() > 0;
-		else
+		else if (attribute == PLATFORMS)
+			return this.getPlatforms() != null && this.getPlatforms().size() > 0;
+		else if (attribute == COUNTRIES_OF_ORIGIN) {
+			boolean bln = this.getCountries() != null && this.getCountries().size() > 0;
+			return bln;
+		} 
+		else if (attribute == STORES) {
+			boolean bln = this.getStores() != null && this.getStores().size() > 0;
+			return bln;
+		}else
 			return false;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return String.format("[Game %s: %s / %s / %s]", getIdentifier(), getTitle(),
-				getDate(), getPCReq());
+		return String.format("[Game %s: %s / %s / %s / %s]", getIdentifier(), getTitle(), getDate(), getGenres(), getPublishers());
 	}
 
 	@Override
@@ -358,10 +357,10 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof VideoGames){
+		if (obj instanceof VideoGames) {
 			return this.getIdentifier().equals(((VideoGames) obj).getIdentifier());
-		}else
+		} else
 			return false;
 	}
-	
+
 }

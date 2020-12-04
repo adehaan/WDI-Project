@@ -24,8 +24,9 @@ import genralClasses.PEGI;
 import genralClasses.Tags;
 import genralClasses.VideoGames;
 
-public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> implements FusibleFactory<VideoGames, Attribute>{
-	
+public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
+		implements FusibleFactory<VideoGames, Attribute> {
+
 	@Override
 	protected void initialiseDataset(DataSet<VideoGames, Attribute> dataset) {
 		super.initialiseDataset(dataset);
@@ -36,28 +37,27 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> im
 		dataset.addAttribute(VideoGames.DATE);
 		dataset.addAttribute(VideoGames.PLATFORMS);
 		dataset.addAttribute(VideoGames.PUBLISHERS);
-		//dataset.addAttribute(VideoGames.SALES_EU);
+		dataset.addAttribute(VideoGames.STORES);
 		dataset.addAttribute(VideoGames.COUNTRIES_OF_ORIGIN);
 	}
-	
+
 	@Override
 	public VideoGames createInstanceForFusion(RecordGroup<VideoGames, Attribute> cluster) {
 		List<String> ids = new LinkedList<>();
-		
+
 		// collecting all ids of records fused in this group
 		for (VideoGames v : cluster.getRecords()) {
 			ids.add(v.getIdentifier());
 		}
-		
+
 		// sort and merge ids to create an id for the fused record
 		Collections.sort(ids);
-		String mergedID = StringUtils.join(ids, "+"); 
-		
+		String mergedID = StringUtils.join(ids, "+");
+
 		// create fused record
 		return new VideoGames(mergedID, "fused");
 	}
-		
-	
+
 	@Override
 	public VideoGames createModelFromElement(Node node, String provenanceInfo) {
 		// TODO Auto-generated method stub
@@ -138,8 +138,14 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> im
 
 		// Countries_of_Origins
 		List<String> lstCountryOfOrigin = getListFromChildElement(node, "Countries_of_Origin");
+		List<String> helper = new ArrayList<>();
 		if (lstCountryOfOrigin != null && lstCountryOfOrigin.size() > 0) {
-			vg.setCountries(lstCountryOfOrigin);
+			for (String country : lstCountryOfOrigin) {
+				if (!country.equals("") || !country.isBlank() || !country.isEmpty())
+					helper.add(country);
+			}
+			// {
+			vg.setCountries(helper);
 		}
 
 		// Stores
@@ -161,10 +167,14 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> im
 		}
 
 		// Genres
-		List<String> lstGenres = getListFromChildElement(node, "Genres");
-		if (lstGenres != null && lstGenres.size() > 0) {
-			vg.setGenres(lstGenres);
+		List<String> lstGenres = new ArrayList<>();
+		for (String genre : getListFromChildElement(node, "Genres")) {
+			if (!genre.equals("") || !genre.isBlank() || !genre.isEmpty())
+				lstGenres.add(genre);
 		}
+		// if (lstGenres != null && lstGenres.size() > 0) {
+		vg.setGenres(lstGenres);
+		// }
 
 		// platforms
 		List<String> lstPlatforms = getListFromChildElement(node, "platforms");
@@ -195,12 +205,12 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> im
 		if (lstESRB != null && lstESRB.size() > 0) {
 			vg.setESRB(lstESRB);
 		}
-		
+
 		List<PEGI> lstPEGI = getObjectListFromChildElement(node, "PEGIs", "PEGI", new PEGIXmlReader(), provenanceInfo);
 		if (lstPEGI != null && lstPEGI.size() > 0) {
 			vg.setPEGI(lstPEGI);
 		}
-		
+
 		List<CERO> lstCERO = getObjectListFromChildElement(node, "CEROs", "CERO", new CEROXmlReader(), provenanceInfo);
 		if (lstCERO != null && lstCERO.size() > 0) {
 			vg.setCERO(lstCERO);
