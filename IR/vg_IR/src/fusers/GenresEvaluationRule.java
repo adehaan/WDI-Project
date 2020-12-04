@@ -13,25 +13,50 @@ import de.uni_mannheim.informatik.dws.winter.similarity.SimilarityMeasure;
 import de.uni_mannheim.informatik.dws.winter.similarity.string.TokenizingJaccardSimilarity;
 import genralClasses.VideoGames;
 
-
 public class GenresEvaluationRule extends EvaluationRule<VideoGames, Attribute> {
 
 	@Override
 	public boolean isEqual(VideoGames record1, VideoGames record2, Attribute schemaElement) {
-		
+
+		boolean r1 = false;
+		boolean r2 = false;
+
 		List<String> help1 = record1.getGenres();
 		Set<String> genres1 = new HashSet<>(help1);
-		
+
 		List<String> help2 = record2.getGenres();
 		Set<String> genres2 = new HashSet<>(help2);
-		
-		return genres1.containsAll(genres2) && genres2.containsAll(genres1);
+
+		for (String str : genres1) {
+			for (String str2 : genres2) {
+				String[] strArr = str2.split(" ");
+				for (String strVal : strArr) {
+					if (str.indexOf(strVal) != -1) {
+						r1 = true;
+						break;
+					}
+				}
+			}
+		}
+		for (String str : genres2) {
+			for (String str2 : genres1) {
+				String[] strArr = str2.split(" ");
+				for (String strVal : strArr) {
+					if (str.indexOf(strVal) != -1) {
+						r2 = true;
+						break;
+					}
+				}
+			}
+		}
+
+		return r1 && r2;
 	}
 
 	@Override
-	public boolean isEqual(VideoGames record1, VideoGames record2, Correspondence<Attribute, Matchable> schemaCorrespondence) {
-		return isEqual(record1, record2, (Attribute)null);
+	public boolean isEqual(VideoGames record1, VideoGames record2,
+			Correspondence<Attribute, Matchable> schemaCorrespondence) {
+		return isEqual(record1, record2, (Attribute) null);
 	}
 
 }
-

@@ -35,7 +35,7 @@ public class TitleEvaluationRule extends EvaluationRule<VideoGames, Attribute> {
 	@Override
 	public boolean isEqual(VideoGames record1, VideoGames record2, Attribute schemaElement) {
 		// the title is correct if all tokens are there, but the order does not matter
-		return sim.calculate(record1.getTitle(), record2.getTitle()) == 1.0;
+		return sim.calculate(record1.getTitle().toUpperCase(), record2.getTitle().toUpperCase()) == 1.0;
 	}
 
 

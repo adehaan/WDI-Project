@@ -37,8 +37,6 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		dataset.addAttribute(VideoGames.DATE);
 		dataset.addAttribute(VideoGames.PLATFORMS);
 		dataset.addAttribute(VideoGames.PUBLISHERS);
-		dataset.addAttribute(VideoGames.STORES);
-		dataset.addAttribute(VideoGames.COUNTRIES_OF_ORIGIN);
 	}
 
 	@Override
@@ -105,7 +103,7 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		}
 
 		// Sale Global
-		String strSalesGlobal = getValueFromChildElement(node, "Sale_Others");
+		String strSalesGlobal = getValueFromChildElement(node, "Sale_Global");
 		if (strSalesGlobal != null && !strSalesGlobal.isEmpty()) {
 			double salesGlobal = Double.parseDouble(strSalesGlobal);
 			vg.setSalesGlobal(salesGlobal);
@@ -142,7 +140,7 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		if (lstCountryOfOrigin != null && lstCountryOfOrigin.size() > 0) {
 			for (String country : lstCountryOfOrigin) {
 				if (!country.equals("") || !country.isBlank() || !country.isEmpty())
-					helper.add(country);
+					helper.add(country.toUpperCase());
 			}
 			// {
 			vg.setCountries(helper);
@@ -156,8 +154,14 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 
 		// Publishers
 		List<String> lstPublishers = getListFromChildElement(node, "Publishers");
+		List<String> helperPublisher = new ArrayList<>();
 		if (lstPublishers != null && lstPublishers.size() > 0) {
-			vg.setPublishers(lstPublishers);
+			for (String publisher : lstPublishers) {
+				if (!publisher.equals("") || !publisher.isBlank() || !publisher.isEmpty())
+					helperPublisher.add(publisher.toUpperCase());
+			}
+			// {
+			vg.setPublishers(helperPublisher);
 		}
 
 		// DeveloperStudios
@@ -170,7 +174,7 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		List<String> lstGenres = new ArrayList<>();
 		for (String genre : getListFromChildElement(node, "Genres")) {
 			if (!genre.equals("") || !genre.isBlank() || !genre.isEmpty())
-				lstGenres.add(genre);
+				lstGenres.add(genre.toUpperCase());
 		}
 		// if (lstGenres != null && lstGenres.size() > 0) {
 		vg.setGenres(lstGenres);
@@ -184,14 +188,26 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 
 		// Modes
 		List<String> lstModes = getListFromChildElement(node, "Modes");
+		List<String> helperMode = new ArrayList<>();
 		if (lstModes != null && lstModes.size() > 0) {
-			vg.setModes(lstModes);
+			for (String mode : lstModes) {
+				if (!mode.equals("") || !mode.isBlank() || !mode.isEmpty())
+					helperMode.add(mode.toUpperCase());
+			}
+
+			vg.setModes(helperMode);
 		}
 
 		// Contributors
 		List<String> lstContibutors = getListFromChildElement(node, "Contributors");
+		List<String> helperContributor = new ArrayList<>();
 		if (lstContibutors != null && lstContibutors.size() > 0) {
-			vg.setContributors(lstContibutors);
+			for (String contributor : lstContibutors) {
+				if (!contributor.equals("") || !contributor.isBlank() || !contributor.isEmpty())
+					helperContributor.add(contributor.toUpperCase());
+			}
+
+			vg.setContributors(helperContributor);
 		}
 
 		// Tags

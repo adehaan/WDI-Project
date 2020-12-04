@@ -317,10 +317,6 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	public static final Attribute PUBLISHERS = new Attribute("Publishers");
 	public static final Attribute GENRES = new Attribute("Genres");
 	public static final Attribute PLATFORMS = new Attribute("Platforms");
-	public static final Attribute COUNTRIES_OF_ORIGIN = new Attribute("Countries_of_Origin");
-	public static final Attribute STORES = new Attribute("Stores");
-	public static final Attribute SALES_EU = new Attribute("Sales_EU");
-	public static final Attribute SALES_NA = new Attribute("Sales_NA");
 
 	@Override
 	public boolean hasValue(Attribute attribute) {
@@ -334,14 +330,7 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 			return this.getGenres() != null && this.getGenres().size() > 0;
 		else if (attribute == PLATFORMS)
 			return this.getPlatforms() != null && this.getPlatforms().size() > 0;
-		else if (attribute == COUNTRIES_OF_ORIGIN) {
-			boolean bln = this.getCountries() != null && this.getCountries().size() > 0;
-			return bln;
-		} 
-		else if (attribute == STORES) {
-			boolean bln = this.getStores() != null && this.getStores().size() > 0;
-			return bln;
-		}else
+		else
 			return false;
 	}
 

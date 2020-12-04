@@ -19,13 +19,40 @@ public class PlatformsEvaluationRule extends EvaluationRule<VideoGames, Attribut
 	@Override
 	public boolean isEqual(VideoGames record1, VideoGames record2, Attribute schemaElement) {
 		
+		boolean r1 = false;
+		boolean r2 = false;
+		
 		List<String> help1 = record1.getPlatforms();
 		Set<String> platforms1 = new HashSet<>(help1);
 		
 		List<String> help2 = record2.getPlatforms();
 		Set<String> platforms2 = new HashSet<>(help2);
 		
-		return platforms1.containsAll(platforms2) && platforms2.containsAll(platforms1);
+		
+		for (String str : platforms1) {
+			for (String str2 : platforms2) {
+				String[] strArr = str2.split(" ");
+				for (String strVal : strArr) {
+					if (str.indexOf(strVal) != -1) {
+						r1 = true;
+						break;
+					}
+				}
+			}
+		}
+		for (String str : platforms2) {
+			for (String str2 : platforms1) {
+				String[] strArr = str2.split(" ");
+				for (String strVal : strArr) {
+					if (str.indexOf(strVal) != -1) {
+						r2 = true;
+						break;
+					}
+				}
+			}
+		}
+		
+		return r1 && r2;
 	}
 
 	@Override

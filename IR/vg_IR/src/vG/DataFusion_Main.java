@@ -130,7 +130,6 @@ public class DataFusion_Main {
 		// Genre & Platforms = Union
 		strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserUnion(), new GenresEvaluationRule());
 		strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserUnion(), new PlatformsEvaluationRule());
-		//strategy.addAttributeFuser(VideoGames.COUNTRIES_OF_ORIGIN, new Coo_VotingFuser(), new Coo_EvaluationRule());
 
 		// create the fusion engine
 		DataFusionEngine<VideoGames, Attribute> engine = new DataFusionEngine<>(strategy);
@@ -158,9 +157,27 @@ public class DataFusion_Main {
 					if (ar.toLowerCase().contains("sales_")) {
 						VideoGames attSales = ds1.getRecord(ar);
 						vg.setSalesEU(attSales.getSalesEU());
+						vg.setSalesJP(attSales.getSalesJP());
+						vg.setSalesNA(attSales.getSalesNA());
+						vg.setSalesOthers(attSales.getSalesOthers());
+						vg.setSalesGlobal(attSales.getSalesGlobal());
 					} else if (ar.toLowerCase().contains("wiki_")) {
 						VideoGames attSales = ds2.getRecord(ar);
 						vg.setCountries(attSales.getCountries());
+						vg.setWebsite(attSales.getWebsite());
+						vg.setModes(attSales.getModes());
+						vg.setContributors(attSales.getContributors());
+						vg.setCERO(attSales.getCERO());
+						vg.setPEGI(attSales.getPEGI());
+						vg.setESRB(attSales.getESRB());
+						vg.setSequel(attSales.getSequel());
+						vg.setPrequel(attSales.getPrequel());
+					}
+					else
+					{
+						VideoGames attSales = ds3.getRecord(ar);
+						vg.setTotalLength(attSales.getTotalLength());
+						vg.setStores(attSales.getStores());
 					}
 				}
 
