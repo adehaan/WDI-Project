@@ -36,6 +36,8 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> im
 		dataset.addAttribute(VideoGames.DATE);
 		dataset.addAttribute(VideoGames.PLATFORMS);
 		dataset.addAttribute(VideoGames.PUBLISHERS);
+		//dataset.addAttribute(VideoGames.SALES_EU);
+		dataset.addAttribute(VideoGames.COUNTRIES_OF_ORIGIN);
 	}
 	
 	@Override
@@ -135,7 +137,7 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute> im
 		}
 
 		// Countries_of_Origins
-		List<String> lstCountryOfOrigin = getListFromChildElement(node, "Countries_of_Origins");
+		List<String> lstCountryOfOrigin = getListFromChildElement(node, "Countries_of_Origin");
 		if (lstCountryOfOrigin != null && lstCountryOfOrigin.size() > 0) {
 			vg.setCountries(lstCountryOfOrigin);
 		}
