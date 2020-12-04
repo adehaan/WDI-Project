@@ -437,6 +437,7 @@ public class Main {
 		// dt = Decision Tree,
 		// simpleLogression,
 		// rf = Random Forrest
+		
 		wikitosales_rulelearner(matchingType = "rf");
 		rawgtosales_rulelearner(matchingType = "rf");
 	}
