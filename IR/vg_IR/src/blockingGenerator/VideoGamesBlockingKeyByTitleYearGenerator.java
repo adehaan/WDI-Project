@@ -46,7 +46,7 @@ RecordBlockingKeyGenerator<VideoGames, Attribute>{
 		// Year in Groups of 5 years
 		int year_help = record.getDate()/5;
 		blockingKeyValue += Integer.toString(year_help);
-		blockingKeyValue += wordlist.get(0).substring(0, Math.min(3,wordlist.get(0).length())).toUpperCase();
+		blockingKeyValue += wordlist.get(0).substring(0, Math.min(5,wordlist.get(0).length())).toUpperCase();
 					
 		resultCollector.next(new Pair<>(blockingKeyValue, record));
 	}
