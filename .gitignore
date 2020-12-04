@@ -1,3 +1,5 @@
 RAWG
 /Mapping/*.tmp
 
+/IR/vg_IR/data/output
+/Datasets/RAWG_xml_1.xml
