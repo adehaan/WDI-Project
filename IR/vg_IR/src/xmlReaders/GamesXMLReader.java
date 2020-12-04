@@ -7,6 +7,13 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -147,7 +154,7 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		}
 
 		// Stores
-		List<String> lstStores = getListFromChildElement(node, "Stores");
+		List<String> lstStores = getListFromChildElement(node, "Stores/Store");
 		if (lstStores != null && lstStores.size() > 0) {
 			vg.setStores(lstStores);
 		}
@@ -233,6 +240,39 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		}
 
 		return vg;
+	}
+
+	public List<String> customMethodForAttribute(Node node, String childName) {
+		// get all child nodes
+		NodeList children = node.getChildNodes();
+
+		// iterate over the child nodes until the node with childName is found
+		for (int j = 0; j < children.getLength(); j++) {
+			Node child = children.item(j);
+			
+			// check the node type and name
+			if (child.getNodeType() == org.w3c.dom.Node.ELEMENT_NODE && child.getNodeName().equals(childName)) {
+				Element e = (Element)child;
+				String name = e.getAttribute("id");
+				// prepare a list to hold all values
+				List<String> values = new ArrayList<>(child.getChildNodes().getLength());
+
+				// iterate the value nodes
+				for (int i = 0; i < child.getChildNodes().getLength(); i++) {
+					Node valueNode = child.getChildNodes().item(i);
+					
+					//String value = valueNode.getNodeValue().trim();
+					//String value1 = valueNode.getPrefix().trim();
+
+					// add the value
+					//values.add(value);
+				}
+
+				return values;
+			}
+		}
+
+		return null;
 	}
 
 }

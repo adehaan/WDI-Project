@@ -106,7 +106,7 @@ public class DataFusion_Main {
 		// TODO: Create file Goldstandard_Fusion.csv
 		System.out.println("*\n*\tEvaluating results\n*");
 		DataSet<VideoGames, Attribute> gs = new FusibleHashedDataSet<>();
-		new GamesXMLReader().loadFromXML(new File("../goldstandard_fusion.xml"), "/Games/Game", gs);
+		new GamesXMLReader().loadFromXML(new File("../goldstandard_fusion2.xml"), "/Games/Game", gs);
 
 		for (VideoGames v : gs.get()) {
 			System.out.println(String.format("gs: %s", v.getIdentifier()));
@@ -172,9 +172,7 @@ public class DataFusion_Main {
 						vg.setESRB(attSales.getESRB());
 						vg.setSequel(attSales.getSequel());
 						vg.setPrequel(attSales.getPrequel());
-					}
-					else
-					{
+					} else {
 						VideoGames attSales = ds3.getRecord(ar);
 						vg.setTotalLength(attSales.getTotalLength());
 						vg.setStores(attSales.getStores());
