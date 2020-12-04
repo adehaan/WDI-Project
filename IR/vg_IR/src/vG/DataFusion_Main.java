@@ -41,6 +41,7 @@ import fusers.PlatformsEvaluationRule;
 import fusers.PlatformsFuserUnion;
 import fusers.PublishersEvaluationRule;
 import fusers.PublishersFuserIntersection;
+import fusers.PublishersFuserUnion;
 import fusers.TitleEvaluationRule;
 import genralClasses.VideoGames;
 import xmlFormatters.GamesXMLFormatter;
@@ -81,7 +82,8 @@ public class DataFusion_Main
 		// RAWG DataSet
 		//TODO: Change to total rawg input
 		FusibleDataSet<VideoGames, Attribute> ds3 = new FusibleHashedDataSet<>();
-		new GamesXMLReader().loadFromXML(new File("data/input/rawg_target1.xml"), "/Games/Game", ds3);
+		//new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_xml_1/RAWG_xml_1.xml"), "/Games/Game", ds3);
+		new GamesXMLReader().loadFromXML(new File("data/input/rawg_target.xml"), "/Games/Game", ds3);
 		ds3.printDataSetDensityReport();
 
 		// Maintain Provenance- Scores for Favour Source = highest Score is favoured
@@ -94,9 +96,11 @@ public class DataFusion_Main
 		// load correspondences: have to be in the same order as in file -> sales, wiki & sales, rawg -> ds1, ds2 & ds1, ds3
 		System.out.println("*\n*\tLoading correspondences for fusion\n*");
 		CorrespondenceSet<VideoGames, Attribute> correspondences = new CorrespondenceSet<>();
-		correspondences.loadCorrespondences(new File("data/output/Wiki_2_Sales_correspondences.csv"),ds1, ds2);
-		correspondences.loadCorrespondences(new File("data/output/RAWG_2_Sales_correspondences.csv"),ds1, ds3);
-
+		correspondences.loadCorrespondences(new File("data/output/wS_RandomForrest.csv"),ds1, ds2);
+		//System.out.println("*\n*\tCorrespondences for Sales-Wiki done\n*");
+		correspondences.loadCorrespondences(new File("data/output/rS_RandomForrest.csv"),ds1, ds3);
+		//System.out.println("*\n*\tCorrespondences for Sales-RAWG done\n*");
+		
 		// write group size distribution
 		correspondences.printGroupSizeDistribution();
 
@@ -124,10 +128,10 @@ public class DataFusion_Main
 		// Date = OldestValue (lowest value)
 		strategy.addAttributeFuser(VideoGames.DATE, new DateFuserVoting(), new DateEvaluationRule());
 		// Publisher = intersection
-		strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserIntersection(), new PublishersEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserUnion(), new PublishersEvaluationRule());
 		// Genre & Platforms = Union
-		strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserUnion(),new GenresEvaluationRule());
-		strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserUnion(),new PlatformsEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserUnion(), new GenresEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserUnion(), new PlatformsEvaluationRule());
 		
 		// create the fusion engine
 		DataFusionEngine<VideoGames, Attribute> engine = new DataFusionEngine<>(strategy);
