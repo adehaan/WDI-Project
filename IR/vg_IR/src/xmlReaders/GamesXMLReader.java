@@ -28,6 +28,8 @@ import genralClasses.AgeGroups;
 import genralClasses.CERO;
 import genralClasses.ESRB;
 import genralClasses.PEGI;
+import genralClasses.Rating;
+import genralClasses.Recommended;
 import genralClasses.Tags;
 import genralClasses.VideoGames;
 
@@ -164,7 +166,7 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 			// {
 			vg.setStores(helperStores);
 		}
-		
+
 		// Publishers
 		List<String> lstPublishers = getListFromChildElement(node, "Publishers");
 		List<String> helperPublisher = new ArrayList<>();
@@ -244,8 +246,22 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		if (lstCERO != null && lstCERO.size() > 0) {
 			vg.setCERO(lstCERO);
 		}
+		
+		
+		// Recommended
+		List<Recommended> lstRecommended = getObjectListFromChildElement(node, "Game", "Recommended", new RecommendedXMLReader(), provenanceInfo);
+		if (lstRecommended != null && lstRecommended.size() > 0) {
+			vg.setRecommended(lstRecommended);
+		}
+		
+		
+		// Rating
+		List<Rating> lstRating = getObjectListFromChildElement(node, "Game", "Rating", new RatingXmlReader(), provenanceInfo);
+		if (lstRating != null && lstRating.size() > 0) {
+			vg.setRating(lstRating);
+		}
+		
 
 		return vg;
 	}
-
 }

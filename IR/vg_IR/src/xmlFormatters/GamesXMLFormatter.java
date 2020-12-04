@@ -10,6 +10,9 @@ import de.uni_mannheim.informatik.dws.winter.model.io.XMLFormatter;
 import genralClasses.CERO;
 import genralClasses.ESRB;
 import genralClasses.PEGI;
+import genralClasses.Rating;
+import genralClasses.Recommended;
+import genralClasses.Tags;
 import genralClasses.VideoGames;
 
 public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
@@ -17,6 +20,9 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 	EsrbXMLFormatter esrbFormatter = new EsrbXMLFormatter();
 	CeroXMLFormatter ceroFormatter = new CeroXMLFormatter();
 	PegiXMLFormatter pegiFormatter = new PegiXMLFormatter();
+	TagXMLFormatter tagFormatter = new TagXMLFormatter();
+	RecommendedXMLFormatter recFormatter = new RecommendedXMLFormatter();
+	RatingXMLFormatter ratingFormatter = new RatingXMLFormatter();
 
 	static String rootPublishers = "Publishers";
 	static String childPublishers = "Publisher";
@@ -33,7 +39,7 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 
 	static String rootStores = "Stores";
 	static String childStores = "Store";
-	
+
 	static String rootCERO = "CEROs";
 	static String childCERO = "CERO";
 
@@ -42,6 +48,15 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 
 	static String rootESRB = "ESRBs";
 	static String childESRB = "ESRB";
+	
+	static String rootTag = "Tags";
+	static String childTag = "Tag";
+	
+	static String rootRating = "Ratings";
+	static String childRating = "Rating";
+	
+	static String rootRecommended = "Recommended";
+	
 
 	@Override
 	public Element createRootElement(Document doc) {
@@ -77,6 +92,7 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 		game.appendChild(createTextElement("SaleOthers", String.format("%.2f", record.getSalesOthers()), doc));
 		game.appendChild(createTextElement("SaleGlobal", String.format("%.2f", record.getSalesGlobal()), doc));
 
+		
 		if (record.getWebsite() != null) {
 			if (!record.getWebsite().isBlank()) {
 				if (!record.getWebsite().isEmpty()) {
@@ -109,14 +125,25 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 
 		if (record.getStores() != null && record.getStores().size() > 0)
 			game.appendChild(createElementWithoutProvenance(doc, rootStores, childStores, record.getStores()));
-		
-		
+
+
 		if (record.getESRB() != null && record.getESRB().size() > 0)
 			game.appendChild(createESRBElement(record, doc));
 		if (record.getCERO() != null && record.getCERO().size() > 0)
 			game.appendChild(createCEROElement(record, doc));
 		if (record.getPEGI() != null && record.getPEGI().size() > 0)
 			game.appendChild(createPEGIElement(record, doc));
+		
+		if (record.getTags() != null && record.getTags().size() > 0)
+			game.appendChild(createTagElement(record, doc));
+		
+		if (record.getRating() != null && record.getRating().size() > 0)
+			game.appendChild(createRatingElement(record, doc));
+				
+		if(record.getRecommended()!=null  && record.getRecommended().size()>0) {
+			game.appendChild(createRecommendedElement(record, doc));	
+		}
+		
 
 		return game;
 	}
@@ -183,4 +210,39 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 
 		return pegiRoot;
 	}
+	
+	protected Element createTagElement(VideoGames record, Document doc) {
+		Element tagRoot = tagFormatter.createRootElement(doc);
+
+		for (Tags t : record.getTags()) {
+			tagRoot.appendChild(tagFormatter.createElementFromRecord(t, doc));
+		}
+
+		return tagRoot;
+	}
+	
+	protected Element createRatingElement(VideoGames record, Document doc) {
+		Element ratRoot = ratingFormatter.createRootElement(doc);
+
+		for (Rating t : record.getRating()) {
+			ratRoot.appendChild(ratingFormatter.createElementFromRecord(t, doc));
+		}
+
+		return ratRoot;
+	}
+	
+	protected Element createRecommendedElement(VideoGames record, Document doc) {
+		Element recRoot = recFormatter.createRootElement(doc);
+		
+		for (Recommended t : record.getRecommended()) {
+			recRoot.appendChild(recFormatter.createElementFromRecord(t, doc));
+		}
+		
+		
+
+		return recRoot;
+	}
+	
+	
+
 }

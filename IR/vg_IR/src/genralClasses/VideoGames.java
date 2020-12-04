@@ -21,11 +21,11 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 
 	private String title;
 	private int year;
-	private double Sale_EU;
-	private double Sale_JP;
-	private double Sale_NA;
-	private double Sale_Others;
-	private double Sale_Global;
+	private double Sales_EU;
+	private double Sales_JP;
+	private double Sales_NA;
+	private double Sales_Others;
+	private double Sales_Global;
 	private int Total_Length_in_hrs;
 	private String Website;
 	private List<String> Countries_of_Origin;
@@ -40,11 +40,10 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	private List<String> Contributors;
 
 	// Rating: metacritic & RAWG_rating -> umgeschrieben in seperate Variablen
-	private double Metacritic;
-	private double RAWG_Rating;
+	private List<Rating> Rating;
 
 	// Recommend: only take the PC req. as String
-	private String PC_Requirements;
+	private List<Recommended> Recommended;
 
 	// Eigene Klassen/ Dateien f�r jedes erstellen
 
@@ -84,43 +83,43 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	}
 
 	public double getSalesEU() {
-		return Sale_EU;
+		return Sales_EU;
 	}
 
-	public void setSalesEU(double Sale_EU) {
-		this.Sale_EU = Sale_EU;
+	public void setSalesEU(double Sales_EU) {
+		this.Sales_EU = Sales_EU;
 	}
 
 	public double getSalesJP() {
-		return Sale_JP;
+		return Sales_JP;
 	}
 
-	public void setSalesJP(double Sale_JP) {
-		this.Sale_JP = Sale_JP;
+	public void setSalesJP(double Sales_JP) {
+		this.Sales_JP = Sales_JP;
 	}
 
 	public double getSalesNA() {
-		return Sale_NA;
+		return Sales_NA;
 	}
 
-	public void setSalesNA(double Sale_NA) {
-		this.Sale_NA = Sale_NA;
+	public void setSalesNA(double Sales_NA) {
+		this.Sales_NA = Sales_NA;
 	}
 
 	public double getSalesOthers() {
-		return Sale_Others;
+		return Sales_Others;
 	}
 
-	public void setSalesOthers(double Sale_Others) {
-		this.Sale_Others = Sale_Others;
+	public void setSalesOthers(double Sales_Others) {
+		this.Sales_Others = Sales_Others;
 	}
 
 	public double getSalesGlobal() {
-		return Sale_Global;
+		return Sales_Global;
 	}
 
-	public void setSalesGlobal(double Sale_Global) {
-		this.Sale_Global = Sale_Global;
+	public void setSalesGlobal(double Sales_Global) {
+		this.Sales_Global = Sales_Global;
 	}
 
 	public int getTotalLength() {
@@ -219,36 +218,28 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 		this.Contributors = Contributors;
 	}
 
-	public double getMetacritic() {
-		return Metacritic;
+	public List<Rating> getRating() {
+		return Rating;
 	}
 
-	public void setMetacritic(double Metacritic) {
-		this.Metacritic = Metacritic;
+	public void setRating(List<Rating> Rating) {
+		this.Rating = Rating;
 	}
 
-	public double getRAWGRating() {
-		return RAWG_Rating;
+	public List<Recommended> getRecommended() {
+		return Recommended;
 	}
 
-	public void setRAWGRating(double RAWG_Rating) {
-		this.RAWG_Rating = RAWG_Rating;
-	}
-
-	public String getPCReq() {
-		return PC_Requirements;
-	}
-
-	public void setPCReq(String PC_Requirements) {
-		this.PC_Requirements = PC_Requirements;
+	public void setRecommended(List<Recommended> Recommended) {
+		this.Recommended = Recommended;
 	}
 
 	public List<Tags> getTags() {
 		return Tags;
 	}
 
-	public void setTags(List<Tags> tag) {
-		this.Tags = tag;
+	public void setTags(List<Tags> Tags) {
+		this.Tags = Tags;
 	}
 
 	public void setESRB(List<ESRB> ESRB) {
@@ -317,7 +308,7 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	public static final Attribute PUBLISHERS = new Attribute("Publishers");
 	public static final Attribute GENRES = new Attribute("Genres");
 	public static final Attribute PLATFORMS = new Attribute("Platforms");
-
+	
 	@Override
 	public boolean hasValue(Attribute attribute) {
 		if (attribute == TITLE)
