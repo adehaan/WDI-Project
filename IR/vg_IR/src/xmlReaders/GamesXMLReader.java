@@ -154,11 +154,17 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		}
 
 		// Stores
-		List<String> lstStores = getListFromChildElement(node, "Stores/Store");
+		List<String> lstStores = getListFromChildElement(node, "Stores");
+		List<String> helperStores = new ArrayList<>();
 		if (lstStores != null && lstStores.size() > 0) {
-			vg.setStores(lstStores);
+			for (String store : lstStores) {
+				if (!store.equals("") || !store.isBlank() || !store.isEmpty())
+					helperStores.add(store);
+			}
+			// {
+			vg.setStores(helperStores);
 		}
-
+		
 		// Publishers
 		List<String> lstPublishers = getListFromChildElement(node, "Publishers");
 		List<String> helperPublisher = new ArrayList<>();
@@ -240,39 +246,6 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		}
 
 		return vg;
-	}
-
-	public List<String> customMethodForAttribute(Node node, String childName) {
-		// get all child nodes
-		NodeList children = node.getChildNodes();
-
-		// iterate over the child nodes until the node with childName is found
-		for (int j = 0; j < children.getLength(); j++) {
-			Node child = children.item(j);
-			
-			// check the node type and name
-			if (child.getNodeType() == org.w3c.dom.Node.ELEMENT_NODE && child.getNodeName().equals(childName)) {
-				Element e = (Element)child;
-				String name = e.getAttribute("id");
-				// prepare a list to hold all values
-				List<String> values = new ArrayList<>(child.getChildNodes().getLength());
-
-				// iterate the value nodes
-				for (int i = 0; i < child.getChildNodes().getLength(); i++) {
-					Node valueNode = child.getChildNodes().item(i);
-					
-					//String value = valueNode.getNodeValue().trim();
-					//String value1 = valueNode.getPrefix().trim();
-
-					// add the value
-					//values.add(value);
-				}
-
-				return values;
-			}
-		}
-
-		return null;
 	}
 
 }

@@ -87,14 +87,14 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 		if (record.getSequel() != null) {
 			if (!record.getSequel().isBlank()) {
 				if (!record.getSequel().isEmpty()) {
-					game.appendChild(createTextElement("Website", record.getSequel(), doc));
+					game.appendChild(createTextElement("Sequel", record.getSequel(), doc));
 				}
 			}
 		}
 		if (record.getPrequel() != null) {
 			if (!record.getPrequel().isBlank()) {
 				if (!record.getPrequel().isEmpty()) {
-					game.appendChild(createTextElement("Website", record.getPrequel(), doc));
+					game.appendChild(createTextElement("Prequel", record.getPrequel(), doc));
 				}
 			}
 		}
