@@ -323,6 +323,10 @@ public class VideoGames extends AbstractRecord<Attribute> implements Matchable{
 	public static final Attribute PUBLISHERS = new Attribute("Publishers");
 	public static final Attribute GENRES = new Attribute("Genres");
 	public static final Attribute PLATFORMS = new Attribute("Platforms");
+	public static final Attribute COUNTRIES_OF_ORIGIN = new Attribute("Countries_of_Origin");
+	
+	public static final Attribute SALES_EU = new Attribute("Sales_EU");
+	public static final Attribute SALES_NA = new Attribute("Sales_NA");
 	
 	@Override
 	public boolean hasValue(Attribute attribute) {
