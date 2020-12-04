@@ -422,11 +422,10 @@ public class Main {
 		System.out.println("Videogames Sales <-> Rawg");
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
-		System.out.println(String.format("F1: %.4f", perfTest.getF1()));
-		//System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));
-		//System.out.println(
-		//		String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));
-		//System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));
+		System.out.println(String.format("F1: %.4f", perfTest.getF1()));		
+		System.out.println(String.format("Number of Predicted: %.4i", perfTest.getNumberOfPredicted()));		
+		System.out.println(String.format("Number of correctly Predicted: %.4i", perfTest.getNumberOfCorrectlyPredicted()));		
+		System.out.println(String.format("Number of correct Total: %.4i", perfTest.getNumberOfCorrectTotal()));		
 	}
 
 	// Run Both Matchings

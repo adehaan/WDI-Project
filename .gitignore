@@ -1,3 +1,7 @@
 RAWG
 /Mapping/*.tmp
-
+*.csv
+*.csv_short
+*.csv
+IR/vg_IR/data/output/Wiki_2_Sales_correspondences.csv
+*.csv
