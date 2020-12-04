@@ -33,8 +33,6 @@ import de.uni_mannheim.informatik.dws.winter.model.FusibleHashedDataSet;
 import de.uni_mannheim.informatik.dws.winter.model.RecordGroupFactory;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
-import fusers.Coo_EvaluationRule;
-import fusers.Coo_VotingFuser;
 import fusers.DateEvaluationRule;
 import fusers.DateFuserVoting;
 import fusers.GameTitelFuserFavourSource;
