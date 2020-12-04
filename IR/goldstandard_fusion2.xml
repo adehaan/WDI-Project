@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Games xsi:noNamespaceSchemaLocation="file:///C:/Personel/Experience/WDI-Project/Mapping/Games.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Game>
+		<id>sales_1</id>
+		<Title>Wii Sports</Title>
+		<Year>2006</Year>
+		<Publishers>
+			<Publisher>Nintendo</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Sports</Genre>
+			<Genre>Bowling</Genre>
+			<Genre>Boxing</Genre>
+			<Genre>Tennis</Genre>
+			<Genre>Baseball Arcade</Genre>
+			<Genre>Golf Arcade</Genre>
+		</Genres>
+		<platforms>
+			<platform>Nintendo Wii</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_2</id>
+		<Title>Super Mario Bros.</Title>
+		<Year>1985</Year>
+		<Publishers>
+			<Publisher>Nintendo</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Platform</Genre>
+			<Genre>Action</Genre>
+		</Genres>
+		<platforms>
+			<platform>Nintendo Entertainment System</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_3</id>
+		<Title>Mario Kart Wii</Title>
+		<Year>2008</Year>
+		<Publishers>
+			<Publisher>Nintendo</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>cart race</Genre>
+		</Genres>
+		<platforms>
+			<platform>Nintendo Wii</platform>
+		</platforms>
+	</Game>	
+	<Game>
+		<id>sales_6</id>
+		<Rank/>
+		<Title>Tetris</Title>
+		<Year>1989</Year>
+		<Publishers>
+			<Publisher>Nintendo</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Puzzle</Genre>
+		</Genres>
+		<platforms>
+			<platform>Nintendo Entertainment System</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_11</id>
+		<Title>Nintendogs</Title>
+		<Year>2005</Year>
+		<Publishers>
+			<Publisher>Nintendo</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Simulation</Genre>
+		</Genres>
+		<platforms>
+			<platform>DS</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_16</id>
+		<Title>Kinect Adventures!</Title>
+		<Year>2010</Year>
+		<Publishers>
+			<Publisher>Microsoft Game Studios</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Sports</Genre>
+		</Genres>
+		<platforms>
+			<platform>Xbox 360</platform>
+		</platforms>
+	</Game>	
+	<Game>
+		<id>sales_17</id>
+		<Title>Grand Theft Auto V</Title>
+		<Year>2013</Year>
+		<Publishers>
+			<Publisher>Rockstar Games</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Action-Adventure</Genre>
+		</Genres>
+		<platforms>
+			<platform>PC</platform>
+			<platform>PlayStation 3</platform>
+			<platform>PlayStation 4</platform>
+			<platform>Xbox 360</platform>
+			<platform>Xbox One</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_32</id>
+		<Title>Call of Duty: Black Ops</Title>
+		<Year>2010</Year>
+		<Publishers>
+			<Publisher>Activision Blizzard</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Ego Shooter</Genre>
+			<Genre>Action</Genre>
+		</Genres>
+		<platforms>
+			<platform>Xbox 360</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_39</id>
+		<Title>Grand Theft Auto III</Title>
+		<Year>2001</Year>
+		<Publishers>
+			<Publisher>Rockstar Games</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Action</Genre>
+			<Genre>Open World</Genre>
+			<Genre>Automobile Sim</Genre>
+		</Genres>
+		<platforms>
+			<platform>PlayStation 2</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_42</id>
+		<Title>Animal Crossing: Wild World</Title>
+		<Year>2005</Year>
+		<Publishers>
+			<Publisher>Nintendo</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Life simulation</Genre>
+		</Genres>
+		<platforms>
+			<platform>Nintendo DS</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_44</id>
+		<Title>Halo 3</Title>
+		<Year>2007</Year>
+		<Publishers>
+			<Publisher>Microsoft Game Studios</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Shooter</Genre>
+			<Genre>First-person shooter</Genre>
+		</Genres>
+		<platforms>
+			<platform>Xbox 360</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_69</id>
+		<Title>Just Dance 2</Title>
+		<Year>2010</Year>
+		<Publishers>
+			<Publisher>Ubisoft</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Dance</Genre>
+			<Genre>Rhythm</Genre>
+		</Genres>
+		<platforms>
+			<platform>Wii</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_78</id>
+		<Title>FIFA 16</Title>
+		<Year>2015</Year>
+		<Publishers>
+			<Publisher>Electronic Arts</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Sports</Genre>
+		</Genres>
+		<platforms>
+			<platform>PlayStation 4</platform>
+			<platform>PlayStation 3</platform>
+			<platform>Xbox 360</platform>
+			<platform>Xbox One</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_105</id>
+		<Title>Need for Speed: Underground</Title>
+		<Year>2003</Year>
+		<Publishers>
+			<Publisher>Electronic Arts</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Racing</Genre>
+			<Genre>Arcade</Genre>
+		</Genres>
+		<platforms>
+			<platform>PlayStation 2</platform>
+			<platform>Xbox</platform>
+			<platform>PC</platform>
+		</platforms>
+	</Game>
+		<Game>
+		<id>sales_110</id>
+		<Title>Fallout 4</Title>
+		<Year>2015</Year>
+		<Publishers>
+			<Publisher>Bethesda Softworks</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Role-Playing</Genre>
+		</Genres>
+		<platforms>
+			<platform>PlayStation 4</platform>
+			<platform>Microsoft Windows</platform>
+			<platform>Xbox One</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_593</id>
+		<Title>LittleBigPlanet</Title>
+		<Year>2008</Year>
+		<Publishers>
+			<Publisher>Sony Computer Entertainment</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Action</Genre>
+			<Genre>Puzzle</Genre>
+			<Genre>Family</Genre>
+		</Genres>
+		<platforms>
+			<platform>PlayStation 3</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_4269</id>
+		<Title>The Mark of Kri</Title>
+		<Year>2002</Year>
+		<Publishers>
+			<Publisher>Sony Computer Entertainment</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Action-adventure</Genre>
+		</Genres>
+		<platforms>
+			<platform>PlayStation 2</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_5911</id>
+		<Title>Spider-Man: Friend or Foe</Title>
+		<Year>2007</Year>
+		<Publishers>
+			<Publisher>Activision</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Action</Genre>
+		</Genres>
+		<platforms>
+			<platform>PlayStation 2</platform>
+			<platform>Xbox 360</platform>
+			<platform>Wii</platform>
+			<platform>PlayStation 2</platform>
+			<platform>PlayStation Portable</platform>
+			<platform>Nintendo DS</platform>
+			<platform>Microsoft Windows</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_3981</id>
+		<Title>Fortune Street</Title>
+		<Year>2011</Year>
+		<Publishers>
+			<Publisher>Nintendo</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Plattform</Genre>
+		</Genres>
+		<platforms>
+			<platform>Wii</platform>
+		</platforms>
+	</Game>
+	<Game>
+		<id>sales_13346</id>
+		<Title>Bubble Bobble Revolution</Title>
+		<Year>2005</Year>
+		<Publishers>
+			<Publisher>Taito</Publisher>
+			<Publisher>Rising Star Games</Publisher>
+			<Publisher>Codemasters</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Plattform</Genre>
+			<Genre>Puzzle</Genre>
+		</Genres>
+		<platforms>
+			<platform>Nintendo DS</platform>
+		</platforms>
+	</Game>
+</Games>
