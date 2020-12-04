@@ -1,5 +1,7 @@
 package xmlFormatters;
 
+import java.util.List;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -15,6 +17,10 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 	static String childGenres = "Genre";
 	static String rootPlatforms = "Platforms";
 	static String childPlatforms = "Platform";
+	static String rootCountries = "Countries_of_Origin";
+	static String childCountries = "Country_of_Origin";
+	
+	
 	@Override
 	public Element createRootElement(Document doc) {
 		return doc.createElement("Games");
@@ -33,9 +39,19 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 		game.appendChild(createTextElementWithProvenance("Year", date,
 				record.getMergedAttributeProvenance(VideoGames.DATE), doc));
 		
-		game.appendChild(createElement1(record, doc, rootPublishers, childPublishers, VideoGames.PUBLISHERS));
-		game.appendChild(createElement2(record, doc, rootPlatforms, childPlatforms, VideoGames.PLATFORMS));
-		game.appendChild(createElement3(record, doc, rootGenres, childGenres, VideoGames.GENRES));
+		//if(!Double.isNaN(record.getSalesEU())) {
+		//	game.appendChild(createTextElementWithProvenance("Sales_EU", String.format("%d", record.getSalesEU()),
+		//			record.getMergedAttributeProvenance(VideoGames.SALES_EU), doc));
+	//	}
+		
+		
+		
+		game.appendChild(createElement(record, doc, rootPublishers, childPublishers, VideoGames.PUBLISHERS, record.getPublishers()));
+		game.appendChild(createElement(record, doc, rootPlatforms, childPlatforms, VideoGames.PLATFORMS, record.getPlatforms()));
+		game.appendChild(createElement(record, doc, rootGenres, childGenres, VideoGames.GENRES, record.getGenres()));
+		
+		
+		game.appendChild(createElement(record, doc, rootCountries, childCountries, VideoGames.COUNTRIES_OF_ORIGIN, record.getCountries()));
 		
 		return game;
 	}
@@ -46,14 +62,16 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 		return elem;
 	}
 
-	protected Element createElement1(VideoGames record, Document doc, String rootElementName, String childElementName, Attribute provenanceName) {
+	protected Element createElement(VideoGames record, Document doc, String rootElementName, String childElementName, Attribute provenanceName, List<String> methodcall) {
 		Element elementRoot = doc.createElement(rootElementName);
 		elementRoot.setAttribute("provenance",
 				record.getMergedAttributeProvenance(provenanceName));
-
-		for (String publisher : record.getPublishers()) {
-			elementRoot.appendChild(createTextElementWithProvenance(childElementName, publisher,
+		
+		if(methodcall != null) {
+			for (String attribute : methodcall) {
+			elementRoot.appendChild(createTextElementWithProvenance(childElementName, attribute,
 					record.getMergedAttributeProvenance(provenanceName), doc));
+			}
 		}
 		
 		return elementRoot;
