@@ -330,7 +330,7 @@ public class Main {
 			modelType = "SimpleLogistic";
 		}
 		
-		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.75, modelType, options);
+		WekaMatchingRule<VideoGames, Attribute> matchingRule = new WekaMatchingRule<>(0.6, modelType, options);
 
 		if(matchingType=="dt") {
 			matchingRule.activateDebugReport("data/output/rawg_dt_debugResultsMatchingRule.csv", -1, gsTest);
@@ -407,18 +407,18 @@ public class Main {
 		System.out.println(String.format("Precision: %.4f", perfTest.getPrecision()));
 		System.out.println(String.format("Recall: %.4f", perfTest.getRecall()));
 		System.out.println(String.format("F1: %.4f", perfTest.getF1()));		
-		System.out.println(String.format("Number of Predicted: %.4f", perfTest.getNumberOfPredicted()));		
-		System.out.println(String.format("Number of correctly Predicted: %.4f", perfTest.getNumberOfCorrectlyPredicted()));		
-		System.out.println(String.format("Number of correct Total: %.4f", perfTest.getNumberOfCorrectTotal()));		
+		System.out.println(String.format("Number of Predicted: %.4i", perfTest.getNumberOfPredicted()));		
+		System.out.println(String.format("Number of correctly Predicted: %.4i", perfTest.getNumberOfCorrectlyPredicted()));		
+		System.out.println(String.format("Number of correct Total: %.4i", perfTest.getNumberOfCorrectTotal()));		
 	}
 
 	// Run Both Matchings
 	public static void main(String[] args) throws Exception {
 		String matchingType;
 		// wikitosales();
-		 rawgtosales();
+		// rawgtosales();
 		// wikitosales_rulelearner(matchingType="dt"); // dt = Decision Tree/ sl = simpleLogression/ has to be filled
-		// rawgtosales_rulelearner(matchingType="dt");   // dt = Decision Tree/ sl = simpleLogression/ has to be filled
+		 rawgtosales_rulelearner(matchingType="dt");   // dt = Decision Tree/ sl = simpleLogression/ has to be filled
 	}
 
 }
