@@ -11,17 +11,14 @@ public class RatingXMLFormatter extends XMLFormatter<Rating> {
 
 	@Override
 	public Element createRootElement(Document doc) {
-		return doc.createElement("Rating");
+		return doc.createElement("Ratings");
 	}
 
 	@Override
 	public Element createElementFromRecord(Rating record, Document doc) {
 		Element rating = doc.createElement("Rating");
-		
-		rating.appendChild(createTextElement("metacritic", String.format("%d", record.getMetacritic()), doc));
-		
-		
-		rating.appendChild(createTextElement("rawg_rating", String.format("%d", record.getRawgRating()), doc));
+		rating.appendChild(createTextElement("metacritic", String.format("%.2f", record.getMetacritic()), doc));		
+		rating.appendChild(createTextElement("rawg_rating", String.format("%.2f", record.getRawgRating()), doc));
 			
 		return rating;
 	}
