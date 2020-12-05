@@ -81,7 +81,7 @@ public class DataFusion_Main {
 		FusibleDataSet<VideoGames, Attribute> ds3id = new FusibleHashedDataSet<>();
 		// new GamesXMLReader().loadFromXML(new
 		// File("../../Datasets/RAWG_xml_1/RAWG_xml_1.xml"), "/Games/Game", ds3);
-		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_xml_1.xml"), "/Games/Game", ds3);
+		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_target_xml4.xml"), "/Games/Game", ds3);
 		ds3.printDataSetDensityReport();
 		// Maintain Provenance- Scores for Favour Source = highest Score is favoured
 		// sales highest score, rawg second and wiki last, since it is the most unclean
