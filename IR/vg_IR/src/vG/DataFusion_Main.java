@@ -38,7 +38,6 @@ import fusers.DateFuserVoting;
 import fusers.GameTitelFuserFavourSource;
 import fusers.GenresEvaluationRule;
 import fusers.GenresFuserUnion;
-import fusers.GenresFuserUnionPlusAbbreviations;
 import fusers.PlatformsEvaluationRule;
 import fusers.PlatformsFuserUnion;
 import fusers.PublishersEvaluationRule;
