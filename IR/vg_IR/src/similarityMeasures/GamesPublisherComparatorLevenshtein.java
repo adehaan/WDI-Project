@@ -22,20 +22,22 @@ public class GamesPublisherComparatorLevenshtein implements Comparator<VideoGame
 		List<String> s1 = record1.getPublishers();
 		List<String> s2 = record2.getPublishers();
 		double similarity = 0.0;
-		String sales_Publisher = s1.get(0);
+		if (s1 != null && !s1.isEmpty()) {
+			String sales_Publisher = s1.get(0);
 
-		if (s2 != null && !s2.isEmpty()) {
-			if (!s2.get(0).equals("") || !s2.get(0).isEmpty()) {
-				for (String publisher : s2) {
-					similarity += sim.calculate(sales_Publisher, publisher);
+			if (s2 != null && !s2.isEmpty()) {
+				if (!s2.get(0).equals("") || !s2.get(0).isEmpty()) {
+					for (String publisher : s2) {
+						similarity += sim.calculate(sales_Publisher, publisher);
 
-					if (this.comparisonLog != null) {
-						this.comparisonLog.setComparatorName(getClass().getName());
+						if (this.comparisonLog != null) {
+							this.comparisonLog.setComparatorName(getClass().getName());
 
-						this.comparisonLog.setRecord1Value(sales_Publisher);
-						this.comparisonLog.setRecord2Value(publisher);
+							this.comparisonLog.setRecord1Value(sales_Publisher);
+							this.comparisonLog.setRecord2Value(publisher);
 
-						this.comparisonLog.setSimilarity(Double.toString(similarity));
+							this.comparisonLog.setSimilarity(Double.toString(similarity));
+						}
 					}
 				}
 			}

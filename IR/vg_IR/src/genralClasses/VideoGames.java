@@ -22,11 +22,11 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 
 	private String title;
 	private int year;
-	private double Sales_EU;
-	private double Sales_JP;
-	private double Sales_NA;
-	private double Sales_Others;
-	private double Sales_Global;
+	private double Sales_EU = 0.0;
+	private double Sales_JP= 0.0;
+	private double Sales_NA= 0.0;
+	private double Sales_Others= 0.0;
+	private double Sales_Global= 0.0;
 	private int Total_Length_in_hrs;
 	private String Website;
 	private List<String> Countries_of_Origin;
@@ -88,7 +88,7 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	}
 
 	public void setSalesEU(double Sales_EU) {
-		this.Sales_EU = Sales_EU;
+		this.Sales_EU += Sales_EU;
 	}
 
 	public double getSalesJP() {
@@ -96,7 +96,7 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	}
 
 	public void setSalesJP(double Sales_JP) {
-		this.Sales_JP = Sales_JP;
+		this.Sales_JP += Sales_JP;
 	}
 
 	public double getSalesNA() {
@@ -104,7 +104,7 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	}
 
 	public void setSalesNA(double Sales_NA) {
-		this.Sales_NA = Sales_NA;
+		this.Sales_NA += Sales_NA;
 	}
 
 	public double getSalesOthers() {
@@ -112,7 +112,7 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	}
 
 	public void setSalesOthers(double Sales_Others) {
-		this.Sales_Others = Sales_Others;
+		this.Sales_Others += Sales_Others;
 	}
 
 	public double getSalesGlobal() {
@@ -120,7 +120,7 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	}
 
 	public void setSalesGlobal(double Sales_Global) {
-		this.Sales_Global = Sales_Global;
+		this.Sales_Global += Sales_Global;
 	}
 
 	public int getTotalLength() {

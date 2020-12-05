@@ -77,7 +77,7 @@ public class DataFusion_Main {
 		// File("../../Datasets/RAWG_xml_1/RAWG_xml_1.xml"), "/Games/Game", ds3);
 		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_target_xml4.xml"), "/Games/Game", ds3);
 		ds3.printDataSetDensityReport();
-		
+
 		// Maintain Provenance- Scores for Favour Source = highest Score is favoured
 		// sales highest score, rawg second and wiki last, since it is the most unclean
 		ds1.setScore(3.0);
@@ -113,28 +113,34 @@ public class DataFusion_Main {
 
 		// Fusion Methods
 		// For Titel = Voting & FavourSource -> FavourSource
-		//strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserFavourSource(), new GameTitleEvaluationRule());
+		// strategy.addAttributeFuser(VideoGames.TITLE, new
+		// GameTitelFuserFavourSource(), new GameTitleEvaluationRule());
 		strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserVoting(), new GameTitleEvaluationRule());
-		
+
 		// For Date = Voting & FavourSource -> Voting
 		strategy.addAttributeFuser(VideoGames.DATE, new DateFuserFavourSource(), new DateEvaluationRule());
-		//strategy.addAttributeFuser(VideoGames.DATE, new DateFuserVoting(), new DateEvaluationRule());
-		
+		// strategy.addAttributeFuser(VideoGames.DATE, new DateFuserVoting(), new
+		// DateEvaluationRule());
+
 		// For Publisher = Union & Intersection -> Union
 		strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserUnion(), new PublishersEvaluationRule());
-		//strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserIntersection(), new PublishersEvaluationRule());
+		// strategy.addAttributeFuser(VideoGames.PUBLISHERS, new
+		// PublishersFuserIntersection(), new PublishersEvaluationRule());
 
 		// For Platforms = Union & Intersection & IntersectionK (k=2) -> Union
 		strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserUnion(), new PlatformsEvaluationRule());
-		//strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserIntersection(), new PlatformsEvaluationRule());
-		//strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserIntersectionK(), new PlatformsEvaluationRule());
+		// strategy.addAttributeFuser(VideoGames.PLATFORMS, new
+		// PlatformsFuserIntersection(), new PlatformsEvaluationRule());
+		// strategy.addAttributeFuser(VideoGames.PLATFORMS, new
+		// PlatformsFuserIntersectionK(), new PlatformsEvaluationRule());
 
 		// For Genres = Union & Intersection & IntersectionK (k=2) -> Union
 		strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserUnion(), new GenresEvaluationRule());
-		//strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserIntersection(), new GenresEvaluationRule());
-		//strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserIntersectionK(), new GenresEvaluationRule());
+		// strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserIntersection(),
+		// new GenresEvaluationRule());
+		// strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserIntersectionK(),
+		// new GenresEvaluationRule());
 
-		
 		// create the fusion engine
 		DataFusionEngine<VideoGames, Attribute> engine = new DataFusionEngine<>(strategy);
 
@@ -156,15 +162,21 @@ public class DataFusion_Main {
 		if (col != null) {
 			for (VideoGames vg : col) {
 				String ii = vg.getIdentifier();
+				String tit = vg.getTitle();
 				String[] arr = ii.split("\\+");
 				for (String ar : arr) {
 					if (ar.toLowerCase().contains("sales_")) {
-						VideoGames attSales = ds1.getRecord(ar);
-						vg.setSalesEU(attSales.getSalesEU());
-						vg.setSalesJP(attSales.getSalesJP());
-						vg.setSalesNA(attSales.getSalesNA());
-						vg.setSalesOthers(attSales.getSalesOthers());
-						vg.setSalesGlobal(attSales.getSalesGlobal());
+						//VideoGames attSales = ds1.getRecord(ar);
+						for (VideoGames vgSales : ds1.get()) {
+							String titleSalesds = vgSales.getTitle();
+							if (tit.equals(titleSalesds)) {
+								vg.setSalesEU(vgSales.getSalesEU());
+								vg.setSalesJP(vgSales.getSalesJP());
+								vg.setSalesNA(vgSales.getSalesNA());
+								vg.setSalesOthers(vgSales.getSalesOthers());
+								vg.setSalesGlobal(vgSales.getSalesGlobal());
+							}
+						}	
 					} else if (ar.toLowerCase().contains("wiki_")) {
 						VideoGames attSales = ds2.getRecord(ar);
 						vg.setCountries(attSales.getCountries());
