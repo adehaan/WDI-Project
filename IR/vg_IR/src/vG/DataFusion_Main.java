@@ -159,6 +159,7 @@ public class DataFusion_Main {
 		// TODO: Create File GamesXMLFormatter
 
 		Collection<VideoGames> col = fusedDataSet.get();
+		System.out.println("Total number of records in our fused dataset = " + col.size());
 		if (col != null) {
 			for (VideoGames vg : col) {
 				String ii = vg.getIdentifier();
