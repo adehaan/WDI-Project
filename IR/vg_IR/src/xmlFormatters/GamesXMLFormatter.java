@@ -69,8 +69,10 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 
 		game.appendChild(createTextElement("id", record.getIdentifier(), doc));
 
+//		game.appendChild(createTextElementWithProvenance("Title", record.getTitle(),
+//				record.getMergedAttributeProvenance(VideoGames.TITLE), doc));
 		game.appendChild(createTextElementWithProvenance("Title", record.getTitle(),
-				record.getMergedAttributeProvenance(VideoGames.TITLE), doc));
+				record.getIdentifier(), doc));
 
 		String date = String.format("%d", record.getDate());
 		game.appendChild(createTextElementWithProvenance("Year", date,

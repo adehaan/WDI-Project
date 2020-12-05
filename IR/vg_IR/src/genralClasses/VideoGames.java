@@ -66,6 +66,10 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	public String getIdentifier() {
 		return id;
 	}
+	public void setIdentifier(String id)
+	{
+		this.id = this.id + "+" + id;
+	}
 
 	public String getTitle() {
 		return title;

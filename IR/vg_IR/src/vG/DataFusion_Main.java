@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Locale;
 
 import org.apache.logging.log4j.Logger;
@@ -72,7 +74,6 @@ public class DataFusion_Main {
 		// RAWG DataSet
 		// TODO: Change to total rawg input
 		FusibleDataSet<VideoGames, Attribute> ds3 = new FusibleHashedDataSet<>();
-		FusibleDataSet<VideoGames, Attribute> ds3id = new FusibleHashedDataSet<>();
 		// new GamesXMLReader().loadFromXML(new
 		// File("../../Datasets/RAWG_xml_1/RAWG_xml_1.xml"), "/Games/Game", ds3);
 		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_target_xml4.xml"), "/Games/Game", ds3);
@@ -88,7 +89,7 @@ public class DataFusion_Main {
 		// & sales, rawg -> ds1, ds2 & ds1, ds3
 		System.out.println("*\n*\tLoading correspondences for fusion\n*");
 		CorrespondenceSet<VideoGames, Attribute> correspondences = new CorrespondenceSet<>();
-		correspondences.loadCorrespondences(new File("data/output/wS_RandomForrest.csv"), ds1, ds2);
+		correspondences.loadCorrespondences(new File("data/output/ws_RandomForrest.csv"), ds1, ds2);
 		// System.out.println("*\n*\tCorrespondences for Sales-Wiki done\n*");
 		correspondences.loadCorrespondences(new File("data/output/rS_RandomForrest.csv"), ds1, ds3);
 		// System.out.println("*\n*\tCorrespondences for Sales-RAWG done\n*");
@@ -154,53 +155,85 @@ public class DataFusion_Main {
 		// run the fusion
 		System.out.println("*\n*\tRunning data fusion\n*");
 		FusibleDataSet<VideoGames, Attribute> fusedDataSet = engine.run(correspondences, null);
-
+		FusibleDataSet<VideoGames, Attribute> fusedDataSet2 = new FusibleHashedDataSet<>();
 		// write the result
 		// TODO: Create File GamesXMLFormatter
-
+		List<String> lst = new ArrayList<>();
 		Collection<VideoGames> col = fusedDataSet.get();
+		Collection<VideoGames> col2 = fusedDataSet.get();
 		System.out.println("Total number of records in our fused dataset = " + col.size());
 		if (col != null) {
 			for (VideoGames vg : col) {
 				String ii = vg.getIdentifier();
 				String tit = vg.getTitle();
 				String[] arr = ii.split("\\+");
-				for (String ar : arr) {
-					if (ar.toLowerCase().contains("sales_")) {
-						//VideoGames attSales = ds1.getRecord(ar);
-						for (VideoGames vgSales : ds1.get()) {
-							String titleSalesds = vgSales.getTitle();
-							if (tit.equals(titleSalesds)) {
-								vg.setSalesEU(vgSales.getSalesEU());
-								vg.setSalesJP(vgSales.getSalesJP());
-								vg.setSalesNA(vgSales.getSalesNA());
-								vg.setSalesOthers(vgSales.getSalesOthers());
-								vg.setSalesGlobal(vgSales.getSalesGlobal());
-							}
-						}	
-					} else if (ar.toLowerCase().contains("wiki_")) {
-						VideoGames attSales = ds2.getRecord(ar);
-						vg.setCountries(attSales.getCountries());
-						vg.setWebsite(attSales.getWebsite());
-						vg.setModes(attSales.getModes());
-						vg.setContributors(attSales.getContributors());
-						vg.setCERO(attSales.getCERO());
-						vg.setPEGI(attSales.getPEGI());
-						vg.setESRB(attSales.getESRB());
-						vg.setSequel(attSales.getSequel());
-						vg.setPrequel(attSales.getPrequel());
-					} else {
-						VideoGames attSales = ds3.getRecord(ar);
-						vg.setTotalLength(attSales.getTotalLength());
-						vg.setStores(attSales.getStores());
-						vg.setRating(attSales.getRating());
-						vg.setRecommended(attSales.getRecommended());
-						vg.setTags(attSales.getTags());
+				String titleSalesds = "";
+				String ident = "";
+				for (VideoGames vgSales : col2) {
+					titleSalesds = vgSales.getTitle();
+					ident = vgSales.getIdentifier();
+					if (tit.equals(titleSalesds)) {
+						if (!ii.equals(ident)) {
+							vg.setIdentifier(ident);
+							vg.setTitle(vg.getTitle());
+							vg.setSalesEU(vgSales.getSalesEU());
+							vg.setSalesJP(vgSales.getSalesJP());
+							vg.setSalesNA(vgSales.getSalesNA());
+							vg.setSalesOthers(vgSales.getSalesOthers());
+							vg.setSalesGlobal(vgSales.getSalesGlobal());
+							lst.add(ident);
+							continue;
+						}
 					}
 				}
 
+//				for (String ar : arr) {
+//					if (ar.toLowerCase().contains("sales_")) {
+//
+//						// VideoGames attSales = ds1.getRecord(ar);
+//						for (VideoGames vgSales : col2) {
+//							titleSalesds = vgSales.getTitle();
+//							ident = vgSales.getIdentifier();
+//							if (tit.equals(titleSalesds)) {
+//								vg.setTitle(vg.getTitle() + "+" + titleSalesds);
+//								vg.setSalesEU(vgSales.getSalesEU());
+//								vg.setSalesJP(vgSales.getSalesJP());
+//								vg.setSalesNA(vgSales.getSalesNA());
+//								vg.setSalesOthers(vgSales.getSalesOthers());
+//								vg.setSalesGlobal(vgSales.getSalesGlobal());
+//							}
+//						}
+//						fusedDataSet.removeRecord(ident);
+//					} else if (ar.toLowerCase().contains("wiki_")) {
+//						VideoGames attSales = ds2.getRecord(ar);
+//						vg.setCountries(attSales.getCountries());
+//						vg.setWebsite(attSales.getWebsite());
+//						vg.setModes(attSales.getModes());
+//						vg.setContributors(attSales.getContributors());
+//						vg.setCERO(attSales.getCERO());
+//						vg.setPEGI(attSales.getPEGI());
+//						vg.setESRB(attSales.getESRB());
+//						vg.setSequel(attSales.getSequel());
+//						vg.setPrequel(attSales.getPrequel());
+//					} else {
+//						VideoGames attSales = ds3.getRecord(ar);
+//						vg.setTotalLength(attSales.getTotalLength());
+//						vg.setStores(attSales.getStores());
+//						vg.setRating(attSales.getRating());
+//						vg.setRecommended(attSales.getRecommended());
+//						vg.setTags(attSales.getTags());
+//					}
+//				}
+				
+				//fusedDataSet2.add(vg);
 			}
 		}
+		
+		for(String id : lst)
+		{
+			fusedDataSet.removeRecord(id);
+		}
+		System.out.println("Total number of records in our fused dataset = " + fusedDataSet.size());
 		new GamesXMLFormatter().writeXML(new File("data/output/fused.xml"), fusedDataSet);
 
 		// evaluate
