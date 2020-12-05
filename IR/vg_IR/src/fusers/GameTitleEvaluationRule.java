@@ -28,7 +28,7 @@ import genralClasses.VideoGames;
  * @author Oliver Lehmberg (oli@dwslab.de)
  * 
  */
-public class TitleEvaluationRule extends EvaluationRule<VideoGames, Attribute> {
+public class GameTitleEvaluationRule extends EvaluationRule<VideoGames, Attribute> {
 
 	SimilarityMeasure<String> sim = new TokenizingJaccardSimilarity();
 

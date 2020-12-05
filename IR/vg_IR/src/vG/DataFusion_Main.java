@@ -37,13 +37,16 @@ import fusers.DateEvaluationRule;
 import fusers.DateFuserVoting;
 import fusers.GameTitelFuserFavourSource;
 import fusers.GenresEvaluationRule;
+import fusers.GenresFuserIntersection;
+import fusers.GenresFuserIntersectionK;
 import fusers.GenresFuserUnion;
 import fusers.PlatformsEvaluationRule;
+import fusers.PlatformsFuserIntersection;
 import fusers.PlatformsFuserUnion;
 import fusers.PublishersEvaluationRule;
 import fusers.PublishersFuserIntersection;
 import fusers.PublishersFuserUnion;
-import fusers.TitleEvaluationRule;
+import fusers.GameTitleEvaluationRule;
 import genralClasses.VideoGames;
 import xmlFormatters.GamesXMLFormatter;
 import xmlReaders.GamesXMLReader;
@@ -120,14 +123,14 @@ public class DataFusion_Main {
 		
 
 		// Title = favor sales source; longest/shortest string
-		strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserFavourSource(), new TitleEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserFavourSource(), new GameTitleEvaluationRule());
 		// Date = OldestValue (lowest value)
 		strategy.addAttributeFuser(VideoGames.DATE, new DateFuserVoting(), new DateEvaluationRule());
 		// Publisher = intersection
-		strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserUnion(), new PublishersEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserIntersection(), new PublishersEvaluationRule());
 		// Genre & Platforms = Union
-		strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserUnion(), new GenresEvaluationRule());
-		strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserUnion(), new PlatformsEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserIntersectionK(), new GenresEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserIntersection(), new PlatformsEvaluationRule());
 
 		// create the fusion engine
 		DataFusionEngine<VideoGames, Attribute> engine = new DataFusionEngine<>(strategy);
