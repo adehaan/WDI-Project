@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -175,6 +176,8 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	}
 
 	public void setPublishers(List<String> Publishers) {
+		
+		Publishers.removeAll(Arrays.asList("", "N/A", null));
 		this.Publishers = Publishers;
 	}
 
@@ -191,6 +194,7 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	}
 
 	public void setGenres(List<String> Genres) {
+		Genres.removeAll(Arrays.asList("", null));
 		this.Genres = Genres;
 	}
 
@@ -199,6 +203,8 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	}
 
 	public void setPlatforms(List<String> platforms) {
+		
+		platforms.removeAll(Arrays.asList("", null));
 		this.platforms = platforms;
 	}
 
@@ -313,14 +319,26 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 	public boolean hasValue(Attribute attribute) {
 		if (attribute == TITLE)
 			return this.getTitle() != null && !this.getTitle().isEmpty();
-		else if (attribute == DATE)
-			return this.getDate() != -1;
+		else if (attribute == DATE) {
+			int year = this.getDate();
+			return this.getDate() != -1 && this.getDate() != 0;	
+		}
+			
 		else if (attribute == PUBLISHERS)
-			return this.getPublishers() != null && this.getPublishers().size() > 0;
+			return this.getPublishers() != null && this.getPublishers().size() > 0 && !this.getPublishers().isEmpty();
 		else if (attribute == GENRES)
-			return this.getGenres() != null && this.getGenres().size() > 0;
-		else if (attribute == PLATFORMS)
-			return this.getPlatforms() != null && this.getPlatforms().size() > 0;
+			return this.getGenres() != null && this.getGenres().size() > 0 && !this.getGenres().isEmpty();
+		else if (attribute == PLATFORMS) {
+
+			boolean test = this.getPlatforms() != null && this.getPlatforms().size() > 0 && !this.getPlatforms().isEmpty();
+//			if(!test) {
+//				System.out.println("missing platform");
+//			}
+			return test;
+			// && !this.getPlatforms().get(0).equals("") /  && !this.getPublishers().get(0).equals("N/A")
+			//return this.getPlatforms() != null && this.getPlatforms().size() > 0 && !this.getPlatforms().isEmpty() && !this.getPlatforms().get(0).isBlank();
+		}
+			
 		else
 			return false;
 	}
