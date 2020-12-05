@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Games xsi:noNamespaceSchemaLocation="file:///C:/Personel/Experience/WDI-Project/Mapping/Games.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Game>
+		<id>sales_1304</id>
+		<Rank/>
+		<Title>Triple Play 99</Title>
+		<Year></Year>
+		<Sale_EU>0.55</Sale_EU>
+		<Sale_JP>0</Sale_JP>
+		<Sale_NA>0.81</Sale_NA>
+		<Sale_Others>0.1</Sale_Others>
+		<Sale_Global>1.46</Sale_Global>
+		<Publishers>
+			<Publisher>N/A</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Sports</Genre>
+		</Genres>
+		<platforms>
+			<platform>PS</platform>
+		</platforms>
+	</Game>	
+	<Game>
+		<id>sales_1663</id>
+		<Rank/>
+		<Title>Shrek / Shrek 2 2-in-1 Gameboy Advance Video</Title>
+		<Year>2007</Year>
+		<Sale_EU>0.32</Sale_EU>
+		<Sale_JP>0</Sale_JP>
+		<Sale_NA>0.87</Sale_NA>
+		<Sale_Others>0.02</Sale_Others>
+		<Sale_Global>1.21</Sale_Global>
+		<Publishers>
+			<Publisher>N/A</Publisher>
+		</Publishers>
+		<Genres>
+			<Genre>Misc</Genre>
+		</Genres>
+		<platforms>
+			<platform>GBA</platform>
+		</platforms>
+	</Game>
+</Games>
