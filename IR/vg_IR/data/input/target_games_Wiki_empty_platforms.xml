@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Games xsi:noNamespaceSchemaLocation="file:///C:/Personel/Experience/WDI-Project/Mapping/Games.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<Game>
+		<id>wiki_16605</id>
+		<Title>Injustice 2 Mobile</Title>
+		<Year>2017</Year>
+		<Website>https://www.injustice.com/mobile</Website>
+		<Countries_of_Origin>
+			<Country_of_Origin></Country_of_Origin>
+		</Countries_of_Origin>
+		<Sequel></Sequel>
+		<Prequel></Prequel>
+		<ESRBs/>
+		<PEGIs/>
+		<CEROs/>
+		<Publishers>
+			<Publisher></Publisher>
+		</Publishers>
+		<DeveloperStudios>
+			<DeveloperStudio></DeveloperStudio>
+		</DeveloperStudios>
+		<Genres>
+			<Genre></Genre>
+		</Genres>
+		<platforms>
+			<platform></platform>
+		</platforms>
+		<Modes>
+			<Mode></Mode>
+		</Modes>
+		<Contributors/>
+	</Game>
+	<Game>
+		<id>wiki_16606</id>
+		<Title>I Love You!</Title>
+		<Year>0001</Year>
+		<Website></Website>
+		<Countries_of_Origin>
+			<Country_of_Origin>Japan</Country_of_Origin>
+		</Countries_of_Origin>
+		<Sequel></Sequel>
+		<Prequel></Prequel>
+		<ESRBs/>
+		<PEGIs/>
+		<CEROs/>
+		<Publishers>
+			<Publisher></Publisher>
+		</Publishers>
+		<DeveloperStudios>
+			<DeveloperStudio></DeveloperStudio>
+		</DeveloperStudios>
+		<Genres>
+			<Genre>hentai</Genre>
+		</Genres>
+		<platforms>
+			<platform></platform>
+		</platforms>
+		<Modes>
+			<Mode></Mode>
+		</Modes>
+		<Contributors/>
+	</Game>
+</Games>
