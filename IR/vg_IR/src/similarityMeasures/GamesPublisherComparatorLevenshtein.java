@@ -22,7 +22,7 @@ public class GamesPublisherComparatorLevenshtein implements Comparator<VideoGame
 		List<String> s1 = record1.getPublishers();
 		List<String> s2 = record2.getPublishers();
 		double similarity = 0.0;
-		String sales_Publisher = s1.get(1);
+		String sales_Publisher = s1.get(0);
 
 		if (s2 != null && !s2.isEmpty()) {
 			if (!s2.get(1).equals("") || !s2.get(1).isEmpty()) {

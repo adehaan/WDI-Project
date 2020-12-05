@@ -26,7 +26,7 @@ public class GamesGenresComparatorJaroWinkler implements Comparator<VideoGames, 
 		
 		double similarity = 0.0;
 		double jarowinkler = 0.0;
-		String l1 = si1.get(1);
+		String l1 = si1.get(0);
 		String l2 = null;
 	
 		// Compare element in sales data (l1) with all elements in wiki list

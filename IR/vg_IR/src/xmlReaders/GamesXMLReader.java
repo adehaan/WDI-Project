@@ -1,30 +1,16 @@
 package xmlReaders;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import de.uni_mannheim.informatik.dws.winter.model.DataSet;
 import de.uni_mannheim.informatik.dws.winter.model.FusibleFactory;
-import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.RecordGroup;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.model.io.XMLMatchableReader;
 import edu.stanford.nlp.util.StringUtils;
-import genralClasses.AgeGroups;
 import genralClasses.CERO;
 import genralClasses.ESRB;
 import genralClasses.PEGI;
@@ -39,8 +25,6 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 	@Override
 	protected void initialiseDataset(DataSet<VideoGames, Attribute> dataset) {
 		super.initialiseDataset(dataset);
-
-// the schema is defined in the Movie class and not interpreted from the file, so we have to set the attributes manually
 		dataset.addAttribute(VideoGames.TITLE);
 		dataset.addAttribute(VideoGames.GENRES);
 		dataset.addAttribute(VideoGames.DATE);
@@ -67,8 +51,6 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 
 	@Override
 	public VideoGames createModelFromElement(Node node, String provenanceInfo) {
-		// TODO Auto-generated method stub
-
 		// id
 		String id = getValueFromChildElement(node, "id");
 		VideoGames vg = new VideoGames(id, provenanceInfo);
@@ -151,7 +133,6 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 				if (!country.equals("") || !country.isBlank() || !country.isEmpty())
 					helper.add(country.toUpperCase());
 			}
-			// {
 			vg.setCountries(helper);
 		}
 
@@ -163,7 +144,6 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 				if (!store.equals("") || !store.isBlank() || !store.isEmpty())
 					helperStores.add(store);
 			}
-			// {
 			vg.setStores(helperStores);
 		}
 
@@ -175,14 +155,18 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 				if (!publisher.equals("") || !publisher.isBlank() || !publisher.isEmpty())
 					helperPublisher.add(publisher.toUpperCase());
 			}
-			// {
 			vg.setPublishers(helperPublisher);
 		}
 
 		// DeveloperStudios
 		List<String> lstDeveloperStudios = getListFromChildElement(node, "DeveloperStudios");
+		List<String> helperDeveloperStudios = new ArrayList<>();
 		if (lstDeveloperStudios != null && lstDeveloperStudios.size() > 0) {
-			vg.setDeveloper(lstDeveloperStudios);
+			for (String studio : lstDeveloperStudios) {
+				if (!studio.equals("") || !studio.isBlank() || !studio.isEmpty())
+					helperDeveloperStudios.add(studio.toUpperCase());
+			}
+			vg.setDeveloper(helperDeveloperStudios);
 		}
 
 		// Genres
@@ -248,21 +232,20 @@ public class GamesXMLReader extends XMLMatchableReader<VideoGames, Attribute>
 		if (lstCERO != null && lstCERO.size() > 0) {
 			vg.setCERO(lstCERO);
 		}
-		
-		
+
 		// Recommended
-		List<Recommended> lstRecommended = getObjectListFromChildElement(node, "Game", "Recommended", new RecommendedXMLReader(), provenanceInfo);
+		List<Recommended> lstRecommended = getObjectListFromChildElement(node, "Recommendeds", "Recommended",
+				new RecommendedXMLReader(), provenanceInfo);
 		if (lstRecommended != null && lstRecommended.size() > 0) {
 			vg.setRecommended(lstRecommended);
 		}
-		
-		
+
 		// Rating
-		List<Rating> lstRating = getObjectListFromChildElement(node, "Game", "Rating", new RatingXmlReader(), provenanceInfo);
+		List<Rating> lstRating = getObjectListFromChildElement(node, "Ratings", "Rating", new RatingXmlReader(),
+				provenanceInfo);
 		if (lstRating != null && lstRating.size() > 0) {
 			vg.setRating(lstRating);
 		}
-		
 
 		return vg;
 	}

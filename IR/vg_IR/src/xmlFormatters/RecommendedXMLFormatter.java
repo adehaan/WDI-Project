@@ -11,15 +11,20 @@ public class RecommendedXMLFormatter extends XMLFormatter<Recommended> {
 
 	@Override
 	public Element createRootElement(Document doc) {
-		return doc.createElement("Recommended");
+		return doc.createElement("Recommendeds");
 	}
 
 	@Override
 	public Element createElementFromRecord(Recommended record, Document doc) {
-		Element recommended = doc.createElement("Rating");
+		Element recommended = doc.createElement("Recommended");
 		
-		if(record.getPlatformName()!=null){
-			recommended.appendChild(createTextElement("platform_name", record.getPlatformName(), doc));
+		if(record.getPlatformName()!=null ){
+			if(!record.getPlatformName().isBlank()){
+				if(!record.getPlatformName().isEmpty()){
+					recommended.appendChild(createTextElement("platform_name", record.getPlatformName(), doc));
+				}
+			}
+			
 		}
 		
 		if(record.getRequirements()!=null) {

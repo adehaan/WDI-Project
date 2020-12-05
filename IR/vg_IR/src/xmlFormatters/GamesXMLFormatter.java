@@ -55,8 +55,8 @@ public class GamesXMLFormatter extends XMLFormatter<VideoGames> {
 	static String rootRating = "Ratings";
 	static String childRating = "Rating";
 	
-	static String rootRecommended = "Recommended";
-	
+	static String rootRecommended = "Recommendeds";
+	static String childRecommended = "Recommended";
 
 	@Override
 	public Element createRootElement(Document doc) {
