@@ -25,7 +25,7 @@ public class GamesPublisherComparatorLevenshtein implements Comparator<VideoGame
 		String sales_Publisher = s1.get(0);
 
 		if (s2 != null && !s2.isEmpty()) {
-			if (!s2.get(1).equals("") || !s2.get(1).isEmpty()) {
+			if (!s2.get(0).equals("") || !s2.get(0).isEmpty()) {
 				for (String publisher : s2) {
 					similarity += sim.calculate(sales_Publisher, publisher);
 
