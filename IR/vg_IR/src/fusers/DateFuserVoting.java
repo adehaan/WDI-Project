@@ -41,7 +41,13 @@ public class DateFuserVoting extends AttributeValueFuser<Integer, VideoGames, At
 	@Override
 	public void fuse(RecordGroup<VideoGames, Attribute> group, VideoGames fusedRecord, Processable<Correspondence<Attribute, Matchable>> schemaCorrespondences, Attribute schemaElement) {
 		FusedValue<Integer, VideoGames, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
-		fusedRecord.setDate(fused.getValue());
+		
+		Integer result_year = fused.getValue();
+		if(fused.getValue()==null) {
+			result_year=0;
+		}
+		
+		fusedRecord.setDate(result_year);
 		fusedRecord.setAttributeProvenance(VideoGames.DATE, fused.getOriginalIds());
 	}
 
