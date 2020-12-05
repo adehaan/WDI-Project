@@ -316,11 +316,11 @@ public class VideoGames extends AbstractRecord<Attribute> implements Serializabl
 		else if (attribute == DATE)
 			return this.getDate() != -1;
 		else if (attribute == PUBLISHERS)
-			return this.getPublishers() != null && this.getPublishers().size() > 0;
+			return this.getPublishers() != null && this.getPublishers().size() > 0 && !this.getPublishers().isEmpty() && !this.getPublishers().get(0).equals("N/A");
 		else if (attribute == GENRES)
-			return this.getGenres() != null && this.getGenres().size() > 0;
+			return this.getGenres() != null && this.getGenres().size() > 0 && !this.getGenres().isEmpty();
 		else if (attribute == PLATFORMS)
-			return this.getPlatforms() != null && this.getPlatforms().size() > 0;
+			return this.getPlatforms() != null && this.getPlatforms().size() > 0 && !this.getPlatforms().isEmpty();
 		else
 			return false;
 	}
