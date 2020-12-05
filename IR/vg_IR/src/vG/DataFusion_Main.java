@@ -38,6 +38,7 @@ import fusers.DateFuserVoting;
 import fusers.GameTitelFuserFavourSource;
 import fusers.GenresEvaluationRule;
 import fusers.GenresFuserUnion;
+import fusers.GenresFuserUnionPlusAbbreviations;
 import fusers.PlatformsEvaluationRule;
 import fusers.PlatformsFuserUnion;
 import fusers.PublishersEvaluationRule;
@@ -81,7 +82,7 @@ public class DataFusion_Main {
 		FusibleDataSet<VideoGames, Attribute> ds3id = new FusibleHashedDataSet<>();
 		// new GamesXMLReader().loadFromXML(new
 		// File("../../Datasets/RAWG_xml_1/RAWG_xml_1.xml"), "/Games/Game", ds3);
-		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_target_xml3.xml"), "/Games/Game", ds3);
+		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_xml_1.xml"), "/Games/Game", ds3);
 		ds3.printDataSetDensityReport();
 		// Maintain Provenance- Scores for Favour Source = highest Score is favoured
 		// sales highest score, rawg second and wiki last, since it is the most unclean
@@ -117,9 +118,7 @@ public class DataFusion_Main {
 		// write debug results to file
 		strategy.activateDebugReport("data/output/fusion_debugResultsDatafusion.csv", -1, gs);
 
-		// add attribute fusers
-		// TODO: Create Fusers & Evaluationsrules - for each attribute add a Fuser &
-		// EvaluationRule
+		
 
 		// Title = favor sales source; longest/shortest string
 		strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserFavourSource(), new TitleEvaluationRule());
@@ -176,6 +175,9 @@ public class DataFusion_Main {
 						VideoGames attSales = ds3.getRecord(ar);
 						vg.setTotalLength(attSales.getTotalLength());
 						vg.setStores(attSales.getStores());
+						vg.setRating(attSales.getRating());
+						vg.setRecommended(attSales.getRecommended());
+						vg.setTags(attSales.getTags());
 					}
 				}
 
