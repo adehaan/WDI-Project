@@ -17,11 +17,17 @@
 							<xs:element name="Sale_Others" type="xs:double"/>
 							<xs:element name="Sale_Global" type="xs:double"/>
 							<xs:element name="Total_Length_in_hrs" type="xs:short"/>
-							<xs:element name="Recommended">
+							<xs:element name="Recommendeds">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Platforn_Name" type="xs:string"/>
-										<xs:element name="Recommended_Req_PC" type="xs:string"/>
+										<xs:element name="Recommended" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Platforn_Name" type="xs:string"/>
+													<xs:element name="Recommended_Req_PC" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -81,11 +87,17 @@
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
-							<xs:element name="Rating">
+							<xs:element name="Ratings">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="Metacrtic" type="xs:decimal"/>
-										<xs:element name="RAWG_Rating" type="xs:decimal"/>
+										<xs:element name="Rating" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Metacrtic" type="xs:decimal"/>
+													<xs:element name="RAWG_Rating" type="xs:decimal"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
