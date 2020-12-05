@@ -1,5 +1,6 @@
 package fusers;
 
+import java.util.Arrays;
 import java.util.List;
 
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
@@ -34,9 +35,14 @@ public class PublishersFuserFavourSource extends AttributeValueFuser<List<String
 			VideoGames fusedRecord, 
 			Processable<Correspondence<Attribute, Matchable>> schemaCorrespondences, 
 			Attribute schemaElement) {
-		
 		FusedValue<List<String>, VideoGames, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
-		fusedRecord.setPublishers(fused.getValue());
+		
+		List<String> result_pub = fused.getValue();
+		if(fused.getValue()==null) {
+			result_pub = Arrays.asList("Unknown");
+		}
+		
+		fusedRecord.setPublishers(result_pub);
 		fusedRecord.setAttributeProvenance(VideoGames.PUBLISHERS, fused.getOriginalIds());
 	}
 }

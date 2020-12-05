@@ -22,9 +22,9 @@ import de.uni_mannheim.informatik.dws.winter.processing.Processable;
 import genralClasses.VideoGames;
 
 
-public class GameTitelVoting extends AttributeValueFuser<String, VideoGames, Attribute> {
+public class GameTitelFuserVoting extends AttributeValueFuser<String, VideoGames, Attribute> {
 
-	public GameTitelVoting() {
+	public GameTitelFuserVoting() {
 		super(new Voting<String, VideoGames, Attribute>());
 	}
 	

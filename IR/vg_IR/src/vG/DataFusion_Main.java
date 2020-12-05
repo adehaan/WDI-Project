@@ -10,19 +10,6 @@ import java.util.Locale;
 
 import org.apache.logging.log4j.Logger;
 
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.evaluation.ActorsEvaluationRule;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.evaluation.DateEvaluationRule;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.evaluation.DirectorEvaluationRule;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.evaluation.TitleEvaluationRule;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.fusers.ActorsFuserUnion;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.fusers.DateFuserFavourSource;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.fusers.DateFuserVoting;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.fusers.DirectorFuserLongestString;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.fusers.TitleFuserShortestString;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model.FusibleMovieFactory;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model.Movie;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model.MovieXMLFormatter;
-//import de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model.MovieXMLReader;
 import de.uni_mannheim.informatik.dws.winter.datafusion.CorrespondenceSet;
 import de.uni_mannheim.informatik.dws.winter.datafusion.DataFusionEngine;
 import de.uni_mannheim.informatik.dws.winter.datafusion.DataFusionEvaluator;
@@ -34,16 +21,20 @@ import de.uni_mannheim.informatik.dws.winter.model.RecordGroupFactory;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
 import fusers.DateEvaluationRule;
+import fusers.DateFuserFavourSource;
 import fusers.DateFuserVoting;
 import fusers.GameTitelFuserFavourSource;
+import fusers.GameTitelFuserVoting;
 import fusers.GenresEvaluationRule;
 import fusers.GenresFuserIntersection;
 import fusers.GenresFuserIntersectionK;
 import fusers.GenresFuserUnion;
 import fusers.PlatformsEvaluationRule;
 import fusers.PlatformsFuserIntersection;
+import fusers.PlatformsFuserIntersectionK;
 import fusers.PlatformsFuserUnion;
 import fusers.PublishersEvaluationRule;
+import fusers.PublishersFuserFavourSource;
 import fusers.PublishersFuserIntersection;
 import fusers.PublishersFuserUnion;
 import fusers.GameTitleEvaluationRule;
@@ -86,9 +77,9 @@ public class DataFusion_Main {
 		// File("../../Datasets/RAWG_xml_1/RAWG_xml_1.xml"), "/Games/Game", ds3);
 		new GamesXMLReader().loadFromXML(new File("../../Datasets/RAWG_target_xml4.xml"), "/Games/Game", ds3);
 		ds3.printDataSetDensityReport();
+		
 		// Maintain Provenance- Scores for Favour Source = highest Score is favoured
 		// sales highest score, rawg second and wiki last, since it is the most unclean
-		// score
 		ds1.setScore(3.0);
 		ds2.setScore(1.0);
 		ds3.setScore(2.0);
@@ -120,18 +111,30 @@ public class DataFusion_Main {
 		// write debug results to file
 		strategy.activateDebugReport("data/output/fusion_debugResultsDatafusion.csv", -1, gs);
 
+		// Fusion Methods
+		// For Titel = Voting & FavourSource -> FavourSource
+		//strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserFavourSource(), new GameTitleEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserVoting(), new GameTitleEvaluationRule());
 		
+		// For Date = Voting & FavourSource -> Voting
+		strategy.addAttributeFuser(VideoGames.DATE, new DateFuserFavourSource(), new DateEvaluationRule());
+		//strategy.addAttributeFuser(VideoGames.DATE, new DateFuserVoting(), new DateEvaluationRule());
+		
+		// For Publisher = Union & Intersection -> Union
+		strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserUnion(), new PublishersEvaluationRule());
+		//strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserIntersection(), new PublishersEvaluationRule());
 
-		// Title = favor sales source; longest/shortest string
-		strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserFavourSource(), new GameTitleEvaluationRule());
-		// Date = OldestValue (lowest value)
-		strategy.addAttributeFuser(VideoGames.DATE, new DateFuserVoting(), new DateEvaluationRule());
-		// Publisher = intersection
-		strategy.addAttributeFuser(VideoGames.PUBLISHERS, new PublishersFuserIntersection(), new PublishersEvaluationRule());
-		// Genre & Platforms = Union
-		strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserIntersectionK(), new GenresEvaluationRule());
-		strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserIntersection(), new PlatformsEvaluationRule());
+		// For Platforms = Union & Intersection & IntersectionK (k=2) -> Union
+		strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserUnion(), new PlatformsEvaluationRule());
+		//strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserIntersection(), new PlatformsEvaluationRule());
+		//strategy.addAttributeFuser(VideoGames.PLATFORMS, new PlatformsFuserIntersectionK(), new PlatformsEvaluationRule());
 
+		// For Genres = Union & Intersection & IntersectionK (k=2) -> Union
+		strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserUnion(), new GenresEvaluationRule());
+		//strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserIntersection(), new GenresEvaluationRule());
+		//strategy.addAttributeFuser(VideoGames.GENRES, new GenresFuserIntersectionK(), new GenresEvaluationRule());
+
+		
 		// create the fusion engine
 		DataFusionEngine<VideoGames, Attribute> engine = new DataFusionEngine<>(strategy);
 
