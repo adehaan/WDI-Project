@@ -12,7 +12,7 @@
 		<structure>
 			<children>
 				<component name="CSV_Seperated" library="user" uid="631" kind="19" visible="0">
-					<view ltx="518" lty="25" rbx="654" rby="41"/>
+					<view ltx="518" lty="25" rbx="653" rby="42"/>
 					<data>
 						<root>
 							<header>
@@ -33,7 +33,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="640" kind="19" visible="0">
-					<view ltx="518" lty="100" rbx="654" rby="116"/>
+					<view ltx="518" lty="100" rbx="653" rby="117"/>
 					<data>
 						<root>
 							<header>
@@ -54,7 +54,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="633" kind="19" visible="0">
-					<view ltx="519" lty="138" rbx="655" rby="154"/>
+					<view ltx="519" lty="138" rbx="654" rby="155"/>
 					<data>
 						<root>
 							<header>
@@ -75,7 +75,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="324" kind="19" visible="0">
-					<view ltx="518" lty="175" rbx="654" rby="191"/>
+					<view ltx="518" lty="175" rbx="653" rby="192"/>
 					<data>
 						<root>
 							<header>
@@ -96,7 +96,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="632" kind="19" visible="0">
-					<view ltx="518" lty="63" rbx="654" rby="79"/>
+					<view ltx="518" lty="63" rbx="653" rby="80"/>
 					<data>
 						<root>
 							<header>
@@ -117,7 +117,7 @@
 					</data>
 				</component>
 				<component name="Publication Date parser to absolute year" library="user" uid="349" kind="19" visible="0">
-					<view ltx="527" lty="-276" rbx="634" rby="-260"/>
+					<view ltx="527" lty="-276" rbx="633" rby="-259"/>
 					<data>
 						<root>
 							<header>
@@ -138,7 +138,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="639" kind="19" visible="0">
-					<view ltx="519" lty="-229" rbx="655" rby="-213"/>
+					<view ltx="519" lty="-229" rbx="654" rby="-212"/>
 					<data>
 						<root>
 							<header>
@@ -159,7 +159,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="634" kind="19" visible="0">
-					<view ltx="518" lty="-192" rbx="654" rby="-176"/>
+					<view ltx="518" lty="-192" rbx="653" rby="-175"/>
 					<data>
 						<root>
 							<header>
@@ -180,7 +180,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="635" kind="19" visible="0">
-					<view ltx="519" lty="-155" rbx="655" rby="-139"/>
+					<view ltx="519" lty="-155" rbx="654" rby="-138"/>
 					<data>
 						<root>
 							<header>
@@ -201,7 +201,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="637" kind="19" visible="0">
-					<view ltx="518" lty="-117" rbx="654" rby="-101"/>
+					<view ltx="518" lty="-117" rbx="653" rby="-100"/>
 					<data>
 						<root>
 							<header>
@@ -228,7 +228,7 @@
 					<targets>
 						<datapoint pos="0" key="361"/>
 					</targets>
-					<view ltx="698" lty="-116" rbx="793" rby="-79"/>
+					<view ltx="698" lty="-116" rbx="789" rby="-80"/>
 				</component>
 				<component name="Comp_desig_to_contributors" library="user" uid="558" kind="19" visible="0">
 					<view ltx="518" lty="248" rbx="757" rby="302"/>
@@ -318,22 +318,60 @@
 						</text>
 					</data>
 				</component>
+				<component name="concat" library="core" uid="711" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="368"/>
+						<datapoint pos="1" key="369"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="370"/>
+					</targets>
+					<view ltx="747" lty="-456" rbx="819" rby="-402"/>
+				</component>
+				<component name="Ratings to AgeGroup Resolver" library="user" uid="390" kind="19" visible="0">
+					<view ltx="460" lty="-70" rbx="777" rby="66"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="ESRB" inpkey="191" componentid="388"/>
+							<entry name="CERO" inpkey="192" componentid="387"/>
+							<entry name="PEGI" inpkey="193" componentid="389"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="Games" componentid="386" expanded="1">
+								<entry name="ESRBs" expanded="1">
+									<entry name="ESRB" outkey="376"/>
+								</entry>
+							</entry>
+							<entry name="Games2" componentid="739" expanded="1">
+								<entry name="CEROs" expanded="1">
+									<entry name="CERO" outkey="377"/>
+								</entry>
+							</entry>
+							<entry name="Games3" componentid="740" expanded="1">
+								<entry name="PEGIs" expanded="1">
+									<entry name="PEGI" outkey="378"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
 				<component name="constant" library="core" uid="712" kind="2">
 					<targets>
 						<datapoint pos="0" key="367"/>
 					</targets>
-					<view ltx="612" lty="-434" rbx="676" rby="-417"/>
+					<view ltx="629" lty="-456" rbx="689" rby="-440"/>
 					<data>
 						<constant value="wiki_" datatype="string"/>
-					</data>
-				</component>
-				<component name="constant" library="core" uid="708" kind="2">
-					<targets>
-						<datapoint pos="0" key="365"/>
-					</targets>
-					<view ltx="290" lty="-548" rbx="349" rby="-531"/>
-					<data>
-						<constant value="16601" datatype="decimal"/>
 					</data>
 				</component>
 				<component name="auto-number" library="core" uid="709" kind="5">
@@ -346,17 +384,16 @@
 					<targets>
 						<datapoint pos="0" key="363"/>
 					</targets>
-					<view ltx="403" lty="-586" rbx="534" rby="-500"/>
+					<view ltx="480" lty="-467" rbx="607" rby="-383"/>
 				</component>
-				<component name="concat" library="core" uid="711" kind="5" growable="1" growablebasename="value">
-					<sources>
-						<datapoint pos="0" key="368"/>
-						<datapoint pos="1" key="369"/>
-					</sources>
+				<component name="constant" library="core" uid="708" kind="2">
 					<targets>
-						<datapoint pos="0" key="370"/>
+						<datapoint pos="0" key="365"/>
 					</targets>
-					<view ltx="747" lty="-456" rbx="822" rby="-401"/>
+					<view ltx="383" lty="-434" rbx="443" rby="-418"/>
+					<data>
+						<constant value="16601" datatype="decimal"/>
+					</data>
 				</component>
 				<component name="Games" library="xml" uid="2" kind="14">
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
@@ -376,7 +413,6 @@
 											<entry name="id" inpkey="362"/>
 											<entry name="Title" inpkey="51"/>
 											<entry name="Year" inpkey="152"/>
-											<entry name="Recommended" expanded="1"/>
 											<entry name="Website" inpkey="261"/>
 											<entry name="Countries_of_Origin" expanded="1">
 												<entry name="Country_of_Origin" inpkey="359"/>
@@ -419,43 +455,6 @@
 							</entry>
 						</root>
 						<document schema="Games.xsd" inputinstance="Games.xml" outputinstance="Games_Output.xml" instanceroot="{}Games"/>
-					</data>
-				</component>
-				<component name="Ratings to AgeGroup Resolver" library="user" uid="390" kind="19" visible="0">
-					<view ltx="517" lty="-71" rbx="834" rby="65"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="ESRB" inpkey="191" componentid="388"/>
-							<entry name="CERO" inpkey="192" componentid="387"/>
-							<entry name="PEGI" inpkey="193" componentid="389"/>
-						</root>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Games" componentid="386" expanded="1">
-								<entry name="ESRBs" expanded="1">
-									<entry name="ESRB" outkey="376"/>
-								</entry>
-							</entry>
-							<entry name="Games2" componentid="739" expanded="1">
-								<entry name="CEROs" expanded="1">
-									<entry name="CERO" outkey="377"/>
-								</entry>
-							</entry>
-							<entry name="Games3" componentid="740" expanded="1">
-								<entry name="PEGIs" expanded="1">
-									<entry name="PEGI" outkey="378"/>
-								</entry>
-							</entry>
-						</root>
 					</data>
 				</component>
 			</children>
@@ -574,161 +573,6 @@
 			<edge from="70" to="68"/>
 			<edge from="59" to="69"/>
 			<edge from="63" to="71"/>
-		</connections>
-	</component>
-	<component name="Age_group" library="user" uid="123">
-		<description>
-			<short>Values(ESRB, PEGI, CERO)</short>
-		</description>
-		<structure>
-			<children>
-				<component name="empty" library="lang" uid="573" kind="5">
-					<sources>
-						<datapoint pos="0" key="270"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="277"/>
-					</targets>
-					<view ltx="271" lty="80" rbx="341" rby="117"/>
-				</component>
-				<component name="empty" library="lang" uid="578" kind="5">
-					<sources>
-						<datapoint pos="0" key="286"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="287"/>
-					</targets>
-					<view ltx="277" lty="236" rbx="347" rby="273"/>
-				</component>
-				<component name="PEGI" library="core" uid="382" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="240"/>
-					</targets>
-					<view ltx="17" lty="278" rbx="90" rby="315"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="PEGI" sequence="1"/>
-					</data>
-				</component>
-				<component name="empty" library="lang" uid="570" kind="5">
-					<sources>
-						<datapoint pos="0" key="266"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="267"/>
-					</targets>
-					<view ltx="270" lty="-53" rbx="340" rby="-16"/>
-				</component>
-				<component name="if-else" library="core" uid="574" kind="4">
-					<sources>
-						<datapoint pos="0" key="278"/>
-						<datapoint/>
-						<datapoint pos="2" key="272"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="273"/>
-					</targets>
-					<view ltx="536" lty="115" rbx="632" rby="187"/>
-				</component>
-				<component name="if-else" library="core" uid="581" kind="4">
-					<sources>
-						<datapoint pos="0" key="288"/>
-						<datapoint/>
-						<datapoint pos="2" key="290"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="294"/>
-					</targets>
-					<view ltx="536" lty="269" rbx="632" rby="341"/>
-				</component>
-				<component name="if-else" library="core" uid="569" kind="4">
-					<sources>
-						<datapoint pos="0" key="265"/>
-						<datapoint/>
-						<datapoint pos="2" key="264"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="263"/>
-					</targets>
-					<view ltx="537" lty="-32" rbx="633" rby="40"/>
-				</component>
-				<component name="ESRB_Values" library="core" uid="126" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="12"/>
-					</targets>
-					<view ltx="17" lty="-53" rbx="127" rby="-16"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="ESRB_Values" sequence="1"/>
-					</data>
-				</component>
-				<component name="CERO" library="core" uid="381" kind="6">
-					<sources>
-						<datapoint/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="239"/>
-					</targets>
-					<view ltx="12" lty="80" rbx="91" rby="117"/>
-					<data>
-						<input datatype="string"/>
-						<parameter usageKind="input" name="CERO" sequence="1"/>
-					</data>
-				</component>
-				<component name="document" library="xml" uid="298" kind="14">
-					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="980" lty="42" rbx="1122" rby="234"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="Age_groups" expanded="1">
-								<entry name="ESRB" inpkey="316" expanded="1">
-									<entry name="Rating" inpkey="317"/>
-								</entry>
-								<entry name="CERO" inpkey="318" expanded="1">
-									<entry name="Rating" inpkey="319"/>
-								</entry>
-								<entry name="PEGI" inpkey="320" expanded="1">
-									<entry name="Rating" inpkey="321"/>
-								</entry>
-							</entry>
-						</root>
-						<document schema="Age_type.xsd"/>
-						<parameter usageKind="output" name="Age_groups" sequence="1">
-							<root>
-								<entry name="Age_groups"/>
-							</root>
-						</parameter>
-					</data>
-				</component>
-			</children>
-		</structure>
-		<connections>
-			<edge from="12" to="264"/>
-			<edge from="267" to="265"/>
-			<edge from="12" to="266"/>
-			<edge from="239" to="270"/>
-			<edge from="239" to="272"/>
-			<edge from="277" to="278"/>
-			<edge from="240" to="286"/>
-			<edge from="287" to="288"/>
-			<edge from="240" to="290"/>
-			<edge from="263" to="316"/>
-			<edge from="263" to="317"/>
-			<edge from="273" to="318"/>
-			<edge from="273" to="319"/>
-			<edge from="294" to="320"/>
-			<edge from="294" to="321"/>
 		</connections>
 	</component>
 	<component name="CSV_Seperated" library="user" uid="205" inline="1">
@@ -1420,7 +1264,7 @@
 					<targets>
 						<datapoint pos="0" key="17"/>
 					</targets>
-					<view rbx="75" rby="37"/>
+					<view rbx="72" rby="36"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="ESRB"/>
@@ -1433,7 +1277,7 @@
 					<targets>
 						<datapoint pos="0" key="16"/>
 					</targets>
-					<view lty="50" rbx="79" rby="87"/>
+					<view lty="50" rbx="76" rby="86"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="CERO"/>
@@ -1446,14 +1290,14 @@
 					<targets>
 						<datapoint pos="0" key="18"/>
 					</targets>
-					<view lty="100" rbx="73" rby="137"/>
+					<view lty="100" rbx="70" rby="136"/>
 					<data>
 						<input datatype="string"/>
 						<parameter usageKind="input" name="PEGI"/>
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="621" kind="19" visible="0">
-					<view ltx="161" lty="1" rbx="297" rby="17"/>
+					<view ltx="161" lty="1" rbx="296" rby="18"/>
 					<data>
 						<root>
 							<header>
@@ -1480,7 +1324,7 @@
 					<targets>
 						<datapoint pos="0" key="33"/>
 					</targets>
-					<view ltx="521" lty="1" rbx="591" rby="38"/>
+					<view ltx="521" lty="1" rbx="588" rby="37"/>
 				</component>
 				<component name="empty" library="lang" uid="630" kind="5">
 					<sources>
@@ -1489,10 +1333,10 @@
 					<targets>
 						<datapoint pos="0" key="43"/>
 					</targets>
-					<view ltx="521" lty="130" rbx="591" rby="167"/>
+					<view ltx="521" lty="130" rbx="588" rby="166"/>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="622" kind="19" visible="0">
-					<view ltx="162" lty="74" rbx="298" rby="90"/>
+					<view ltx="162" lty="74" rbx="297" rby="91"/>
 					<data>
 						<root>
 							<header>
@@ -1513,7 +1357,7 @@
 					</data>
 				</component>
 				<component name="CSV_Seperated" library="user" uid="623" kind="19" visible="0">
-					<view ltx="152" lty="171" rbx="288" rby="187"/>
+					<view ltx="152" lty="171" rbx="287" rby="188"/>
 					<data>
 						<root>
 							<header>
@@ -1540,7 +1384,7 @@
 					<targets>
 						<datapoint pos="0" key="38"/>
 					</targets>
-					<view ltx="521" lty="208" rbx="591" rby="245"/>
+					<view ltx="521" lty="208" rbx="588" rby="244"/>
 				</component>
 				<component name="if-else" library="core" uid="625" kind="4">
 					<sources>
@@ -1551,7 +1395,7 @@
 					<targets>
 						<datapoint pos="0" key="35"/>
 					</targets>
-					<view ltx="656" lty="50" rbx="752" rby="122"/>
+					<view ltx="656" lty="50" rbx="748" rby="121"/>
 				</component>
 				<component name="if-else" library="core" uid="629" kind="4">
 					<sources>
@@ -1562,7 +1406,7 @@
 					<targets>
 						<datapoint pos="0" key="45"/>
 					</targets>
-					<view ltx="656" lty="150" rbx="752" rby="222"/>
+					<view ltx="656" lty="150" rbx="748" rby="221"/>
 				</component>
 				<component name="document" library="xml" uid="739" kind="14">
 					<properties XSLTTargetEncoding="UTF-8"/>
@@ -1620,7 +1464,7 @@
 					<properties XSLTTargetEncoding="UTF-8"/>
 					<view ltx="971" lty="100" rbx="1110" rby="146"/>
 					<data>
-						<root scrollposition="3">
+						<root scrollposition="1">
 							<header>
 								<namespaces>
 									<namespace/>
@@ -1651,7 +1495,7 @@
 					<targets>
 						<datapoint pos="0" key="40"/>
 					</targets>
-					<view ltx="657" lty="261" rbx="753" rby="333"/>
+					<view ltx="657" lty="261" rbx="749" rby="332"/>
 				</component>
 			</children>
 		</structure>
