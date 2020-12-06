@@ -155,9 +155,25 @@ public class DataFusion_Main {
 		// run the fusion
 		System.out.println("*\n*\tRunning data fusion\n*");
 		FusibleDataSet<VideoGames, Attribute> fusedDataSet = engine.run(correspondences, null);
-		FusibleDataSet<VideoGames, Attribute> fusedDataSet2 = new FusibleHashedDataSet<>();
+		
+		// Preprocessing the fused part
+		preProcessFusedData(fusedDataSet, ds1, ds2, ds3);
+		
 		// write the result
-		// TODO: Create File GamesXMLFormatter
+		new GamesXMLFormatter().writeXML(new File("data/output/fused.xml"), fusedDataSet);
+
+		// evaluate
+		DataFusionEvaluator<VideoGames, Attribute> evaluator = new DataFusionEvaluator<>(strategy,
+				new RecordGroupFactory<VideoGames, Attribute>());
+
+		double accuracy = evaluator.evaluate(fusedDataSet, gs, null);
+
+		System.out.println(String.format("Accuracy: %.2f", accuracy));
+	}
+
+	public static void preProcessFusedData(FusibleDataSet<VideoGames, Attribute> fusedDataSet,
+			FusibleDataSet<VideoGames, Attribute> ds1, FusibleDataSet<VideoGames, Attribute> ds2,
+			FusibleDataSet<VideoGames, Attribute> ds3) {
 		List<String> lst = new ArrayList<>();
 		Collection<VideoGames> col = fusedDataSet.get();
 		Collection<VideoGames> col2 = fusedDataSet.get();
@@ -176,72 +192,54 @@ public class DataFusion_Main {
 						if (!ii.equals(ident)) {
 							vg.setIdentifier(ident);
 							vg.setTitle(vg.getTitle());
-							vg.setSalesEU(vgSales.getSalesEU());
-							vg.setSalesJP(vgSales.getSalesJP());
-							vg.setSalesNA(vgSales.getSalesNA());
-							vg.setSalesOthers(vgSales.getSalesOthers());
-							vg.setSalesGlobal(vgSales.getSalesGlobal());
 							lst.add(ident);
 							continue;
 						}
 					}
 				}
-
-//				for (String ar : arr) {
-//					if (ar.toLowerCase().contains("sales_")) {
-//
-//						// VideoGames attSales = ds1.getRecord(ar);
-//						for (VideoGames vgSales : col2) {
-//							titleSalesds = vgSales.getTitle();
-//							ident = vgSales.getIdentifier();
-//							if (tit.equals(titleSalesds)) {
-//								vg.setTitle(vg.getTitle() + "+" + titleSalesds);
-//								vg.setSalesEU(vgSales.getSalesEU());
-//								vg.setSalesJP(vgSales.getSalesJP());
-//								vg.setSalesNA(vgSales.getSalesNA());
-//								vg.setSalesOthers(vgSales.getSalesOthers());
-//								vg.setSalesGlobal(vgSales.getSalesGlobal());
-//							}
-//						}
-//						fusedDataSet.removeRecord(ident);
-//					} else if (ar.toLowerCase().contains("wiki_")) {
-//						VideoGames attSales = ds2.getRecord(ar);
-//						vg.setCountries(attSales.getCountries());
-//						vg.setWebsite(attSales.getWebsite());
-//						vg.setModes(attSales.getModes());
-//						vg.setContributors(attSales.getContributors());
-//						vg.setCERO(attSales.getCERO());
-//						vg.setPEGI(attSales.getPEGI());
-//						vg.setESRB(attSales.getESRB());
-//						vg.setSequel(attSales.getSequel());
-//						vg.setPrequel(attSales.getPrequel());
-//					} else {
-//						VideoGames attSales = ds3.getRecord(ar);
-//						vg.setTotalLength(attSales.getTotalLength());
-//						vg.setStores(attSales.getStores());
-//						vg.setRating(attSales.getRating());
-//						vg.setRecommended(attSales.getRecommended());
-//						vg.setTags(attSales.getTags());
-//					}
-//				}
-				
-				//fusedDataSet2.add(vg);
 			}
+			for (String id : lst) {
+				fusedDataSet.removeRecord(id);
+			}
+			System.out.println("Total number of records in our fused dataset = " + fusedDataSet.size());
+			for (VideoGames vg : col) {
+				String ii = vg.getIdentifier();
+				String[] arr = ii.split("\\+");
+				String title = vg.getTitle();
+				for (String ar : arr) {
+					if (ar.toLowerCase().contains("sales_")) {
+						for (VideoGames vgSales : ds1.get()) {
+							if (title.equals(vgSales.getTitle())) {
+								vg.setSalesEU(vgSales.getSalesEU());
+								vg.setSalesJP(vgSales.getSalesJP());
+								vg.setSalesNA(vgSales.getSalesNA());
+								vg.setSalesOthers(vgSales.getSalesOthers());
+								vg.setSalesGlobal(vgSales.getSalesGlobal());
+							}
+						}
+
+					} else if (ar.toLowerCase().contains("wiki_")) {
+						VideoGames attWiki = ds2.getRecord(ar);
+						vg.setCountries(attWiki.getCountries());
+						vg.setWebsite(attWiki.getWebsite());
+						vg.setModes(attWiki.getModes());
+						vg.setContributors(attWiki.getContributors());
+						vg.setCERO(attWiki.getCERO());
+						vg.setPEGI(attWiki.getPEGI());
+						vg.setESRB(attWiki.getESRB());
+						vg.setSequel(attWiki.getSequel());
+						vg.setPrequel(attWiki.getPrequel());
+					} else {
+						VideoGames attRawg = ds3.getRecord(ar);
+						vg.setTotalLength(attRawg.getTotalLength());
+						vg.setStores(attRawg.getStores());
+						vg.setRating(attRawg.getRating());
+						vg.setRecommended(attRawg.getRecommended());
+						vg.setTags(attRawg.getTags());
+					}
+				}
+			}
+//			
 		}
-		
-		for(String id : lst)
-		{
-			fusedDataSet.removeRecord(id);
-		}
-		System.out.println("Total number of records in our fused dataset = " + fusedDataSet.size());
-		new GamesXMLFormatter().writeXML(new File("data/output/fused.xml"), fusedDataSet);
-
-		// evaluate
-		DataFusionEvaluator<VideoGames, Attribute> evaluator = new DataFusionEvaluator<>(strategy,
-				new RecordGroupFactory<VideoGames, Attribute>());
-
-		double accuracy = evaluator.evaluate(fusedDataSet, gs, null);
-
-		System.out.println(String.format("Accuracy: %.2f", accuracy));
 	}
 }
