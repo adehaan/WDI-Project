@@ -89,9 +89,9 @@ public class DataFusion_Main {
 		// & sales, rawg -> ds1, ds2 & ds1, ds3
 		System.out.println("*\n*\tLoading correspondences for fusion\n*");
 		CorrespondenceSet<VideoGames, Attribute> correspondences = new CorrespondenceSet<>();
-		correspondences.loadCorrespondences(new File("data/output/ws_RandomForrest.csv"), ds1, ds2);
+		correspondences.loadCorrespondences(new File("data/output/Wiki_2_Sales_correspondences.csv"), ds1, ds2);
 		// System.out.println("*\n*\tCorrespondences for Sales-Wiki done\n*");
-		correspondences.loadCorrespondences(new File("data/output/rS_RandomForrest.csv"), ds1, ds3);
+		correspondences.loadCorrespondences(new File("data/output/Rawg_2_Sales_correspondences.csv"), ds1, ds3);
 		// System.out.println("*\n*\tCorrespondences for Sales-RAWG done\n*");
 
 		// write group size distribution
@@ -119,7 +119,7 @@ public class DataFusion_Main {
 		strategy.addAttributeFuser(VideoGames.TITLE, new GameTitelFuserVoting(), new GameTitleEvaluationRule());
 
 		// For Date = Voting & FavourSource -> Voting
-		strategy.addAttributeFuser(VideoGames.DATE, new DateFuserFavourSource(), new DateEvaluationRule());
+		strategy.addAttributeFuser(VideoGames.DATE, new DateFuserVoting(), new DateEvaluationRule());
 		// strategy.addAttributeFuser(VideoGames.DATE, new DateFuserVoting(), new
 		// DateEvaluationRule());
 
