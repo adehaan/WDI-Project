@@ -159,6 +159,8 @@ public class DataFusion_Main {
 
 		// Preprocessing the fused part
 		preProcessFusedData(fusedDataSet, ds1, ds2, ds3);
+		
+		fusedDataSet.printDataSetDensityReport();
 
 		// write the result
 		new GamesXMLFormatter().writeXML(new File("data/output/fused.xml"), fusedDataSet);
@@ -178,7 +180,7 @@ public class DataFusion_Main {
 		List<String> lst = new ArrayList<>();
 		Collection<VideoGames> col = fusedDataSet.get();
 		Collection<VideoGames> col2 = fusedDataSet.get();
-		System.out.println("Total number of records in our fused dataset = " + col.size());
+		System.out.println("Total number of records in our fused dataset before preprocessing= " + col.size());
 		if (col != null) {
 			for (VideoGames vg : col) {
 				String ii = vg.getIdentifier();
@@ -202,7 +204,7 @@ public class DataFusion_Main {
 			for (String id : lst) {
 				fusedDataSet.removeRecord(id);
 			}
-			System.out.println("Total number of records in our fused dataset = " + fusedDataSet.size());
+			System.out.println("Total number of records in our fused dataset after preprocessing= " + fusedDataSet.size());
 			for (VideoGames vg : col) {
 				String ii = vg.getIdentifier();
 				String[] arr = ii.split("\\+");
@@ -249,7 +251,8 @@ public class DataFusion_Main {
 				}
 				// }
 			}
-//			
+			
 		}
+		
 	}
 }
