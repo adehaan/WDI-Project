@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
@@ -155,10 +156,10 @@ public class DataFusion_Main {
 		// run the fusion
 		System.out.println("*\n*\tRunning data fusion\n*");
 		FusibleDataSet<VideoGames, Attribute> fusedDataSet = engine.run(correspondences, null);
-		
+
 		// Preprocessing the fused part
 		preProcessFusedData(fusedDataSet, ds1, ds2, ds3);
-		
+
 		// write the result
 		new GamesXMLFormatter().writeXML(new File("data/output/fused.xml"), fusedDataSet);
 
@@ -205,21 +206,26 @@ public class DataFusion_Main {
 			for (VideoGames vg : col) {
 				String ii = vg.getIdentifier();
 				String[] arr = ii.split("\\+");
+				String[] sArr = Arrays.stream(arr).filter(x -> x.contains("sales_")).toArray(String[]::new);
+				String[] wArr = Arrays.stream(arr).filter(x -> x.contains("wiki_")).toArray(String[]::new);
+				String[] rArr = Arrays.stream(arr).filter(x -> x.contains("rawg_")).toArray(String[]::new);
 				String title = vg.getTitle();
-				for (String ar : arr) {
-					if (ar.toLowerCase().contains("sales_")) {
-						for (VideoGames vgSales : ds1.get()) {
-							if (title.equals(vgSales.getTitle())) {
-								vg.setSalesEU(vgSales.getSalesEU());
-								vg.setSalesJP(vgSales.getSalesJP());
-								vg.setSalesNA(vgSales.getSalesNA());
-								vg.setSalesOthers(vgSales.getSalesOthers());
-								vg.setSalesGlobal(vgSales.getSalesGlobal());
-							}
+				// for (String ar : arr) {
+				if (sArr.length > 0) {
+					for (VideoGames vgSales : ds1.get()) {
+						if (title.toUpperCase().equals(vgSales.getTitle().toUpperCase())) {
+							vg.setSalesEU(vgSales.getSalesEU());
+							vg.setSalesJP(vgSales.getSalesJP());
+							vg.setSalesNA(vgSales.getSalesNA());
+							vg.setSalesOthers(vgSales.getSalesOthers());
+							vg.setSalesGlobal(vgSales.getSalesGlobal());
 						}
+					}
 
-					} else if (ar.toLowerCase().contains("wiki_")) {
-						VideoGames attWiki = ds2.getRecord(ar);
+				}
+				if (wArr.length > 0) {
+					for (String wVal : wArr) {
+						VideoGames attWiki = ds2.getRecord(wVal);
 						vg.setCountries(attWiki.getCountries());
 						vg.setWebsite(attWiki.getWebsite());
 						vg.setModes(attWiki.getModes());
@@ -229,8 +235,11 @@ public class DataFusion_Main {
 						vg.setESRB(attWiki.getESRB());
 						vg.setSequel(attWiki.getSequel());
 						vg.setPrequel(attWiki.getPrequel());
-					} else {
-						VideoGames attRawg = ds3.getRecord(ar);
+					}
+				}
+				if (rArr.length > 0) {
+					for (String rVal : rArr) {
+						VideoGames attRawg = ds3.getRecord(rVal);
 						vg.setTotalLength(attRawg.getTotalLength());
 						vg.setStores(attRawg.getStores());
 						vg.setRating(attRawg.getRating());
@@ -238,6 +247,7 @@ public class DataFusion_Main {
 						vg.setTags(attRawg.getTags());
 					}
 				}
+				// }
 			}
 //			
 		}
