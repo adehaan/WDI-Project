@@ -292,7 +292,7 @@
 			<Publisher>Nintendo</Publisher>
 		</Publishers>
 		<Genres>
-			<Genre>Plattform</Genre>
+			<Genre>Platform</Genre>
 		</Genres>
 		<platforms>
 			<platform>Wii</platform>
@@ -308,7 +308,7 @@
 			<Publisher>Codemasters</Publisher>
 		</Publishers>
 		<Genres>
-			<Genre>Plattform</Genre>
+			<Genre>Platform</Genre>
 			<Genre>Puzzle</Genre>
 		</Genres>
 		<platforms>
